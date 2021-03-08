@@ -23,10 +23,10 @@ nav:
 - Introduction:
   - Zerynth in a nutshell: intro/index.md
 - Getting Started:
-  - gettingstarted/ZM1-DB.md
-  - gettingstarted/ZM1-EVA.md
-  - gettingstarted/4ZeroBox.md
-  - gettingstarted/zerynth-plugin.md
+  - ZM1 Development Board: gettingstarted/ZM1-DB.md
+  - ZM1 Evaluation Board: gettingstarted/ZM1-EVA.md
+  - 4ZeroBox: gettingstarted/4ZeroBox.md
+  - Zerynth Studio Plugin: gettingstarted/zerynth-plugin.md
 - tutorials:
   - tutorials/index.md
   - tutorials/Multithreaded.md
@@ -40,13 +40,13 @@ nav:
   - tutorials/CLI.md
   - tutorials/mass_prod.md
 - Zerynth Cloud:
-  - Connect to zCloud: deploy/index.md
-  - Store and Visualize data: deploy/store_visualize.md
-  - Make Simple Powerful Dashboards: deploy/dashboard.md
-  - Over the Air Updates: deploy/FOTA.md
-#  - Getting Started with Zerynth SDK: deploy/getting_started_with_sdk.md
-#  - Getting Started with Raspberry PI: deploy/getting_started_with_rpi.md
-#  - Web Interface: deploy/web_interface.md
+  - Connect to zCloud: zCloud/index.md
+  - Store and Visualize data: zCloud/store_visualize.md
+  - Make Simple Powerful Dashboards: zCloud/dashboard.md
+  - Over the Air Updates: zCloud/FOTA.md
+#  - Getting Started with Zerynth SDK: zCloud/getting_started_with_sdk.md
+#  - Getting Started with Raspberry PI: zCloud/getting_started_with_rpi.md
+#  - Web Interface: zCloud/web_interface.md
 # - Integrate:
 #   - integrate/Integrate.md
 - Hardware:
@@ -642,7 +642,7 @@ nav:
               - reference/core/zdmcli/docs/fota_cmd.md
         
 
-- Demos:
+- Demos and Whitepapers:
   - Zerynth OS:
     - demos/zerynth-os/hello_zerynth.md
     - demos/zerynth-os/multi_serial.md
