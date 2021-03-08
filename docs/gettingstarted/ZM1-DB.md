@@ -1,6 +1,3 @@
----
-title: test
----
 # Getting Started with ZM1-Development Board
 
 This is a test to edit the page

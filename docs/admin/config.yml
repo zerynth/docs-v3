@@ -33,7 +33,6 @@ collections:
         file: "docs/gettingstarted/ZM1-DB.md"
         preview_path: "docs/gettingstarted/ZM1-DB.md"
         fields:
-          - {label: "Title", name: "title", widget: "string"}
           - {label: "Body", name: "body", widget: "markdown"}
       - label: "Develop"
         name: "Develop"
