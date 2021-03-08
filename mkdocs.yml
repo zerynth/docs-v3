@@ -27,8 +27,18 @@ nav:
   - gettingstarted/ZM1-EVA.md
   - gettingstarted/4ZeroBox.md
   - gettingstarted/zerynth-plugin.md
-- Develop:
-  - develop/index.md
+- tutorials:
+  - tutorials/index.md
+  - tutorials/Multithreaded.md
+  - tutorials/rs485.md
+  - tutorials/Ethernet.md
+  - tutorials/Wifi.md
+  - tutorials/MQTT.md
+  - tutorials/HTTPS.md
+  - tutorials/GPS.md
+  - tutorials/GSM.md
+  - tutorials/CLI.md
+  - tutorials/mass_prod.md
 - Deploy and Manage:
   - Introduction: deploy/index.md
   - Getting Started with Zerynth SDK: deploy/getting_started_with_sdk.md
