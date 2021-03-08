@@ -1,15 +1,50 @@
 # Getting Started with ZM1-Development Board
 
-This is a test to edit the page
+heyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy
 
-The Zerynth SDK is the gateway to our platform and includes:
 
-* The **Zerynth Toolchain** – a command-line interface that integrates all the essential functions for the development of [Zerynth OS](../reference/guide/docs/zos.md) firmware and the management of devices connected to the [Zerynth Device Manager](../deploy/index.md).
-* The **Zerynth Studio** – a basic [IDE](../reference/core/studio/docs/index.md) for the Zerynth Toolchain. It includes development and debugging tools and a vast number of code examples.
 
-To install the Zerynth SDK, download the Zerynth installer according to your platform from the [Zerynth Download page](https://www.zerynth.com/zsdk/).
 
-!!! note
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+zxczxczxc
+
+zxc
+
+zxc
+
+zxc
+
+zxc
+
+zxc
+
+zxc
 	Zerynth works on 64-bit platform only
 
 To launch the installation, according to your platform, you can:
