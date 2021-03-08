@@ -41,8 +41,8 @@ collections:
           - {label: "Body", name: "body", widget: "markdown"}
       - label: "Deploy_and_Manage"
         name: "Deploy_and_Manage"
-        file: "docs/deploy/index.md"
-        preview_path: "docs/deploy/index.md"
+        file: "docs/zCloud/index.md"
+        preview_path: "docs/zCloud/index.md"
         fields:
           - {label: "Body", name: "body", widget: "markdown"}
       - label: "Deploy_and_manage_SDK"

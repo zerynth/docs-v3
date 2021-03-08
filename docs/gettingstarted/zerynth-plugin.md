@@ -4,7 +4,7 @@ To get you up and running with Zerynth, you need to install the **Zerynth SDK**.
 
 The Zerynth SDK is the gateway to our platform and includes:
 
-- The **Zerynth Toolchain** – a command-line interface that integrates all the essential functions for the development of [Zerynth OS](../reference/guide/docs/zos.md) firmware and the management of devices connected to the [Zerynth Device Manager](../deploy/index.md).
+- The **Zerynth Toolchain** – a command-line interface that integrates all the essential functions for the development of [Zerynth OS](../reference/guide/docs/zos.md) firmware and the management of devices connected to the [Zerynth Device Manager](../zCloud/index.md).
 - The **Zerynth Studio** – a basic [IDE](../reference/core/studio/docs/index.md) for the Zerynth Toolchain. It includes development and debugging tools and a vast number of code examples.
 
 

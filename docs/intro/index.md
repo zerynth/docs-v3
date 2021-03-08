@@ -15,7 +15,7 @@ We also have released and keep releasing various third party plugins that allow 
 
 The development of an IoT project is not finished with device firmware. An IoT device needs to be connected to in order to be able to stream data, receive commands and be easily updated, disabled or decommissioned if necessary.
 
-IoT Device Management and Data collection is provided by Zerynth thanks to the [Zerynth Device Manager (ZDM)](../deploy/index.md). ZDM is a device management system that allows connecting IoT devices to various endpoints maintaining an intuitive but powerful management of fleets security and updates.  ZDM can also take care of devices data by buffering and retaining it and forwarding the streams to external services, databases or data visualization tools. Integrations exist for seamlessly formwarding data to top cloud providers (Azure, AWS, IBM and Google) via webhooks and simple REST APIs.
+IoT Device Management and Data collection is provided by Zerynth thanks to the [Zerynth Device Manager (ZDM)](../zCloud/index.md). ZDM is a device management system that allows connecting IoT devices to various endpoints maintaining an intuitive but powerful management of fleets security and updates.  ZDM can also take care of devices data by buffering and retaining it and forwarding the streams to external services, databases or data visualization tools. Integrations exist for seamlessly formwarding data to top cloud providers (Azure, AWS, IBM and Google) via webhooks and simple REST APIs.
 
 ![](img/zdm-docs-image.png)
 

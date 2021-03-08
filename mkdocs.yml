@@ -39,11 +39,14 @@ nav:
   - tutorials/GSM.md
   - tutorials/CLI.md
   - tutorials/mass_prod.md
-- Deploy and Manage:
-  - Introduction: deploy/index.md
-  - Getting Started with Zerynth SDK: deploy/getting_started_with_sdk.md
-  - Getting Started with Raspberry PI: deploy/getting_started_with_rpi.md
-  - Web Interface: deploy/web_interface.md
+- Zerynth Cloud:
+  - Connect to zCloud: deploy/index.md
+  - Store and Visualize data: deploy/store_visualize.md
+  - Make Simple Powerful Dashboards: deploy/dashboard.md
+  - Over the Air Updates: deploy/FOTA.md
+#  - Getting Started with Zerynth SDK: deploy/getting_started_with_sdk.md
+#  - Getting Started with Raspberry PI: deploy/getting_started_with_rpi.md
+#  - Web Interface: deploy/web_interface.md
 # - Integrate:
 #   - integrate/Integrate.md
 - Hardware:
