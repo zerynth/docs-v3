@@ -36,6 +36,13 @@ nav:
   - Web Interface: deploy/web_interface.md
 # - Integrate:
 #   - integrate/Integrate.md
+- Hardware:
+  - hardware/ZM1-Development-Board.md
+  - hardware/EXP-SER.md
+  - hardware/EXP-RELAY.md
+  - hardware/EXP-IO.md
+  - hardware/EXP-PROTO.md
+  - hardware/4ZeroBox.md
 - Technical Reference:
     - {Index: reference.md}
     - Programming Guide, Libraries and APIs:
@@ -620,14 +627,6 @@ nav:
               - reference/core/zdmcli/docs/gate_cmd.md
               - reference/core/zdmcli/docs/job_cmd.md
               - reference/core/zdmcli/docs/fota_cmd.md
-    - Hardware:
-        - Zerynth Hardware:
-          - hardware/ZM1-Development-Board.md
-          - hardware/EXP-SER.md
-          - hardware/EXP-RELAY.md
-          - hardware/EXP-IO.md
-          - hardware/EXP-PROTO.md
-          - hardware/4ZeroBox.md
         
 
 - Demos:
