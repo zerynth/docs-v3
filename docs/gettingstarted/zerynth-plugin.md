@@ -1,4 +1,4 @@
-# Getting Started
+# Getting Started with Zerynth Plugin
 
 To get you up and running with Zerynth, you need to install the **Zerynth SDK**.
 
