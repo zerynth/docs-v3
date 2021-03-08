@@ -622,7 +622,12 @@ nav:
               - reference/core/zdmcli/docs/fota_cmd.md
     - Hardware:
         - Zerynth Hardware:
-          - 4zp/4ZeroBox.md
+          - hardware/ZM1-Development-Board.md
+          - hardware/EXP-SER.md
+          - hardware/EXP-RELAY.md
+          - hardware/EXP-IO.md
+          - hardware/EXP-PROTO.md
+          - hardware/4ZeroBox.md
         
 
 - Demos:

@@ -67,8 +67,8 @@ collections:
           - {label: "Body", name: "body", widget: "markdown"}
       - label: "Zerynth_Hardware_4ZB"
         name: "Zerynth_Hardware_4ZB"
-        file: "docs/4zp/4ZeroBox.md"
-        preview_path: "docs/4zp/4ZeroBox.md"
+        file: "docs/hardware/4ZeroBox.md"
+        preview_path: "docs/hardware/4ZeroBox.md"
         fields:
           - {label: "Body", name: "body", widget: "markdown"}
       - label: "ZDM_library_index"
