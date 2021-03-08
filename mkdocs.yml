@@ -22,9 +22,11 @@ markdown_extensions:
 nav:
 - Introduction:
   - Zerynth in a nutshell: intro/index.md
-  - Zerynth components: intro/components.md
 - Getting Started:
-  - gettingstarted/index.md
+  - gettingstarted/ZM1-DB.md
+  - gettingstarted/ZM1-EVA.md
+  - gettingstarted/4ZeroBox.md
+  - gettingstarted/zerynth-plugin.md
 - Develop:
   - develop/index.md
 - Deploy and Manage:
