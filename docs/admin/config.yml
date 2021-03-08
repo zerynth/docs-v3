@@ -28,17 +28,10 @@ collections:
         fields:
           - {label: "Title", name: "title", widget: "string"}
           - {label: "Body", name: "body", widget: "markdown"}
-      - label: "Zerynth_components"
-        name: "Zerynth_components"
-        file: "docs/intro/components.md"
-        preview_path: "docs/intro/components.md"
-        fields:
-          - {label: "Title", name: "title", widget: "string"}
-          - {label: "Body", name: "body", widget: "markdown"}
-      - label: "Getting_Started"
-        name: "Getting_Started"
-        file: "docs/gettingstarted/index.md"
-        preview_path: "docs/gettingstarted/index.md"
+      - label: "Getting_Started_DB_ZM1"
+        name: "Getting_Started_DB_ZM1"
+        file: "docs/gettingstarted/ZM1-DB.md"
+        preview_path: "docs/gettingstarted/ZM1-DB.md"
         fields:
           - {label: "Title", name: "title", widget: "string"}
           - {label: "Body", name: "body", widget: "markdown"}
