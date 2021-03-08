@@ -26,7 +26,6 @@ collections:
         file: "docs/intro/index.md"
         preview_path: "docs/intro/index.md"
         fields:
-          - {label: "Title", name: "title", widget: "string"}
           - {label: "Body", name: "body", widget: "markdown"}
       - label: "Getting_Started_DB_ZM1"
         name: "Getting_Started_DB_ZM1"
@@ -39,14 +38,12 @@ collections:
         file: "docs/develop/index.md"
         preview_path: "docs/develop/index.md"
         fields:
-          - {label: "Title", name: "title", widget: "string"}
           - {label: "Body", name: "body", widget: "markdown"}
       - label: "Deploy_and_Manage"
         name: "Deploy_and_Manage"
         file: "docs/deploy/index.md"
         preview_path: "docs/deploy/index.md"
         fields:
-          - {label: "Title", name: "title", widget: "string"}
           - {label: "Body", name: "body", widget: "markdown"}
       - label: "Deploy_and_manage_SDK"
         name: "Deploy_and_Manage_sdk"
@@ -67,33 +64,28 @@ collections:
         file: "docs/deploy/web_interface.md"
         preview_path: "docs/deploy/web_interface.md"
         fields:
-          - {label: "Title", name: "title", widget: "string"}
           - {label: "Body", name: "body", widget: "markdown"}
       - label: "Zerynth_Hardware_4ZB"
         name: "Zerynth_Hardware_4ZB"
         file: "docs/4zp/4ZeroBox.md"
         preview_path: "docs/4zp/4ZeroBox.md"
         fields:
-          - {label: "Title", name: "title", widget: "string"}
           - {label: "Body", name: "body", widget: "markdown"}
       - label: "ZDM_library_index"
         name: "ZDM_Index"
         file: "docs/reference/libs/zerynth/zdm/docs/index.md"
         preview_path: "docs/reference/libs/zerynth/zdm/docs/index.md"
         fields:
-          - {label: "Title", name: "title", widget: "string"}
           - {label: "Body", name: "body", widget: "markdown"}
       - label: "ZDM_library_GS"
         name: "ZDM_GS"
         file: "docs/reference/libs/zerynth/zdm/docs/zdm.md"
         preview_path: "docs/reference/libs/zerynth/zdm/docs/zdm.md"
         fields:
-          - {label: "Title", name: "title", widget: "string"}
           - {label: "Body", name: "body", widget: "markdown"}
       - label: "ZDM_library_EX"
         name: "ZDM_EX"
         file: "docs/reference/libs/zerynth/zdm/docs/examples.md"
         preview_path: "docs/reference/libs/zerynth/zdm/docs/examples.md"
         fields:
-          - {label: "Title", name: "title", widget: "string"}
           - {label: "Body", name: "body", widget: "markdown"}
