@@ -1,8 +1,6 @@
 # Relay Expansion Board
 
-The 4ZeroBox is a modular hardware electronic unit that simplifies the development of Industrial IoT applications allowing rapid integration with sensors, actuators, and Cloud services.
-
-4ZeroBox mounts a powerful ESP32 Microcontroller by Espressif Systems (240MHz, 4Mb Flash, 512KB SRAM) and provides many onboard features like: a DIN-rail mountable case with industrial grade sensor channels, support for Wi-fi, Bluetooth, Ethernet, LoRa, CAN, RS485, RS232, SD Card, JTAG, I2C, SPI; last but not least, there are 2 on-board MikroBUS sockets to extend the 4ZeroBox with hundreds of MikroElektronika click boards (see “MikroBus Slots” section).
+This is a relay expansion board for our stuffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
 
 ![](img/4zerobox_v1.png)
 
@@ -15,11 +13,8 @@ For more information on the 4ZeroBox Library as software drivers, Its features, 
 
 Other useful documents are:
 
--   [Datasheet](https://www.zerynth.com/download/13895/)
--   [Quick Guide](https://www.zerynth.com/download/15283/)
-
-	
-
+* [Datasheet](https://www.zerynth.com/download/13895/)
+* [Quick Guide](https://www.zerynth.com/download/15283/)
 
 ## Pin Mapping
 
@@ -34,7 +29,7 @@ The internal flash of the ESP32 module is organized in a single flash area with 
 In particular, for non-BLE VMs:
 
 | Start address | Size  | Content                 |
-|---------------|-------|-------------------------|
+| ------------- | ----- | ----------------------- |
 | 0x00009000    | 16Kb  | Esp32 NVS area          |
 | 0x0000D000    | 8Kb   | Esp32 OTA data          |
 | 0x0000F000    | 4Kb   | Esp32 PHY data          |
@@ -48,7 +43,7 @@ In particular, for non-BLE VMs:
 For BLE VMs:
 
 | Start address | Size   | Content                 |
-|---------------|--------|-------------------------|
+| ------------- | ------ | ----------------------- |
 | 0x00009000    | 16Kb   | Esp32 NVS area          |
 | 0x0000D000    | 8Kb    | Esp32 OTA data          |
 | 0x0000F000    | 4Kb    | Esp32 PHY data          |
@@ -61,52 +56,33 @@ For BLE VMs:
 
 ## Device Summary
 
--   DIN-rail mountable (9 slots)
-    
--   8 to 36V Power Supply
-    
--   4 selectable analog input channels:
-    
-    > -   4-20mA single-ended
-    > -   4-20mA differential
-    > -   0-10V standard
-    
--   3 current transformers (non-invasive)
-    
--   4 resistive sensor channels (NTC, RTD, contact, proximity, etc.)
-    
--   2 opto-isolated digital inputs
-    
--   2 sink digital output (60A @ 30V)
-    
--   MicroSD card slot
-    
--   1 Digital I/O + 2 Digital Input (3.3V)
-    
--   2 NO/NC Relay (10A @ 250V AC)
-    
--   CAN peripheral
-    
--   Connectivity:
-    
-    > -   WiFi IEEE 802.11 b/g/n/e/i (Client and AP mode supported)
-    > -   Bluetooth® Low-Energy
-    > -   Ethernet
-    
--   Crypto Chip - Secure Hardware Encryption
-    
--   RS-485 and RS232 peripherals
-    
--   2 onboard mikroBUS sockets
-    
--   Li-Po battery support
-    
--   Li-Po battery onboard charging unit
-    
--   RGB status led
-    
--   Espressif ESP32 - 32bit Microcontroller 240MHz clock, 4Mb of Flash, 312Kb SRAM
-    
+* DIN-rail mountable (9 slots)
+* 8 to 36V Power Supply
+* 4 selectable analog input channels:
+
+  > * 4-20mA single-ended
+  > * 4-20mA differential
+  > * 0-10V standard
+* 3 current transformers (non-invasive)
+* 4 resistive sensor channels (NTC, RTD, contact, proximity, etc.)
+* 2 opto-isolated digital inputs
+* 2 sink digital output (60A @ 30V)
+* MicroSD card slot
+* 1 Digital I/O + 2 Digital Input (3.3V)
+* 2 NO/NC Relay (10A @ 250V AC)
+* CAN peripheral
+* Connectivity:
+
+  > * WiFi IEEE 802.11 b/g/n/e/i (Client and AP mode supported)
+  > * Bluetooth® Low-Energy
+  > * Ethernet
+* Crypto Chip - Secure Hardware Encryption
+* RS-485 and RS232 peripherals
+* 2 onboard mikroBUS sockets
+* Li-Po battery support
+* Li-Po battery onboard charging unit
+* RGB status led
+* Espressif ESP32 - 32bit Microcontroller 240MHz clock, 4Mb of Flash, 312Kb SRAM
 
 ## Power
 
@@ -118,15 +94,16 @@ The 4ZeroBox comes with a serial-to-usb chip on board that allows programming an
 
 !!! Note
 	**For Linux Platform**: to allow the access to serial ports the user needs read/write access to the serial device file. Adding the user to the group, that owns this file, gives the required read/write access:
--   **Ubuntu**  distribution –> dialout group
--   **Arch Linux**  distribution –> uucp group
+
+* **Ubuntu**  distribution –> dialout group
+* **Arch Linux**  distribution –> uucp group
 
 Once connected on a USB port, if drivers have been correctly installed, the 4ZeroBox device is recognized by Zerynth Studio. The next steps are:
 
--   **Select**  the 4ZeroBox on the  **Device Management Toolbar**  (disambiguate if necessary);
--   **Register**  the device by clicking the “Z” button from the Zerynth Studio;
--   **Create**  a Virtual Machine for the device by clicking the “Z” button for the second time;
--   **Virtualize**  the device by clicking the “Z” button for the third time.
+* **Select**  the 4ZeroBox on the  **Device Management Toolbar**  (disambiguate if necessary);
+* **Register**  the device by clicking the “Z” button from the Zerynth Studio;
+* **Create**  a Virtual Machine for the device by clicking the “Z” button for the second time;
+* **Virtualize**  the device by clicking the “Z” button for the third time.
 
 !!!Note
 	No user intervention on the device is required for registration and virtualization process
@@ -135,6 +112,7 @@ After virtualization, the 4ZeroBox is ready to be programmed and the Zerynth scr
 
 !!!Note
 	No user intervention on the device is required for the uplink process.
+
 <!--
 ## Board Support Package
 
@@ -144,7 +122,7 @@ For the BSP pack of the 4ZeroBox, The following modules are supported:
 -   GSM
 
 Brief Example on how to use it : 
-```py
+\`\`\`py
 from bsp.drivers import wifi
 
 ...
@@ -152,10 +130,11 @@ from bsp.drivers import wifi
 wifi.init()
 print("Connecting to wifi...")
 interface = wifi.interface()
-interface.link("***Wifi-ssid***", interface.WIFI_WPA2, "***Wifi-password****")
+interface.link("\*\*\*Wifi-ssid\*\*\*", interface.WIFI_WPA2, "\*\*\*Wifi-password\*\*\**")
 
-```
+\`\`\`
 -->
+
 ## Firmware Over the Air update (FOTA)
 
 The Firmware Over the Air feature allows to update the device firmware at runtime. Zerynth FOTA in the 4ZeroBox device is available for bytecode and VM.
@@ -163,7 +142,7 @@ The Firmware Over the Air feature allows to update the device firmware at runtim
 Flash Layout is shown in table below:
 
 | Start address | Size  | Content                   |
-|---------------|-------|---------------------------|
+| ------------- | ----- | ------------------------- |
 | 0x00010000    | 1Mb   | Zerynth VM (slot 0)       |
 | 0x00110000    | 1Mb   | Zerynth VM (slot 1)       |
 | 0x00210000    | 512Kb | Zerynth Bytecode (slot 0) |
@@ -172,7 +151,7 @@ Flash Layout is shown in table below:
 For BLE VMs:
 
 | Start address | Size   | Content                   |
-|---------------|--------|---------------------------|
+| ------------- | ------ | ------------------------- |
 | 0x00010000    | 1216Kb | Zerynth VM (slot 0)       |
 | 0x00140000    | 1216Kb | Zerynth VM (slot 1)       |
 | 0x00270000    | 320Kb  | Zerynth Bytecode (slot 0) |
@@ -189,6 +168,7 @@ This feature is strongly platform dependent; more information at  [Secure Firmwa
 ## Zerynth Secure Socket
 
 To be able to use Zerynth Secure Socket on esp32 boards  `NATIVE_MBEDTLS:  true`  must be used instead of  `ZERYNTH_SSL:  true`  in the  `project.yml`  file.
+
 <!--stackedit_data:
 eyJoaXN0b3J5IjpbLTE5MzIwMjAxOCwtMzA3MTU1ODQwLDIwMT
 E0OTI2NV19
