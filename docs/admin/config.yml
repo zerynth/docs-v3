@@ -18,8 +18,8 @@ collections:
       - {label: "Layout", name: "layout", widget: "hidden", default: "blog"}
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Body", name: "body", widget: "markdown"}
-  - label: "Pages"
-    name: "pages"
+  - label: "Introduction"
+    name: "Introduction"
     files:
       - label: "Zerynth_in_a_nutshell"
         name: "Zerynth_in_a_nutshell"
@@ -27,65 +27,165 @@ collections:
         preview_path: "docs/intro/index.md"
         fields:
           - {label: "Body", name: "body", widget: "markdown"}
+  - label: "Getting Started"
+    name: "Getting_started"
+    files:
       - label: "Getting_Started_DB_ZM1"
         name: "Getting_Started_DB_ZM1"
         file: "docs/gettingstarted/ZM1-DB.md"
         preview_path: "docs/gettingstarted/ZM1-DB.md"
         fields:
           - {label: "Body", name: "body", widget: "markdown"}
-      - label: "Develop"
-        name: "Develop"
-        file: "docs/develop/index.md"
-        preview_path: "docs/develop/index.md"
+      - label: "Getting_Started_EVA_ZM1"
+        name: "Getting_Started_EVA_ZM1"
+        file: "docs/gettingstarted/ZM1-EVA.md"
+        preview_path: "docs/gettingstarted/ZM1-EVA.md"
         fields:
           - {label: "Body", name: "body", widget: "markdown"}
-      - label: "Deploy_and_Manage"
-        name: "Deploy_and_Manage"
+      - label: "Getting_Started_4ZB"
+        name: "Getting_Started_4ZB"
+        file: "docs/gettingstarted/4ZeroBox.md"
+        preview_path: "docs/gettingstarted/4ZeroBox.md"
+        fields:
+          - {label: "Body", name: "body", widget: "markdown"}
+      - label: "Getting_Started_Plugin"
+        name: "Getting_Started_Plugin"
+        file: "docs/gettingstarted/zerynth-plugin.md"
+        preview_path: "docs/gettingstarted/zerynth-plugin.md"
+        fields:
+          - {label: "Body", name: "body", widget: "markdown"}
+  - label: "Tutorials"
+    name: "Tutorials"
+    files:
+      - label: "Develop"
+        name: "Develop"
+        file: "docs/tutorials/index.md"
+        preview_path: "docs/tutorials/index.md"
+        fields:
+          - {label: "Body", name: "body", widget: "markdown"}
+      - label: "Multithreaded"
+        name: "Multithreaded"
+        file: "docs/tutorials/Multithreaded.md"
+        preview_path: "docs/tutorials/Multithreaded.md"
+        fields:
+          - {label: "Body", name: "body", widget: "markdown"}
+      - label: "rs485"
+        name: "rs485"
+        file: "docs/tutorials/rs485.md"
+        preview_path: "docs/tutorials/rs485.md"
+        fields:
+          - {label: "Body", name: "body", widget: "markdown"}
+      - label: "Ethernet"
+        name: "Ethernet"
+        file: "docs/tutorials/Ethernet.md"
+        preview_path: "docs/tutorials/Ethernet.md"
+        fields:
+          - {label: "Body", name: "body", widget: "markdown"}
+      - label: "Wifi"
+        name: "Wifi"
+        file: "docs/tutorials/Wifi.md"
+        preview_path: "docs/tutorials/Wifi.md"
+        fields:
+          - {label: "Body", name: "body", widget: "markdown"}
+      - label: "MQTT"
+        name: "MQTT"
+        file: "docs/tutorials/MQTT.md"
+        preview_path: "docs/tutorials/MQTT.md"
+        fields:
+          - {label: "Body", name: "body", widget: "markdown"}
+      - label: "HTTPS"
+        name: "HTTPS"
+        file: "docs/tutorials/HTTPS.md"
+        preview_path: "docs/tutorials/HTTPS.md"
+        fields:
+          - {label: "Body", name: "body", widget: "markdown"}
+      - label: "GPS"
+        name: "GPS"
+        file: "docs/tutorials/GPS.md"
+        preview_path: "docs/tutorials/GPS.md"
+        fields:
+          - {label: "Body", name: "body", widget: "markdown"}
+      - label: "GSM"
+        name: "GSM"
+        file: "docs/tutorials/GSM.md"
+        preview_path: "docs/tutorials/GSM.md"
+        fields:
+          - {label: "Body", name: "body", widget: "markdown"}
+      - label: "CLI"
+        name: "CLI"
+        file: "docs/tutorials/CLI.md"
+        preview_path: "docs/tutorials/CLI.md"
+        fields:
+          - {label: "Body", name: "body", widget: "markdown"}
+      - label: "Mass_Production"
+        name: "Mass_Production"
+        file: "docs/tutorials/mass_prod.md"
+        preview_path: "docs/tutorials/mass_prod.md"
+        fields:
+          - {label: "Body", name: "body", widget: "markdown"}
+  - label: "Zerynth_Cloud"
+    name: "Zerynth_Cloud"
+    files:
+      - label: "Connect_to_zCloud"
+        name: "Connect_to_zCloud"
         file: "docs/zCloud/index.md"
         preview_path: "docs/zCloud/index.md"
         fields:
           - {label: "Body", name: "body", widget: "markdown"}
-      - label: "Deploy_and_manage_SDK"
-        name: "Deploy_and_Manage_sdk"
-        file: "docs/deploy/getting_started_with_sdk.md"
-        preview_path: "docs/deploy/getting_started_with_sdk.md"
-        fields:
-          - {label: "Title", name: "title", widget: "string"}
-          - {label: "Body", name: "body", widget: "markdown"}
-      - label: "Deploy_and_manage_RPI"
-        name: "Deploy_and_Manage_rpi"
-        file: "docs/deploy/getting_started_with_rpi.md"
-        preview_path: "docs/deploy/getting_started_with_rpi.md"
-        fields:
-          - {label: "Title", name: "title", widget: "string"}
-          - {label: "Body", name: "body", widget: "markdown"}
-      - label: "Deploy_and_manage_web_interface"
-        name: "Deploy_and_Manage_web_interface"
-        file: "docs/deploy/web_interface.md"
-        preview_path: "docs/deploy/web_interface.md"
+      - label: "Store_Visualize"
+        name: "Store_Visualize"
+        file: "docs/zCloud/store_visualize.md"
+        preview_path: "docs/zCloud/store_visualize.md"
         fields:
           - {label: "Body", name: "body", widget: "markdown"}
-      - label: "Zerynth_Hardware_4ZB"
-        name: "Zerynth_Hardware_4ZB"
-        file: "docs/hardware/4ZeroBox.md"
-        preview_path: "docs/hardware/4ZeroBox.md"
+      - label: "Make_Dashboard"
+        name: "Make_Dashboard"
+        file: "docs/zCloud/dashboard.md"
+        preview_path: "docs/zCloud/dashboard.md"
         fields:
           - {label: "Body", name: "body", widget: "markdown"}
-      - label: "ZDM_library_index"
-        name: "ZDM_Index"
-        file: "docs/reference/libs/zerynth/zdm/docs/index.md"
-        preview_path: "docs/reference/libs/zerynth/zdm/docs/index.md"
+      - label: "FOTA"
+        name: "FOTA"
+        file: "docs/zCloud/FOTA.md"
+        preview_path: "docs/zCloud/FOTA.md"
         fields:
           - {label: "Body", name: "body", widget: "markdown"}
-      - label: "ZDM_library_GS"
-        name: "ZDM_GS"
-        file: "docs/reference/libs/zerynth/zdm/docs/zdm.md"
-        preview_path: "docs/reference/libs/zerynth/zdm/docs/zdm.md"
+  - label: "Hardware"
+    name: "Hardware"
+    files:
+      - label: "ZM1_Development_Board"
+        name: "ZM1_Development_Board"
+        file: "docs/hardware/ZM1-Development-Board.md"
+        preview_path: "docs/hardware/ZM1-Development-Board.md"
         fields:
           - {label: "Body", name: "body", widget: "markdown"}
-      - label: "ZDM_library_EX"
-        name: "ZDM_EX"
-        file: "docs/reference/libs/zerynth/zdm/docs/examples.md"
-        preview_path: "docs/reference/libs/zerynth/zdm/docs/examples.md"
+      - label: "Serial_Expansion_Board"
+        name: "Serial_Expansion_Board"
+        file: "docs/hardware/EXP-SER.md"
+        preview_path: "docs/hardware/EXP-SER.md"
+        fields:
+          - {label: "Body", name: "body", widget: "markdown"}
+      - label: "Relay_Expansion_Board"
+        name: "Relay_Expansion_Board"
+        file: "docs/hardware/EXP-RELAY.md"
+        preview_path: "docs/hardware/EXP-RELAY.md"
+        fields:
+          - {label: "Body", name: "body", widget: "markdown"}
+      - label: "Input_Output_Expansion_Board"
+        name: "Input_Output_Expansion_Board"
+        file: "docs/hardware/EXP-IO.md"
+        preview_path: "docs/hardware/EXP-IO.md"
+        fields:
+          - {label: "Body", name: "body", widget: "markdown"}
+      - label: "Prototyping_Board"
+        name: "Prototyping_Board"
+        file: "docs/hardware/EXP-PROTO.md"
+        preview_path: "docs/hardware/EXP-PROTO.md"
+        fields:
+          - {label: "Body", name: "body", widget: "markdown"}
+      - label: "4ZeroBox"
+        name: "4ZeroBox"
+        file: "docs/hardware/4ZeroBox"
+        preview_path: "docs/hardware/4ZeroBox"
         fields:
           - {label: "Body", name: "body", widget: "markdown"}
