@@ -23,10 +23,10 @@ nav:
 - Introduction:
   - Zerynth in a nutshell: intro/index.md
 - Getting Started:
+  - Index: gettingstarted/index.md
   - ZM1 Development Board: gettingstarted/ZM1-DB.md
   - ZM1 Evaluation Board: gettingstarted/ZM1-EVA.md
   - 4ZeroBox: gettingstarted/4ZeroBox.md
-  - Zerynth Studio Plugin: gettingstarted/zerynth-plugin.md
 - Tutorials:
   - tutorials/index.md
   - tutorials/Multithreaded.md

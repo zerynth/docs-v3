@@ -30,6 +30,12 @@ collections:
   - label: "Getting Started"
     name: "Getting_started"
     files:
+      - label: "Getting Started with Zerynth"
+        name: "Getting Started with Zerynth"
+        file: "docs/gettingstarted/index.md"
+        preview_path: "docs/gettingstarted/index.md"
+        fields:
+          - {label: "Body", name: "body", widget: "markdown"}
       - label: "Getting_Started_DB_ZM1"
         name: "Getting_Started_DB_ZM1"
         file: "docs/gettingstarted/ZM1-DB.md"
@@ -46,12 +52,6 @@ collections:
         name: "Getting_Started_4ZB"
         file: "docs/gettingstarted/4ZeroBox.md"
         preview_path: "docs/gettingstarted/4ZeroBox.md"
-        fields:
-          - {label: "Body", name: "body", widget: "markdown"}
-      - label: "Getting_Started_Plugin"
-        name: "Getting_Started_Plugin"
-        file: "docs/gettingstarted/zerynth-plugin.md"
-        preview_path: "docs/gettingstarted/zerynth-plugin.md"
         fields:
           - {label: "Body", name: "body", widget: "markdown"}
   - label: "Tutorials"
