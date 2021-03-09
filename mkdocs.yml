@@ -27,7 +27,7 @@ nav:
   - ZM1 Evaluation Board: gettingstarted/ZM1-EVA.md
   - 4ZeroBox: gettingstarted/4ZeroBox.md
   - Zerynth Studio Plugin: gettingstarted/zerynth-plugin.md
-- tutorials:
+- Tutorials:
   - tutorials/index.md
   - tutorials/Multithreaded.md
   - tutorials/rs485.md
@@ -40,6 +40,11 @@ nav:
   - tutorials/CLI.md
   - tutorials/mass_prod.md
 - Zerynth Cloud:
+  - Introduction to Zerynth Cloud: zCloud/intro.md
+  - zDeviceManager: zCloud/zdm_intro.md
+  - zDashboard: zCloud/dashboard_intro.md
+  - zStorage: zCloud/dashboard_zstorage.md
+  - {Tutorials: zCloud/index.md}
   - Connect to zCloud: zCloud/index.md
   - Store and Visualize data: zCloud/store_visualize.md
   - Make Simple Powerful Dashboards: zCloud/dashboard.md
@@ -70,6 +75,8 @@ nav:
           - reference/guide/docs/vm.md
           - reference/guide/docs/vosal.md
           - reference/guide/docs/vhal.md
+        - Zerynth VSCode Plugin:
+          - reference/plugin/index.md
         - Standard Library:
           - reference/core/stdlib/docs/index.md
           - reference/core/stdlib/docs/builtins.md
@@ -648,7 +655,7 @@ nav:
               - reference/core/zdmcli/docs/fota_cmd.md
         
 
-- Demos and Whitepapers:
+- Demos:
   - Zerynth OS:
     - demos/zerynth-os/hello_zerynth.md
     - demos/zerynth-os/multi_serial.md
