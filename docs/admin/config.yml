@@ -206,8 +206,8 @@ collections:
           - {label: "Body", name: "body", widget: "markdown"}
       - label: "ZDM_Library_Examples"
         name: "ZDM_Library_Examples"
-        file: "docs/reference/libs/zerynth/zdm/docs/examples"
-        preview_path: "docs/reference/libs/zerynth/zdm/docs/examples"
+        file: "docs/reference/libs/zerynth/zdm/docs/examples.md"
+        preview_path: "docs/reference/libs/zerynth/zdm/docs/examples.md"
         fields:
           - {label: "Body", name: "body", widget: "markdown"}
   - label: "ExpansionBoards library in Technical_Reference"
