@@ -189,3 +189,51 @@ collections:
         preview_path: "docs/hardware/4ZeroBox"
         fields:
           - {label: "Body", name: "body", widget: "markdown"}
+  - label: "ZDM library in Technical_Reference"
+    name: "Technical_Reference_Manual"
+    files:
+      - label: "ZDM_Library_Index"
+        name: "ZDM_Library_Index"
+        file: "docs/reference/libs/zerynth/zdm/docs/index.md"
+        preview_path: "docs/reference/libs/zerynth/zdm/docs/index.md"
+        fields:
+          - {label: "Body", name: "body", widget: "markdown"}
+      - label: "ZDM_Library_Module"
+        name: "ZDM_Library_Module"
+        file: "docs/reference/libs/zerynth/zdm/docs/zdm.md"
+        preview_path: "docs/reference/libs/zerynth/zdm/docs/zdm.md"
+        fields:
+          - {label: "Body", name: "body", widget: "markdown"}
+      - label: "ZDM_Library_Examples"
+        name: "ZDM_Library_Examples"
+        file: "docs/reference/libs/zerynth/zdm/docs/examples"
+        preview_path: "docs/reference/libs/zerynth/zdm/docs/examples"
+        fields:
+          - {label: "Body", name: "body", widget: "markdown"}
+  - label: "ExpansionBoards library in Technical_Reference"
+    name: "ExpansionBoards_Technical_Reference"
+    files:
+      - label: "Expansion_Module_Index"
+        name: "Expansion_Module_Index"
+        file: "docs/reference/libs/zerynth/expansion/docs/index.md"
+        preview_path: "docs/reference/libs/zerynth/expansion/docs/index.md"
+        fields:
+          - {label: "Body", name: "body", widget: "markdown"}
+      - label: "Expansion_IO_Module"
+        name: "Expansion_IO_Module"
+        file: "docs/reference/libs/zerynth/expansion/docs/exp-io.md"
+        preview_path: "docs/reference/libs/zerynth/expansion/docs/exp-io.md"
+        fields:
+          - {label: "Body", name: "body", widget: "markdown"}
+      - label: "Expansion_Relay_Module"
+        name: "Expansion_Relay_Module"
+        file: "docs/reference/libs/zerynth/expansion/docs/exp-relay.md"
+        preview_path: "docs/reference/libs/zerynth/expansion/docs/exp-relay.md"
+        fields:
+          - {label: "Body", name: "body", widget: "markdown"}
+      - label: "Expansion_SER_Module"
+        name: "Expansion_SER_Module"
+        file: "docs/reference/libs/zerynth/expansion/docs/exp-ser.md"
+        preview_path: "docs/reference/libs/zerynth/expansion/docs/exp-ser.md"
+        fields:
+          - {label: "Body", name: "body", widget: "markdown"}

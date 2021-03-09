@@ -611,7 +611,13 @@ nav:
                 - reference/libs/zerynth/zdm/docs/index.md
                 - reference/libs/zerynth/zdm/docs/zdm.md
                 - reference/libs/zerynth/zdm/docs/examples.md
-              - 4zerobox:
+              - Expansion Board Modules:
+                - reference/libs/zerynth/expansion/docs/index.md
+                - reference/libs/zerynth/expansion/docs/exp-io.md
+                - reference/libs/zerynth/expansion/docs/exp-proto.md
+                - reference/libs/zerynth/expansion/docs/exp-relay.md
+                - reference/libs/zerynth/expansion/docs/exp-ser.md
+              - 4zerobox Module:
                 - reference/libs/zerynth/4zerobox/docs/index.md
                 - reference/libs/zerynth/4zerobox/docs/module.md
                 - reference/libs/zerynth/4zerobox/docs/examples.md
