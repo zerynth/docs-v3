@@ -2,7 +2,7 @@
 
 This section introduces the main features of Zerynth and provides a step-by-step guide to get started with the system. Take a look at the video below to see Zerynth in action!
 
-<p align="center"><iframe width="560" height="315" src="https://www.youtube.com/embed/u2pEH5dSZbo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p>
+<p align="center"><iframe width="560" height="315" src="https://www.youtube.com/embed/u2pEH5dSZbo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; pic,jehdkjhsafkjdhaksture-in-picture" allowfullscreen></iframe></p>
 
 ### Create an account
 
@@ -39,9 +39,9 @@ If the device has never been connected before, by clicking the “Z” button, t
 
 To register a new device, you can follow these steps:
 
-1.  connect your device to the machine. The “Devices Management Widget” notifies the devices list update with a yellow blink;
-2.  select the device from the dropdown menu;
-3.  click on the “Z” button. Zerynth Studio will guide you in the entire process through info messages displayed in the log console section at the bottom of the screen.
+1. connect your device to the machine. The “Devices Management Widget” notifies the devices list update with a yellow blink;
+2. select the device from the dropdown menu;
+3. click on the “Z” button. Zerynth Studio will guide you in the entire process through info messages displayed in the log console section at the bottom of the screen.
 
 !!! note
 	“Powered by Zerynth” devices are accompained by a redeemable code that can be inserted in the above window and exchanged for a free virtual machine license.
@@ -83,8 +83,8 @@ The Zerynth “Virtual Devices” feature allows to implement and develop the us
 
 Once the desired supported device (virtual or physically connected) is selected, Zerynth Studio displays all collected info related to the chosen device in 2 different dialogs:
 
--   **Device Info Window**;
--   **Device Pinmap Window**.
+* **Device Info Window**;
+* **Device Pinmap Window**.
 
 The **Device Info Window** shows detailed information about the device, including the Flash/Ram size and the port for serial communication.
 
@@ -103,10 +103,10 @@ Zerynth Studio includes many examples to get started: from the most basic ones t
 
 Zerynth examples can be cloned in just few clicks:
 
-1.  open the Examples browser by clicking on the “light bulb” icon on the left panel of Zerynth Studio;
-2.  select the example you prefer and clone it by clicking on the dedicated button;
-3.  At this stage Zerynth converts the example into a new project giving you the possibility to edit the **Title**, the **Description** and the **Folder** of your new project project;
-4.  click on “Create” and you are done!
+1. open the Examples browser by clicking on the “light bulb” icon on the left panel of Zerynth Studio;
+2. select the example you prefer and clone it by clicking on the dedicated button;
+3. At this stage Zerynth converts the example into a new project giving you the possibility to edit the **Title**, the **Description** and the **Folder** of your new project project;
+4. click on “Create” and you are done!
 
 ![](img/Clone%20an%20example%20and%20start%20with%20Zerynth%20Python%20Scripts.png)
 
@@ -128,10 +128,10 @@ To Uplink your verified project into a Virtualized device just click the **Uplin
 
 To create your first project from scratch you have to do just a few steps:
 
-1.  click on the button “Browse Project”;
-2.  click on “New Project”;
-3.  Decide a project title and the project folder, and write an optional description;
-4.  click on the “Create” button.
+1. click on the button “Browse Project”;
+2. click on “New Project”;
+3. Decide a project title and the project folder, and write an optional description;
+4. click on the “Create” button.
 
 Once you click on the “Create” button, the new Zerynth Project opens and you will be prompted with the editor of the “main.py” file. The main is where the principal Zerynth code is written in Python: here is where you develop the logic of your script.
 
@@ -141,10 +141,10 @@ If you wish to add more files to the Zerynth project you can easily do it. In Ze
 
 To add new files to a Zerynth project, follow these steps:
 
--   click on “Browse Project”;
--   click on “Add file” ;
--   after naming the file click on “Create”;
--   write the code within the empty field in the editor;
+* click on “Browse Project”;
+* click on “Add file” ;
+* after naming the file click on “Create”;
+* write the code within the empty field in the editor;
 
 You can also add a new folder, delete a selected file, refresh the project folder, etc. by clicking the icon on the right of the “Project view” bar.
 
@@ -162,8 +162,8 @@ new_resource("template.html")
 
 Packages import syntax is very simple:
 
--   Official Packages are imported with: `from c import m` where **c** is the name of the package and **m** is the name of a module inside the package. (e.g. `from cc3000 import cc3000` or `from cc3000 import cc3000_tiny`).
--   Community Packages are imported with: `from community.b.c import m` where **b** is the namespace of the package, **c** is the package name and **m** is the name of a module (e.g. `from community.floyd.rtttl import rtttl`)
+* Official Packages are imported with: `from c import m` where **c** is the name of the package and **m** is the name of a module inside the package. (e.g. `from cc3000 import cc3000` or `from cc3000 import cc3000_tiny`).
+* Community Packages are imported with: `from community.b.c import m` where **b** is the namespace of the package, **c** is the package name and **m** is the name of a module (e.g. `from community.floyd.rtttl import rtttl`)
 
 The import autocomplete feature of Zerynth Studio makes the task of importing modules even easier: as soon as “from” or “import” is typed in the code editor, the autocomplete box lists all the matching modules.
 
@@ -179,8 +179,8 @@ You can always post your questions and doubts on the [Zerynth Community Forum](h
 
 Zerynth Studio has two different update mechanisms:
 
--   major system release
--   rolling updates
+* major system release
+* rolling updates
 
 When a new major version of Zerynth is released a notification “System Update!” will appear in the footer area of Zerynth Studio. By clicking the notification, the new version will be downloaded and installed. After a restart, the new version will be selected and launched. However, the previous version is still there and can be selected during the launch phase. If a previous version is not needed anymore, it can be deleted from the “Preferences” menu.
 
@@ -222,11 +222,11 @@ The first step is needed to get the user permission to manage the Github reposit
 
 In the second step the Github repository to host the library on must be chosen from the available ones. Some information on the library must be given in this step, namely:
 
--   the library title: will be displayed in the Library Manager
--   the library description: a short text that will be displayed in the Library Manager and that will be indexed to ease searching for libraries
--   a list of keywords to tag the library
--   the version of the library that will be made available after publishing
--   a descriptive text for the version (usually a list of changes, bugfixes and improvements)
+* the library title: will be displayed in the Library Manager
+* the library description: a short text that will be displayed in the Library Manager and that will be indexed to ease searching for libraries
+* a list of keywords to tag the library
+* the version of the library that will be made available after publishing
+* a descriptive text for the version (usually a list of changes, bugfixes and improvements)
 
 If the library has already been published, some of the required field will be automatically filled.
 
@@ -237,4 +237,3 @@ The third step is a recap of what is going to happen during the publishing; read
 ![](img/publishing%20wizard%202.jpg)
 
 In the last step the selected Github repository is cloned, the project to be published is copied in and the changes are committed and pushed back to the master branch. Also, a new Github release is created with version and description given in step 2. As soon as the Zerynth backend discovers the new release, the library will be made available to all the Zerynth users.
-
