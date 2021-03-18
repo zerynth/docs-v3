@@ -295,3 +295,158 @@ Exceptions can be thrown by C code. Any custom defined exception is exposed as a
 
    In this version of the VM, isinstance is still not compliant with the Python one.
    It is suggested to use isinstance to determine the hierarchy of instances and to use :func:`type` for primitive types.
+
+
+.. function:: thread(fn,*args,prio = PRIO_NORMAL, size=-1)
+
+TBD
+
+
+.. function:: print(*args,sep=" ",end="\\\\n", stream=None)
+
+   Print *objects* to the stream *stream*, separated by *sep* and followed
+   by *end*.  *sep*, *end* and *stream*, if present, must be given as keyword
+   arguments.
+
+   All non-keyword arguments are converted to strings like :func:`str` does and
+   written to the stream, separated by *sep* and followed by *end*.  Both *sep*
+   and *end* must be strings. If no *objects* are given, :func:`print` will just write
+   *end*.
+
+   The *stream* argument must be an object with a ``write(string)`` method; if it
+   is not present or ``None``, :data:`__default_stream` will be used.
+
+   Whether output is buffered is usually determined by *stream*.
+
+
+.. function:: abs(x)
+
+   Return the absolute value of a number.  The argument may be an
+   integer or a floating point number.
+
+
+.. function:: all(iterable)
+
+   Return ``True`` if all elements of the *iterable* are true (or if the iterable
+   is empty).  Equivalent to::
+
+      def all(iterable):
+          for element in iterable:
+              if not element:
+                  return False
+          return True
+
+
+.. function:: any(iterable)
+
+   Return ``True`` if any element of the *iterable* is true.  If the iterable
+   is empty, return ``False``.  Equivalent to::
+
+      def any(iterable):
+          for element in iterable:
+              if element:
+                  return True
+          return False
+
+
+.. function:: sum(iterable[, start])
+
+   Sums *start* and the items of an *iterable* from left to right and returns the
+   total.  *start* defaults to ``0``.
+
+
+.. function:: divmod(a, b)
+
+    Take two (non complex) numbers as arguments and return a pair of numbers
+    consisting of their quotient and remainder when using integer division.
+    When *a* and *b* are integers, the result is the same as `(a // b, a % b)`.
+    For floating point numbers the result is `(q, a % b)`, where *q* is
+    `float(int(a / b))`.
+
+
+.. function:: max(*args)
+
+   Return the largest item in args.
+
+
+.. function:: min(*args)
+
+   Return the smallest item in args.
+
+
+.. function:: round(number[, ndigits])
+
+   Return *number* rounded to *ndigits* precision after the decimal point. If
+   *ndigits* is omitted or is ``None``, it returns the nearest integer to its
+   input.
+
+   For the built-in types supporting :func:`round`, values are rounded to the
+   closest multiple of 10 to the power minus *ndigits*; if two multiples are
+   equally close, rounding is done toward the even choice (so, for example, both
+   ``round(-1.5)`` and ``round(-0.5)`` are ``0``, and ``round(1.5)`` is ``2``).
+   Any integer value is valid for *ndigits* (positive, zero, or negative). The
+   return value is an integer if *ndigits* is omitted or ``None``. Otherwise
+   the return value has the same type as number.
+
+   The behavior of :func:`round` for floats can be surprising: for example,
+   `round(1.125, 2)` gives `1.1200000000000001` instead of the expected `1.12`.
+   This is not a bug: it’s a result of the fact that most decimal fractions
+   can’t be represented exactly as a float (e.g., `print(2.675)` gives
+   `2.6749999999999998` in Zerynth).
+
+   For a general Python object *number*, :func:`round` is not implemented.
+
+
+.. function:: len(s)
+
+   Return the length (the number of items) of an object.  The argument may be a
+   sequence (such as a string, bytes, tuple, list, or range) or a collection
+   (such as a dictionary, set, or frozen set), or any instance defining the method ``__len__``.
+
+
+.. function:: hex(x,prefix="0x")
+
+   Convert an integer number to a lowercase hexadecimal string
+   prefixed with *prefix* (if not given "0x" is used), for example:
+
+      >>> hex(255)
+      '0xff'
+      >>> hex(-42)
+      '-0x2a'
+
+   See also :func:`int` for converting a hexadecimal string to an
+   integer using a base of 16.
+
+
+.. function:: str(x="")
+
+   Return a string version of *x*.  If *x* is not
+   provided, returns the empty string.
+   Returns the "informal" or nicely printable string representation of *object*.  For string objects, this is
+   the string itself. For primitive types like list, tuples, dicts a standard representation is returned. For all other types, the method __str__ is called.
+
+
+.. function:: dict(*args)
+
+   Return a new dictionary initialized from an optional *args.
+
+   If no *args is given, an empty dictionary is created. If a single positional argument is given and it is a mapping object, a dictionary is created with the same key-value pairs as the mapping object.
+   Otherwise, if more than a positional argument is given, each pair of arguments is inserted in the dictionary with the first argument of the pair being the key and the second argument the value.
+   If a key occurs more than once, the last value for that key becomes the corresponding value in the new dictionary.
+   If the number of positional arguments is odd, the value for the last key is None.
+
+
+.. function:: set(*args)
+
+   Return a new set initialized from an optional *args.
+
+   If no *args is given, an empty set is created. If a single positional argument is given and it is an iterable object, a set is created and filled with the values of the iterable.
+   Otherwise, if more than a positional argument is given, each argument is inserted in the set.
+
+
+.. function:: frozenset(*args)
+
+   Return a new frozenset initialized from an optional *args.
+
+   If no *args is given, an empty frozenset is created. If a single positional argument is given and it is an iterable object, a frozenset is created and filled with the values of the iterable.
+   Otherwise, if more than a positional argument is given, each argument is inserted in the frozenset.
