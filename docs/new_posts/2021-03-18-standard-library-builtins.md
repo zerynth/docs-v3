@@ -114,6 +114,8 @@ Exceptions can be thrown by C code. Any custom defined exception is exposed as a
 
 ## Builtin Functions
 
+### function `int`
+
 ```python
 int(x=0, base=10)
 ```
@@ -135,16 +137,19 @@ int(x=0, base=10)
    8, 10, or 16, and so that `int('010', 0)` is not legal, while
    `int('010')` is, as well as `int('010', 8)`.
 
+### function `type`
+
 ```python
 type(x)
 ```
 Returns an integer representing the type of x.
 The following are the builtin constants returned by type():
 
-PSMALLINT, PINTEGER, PFLOAT, PBOOL, PSTRING, PBYTES, PBYTEARRAY, PSHORTS, PSHORTARRAY, PLIST, PTUPLE, PRANGE, PFROZENSET, PSET, PDICT, PFUNCTION, PMETHOD, PCLASS, PINSTANCE, PMODULE, PITERATOR, PNONE, PEXCEPTION, PNATIVE, PSYSOBJ, PDRIVER, PTHREAD
-```
-.. function:: thread(fun,*args,prio=PRIO_NORMAL,size=-1)
+`PSMALLINT, PINTEGER, PFLOAT, PBOOL, PSTRING, PBYTES, PBYTEARRAY, PSHORTS, PSHORTARRAY, PLIST, PTUPLE, PRANGE, PFROZENSET, PSET, PDICT, PFUNCTION, PMETHOD, PCLASS, PINSTANCE, PMODULE, PITERATOR, PNONE, PEXCEPTION, PNATIVE, PSYSOBJ, PDRIVER, PTHREAD`
 
+### function `thread`
+```python
+thread(fun, *args, prio=PRIO_NORMAL, size=-1)
 ```
 Function *fun* is launched in a new thread using args as its parameters.
 *fun* must be a normal function or a methods, other callables are not supported yet.
