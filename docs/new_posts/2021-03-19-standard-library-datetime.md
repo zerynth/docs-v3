@@ -251,6 +251,7 @@ Examples of usage
 
 An example of normalization::
 
+```python
     import datetime.timedelta
 
     # Components of another_year add up to exactly 365 days
@@ -258,10 +259,11 @@ An example of normalization::
     another_year = timedelta(weeks=40, days=84, hours=23, minutes=50, seconds=600)
     print(year.eq(another_year)) # True
     print(year.total_seconds())  # 31536000
-
+```
 
 Examples of timedelta arithmetic::
 
+```python
     import datetime.timedelta
 
     year = timedelta(days=365)
@@ -271,6 +273,8 @@ Examples of timedelta arithmetic::
     print(nine_years)                   # 3285d 00:00:00
     three_years = nine_years.floordiv(3)
     print(three_years)                  # 1095d 00:00:00
+```
+
 
 timezone Objects
 ================
@@ -299,63 +303,66 @@ Exactly which methods are needed depends on the uses made of aware
 utcoffset(dt)
 ```
 
-   Return offset of local time from UTC, as a :class:`timedelta` object
-   that is positive east of UTC. If local time is west of UTC, this should
-   be negative.
+Return offset of local time from UTC, as a :class:`timedelta` object
+that is positive east of UTC. If local time is west of UTC, this should
+be negative.
 
-   This represents the *total* offset from UTC; for example, if a
-   :class:`timezone` object represents both time zone and DST adjustments,
-   :meth:`timezone.utcoffset` should return their sum. If the UTC offset
-   isn’t known, return ``None``. Else the value returned must be a
-   :class:`timedelta` object strictly between ``timedelta(hours=-24)`` and
-   ``timedelta(hours=24)`` (the magnitude of the offset must be less than one
-   day). Most implementations of :meth:`timezone.utcoffset` will probably
-   look like one of these two:
+This represents the *total* offset from UTC; for example, if a
+:class:`timezone` object represents both time zone and DST adjustments,
+:meth:`timezone.utcoffset` should return their sum. If the UTC offset
+isn’t known, return `None`. Else the value returned must be a
+:class:`timedelta` object strictly between `timedelta(hours=-24)` and
+`timedelta(hours=24)` (the magnitude of the offset must be less than one
+day). Most implementations of :meth:`timezone.utcoffset` will probably
+look like one of these two:
 
         return CONSTANT                 # fixed-offset class
         return CONSTANT + self.dst(dt)  # daylight-aware class
 
-   If :meth:`timezone.utcoffset` does not return ``None``, :meth:`timezone.dst`
-   should not return None either.
+If :meth:`timezone.utcoffset` does not return `None`, :meth:`timezone.dst`
+should not return None either.
 
-   The default implementation of :meth:`timezone.utcoffset` returns the sum
-   of time zone and DST adjustments, if available.
+The default implementation of :meth:`timezone.utcoffset` returns the sum
+of time zone and DST adjustments, if available.
 
 ### method `dst`
 ```python
 dst(dt)
 ```
 
-   Return the daylight saving time (DST) adjustment, as a :class:`timedelta`
-   object or ``None`` if DST information isn’t known.
+Return the daylight saving time (DST) adjustment, as a :class:`timedelta`
+object or ``None`` if DST information isn’t known.
 
-   Return ``timedelta(0)`` if DST is not in effect. If DST is in effect, return
-   the offset as a :class:`timedelta` object (see :meth:`timezone.utcoffset`
-   for details). Note that DST offset, if applicable, has already been added
-   to the UTC offset returned by :meth:`timezone.utcoffset`, so there’s no
-   need to consult :meth:`timezone.dst` unless you’re interested in obtaining
-   DST info separately.
+Return ``timedelta(0)`` if DST is not in effect. If DST is in effect, return
+the offset as a :class:`timedelta` object (see :meth:`timezone.utcoffset`
+for details). Note that DST offset, if applicable, has already been added
+to the UTC offset returned by :meth:`timezone.utcoffset`, so there’s no
+need to consult :meth:`timezone.dst` unless you’re interested in obtaining
+DST info separately.
 
-   Most implementations of :meth:`timezone.dst` will probably look like one
-   of these two::
+Most implementations of :meth:`timezone.dst` will probably look like one
+of these two:
 
-       def dst(self, dt):
-           # a fixed-offset class:  doesn't account for DST
-           return timedelta(0)
+```python
+def dst(self, dt):
+    # a fixed-offset class:  doesn't account for DST
+    return timedelta(0)
+```
 
-   or::
+   or:
 
-       def dst(self, dt):
-           # Code to set dston and dstoff to the time zone's DST
-           # transition times based on the input *dt*'s year, and
-           # expressed in standard local time.
+```python
+def dst(self, dt):
+    # Code to set dston and dstoff to the time zone's DST
+    # transition times based on the input *dt*'s year, and
+    # expressed in standard local time.
 
-           dt_ = dt.replace(tzinfo=None)
-           if dt_.ge(dston) and dt_.lt(dstoff):
-               return timedelta(hours=1)
-           else:
-               return timedelta(0)
-
+    dt_ = dt.replace(tzinfo=None)
+    if dt_.ge(dston) and dt_.lt(dstoff):
+        return timedelta(hours=1)
+    else:
+        return timedelta(0)
+```
    The default implementation of :meth:`timezone.dst` returns ``None``.
 
 
@@ -371,7 +378,7 @@ tzname(dt)
    “US/Eastern”, “America/New York” are all valid replies. Return ``None`` if
    a string name isn’t known. Note that this is a method rather than a fixed
    string primarily because some :class:`timezone` subclasses will wish to
-   return different names depending on the specific value of *dt* passed,
+   return different names depending on the specific value of `dt` passed,
    especially if the :class:`timezone` class is accounting for daylight time.
 
    The default implementation of :meth:`timezone.tzname` returns the fixed
@@ -382,7 +389,7 @@ tzname(dt)
    the string provided by :meth:`timezone.isoformat` method.
 
 These methods are called by a :class:`datetime` object, in response to their
-methods of the same names. A :class:`datetime` object passes *self* as *dt*
+methods of the same names. A :class:`datetime` object passes `self` as `dt`
 argument.
 
 
@@ -402,7 +409,7 @@ Class methods
 timezone(offset, name=None)
 ```
 
-   The *offset* argument must be specified as a :class:`timedelta`
+   The `offset` argument must be specified as a :class:`timedelta`
    object representing the difference between the local time and UTC.
    It must be strictly between ``timedelta(hours=-24)`` and
    ``timedelta(hours=24)``, otherwise :exc:`ValueError` is raised.
@@ -414,7 +421,7 @@ timezone(offset, name=None)
 
 ### method `isoformat`
 ```python
-isoformat(dt)
+isoformat(dt, *, utc=True)
 ```
 
    Return a string in the format ``UTC±HH:MM``, where ``±`` is the sign of
@@ -422,21 +429,21 @@ isoformat(dt)
    offset's minutes respectively. If *offset* is ``timedelta(0)``, “UTC”
    is returned.
 
-   If *utc* is ``False``, this method always returns ``±HH:MM``.
+   If `utc` is ``False``, this method always returns ``±HH:MM``.
 
-   *dt* is needed in determining the right offset; it can be ``None``.
+   `dt` is needed in determining the right offset; it can be ``None``.
 
 
 Examples of usage
 -----------------
 
-`Central European Time <https://en.wikipedia.org/wiki/Summer_time_in_Europe>`_
+[Central European Time](https://en.wikipedia.org/wiki/Summer_time_in_Europe)
 (CET), used in most parts of Europe and a few North African countries, is a
 standard time which is 1 hour ahead of Coordinated Universal Time (UTC).
 As of 2011, all member states of the European Union observe summer time;
 those that during the winter use CET use Central European Summer Time (CEST)
 (or: UTC+02:00, daylight saving time) in summer (from last Sunday of March
-to last Sunday of October). ::
+to last Sunday of October).
 
     import datetime
 
@@ -493,7 +500,7 @@ Constructors
 datetime(self, year, month, day, hour=0, minute=0, second=0, tzinfo=None)
 ```
 
-   The *year*, *month* and *day* arguments are required. *tzinfo* may be
+   The `year`, `month` and `day` arguments are required. `tzinfo` may be
    ``None``, or an instance of a :class:`timezone` class. The remaining
    arguments must be integers in the following ranges:
 
