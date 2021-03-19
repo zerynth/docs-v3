@@ -158,30 +158,37 @@ Function *fun* is launched in a new thread using args as its parameters.
 *size* is the memory in bytes , reserved for the thread inner workings. Negative values select the VM default size.
 
 Returns the created thread, already started. Raises :exc:`RuntimeError` if no more threads can be created.
-```
 
-.. function:: sleep(time,time_unit=MILLIS)
-
+### function `sleep`
+```python
+sleep(time, time_unit=MILLIS)
 ```
 Suspend the current thread for *time* expressed in *time_units*. All the other threads are free to continue their execution.
 If *time_unit* is MICROS, sleep does not suspend the current thread, but starts polling the cycles counter in a loop.
 
-For high precision sleep refer to :mod:`hwtimers
+For high precision sleep refer to :module:`hwtimers`
+
+### function `random`
+```python
+random()
+random(a,b)
 ```
 
-.. function:: random()
-              random(a,b)
-
-```
 Returns a random integer. If *a* and *b* are given, the random integer is contained in the range [a,b]. If the board has a builtin Random Number Generator, it is used.
-```
 
-.. function:: range(stop)
-              range(start, stop\[, step])
+
+### function `range`
+```python
+range(stop)
+range(start, stop[, step])
+```
 
    Creates a range object.
 
-.. function:: bytearray(\[source])
+### function `bytearray`
+```python
+bytearray([source])
+```
 
    Return a new array of bytes. A bytearray is a mutable
    sequence of integers in the range 0 <= x < 256.  It has most of the usual
@@ -198,7 +205,10 @@ Returns a random integer. If *a* and *b* are given, the random integer is contai
 
    Without an argument, an array of size 0 is created.
 
-.. function:: bytes(\[source])
+### function `bytes`
+```python
+bytes([source])
+```
 
    Return a new "bytes" object, which is an immutable sequence of integers in
    the range `0 <= x < 256`.  :class:`bytes` is an immutable version of
@@ -207,7 +217,10 @@ Returns a random integer. If *a* and *b* are given, the random integer is contai
 
    Accordingly, constructor arguments are interpreted as for :func:`bytearray`.
 
-.. function:: shortarray(\[source])
+### function `shortarray`
+```python
+shortarray([source])
+```
 
    Return a new array of shorts. A shortarray is a mutable
    sequence of integers in the range 0 <= x < 65536.  It has most of the usual
@@ -224,8 +237,10 @@ Returns a random integer. If *a* and *b* are given, the random integer is contai
 
    Without an argument, an array of size 0 is created.
 
-.. function:: shorts(\[source])
-
+### function `shorts`
+```python
+shorts([source])
+```
    Return a new shorts object, which is an immutable sequence of integers in
    the range `0 <= x < 65536`.  :class:`shorts` is an immutable version of
    :class:`shortarray` -- it has the same non-mutating methods and the same
@@ -233,8 +248,10 @@ Returns a random integer. If *a* and *b* are given, the random integer is contai
 
    Accordingly, constructor arguments are interpreted as for :func:`shortarray`.
 
-.. function:: enumerate(iterable, start=0)
-
+### function `enumerate`
+```python
+enumerate(iterable, start=0)
+```
    Return an enumerate object. *iterable* must be a sequence, an
    :term:`iterator`, or some other object which supports iteration.
    The :meth:`~iterator.__next__` method of the iterator returned by
@@ -243,11 +260,12 @@ Returns a random integer. If *a* and *b* are given, the random integer is contai
 
    It is normally used in `for` loops: ::
 
-```
+```python
     ints = [10,20,30]
     for idx, val in enumerate(ints):
         print(idx, val)
-
+```
+```
     # prints out the following:
     >>> 0 10
     >>> 1 20
@@ -256,8 +274,10 @@ Returns a random integer. If *a* and *b* are given, the random integer is contai
 
    In this version of the VM, enumerate works only for primitive iterable types, not yet for instances with `__next__` and `__iter__` methods.
 
-.. function:: reversed(seq)
-
+### function `reversed`
+```python
+reversed(seq)
+```
    Return a reverse :term:`iterator`.  *seq* must be an object which has
    a :meth:`__reversed__` method or supports the sequence protocol (the
    :meth:`__len__` method and the :meth:`__getitem__` method with integer
@@ -265,16 +285,18 @@ Returns a random integer. If *a* and *b* are given, the random integer is contai
 
    In this version of the VM, reversed works only for primitive iterable types, not yet for instances with `__next__` and `__iter__` methods.
 
-.. function:: ord(c)
-
+### function `ord`
+```python
+ord(c)
+```
    Given a string representing one character, return an integer
    representing that character.  For example, `ord('a')` returns the integer `97`.
    This is the inverse of :func:`chr`.
 
    When *c* is a literal string, the compiler macro __ORD(c) can be used to reduce code size.
-   For example: ::
+   For example:
 
-```
+```python
 x = ord(":")
 ```
 
@@ -282,9 +304,9 @@ x = ord(":")
    After *ord* is executed the created string is probably immediately garbage collected.
    In the embedded world, this is time and resource consuming.
    The operation `ord(":")` can be executed during compilation because the result is known before the execution of
-   the Zerynth program. To enable this feature use the following code: ::
+   the Zerynth program. To enable this feature use the following code:
 
-```
+```python
 x = __ORD(":")
 ```
 
@@ -295,14 +317,20 @@ x = __ORD(":")
 x = 58
 ```
 
-.. function:: chr(i)
+### function `chr`
+```python
+chr(i)
+```
 
    Return the string representing a character whose byte representation is the integer
    *i*.  For example, `chr(97)` returns the string `'a'`. This is the
    inverse of :func:`ord`. :exc:`ValueError` will be raised if *i* is
    outside the valid range.
 
-.. function:: isinstance(object, class)
+### function `isinstance`
+```python
+isinstance(object, class)
+```
 
    Return true if the *object* argument is an instance of the *class*
    argument, or of a (direct, indirect) subclass thereof.  If *object* is not
@@ -312,12 +340,16 @@ x = 58
    In this version of the VM, isinstance is still not compliant with the Python one.
    It is suggested to use isinstance to determine the hierarchy of instances and to use :func:`type` for primitive types.
 
-.. function:: thread(fn,*args,prio = PRIO_NORMAL, size=-1)
-
+### function `thread`
+```python
+thread(fn,*args, prio = PRIO_NORMAL, size=-1)
+```
 TBD
 
-.. function:: print(*args,sep=" ",end="\\n", stream=None)
-
+### function `print`
+```python
+print(*args,sep=" ",end="\\n", stream=None)
+```
    Print *objects* to the stream *stream*, separated by *sep* and followed
    by *end*.  *sep*, *end* and *stream*, if present, must be given as keyword
    arguments.
@@ -332,17 +364,21 @@ TBD
 
    Whether output is buffered is usually determined by *stream*.
 
-.. function:: abs(x)
-
+### function `abs`
+```python
+abs(x)
+```
    Return the absolute value of a number.  The argument may be an
    integer or a floating point number.
 
-.. function:: all(iterable)
-
+### function `all`
+```python
+all(iterable)
+```
    Return `True` if all elements of the *iterable* are true (or if the iterable
    is empty).  Equivalent to::
 
-```
+```python
   def all(iterable):
       for element in iterable:
           if not element:
@@ -350,12 +386,15 @@ TBD
       return True
 ```
 
-.. function:: any(iterable)
+### function `any`
+```python
+any(iterable)
+```
 
    Return `True` if any element of the *iterable* is true.  If the iterable
    is empty, return `False`.  Equivalent to::
 
-```
+```python
   def any(iterable):
       for element in iterable:
           if element:
@@ -363,13 +402,16 @@ TBD
       return False
 ```
 
-.. function:: sum(iterable\[, start])
-
+### function `sum`
+```python
+sum(iterable[, start])
+```
    Sums *start* and the items of an *iterable* from left to right and returns the
    total.  *start* defaults to `0`.
 
-.. function:: divmod(a, b)
-
+### function `divmod`
+```python
+divmod(a, b)
 ```
 Take two (non complex) numbers as arguments and return a pair of numbers
 consisting of their quotient and remainder when using integer division.
@@ -378,16 +420,22 @@ For floating point numbers the result is `(q, a % b)`, where *q* is
 `float(int(a / b))`.
 ```
 
-.. function:: max(*args)
-
+### function `max`
+```python
+max(*args)
+````
    Return the largest item in args.
 
-.. function:: min(*args)
-
+### function `min`
+```python
+min(*args)
+```
    Return the smallest item in args.
 
-.. function:: round(number\[, ndigits])
-
+### function `round`
+```python
+round(number[, ndigits])
+```
    Return *number* rounded to *ndigits* precision after the decimal point. If
    *ndigits* is omitted or is `None`, it returns the nearest integer to its
    input.
@@ -408,14 +456,18 @@ For floating point numbers the result is `(q, a % b)`, where *q* is
 
    For a general Python object *number*, :func:`round` is not implemented.
 
-.. function:: len(s)
-
+### function `len`
+```python
+len(s)
+```
    Return the length (the number of items) of an object.  The argument may be a
    sequence (such as a string, bytes, tuple, list, or range) or a collection
    (such as a dictionary, set, or frozen set), or any instance defining the method `__len__`.
 
-.. function:: hex(x,prefix="0x")
-
+### function `hex`
+```python
+hex(x,prefix="0x")
+```
    Convert an integer number to a lowercase hexadecimal string
    prefixed with *prefix* (if not given "0x" is used), for example:
 
@@ -429,15 +481,19 @@ For floating point numbers the result is `(q, a % b)`, where *q* is
    See also :func:`int` for converting a hexadecimal string to an
    integer using a base of 16.
 
-.. function:: str(x="")
-
+### function `str`
+```python
+str(x="")
+```
    Return a string version of *x*.  If *x* is not
    provided, returns the empty string.
    Returns the "informal" or nicely printable string representation of *object*.  For string objects, this is
    the string itself. For primitive types like list, tuples, dicts a standard representation is returned. For all other types, the method **str** is called.
 
-.. function:: dict(*args)
-
+### function `dict`
+```python
+dict(*args)
+```
    Return a new dictionary initialized from an optional *args.
 
    If no *args is given, an empty dictionary is created. If a single positional argument is given and it is a mapping object, a dictionary is created with the same key-value pairs as the mapping object.
@@ -445,16 +501,20 @@ For floating point numbers the result is `(q, a % b)`, where *q* is
    If a key occurs more than once, the last value for that key becomes the corresponding value in the new dictionary.
    If the number of positional arguments is odd, the value for the last key is None.
 
-.. function:: set(*args)
-
+### function `set`
+```python
+set(*args)
+```
    Return a new set initialized from an optional *args.
 
    If no *args is given, an empty set is created. If a single positional argument is given and it is an iterable object, a set is created and filled with the values of the iterable.
    Otherwise, if more than a positional argument is given, each argument is inserted in the set.
 
-.. function:: frozenset(*args)
-
+### function `frozenset`
+```python
+frozenset(*args)
+```
    Return a new frozenset initialized from an optional *args.
 
-   If no *args is given, an empty frozenset is created. If a single positional argument is given and it is an iterable object, a frozenset is created and filled with the values of the iterable.
+   If no `*args` is given, an empty frozenset is created. If a single positional argument is given and it is an iterable object, a frozenset is created and filled with the values of the iterable.
    Otherwise, if more than a positional argument is given, each argument is inserted in the frozenset.
