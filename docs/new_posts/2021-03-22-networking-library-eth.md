@@ -71,7 +71,7 @@ The ethernet interface is shut down by releasing all resources and low level dri
 ```python
 resolve(host)
 ```
-Resolves the symbolic name for the given `host` to its IP address by using the configured DNS servers and return a string with the result.
+Resolves the symbolic name for the given `host` to its IP address by using the configured DNS server and returning a string with the result.
 
 When the `host` cannot be resolved, the `ResolveError` exception is raised.
 
@@ -79,7 +79,7 @@ When the `host` cannot be resolved, the `ResolveError` exception is raised.
 ```python
 info()
 ```
-Returns a tuple with the IP parameters associated with the interface. The tuple is composed by the following elements:
+Returns a tuple with the IP parameters associated to the interface. The tuple is composed by the following elements:
 0. `Bool`: DHCP enabled (*True*) or disabled (*False*)
 1. `String`: IP address
 2. `String`: netmask
