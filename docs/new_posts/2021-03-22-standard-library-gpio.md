@@ -8,6 +8,8 @@ Generic GPIO module for transparently handling physical pins and pins controlled
 
 **TODO**: Api documentation
 
+### Examples
+
 The module can be used without configuration like this:
 ```python
 import gpio
