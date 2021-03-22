@@ -2,16 +2,15 @@
 layout: blog
 title: Standard Library - suntime
 ---
-Sunrise and sunset time
+# Sunrise and sunset time
 
 Approximated calculation of sunrise and sunset time. Adapted from
-https://github.com/SatAgro/suntime.
+<https://github.com/SatAgro/suntime>.
 
-
-Class methods
--------------
+## Class methods
 
 ### class `Sun`
+
 ```python
 Sun(latitude, longitude)
 ```
@@ -19,29 +18,27 @@ Sun(latitude, longitude)
    Arguments `latitude` and `longitude` are floats representing the
    coordinates of a place on Earth.
 
-
 ### method `get_sunrise_time`
+
 ```python
 get_sunrise_time(year, month, day)
 ```
 
    Calculate the sunrise time for the given date. It returns a tuple of
-   integers ``(hour, minute)`` in UTC time or ``None`` if sun doesn't
+   integers `(hour, minute)` in UTC time or `None` if sun doesn't
    raise on that location at the given date.
 
-
 ### method `get_sunset_time`
+
 ```python
 get_sunset_time(year, month, day)
 ```
 
    Calculate the sunset time for the given date. It returns a tuple of
-   integers ``(hour, minute)`` in UTC time or ``None`` if sun doesn't
+   integers `(hour, minute)` in UTC time or `None` if sun doesn't
    set on that location at the given date.
 
-
-Examples of usage
------------------
+## Examples of usage
 
 This example calculates sunrise and sunset of three major cities::
 
