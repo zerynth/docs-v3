@@ -68,7 +68,7 @@ the thread.
 ### method `start`
 
 ```python
-
+start(prio = PRIO_NORMAL, size=512)
 ```
 
 Start the thread's activity.
@@ -195,23 +195,23 @@ Both threads in the example will compete to call `print(msg)`. The Lock object e
 ### method `acquire`
 
 ```python
-
+acquire(blocking=True, timeout=-1)
 ```
 
 Acquire a lock, blocking or non-blocking.
 
-When invoked with the *blocking* argument set to `True` (the default),
+When invoked with the `blocking` argument set to `True` (the default),
 block until the lock is unlocked, then set it to locked and return `True`.
 
-When invoked with the *blocking* argument set to `False`, do not block.
+When invoked with the `blocking` argument set to `False`, do not block.
 If a call with *blocking* set to `True` would block, return `False`
 immediately; otherwise, set the lock to locked and return `True`.
 
-When invoked with the integer *timeout* argument set to a positive
-value, block for at most the number of milliseconds specified by *timeout*
-and as long as the lock cannot be acquired.  A *timeout* argument of `-1`
-specifies an unbounded wait.  It is forbidden to specify a *timeout*
-when *blocking* is false.
+When invoked with the integer `timeout` argument set to a positive
+value, block for at most the number of milliseconds specified by `timeout`
+and as long as the lock cannot be acquired.  A `timeout` argument of `-1`
+specifies an unbounded wait.  It is forbidden to specify a `timeout`
+when `blocking` is false.
 
 The return value is `True` if the lock is acquired successfully,
 `False` if not (for example if the *timeout* expired).
@@ -219,7 +219,7 @@ The return value is `True` if the lock is acquired successfully,
 ### method `release`
 
 ```python
-
+release()
 ```
 
 Release a lock.  This can be called from any thread, not only the thread
