@@ -229,30 +229,28 @@ When the lock is locked, reset it to unlocked, and return.  If any other threads
 are blocked waiting for the lock to become unlocked, allow exactly one of them
 to proceed.
 
-\===============
-Semaphore class
-===============
+## Semaphore class
 
 ### class `Semaphore`
 
 ```python
-
+Semaphore(value=1)
 ```
 
 This class implements semaphore objects.  A semaphore manages a counter
 representing the number of :meth:`release` calls minus the number of
-:meth:`acquire` calls, plus an initial value.  The :meth:`acquire` method
+:meth:`acquire` calls, plus an initial `value`.  The :meth:`acquire` method
 blocks if necessary until it can return without making the counter negative.
-If not given, *value* defaults to 1.
+If not given, `value` defaults to 1.
 
-The optional argument gives the initial *value* for the internal counter; it
+The optional argument gives the initial `value` for the internal counter; it
 defaults to `1`. If the *value* given is less than 0, :exc:`ValueError` is
 raised.
 
 ### method `acquire`
 
 ```python
-
+acquire(blocking=True, timeout=-1)
 ```
 
 Acquire a semaphore.
@@ -267,32 +265,30 @@ The implementation may pick one at random, so the order in which
 blocked threads are awakened should not be relied on.  Returns
 true (or blocks indefinitely).
 
-When invoked with *blocking* set to false, do not block.  If a call
+When invoked with `blocking` set to false, do not block.  If a call
 without an argument would block, return false immediately; otherwise,
 do the same thing as when called without arguments, and return true.
 
-When invoked with a *timeout* other than -1, it will block for at
-most *timeout* milliseconds.  If acquire does not complete successfully in
+When invoked with a `timeout` other than -1, it will block for at
+most `timeout` milliseconds.  If acquire does not complete successfully in
 that interval, return false.  Return true otherwise.
 
 ### method `release`
 
 ```python
-
+release()
 ```
 
 Release a semaphore, incrementing the internal counter by one.  When it
 was zero on entry and another thread is waiting for it to become larger
 than zero again, wake up that thread.
 
-\===========
-Event class
-===========
+## Event class
 
 ### class `Event`
 
 ```python
-
+Event()
 ```
 
 Class implementing event objects.  An event manages a flag that can be set to
@@ -303,7 +299,7 @@ The flag is initially false.
 ### method `set`
 
 ```python
-
+set()
 ```
 
 Set the internal flag to true. All threads waiting for it to become true
@@ -313,7 +309,7 @@ not block at all.
 ### method `is_set`
 
 ```python
-
+is_set()
 ```
 
 Return true if and only if the internal flag is true.
@@ -321,7 +317,7 @@ Return true if and only if the internal flag is true.
 ### method `clear`
 
 ```python
-
+clear()
 ```
 
 Reset the internal flag to false. Subsequently, threads calling
@@ -331,14 +327,14 @@ flag to true again.
 ### method `wait`
 
 ```python
-
+wait(timeout=-1)
 ```
 
 Block until the internal flag is true.  If the internal flag is true on
 entry, return immediately.  Otherwise, block until another thread calls
 :meth:`.set` to set the flag to true, or until the optional timeout occurs.
 
-When the timeout argument is present and `>0`, it should be an
+When the `timeout` argument is present and `>0`, it should be an
 integer number specifying a timeout for the operation in milliseconds.
 
 This method returns true if and only if the internal flag has been set to
@@ -378,10 +374,21 @@ see the desired state, while threads that modify the state call
 :meth:`~Condition.notify` or :meth:`~Condition.notify_all` when they change
 the state in such a way that it could possibly be a desired state for one
 of the waiters.  For example, the following code is a generic
-producer-consumer situation with unlimited buffer capacity::
+producer-consumer situation with unlimited buffer capacity
 
 ```python
+# Consume one item
+cv.acquire()
+while not an_item_is_available():
+    cv.wait()
+    get_an_available_item()
+cv.release()
 
+# Produce one item
+cv.acquire()
+make_an_item_available()
+cv.notify()
+cv.release()
 ```
 
 The `while` loop checking for the application's condition is necessary
@@ -392,7 +399,11 @@ no longer hold true.  This is inherent to multi-threaded programming.  The
 checking, and eases the computation of timeouts::
 
 ```python
-
+# Consume an item
+cv.acquire()
+cv.wait_for(an_item_is_available)
+get_an_available_item()
+cv.release()
 ```
 
 To choose between :meth:`~Condition.notify` and :meth:`~Condition.notify_all`,
@@ -403,27 +414,25 @@ item to the buffer only needs to wake up one consumer thread.
 The order of awakened threads may correspond to the order of wait in a fifo style,
 but this is not guaranteed for every VM.
 
-\===============
-Condition class
-===============
+## Condition class
 
 ### class `Condition`
 
 ```python
-
+Condition(lock=None)
 ```
 
 This class implements condition variable objects.  A condition variable
 allows one or more threads to wait until they are notified by another thread.
 
-If the *lock* argument is given and not `None`, it must be a :class:`Lock` object,
+If the `lock` argument is given and not *None*, it must be a :class:`Lock` object,
 and it is used as the underlying lock.  Otherwise,
 a new :class:`Lock` object is created and used as the underlying lock.
 
 ### method `acquire`
 
 ```python
-
+acquire(blocking=True, timeout=-1)
 ```
 
 Acquire the underlying lock. This method calls the corresponding method on
@@ -432,7 +441,7 @@ the underlying lock; the return value is whatever that method returns.
 ### method `release`
 
 ```python
-
+release()
 ```
 
 Release the underlying lock. This method calls the corresponding method on
@@ -441,7 +450,7 @@ the underlying lock; there is no return value.
 ### method `wait`
 
 ```python
-
+wait(timeout=-1)
 ```
 
 Wait until notified or until a timeout occurs. If the calling thread has
@@ -453,21 +462,21 @@ awakened by a :meth:`notify` or :meth:`notify_all` call for the same
 condition variable in another thread, or until the optional timeout
 occurs.  Once awakened or timed out, it re-acquires the lock and returns.
 
-When the *timeout* argument is present and not less than zero, it should be a
+When the `timeout` argument is present and not less than zero, it should be a
 integer number specifying a timeout for the operation in milliseconds.
 
-The return value is `True` unless a given *timeout* expired, in which
+The return value is `True` unless a given `timeout` expired, in which
 case it is `False`.
 
 ### method `wait_for`
 
 ```python
-
+wait_for(predicate, timeout=-1)
 ```
 
-Wait until a condition evaluates to True.  *predicate* should be a
+Wait until a condition evaluates to True.  `predicate` should be a
 callable which result will be interpreted as a boolean value.
-A *timeout* may be provided giving the maximum time to wait.
+A `timeout` may be provided giving the maximum time to wait.
 
 This utility method may call :meth:`wait` repeatedly until the predicate
 is satisfied, or until a timeout occurs. The return value is
@@ -475,10 +484,11 @@ the last return value of the predicate and will evaluate to
 `False` if the method timed out.
 
 Ignoring the timeout feature, calling this method is roughly equivalent to
-writing::
+writing:
 
 ```python
-
+while not predicate():
+    cv.wait()
 ```
 
 Therefore, the same rules apply as with :meth:`wait`: The lock must be
@@ -488,17 +498,17 @@ with the lock held.
 ### method `notify`
 
 ```python
-
+notify(n=1)
 ```
 
 By default, wake up one thread waiting on this condition, if any.  If the
 calling thread has not acquired the lock when this method is called, a
 :exc:`RuntimeError` is raised.
 
-This method wakes up at most *n* of the threads waiting for the condition
+This method wakes up at most `n` of the threads waiting for the condition
 variable; it is a no-op if no threads are waiting.
 
-The current implementation wakes up exactly *n* threads, if at least *n*
+The current implementation wakes up exactly `n` threads, if at least `n`
 threads are waiting.
 
 Note: an awakened thread does not actually return from its :meth:`wait`
@@ -508,7 +518,7 @@ release the lock, its caller should.
 ### method `notify_all`
 
 ```python
-
+notify_all()
 ```
 
 Wake up all threads waiting on this condition.  This method acts like
