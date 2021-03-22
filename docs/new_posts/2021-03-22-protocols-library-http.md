@@ -21,46 +21,72 @@ The `ctx` sequence is composed as in the following:
 
 ### method `get`
 ```python
-get(self, url, headers={})
+get(url, headers={})
 ```
+Sends a GET request to the `url` with the optional `header` dictionary.
+
+Returns a `Response` object with the server reply.
 
 ### method `post`
 ```python
-post(self, url, headers={}, body="")
+post(url, headers={}, body="")
 ```
+Sends a POST request to the `url` with the optional `header` dictionary and the `body` string containing the POST data.
+
+Returns a `Response` object with the server reply.
+
 
 ### method `put`
 ```python
-put(self, url, headers={}, body="")
+put(url, headers={}, body="")
 ```
+Sends a PUT request to the `url` with the optional `header` dictionary and the `body` string containing the PUT data.
+
+Returns a `Response` object with the server reply.
 
 ### method `patch`
 ```python
-patch(self, url, headers={}, body="")
+patch(url, headers={}, body="")
 ```
+Sends a PATCH request to the `url` with the optional `header` dictionary and the `body` string containing the PATCH data.
+﻿
+Returns a `Response` object with the server reply.
 
 ### method `delete`
 ```python
-delete(self, url, headers={}, body="")
+delete(url, headers={}, body="")
 ```
+Sends a DELETE request to the `url` with the optional `header` dictionary and the `body` string containing the DELETE data.
+﻿
+Returns a `Response` object with the server reply.
 
 ### method `head`
 ```python
-head(self, url, headers={})
+head(url, headers={})
 ```
+Sends a HEAD request to the `url` with the optional `header` dictionary.
+
+Returns a `Response` object with the server reply.
 
 ### method `download`
 ```python
-download(self, url, fd, headers={})
+download(url, fd, headers={})
 ```
+Sends a DOWNLOAD request to the `url` with the optional `header` dictionary and save the returning stream to `fd` file descriptor. If `-1` is passed as `fd` the stream data is returned into the `Response` object.
+
+Returns a `Response` object with the server reply.
 
 ### method `destroy`
 ```python
-destroy(self)
+destroy()
 ```
-
+Closes the http/https connection, de-initialize the configured connection and all resources freed.
 
 ### class `Response`
 ```python
 Response(status, data, headers)
 ```
+This class is used to contain HTTP methods responses. The class attributes are:
+* `status` is the HTTP return status from the server, as *integer*.
+* `data` stream data when available, as *bytearray*
+* `headers` is the set of HTTP headers associated to the request, as *dictionary*.
