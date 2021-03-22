@@ -18,7 +18,7 @@ Raises ``JSONError`` when `data` contains bad JSON.
 
 ### function `dumps`
 ```python
- dumps(obj, indent=0)
+dumps(obj, indent=0)
 ```
 
 Returns a JSON representation of the serialized `obj`.
@@ -28,4 +28,4 @@ Returns a JSON representation of the serialized `obj`.
 dump(fd, obj, indent=0)
 ```
 
-Save a JSON representation of the serialized obj* into *fd* file descriptor.
+Save a JSON representation of the serialized `obj` into `fd` file descriptor, indented by `indent` spaces.
