@@ -59,9 +59,9 @@ agent.publish(payload={"temperature": 25.3, "humidity": 35.2}, tag="room")
 
 ## Conditions
 
-IoT data can refer not only to a single point in time but also to a time range. For this 
+IoT data can refer not only to a single point in time but also to a time range. For this kind of data the ZDM provides the `Conditions`. A `Condition` represent a time range starting at `t_start` and ending at `t_end` thus having a duration. One example of `Condition` is the battery level: it enters the `battery_low` status at a certain time and exits it when it recharges. 
 
-
+A `Condition` is *open* when it has a starting time but not yet an ending time. When the `Agent` connects it asks for the open `Conditions` and pass them to the firmware 
 
 Finally, the `Agent` is capable of accepting a FOTA update and changing the current firmware with a new one.
 
