@@ -115,7 +115,7 @@ Returns `p0` (pressure at sea level)
 ```python
 
 
-from bosch.bmp180 import bmp180
+from components.bmp180 import bmp180
 
 
 ...
