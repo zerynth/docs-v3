@@ -37,13 +37,13 @@ This method sets the operating mode and the sampling parameters of the module.
 
 * `mode`: Control the operating mode. Sleep mode is entered by default after power on reset. In sleep mode, no measurement are performed and all registers are accessible. In normal mode the sensor cycles between an active measurement period and an inactive standby period. In forced mode a single measurement is perfomed in accordance to the selected measurement and filter options, after which the sensor enter in sleep mode.
 
-        ======== =====================
-         mode        Operating mode
-        ======== =====================
-         0         Sleep Mode
-         1 or 2    Forced Mode
-         3         Normal Mode
-        ======== =====================
+       ======== =====================
+        mode        Operating mode
+       ======== =====================
+        0         Sleep Mode
+        1 or 2    Forced Mode
+        3         Normal Mode
+       ======== =====================
         
    **note**
 See pages 12-13 of the datasheet_ for more details on operating mode and allowed sensor mode transitions.
