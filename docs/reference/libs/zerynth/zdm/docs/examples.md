@@ -1,15 +1,13 @@
 # Examples
 
-The following are a list of examples for lib.zerynth.zdm.
+The following are some examples for the ZDM library.
 
 ## Simple ZDM
 
 
-In this example you can see how to create a ZDM device and connect it to the Zerynth Device Manager and send periodically data. It simulates a weather sensor that sends temperature and pressure values to the ZDM periodically.
+This example shows how to create a ZDM agent, start it and have it send data periodically. It simulates a weather sensor that sends temperature and pressure values.
 
-You can use this example to test ZDM Webhooks and Ubidots integration.
-
-To check if the ZDM is correctly receiving data sent by your device, use the data ZDM command.
+You can use this example to test ZDM Webhooks and Ubidots integrations.
 
 
 ```main.py```
