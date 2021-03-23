@@ -181,14 +181,6 @@ Retrieves the current temperature in Celtius.
 
 Returns `temp`
 
-
-
-
-
-
-
-
-
 ### Example:
 ```python
 
