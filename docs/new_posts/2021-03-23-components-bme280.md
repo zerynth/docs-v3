@@ -8,7 +8,7 @@ _datasheet_: <https://ae-bst.resource.bosch.com/media/_tech/media/datasheets/BST
 
 This module contains the Zerynth driver for Bosch BME280 digital environmental sensor. The unit combine high linearity and accuracy sensors for pressure,
 humidity and temperature and is designed for low current consumption, long term sability and high EMC robustness. The BME280 features I2C and SPI digital
-interfaces, the present library enables I2C only (datasheet_).
+interfaces, the present library enables I2C only.
 
 ### class BME280
 ```python
@@ -19,16 +19,6 @@ Creates an intance of the BME280 class with given arguments
 * `addr`: Slave address, default 0x76.
 * `clk`: Clock speed, default 400kHz.
 
-Sensor's calibration data are automatically read on object creation and setup method is called with default parameters. Temperature, humidity and pressure values can be easily obtained from the sensor:
-```python
-from bosch.bme280 import bme280
-
-...
-
-bme = bme280.BME280(I2C0)
-temp, hum, pres = bme.get_values()
-```
-
 ### method setup
 ```python
 setup(mode = 3, os_t = 1, os_h = 1, os_p = 1, t_sb = 6, filter = 1)
@@ -37,7 +27,7 @@ This method sets the operating mode and the sampling parameters of the module.
 
 * `mode`: Control the operating mode. Sleep mode is entered by default after power on reset. In sleep mode, no measurement are performed and all registers are accessible. In normal mode the sensor cycles between an active measurement period and an inactive standby period. In forced mode a single measurement is perfomed in accordance to the selected measurement and filter options, after which the sensor enter in sleep mode.
 
-       ======== =====================
+======== =====================
         mode        Operating mode
        ======== =====================
         0         Sleep Mode
@@ -135,5 +125,14 @@ get_chip_id()
 ```
 Return the device chip id as a single byte integer.
 
-        
+### Example:
+Sensor's calibration data are automatically read on object creation and setup method is called with default parameters. Temperature, humidity and pressure values can be easily obtained from the sensor:
+```python
+from bosch.bme280 import bme280
+
+...
+
+bme = bme280.BME280(I2C0)
+temp, hum, pres = bme.get_values()
+```
        
