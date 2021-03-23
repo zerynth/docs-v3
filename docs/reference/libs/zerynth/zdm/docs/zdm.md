@@ -74,7 +74,8 @@ Again, the configuration is very simple:
 ```python
 
 def on_open_conditions(agent, conditions):
-    pass
+    for condition in conditions:
+        condition.close()
 
 agent = zdm.Agent(conditions=["batter_low"], on_conditions=on_open_conditions)
 agent.start()
@@ -85,7 +86,26 @@ Notice that similarly to jobs, the `on_conditions` parameter accepts functions t
 
 ## Firmware updates
 
-The `Agent` is capable of accepting a FOTA update request and changing the current firmware with a new one. 
+The `Agent` is capable of accepting a FOTA update request and changing the current firmware with a new one. The FOTA process can be customized by adding checks at different steps. The customization point are:
+- version check: the firmware can check the new version and decide if the FOTA should proceed or not. For example, a policy that prevents switching to a version older than the current can be easily implemented with this check.
+- new firmware acceptance: the new firmware must be accepted as valid to be run at the next reboot. This is a very critical step since accepting a bad firmware could make the device incapable of performing further updated. By default a new firmware is accepted when it is capable of reconnecting to the ZDM, receiving a job request and confirming it. In some use cases these checks can be not enough and some custom logic may be need. For example a diagnostic function can be run to check that the new firmware is still capable of reading all the sensors and controlling the actuators
+
+Configuring the `Agent` for customized FOTA is easy:
+
+```python
+def fota_checks(agent, step, arg):
+    if step=="check_version":
+        # don't care about version, any version is ok
+        return False
+    elif step=="accept":
+        # do not accept any firmware
+        return "sorry, firmware not accepted"
+
+
+agent = zdm.Agent(on_fota=fota_checks)
+
+```
+In the snippet above, a function is provided to the `on_fota` parameter. This function will be called multiple times at different steps in the FOTA process. When `fota_checks` returns *None* or something *False* the step is considered valid, whereas when a non truthy value is returned the step is canceled and the return valued is sent to the cloud as the reason for the FOTA failure.
 
 ##### class Config
 
