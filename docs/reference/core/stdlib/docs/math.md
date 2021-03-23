@@ -1,4 +1,8 @@
-# Math
+---
+layout: blog
+title: Math
+---
+## Math
 
 This module implements various mathematical functions.
 
@@ -8,126 +12,138 @@ No exceptions are raised: in case of error, the return value can be infinite or 
 
 The following constants are defined:
 
+* `pi` = 3.14159265
+* `e`  = 2.71828182
 
-* `pi` 3.14159265
 
+### function `tan`
+```python
+tan(x)
+```
 
-* `e`  2.71828182
+Return the tangent of *x* radians.
 
-###### tan
+### function `cos`
+```python
+cos(x)
+```
 
-```#!py3 tan(x)```
+Return the cosine of *x* radians.
 
-Return the tangent of ```x``` radians.
+### function `sin`
+```python
+sin(x)
+```
 
-###### cos
+Return the sine of *x* radians.
 
-```#!py3 cos(x)```
+### function `atan2`
+```python
+atan2(y, x)
+```
 
-Return the cosine of ```x``` radians.
-
-###### sin
-
-```#!py3 sin(x)```
-
-Return the sine of ```x``` radians.
-
-###### atan2
-
-```#!py3 atan2(y, x)```
-
-Return `atan(y / x)`, in radians. The result is between `-pi` and `pi`.
-The vector in the plane from the origin to point `(x, y)` makes this angle
-with the positive X axis. The point of `atan2()` is that the signs of both
+Return ``atan(y / x)``, in radians. The result is between ``-pi`` and ``pi``.
+The vector in the plane from the origin to point ``(x, y)`` makes this angle
+with the positive X axis. The point of :func:`atan2` is that the signs of both
 inputs are known to it, so it can compute the correct quadrant for the angle.
-For example, `atan(1)` and `atan2(1, 1)` are both `pi/4`, but `atan2(-1,
--1)` is `-3\*pi/4`.
+For example, ``atan(1)`` and ``atan2(1, 1)`` are both ``pi/4``, but ``atan2(-1,
+-1)`` is ``-3*pi/4``.
 
-###### atan
+### function `atan`
+```python
+atan(x)
+```
 
-```#!py3 atan(x)```
+Return the arc tangent of *x*, in radians.
 
-Return the arc tangent of ```x```, in radians.
+### function `acos`
+```python
+acos(x)
+```
 
-###### acos
+Return the arc cosine of *x*, in radians.
 
-```#!py3 acos(x)```
+### function `asin`
+```python
+asin(x)
+```
 
-Return the arc cosine of ```x```, in radians.
+Return the arc sine of *x*, in radians.
 
-###### asin
+### function `degress`
+```python
+degress(rad)
+```
 
-```#!py3 asin(x)```
+Converts *rad* from radians to degrees.
 
-Return the arc sine of ```x```, in radians.
+### function `radians`
+```python
+radians(degree)
+```
 
-###### degress
+Converts *degree* from degrees to radians.
 
-```#!py3 degress(rad)```
+### function `exp`
+```python
+exp(x)
+```
 
-Converts ```rad``` from radians to degrees.
+Return ``e**x``.
 
-###### radians
+### function `log`
+```python
+log(x[, base])
+```
 
-```#!py3 radians(degree)```
+With one argument or with *base* non positive, return the natural logarithm of *x* (to base *e*).
 
-Converts ```degree``` from degrees to radians.
+With two arguments, return the logarithm of *x* to the given *base*,
+calculated as ``log(x)/log(base)``.
 
-###### exp
+### function `pow`
+```python
+pow(x, y)
+```
 
-```#!py3 exp(x)```
+Return ``x`` raised to the power ``y``.
 
-Return `e\*\*x`.
+Unlike the built-in ``**`` operator, :func:`math.pow` converts both
+its arguments to type :class:`float`.  Use ``**`` or the built-in
+:func:`pow` function for computing exact integer powers.
 
-###### log
+### function `sqrt`
+```python
+sqrt(x)
+```
 
-```#!py3 log(x, )```
+Return the square root of *x*.
 
-With one argument or with ```base``` non positive, return the natural logarithm of ```x``` (to base ```e```).
+### function `isnan`
+```python
+isnan(x)
+```
 
-With two arguments, return the logarithm of ```x``` to the given ```base```,
-calculated as `log(x)/log(base)`.
+Return ``True`` if *x* is a NaN (not a number), and ``False`` otherwise.
 
-###### pow
+### function `isinf`
+```python
+isinf(x)
+```
 
-```#!py3 pow(x, y)```
+Return ``True`` if *x* is a positive or negative infinity, and
+``False`` otherwise.
 
-Return `x` raised to the power `y`.
+### function `floor`
+```python
+floor(x)
+```
 
-Unlike the built-in `\*\*` operator, `math.pow()` converts both
-its arguments to type `float()`.  Use `\*\*` or the built-in
-`pow()` function for computing exact integer powers.
+Return the floor of *x*, the largest integer less than or equal to *x*.
 
-###### sqrt
+### function `ceil`
+```python
+ceil(x)
+```
 
-```#!py3 sqrt(x)```
-
-Return the square root of ```x```.
-
-###### isnan
-
-```#!py3 isnan(x)```
-
-Return `True` if ```x``` is a NaN (not a number), and `False` otherwise.
-
-###### isinf
-
-```#!py3 isinf(x)```
-
-Return `True` if ```x``` is a positive or negative infinity, and
-`False` otherwise.
-
-###### floor
-
-```#!py3 floor(x)```
-
-Return the floor of ```x```, the largest integer less than or equal to ```x```.
-
-###### ceil
-
-```#!py3 ceil(x)```
-
-Return the ceiling of ```x```, the smallest integer greater than or equal to ```x```.
-<!--stackedit_data:
-eyJoaXN0b3J5IjpbMjEzODgzNjM3LC00OTg3MDIxOV19
--->
+Return the ceiling of *x*, the smallest integer greater than or equal to *x*.

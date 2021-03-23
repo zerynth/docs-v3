@@ -1,24 +1,46 @@
+---
+layout: blog
+title: Sunrise and sunset time
+---
 # Sunrise and sunset time
 
-Approximated calculation of sunrise and sunset time. Adapted from  [https://github.com/SatAgro/suntime](https://github.com/SatAgro/suntime).
+Approximated calculation of sunrise and sunset time. Adapted from
+<https://github.com/SatAgro/suntime>.
 
 ## Class methods
 
-_class_`Sun`(_latitude_,  _longitude_)
+### class `Sun`
 
-Arguments  _latitude_  and  _longitude_  are floats representing the coordinates of a place on Earth.
+```python
+Sun(latitude, longitude)
+```
 
-`get_sunrise_time`(_year_,  _month_,  _day_)
+   Arguments `latitude` and `longitude` are floats representing the
+   coordinates of a place on Earth.
 
-Calculate the sunrise time for the given date. It returns a tuple of integers  `(hour,  minute)`  in UTC time or  `None`  if sun doesn’t raise on that location at the given date.
+### method `get_sunrise_time`
 
-`get_sunset_time`(_year_,  _month_,  _day_)
+```python
+get_sunrise_time(year, month, day)
+```
 
-Calculate the sunset time for the given date. It returns a tuple of integers  `(hour,  minute)`  in UTC time or  `None`  if sun doesn’t set on that location at the given date.
+   Calculate the sunrise time for the given date. It returns a tuple of
+   integers `(hour, minute)` in UTC time or `None` if sun doesn't
+   raise on that location at the given date.
+
+### method `get_sunset_time`
+
+```python
+get_sunset_time(year, month, day)
+```
+
+   Calculate the sunset time for the given date. It returns a tuple of
+   integers `(hour, minute)` in UTC time or `None` if sun doesn't
+   set on that location at the given date.
 
 ## Examples of usage
 
-This example calculates sunrise and sunset of three major cities:
+This example calculates sunrise and sunset of three major cities::
 
 ```python
 import suntime
@@ -45,7 +67,8 @@ ss3 = CapeTown.get_sunset_time (*dt3) # (17, 57)
 print('Cape Town:', sr3, ss3)
 ```
 
-If  [`datetime`](/latest/reference/core/stdlib/docs/date-time/#date-and-time "datetime")  module is available, results above can be expressed in local time:
+If :mod:`datetime` module is available, results above can be expressed
+in local time::
 
 ```python
 import datetime as datetimelib
@@ -80,6 +103,3 @@ st3 = datetime(*dt3, *ss3, tzinfo=utc).astimezone(tz3) # 2016-12-21 19:57:00+02:
 print('>', rt3)
 print('>', st3)
 ```
-<!--stackedit_data:
-eyJoaXN0b3J5IjpbMTYxMTkwMjY4MV19
--->

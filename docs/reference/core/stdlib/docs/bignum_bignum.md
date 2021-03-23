@@ -1,24 +1,30 @@
-# Bignum
+---
+layout: blog
+title: Bignum
+---
+## Bignum
 
 This module provides function and classes to operate on arbitrary precision integers.
-It is based on the very perfomant library [TomMath](https://github.com/libtom/libtommath) slightly
+It is based on the very high performance library [TomMath](https://github.com/libtom/libtommath) slightly
 modified to be compatible with Zerynth memory manager.
+
 
 ## The Bignum class
 
-
-
-`BigNum(val=0)`
+### class `BigNum`
+```python
+BigNum(val=0)
+```
 
 This class represents a big integer number with arbitrary precision. A big number instance can be initialized with
-a value ```val```. ```val``` can be a standard integer or a string representing the number. The string is accepted if it is in base 16
-prefixed with  ‘0x’ or in base 10. Signed number are accepted. At the moment, bytearray or bytes representation are not supported.
+a value *val*. *val* can be a standard integer or a string representing the number. The string is accepted if it is in base 16
+prefixed with  '0x' or in base 10. Signed number are accepted. At the moment, bytearray or bytes representation are not supported.
 
 BigNum instances are compatible with streams and, if printed, are automatically converted to the base 10 string format.
 
-BigNum instances are easy to use:
+BigNum instances are easy to use: ::
 
-``` python
+```python
 from bignum import bignum as bg
 import streams
 
@@ -33,102 +39,128 @@ while True:
     sleep(1000)
 ```
 
-###### add
+### method `add`
+```python
+add(b)
+```
 
-```#!py3 add(b)```
+Return a new big number instance equal to the addition of the current instance and *b*.
 
-Return a new big number instance equal to the addition of the current instance and ```b```.
+### method `iadd`
+```python
+iadd(b)
+```
 
-###### iadd
+Add to the current instance the big number *b*. Return :samp:`None`
 
-```#!py3 iadd(b)```
+### method `sub`
+```python
+sub(b)
+```
 
-Add to the current instance the big number ```b```. Return `None`
+Return a new big number instance equal to the difference of the current instance and *b*.
 
-###### sub
+### method `isub`
+```python
+isub(b)
+```
 
-```#!py3 sub(b)```
+Subtracts to the current instance the big number *b*. Return :samp:`None`
 
-Return a new big number instance equal to the difference of the current instance and ```b```.
+### method `mul`
+```python
+mul(b)
+```
 
-###### isub
+Return a new big number instance equal to the multiplication of the current instance and *b*.
 
-```#!py3 isub(b)```
+### method `imul`
+```python
+imul(,b)
+```
 
-Subtracts to the current instance the big number ```b```. Return `None`
+Multiply the current instance for the big number *b*. Return :samp:`None`
 
-###### mul
+### method `div`
+```python
+div(b)
+```
 
-```#!py3 mul(b)```
+Return a new big number instance equal to the division of the current instance by *b*.
 
-Return a new big number instance equal to the multiplication of the current instance and ```b```.
+### method `idiv`
+```python
+idiv(b)
+```
 
-###### imul
+Divides the current instance for the big number *b*. Return :samp:`None`
 
-```#!py3 imul(b)```
+### method `mod`
+```python
+mod(b)
+```
 
-Multiply the current instance for the big number ```b```. Return `None`
+Return a new big number instance equal to the remainder of the division of the current instance by *b*.
 
-###### div
+### method `imod`
+```python
+imod(b)
+```
 
-```#!py3 div(b)```
+Set the current instance to the remainder of the division by *b*. Return :samp:`None`
 
-Return a new big number instance equal to the division of the current instance by ```b```.
+### method `divmod`
+```python
+divmod(b)
+```
 
-###### idiv
+Return a tuple (q,r) of new big number instances representing the quotient *q* and the remainder *r* of the division of the current instance by *b*.
 
-```#!py3 idiv(b)```
+### method `eq`
+```python
+eq(b)
+```
 
-Divides the current instance for the big number ```b```. Return `None`
+Return True if the current instance is equal to the big number *b*, False otherwise.
 
-###### mod
+### method `lt`
+```python
+lt(b)
+```
 
-```#!py3 mod(b)```
+Return True if the current instance is less than the big number *b*, False otherwise.
 
-Return a new big number instance equal to the remainder of the division of the current instance by ```b```.
+### method `gt`
+```python
+gt(b)
+```
 
-###### imod
+Return True if the current instance is greater than the big number *b*, False otherwise.
 
-```#!py3 imod(b)```
+### method `lte`
+```python
+lte(b)
+```
 
-Set the current instance to the remainder of the division by ```b```. Return `None`
+Return True if the current instance is less than or equal to the big number *b*, False otherwise.
 
-###### divmod
+### method `gte`
+```python
+gte(b)
+```
 
-```#!py3 divmod(b)```
+Return True if the current instance is greater than or equal to the big number *b*, False otherwise.
 
-Return a tuple (q,r) of new big number instances representing the quotient ```q``` and the remainder ```r``` of the division of the current instance by ```b```.
-
-..method:: eq(b)
-
-Return True if the current instance is equal to the big number ```b```, False otherwise.
-
-..method:: lt(b)
-
-Return True if the current instance is less than the big number ```b```, False otherwise.
-
-..method:: gt(b)
-
-Return True if the current instance is greater than the big number ```b```, False otherwise.
-
-..method:: lte(b)
-
-Return True if the current instance is less than or equal to the big number ```b```, False otherwise.
-
-..method:: gte(b)
-
-Return True if the current instance is greater than or equal to the big number ```b```, False otherwise.
-
-..method:: sign()
+### method `sign`
+```python
+sign()
+```
 
 Return 1 if the current instance is a positive number, -1 if the current instance is a negative number, 0 if it is equal to zero.
 
-###### to_base
+### method `to_base`
+```python
+to_base(base)
+```
 
-```#!py3 to_base(base)```
-
-Return a string representation of the big number in base ```base```. Allowed values for ```base``` are in the range 2..64.
-<!--stackedit_data:
-eyJoaXN0b3J5IjpbMTU0MjM0NjQ0NSwyNDk4MDI4ODcsNjg0Mj
-YyMTEyLC0yMDc4NDUzODU5LDY4NDI2MjExMl19
--->
+Return a string representation of the big number in base *base*. Allowed values for *base* are in the range 2..64.
