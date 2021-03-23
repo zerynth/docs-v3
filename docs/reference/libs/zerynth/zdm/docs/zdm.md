@@ -108,8 +108,9 @@ agent = zdm.Agent(on_fota=fota_checks)
 In the snippet above, a function is provided to the `on_fota` parameter. This function will be called multiple times at different steps in the FOTA process. When `fota_checks` returns *None* or something *False* the step is considered valid, whereas when a non truthy value is returned the step is canceled and the return valued is sent to the cloud as the reason for the FOTA failure.
 
 
-### class Agent
+## ZDM Agent
 
+### class Agent
 ```python 
 class Agent(cfg=None, jobs=None, conditions=[], on_conditions=None, set_clock_every=300, on_fota=None, host="zmqtt.zdm.zerynth.com")
 ```
@@ -118,28 +119,39 @@ Create an `Agent` instance. The `Agent` class accepts various parameters:
 * `cfg` is an instance of the `Config` class detailing the transport connection parameters. It is set to *None* by default using standard parameters.
 * `jobs` is a dictionary that defines the ZDM jobs the agent can handle. The keys of the dictionary are strings representing the name of the jobs and the values are functions that are called each time a job is triggered. When set to *None* the only jobs that can be triggered are `reset` and `fota`.
 * `conditions` is a list of strings defining the condition's names used by the device.
-* `on_conditions`, is a callback function called when there are open conditions left from previous executions of the firmware.
-* ```on_open_conditions```, is a callback function that is called when the list of open conditions is received (default None).
-* ```fota_callback```, is a function accepting one ore more arguments that will be called at different steps of the FOTA process.
-* ```time_function```, is a synchronous function that returns the time. Default is retrieving the time through a ntp server.
+* `on_conditions` is a callback function called when there are open conditions left from previous executions of the firmware.
+* `set_clock_every` is the number of seconds after which re-synchronizing the real time clock. If set to zero or negative, clock synchronization is disabled and is up to the firmware to find alternative ways of setting the current time (i.e. by ntp protocol)
+* `on_fota` is a function accepting one ore more arguments that will be called at different steps of the FOTA process to validate or refuse the step.
+* `host` is the hostname of the ZDM broker, do not change.
 
-###### Device.connect()
+### method `start`
 
-```#!py3 connect()```
+```python 
+start(wait_working=10)
+```
 
-Connect to the ZDM with the parameters and credentials specified in the constructor.
+Start the `Agent`. Since the connection time can be considerable depending on the network status, the method returns either upon successful connection or after a certain amount of time whatever comes first. The amount of time to wait for a working agent can be set in seconds with the `wait_working` parameter.
 
-Upon successful connection, subscribe to the required ZDM topics for jobs.
-
-Upon successful subscription, request current device status from the ZDM.
-
-Return the result code of MQTT connection (0 for ok).
  
-###### Device.connected()
+### method `online`
 
-```#!py3 connected()```
+```python
+online()
+```
 
-Returns ```True``` if the device is connected to the ZDM, ```False``` otherwise.
+Return *True* if the following conditions are all satisfied:
+- the `Agent` is started
+- the MQTT connection has been established
+- the MQTT client has subscribed to all required topics
+- the `Agent` has received the current time
+
+### method `connected`
+
+```python
+connected()
+```
+
+Return *True* if the following conditions are all satisfied the MQTT connection has been established and the MQTT client has subscribed to all required topics.
 
 ###### Device.new_condition
 
