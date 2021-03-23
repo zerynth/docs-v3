@@ -117,6 +117,70 @@ Sets the calibration values of the BNO055 main components.
          are respectively lsb and msb of accelerometer offset in x axis). 
 
 
+### method get_acc
+```python
+get_acc()
+```
+Retrieves the current absolute acceleration as a list of X, Y, Z values in m/s²
+
+Returns `[acc_x, acc_y, acc_z]`
+
+### method get_gyro
+```python
+get_gyro()
+```
+Retrieves the current gyroscope data reading as a list of X, Y, Z values in degrees per second 
+
+Returns `[gyro_x, gyro_y, gyro_z]`
+
+### method get_magn
+```python
+get_magn()
+```
+Retrieves the current magnetometer reading as a list of X, Y, Z values in micro-Teslas.
+Returns `[value_magn_x, value_magn_y, value_magn_z]`
+
+### method get_euler
+```python
+get_euler()
+```
+Retrieves the current orientation as a list of heading, roll, and pitch euler angles in degrees.
+
+Returns `[abs_or_h, abs_or_r, abs_or_p]`
+
+### method get_lin_acc
+```python
+get_lin_acc()
+```
+Retrieves the current linear acceleration (acceleration from movement,
+not from gravity) as a list of X, Y, Z values in m/s²
+
+Returns `[lin_acc_x, lin_acc_y, lin_acc_z]`
+
+### method get_grav
+```python
+get_grav()
+```
+Retrieves the current gravity acceleration as a list of X, Y, Z values in m/s²
+
+Returns `[grav_x, grav_y, grav_z]`
+
+### method get_quaternion
+```python
+get_quaternion()
+```
+Retrieves the current orientation as a list of X, Y, Z, W quaternion values.
+
+Returns `[w, x, y, z]`
+
+### method get_temp
+```python
+get_temp()
+```
+Retrieves the current temperature in Celtius.
+
+Returns `temp`
+
 
 
 
