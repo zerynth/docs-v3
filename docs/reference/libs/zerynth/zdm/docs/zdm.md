@@ -224,80 +224,109 @@ class Condition(agent, uuid, tag)
 ```
 
 Creates a Condition on a tag.
-This class is never instantiated
+This class is never instantiated directly. Use `Agent.new_condition` to create one.
 
-###### Condition.open
+### method `open`
 
-```#!py3 open(payload, finish)```
+```python 
+open(payload={}, start=None)
+```
 
 Open a condition.
 
-* ```payload``` is a dictionary containing custom data to associated with the open operation.
-* ```start``` is a time (RFC3339) used to set the opening time. If None is automatically set with the current time.
+* `payload` is a dictionary containing custom data associated to the opening timestamp
+* `start` is a timestamp used to set the opening time. If *None*, `start` is automatically set to the current time.
 
-###### Condition.close
+### method `close`
 
-```#!py3 close(payload, finish)```
+```python 
+close(payload={}, finish=None)
+```
 
 Close a condition.
 
-* ```payload``` is a dictionary containing custom data to associated with the close operation.
-* ```finish``` is a time (RFC3339) used to set the closing time. If None is automatically set with the current time.
+* `payload` is a dictionary containing custom data associated with the closing timestamp.
+* `finish` is a timestamp used to set the closing time. If *None*, `finish` is automatically set to the current time.
 
-###### Condition.reset
+### method `reset`
 
-```#!py3 reset()```
+```python 
+reset()
+```
+Reset the condition instance in order to reuse it without creating a new one.
+The method generates a new id for the condition, and reset all the others fields except the tag.
 
-Reset the condition by generating a new id.
 
-###### Condition.is_open
+### method `is_open`
 
-```#!py3 is_open()```
+```python
+is_open()
+```
 
-Return True if the condition is open. False otherwise.
+Return *True* if the condition is open. *False* otherwise.
 
-###### Condition.get_payload_open
+### method `get_payload_open`
 
-```#!py3 get_payload_open()```
+```python
+get_payload_open()
+```
 
-Return the payload of the condition when it was opened.
+Return the payload associated with opening timestamp.
 
-###### Condition.get_payload_close
+### method `get_payload_close`
 
-```#!py3 get_payload_close()```
+```python
+get_payload_close()
+```
 
-Return the payload of the condition when it was closed.
+Return the payload associated with closing timestamp.
 
-###### Condition.get_id
+### method `get_id`
 
-```#!py3 get_id()```
+```python
+get_id()
+```
 
 Return the condition unique identifier.
 
-###### Condition.get_finish
+### method `get_finish`
 
-```#!py3 get_finish()```
+```python
+get_finish()
+```
 
-Return the closing time.
+Return the closing timestamp
 
-###### Condition.get_start
+### method `get_start`
 
-```#!py3 get_start()```
+```python
+get_start()
+```
 
-Return the opening time.
+Return the opening timestamp
 
 
-##### class Config
+## Agent configuration
 
-```#!py3 class Config(keepalive=60,cycle_timeout=500,command_timeout=60000,clean_session=True,qos_publish=0,qos_subscribe=1)```
+### class `Config`
 
+```python
+Config(
+       keepalive=60,
+       reconnect_after=5000,
+       network_timeout=60000,
+       clean_session=True,
+       qos_publish=1,
+       qos_subscribe=1)
+```
 Creates a Config instance that set parameters for the connection to the MQTT broker.
+
 In particular, the following parameters are available:
 
-* ```keepalive``` the MQTT keep alive timeout, in seconds
-* ```cycle_timeout``` how long to block on the socket waiting for broker input, in milliseconds
-* ```command_timeout```, how long to wait for a connect/disconnect command to finish, in milliseconds
-* ```clean_session```, use MQTT clean session flag
-* ```qos_publish```, the quality of service when publishing to the MQTT broker
-* ```qos_subscribe```, the quality of service when subscribing to the MQTT broker
+* `keepalive` is the MQTT keepalive timeout, in seconds
+* `reconnect_after` is the time after which retrying to connect upon error, in milliseconds.
+* ```network_timeout``` is the timeout in milliseconds for network operations like the TCP connect. If no answer is received after the timeout, the operation is aborted.
+* `clean_session` is the MQTT clean session flag
+* `qos_publish`  is the quality of service when publishing to the MQTT broker
+* `qos_subscribe` isthe quality of service when subscribing to the MQTT broker
 
