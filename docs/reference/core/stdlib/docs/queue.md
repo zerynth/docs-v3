@@ -1,68 +1,88 @@
-# Queue
+---
+layout: blog
+title: Queue
+---
+## Queue
 
 The queue module implements multi-producer, multi-consumer queues. It is especially useful in threaded programming when information must be exchanged safely between multiple threads. The Queue class in this module implements all the required locking semantics.
 
-## Queue class
 
-##### class Queue
+### Queue class
 
-```#!py3 class Queue(maxsize=0)```
 
-Constructor for a FIFO queue.  ```maxsize``` is an integer that sets the upperbound
+### class `Queue`
+```python
+Queue(maxsize=0)
+```
+
+Constructor for a FIFO queue.  *maxsize* is an integer that sets the upperbound
 limit on the number of items that can be placed in the queue.  Insertion will
 block once this size has been reached, until queue items are consumed.  If
-```maxsize``` is less than or equal to zero, the queue size is infinite.
+*maxsize* is less than or equal to zero, the queue size is infinite.
 
-###### Queue.qsize
 
-```#!py3 qsize()```
+### method `qsize`
+```python
+qsize()
+```
 
-Return the approximate size of the queue.  Note, qsize() > 0 doesn’t
+Return the approximate size of the queue.  Note, qsize() > 0 doesn't
 guarantee that a subsequent get() will not block, nor will qsize() < maxsize
 guarantee that put() will not block.
 
-###### Queue.full
 
-```#!py3 full()```
+### method `full`
+```python
+full()
+```
 
-Return `True` if the queue is full, `False` otherwise.  If full()
-returns `True` it doesn’t guarantee that a subsequent call to get()
-will not block.  Similarly, if full() returns `False` it doesn’t
+Return ``True`` if the queue is full, ``False`` otherwise.  If full()
+returns ``True`` it doesn't guarantee that a subsequent call to get()
+will not block.  Similarly, if full() returns ``False`` it doesn't
 guarantee that a subsequent call to put() will not block.
 
-###### Queue.empty
 
-```#!py3 empty()```
+### method `empty`
+```python
+empty()
+```
 
-Return `True` if the queue is empty, `False` otherwise.  If empty()
-returns `True` it doesn’t guarantee that a subsequent call to put()
-will not block.  Similarly, if empty() returns `False` it doesn’t
-guarantee that a subsequent call to get() will not block.
+Return ``True`` if the queue is empty, ``False`` otherwise.  If empty()
+returns ``True`` it doesn't guarantee that a subsequent call to put()
+will not block.  Similarly, if `empty()` returns ``False`` it doesn't
+guarantee that a subsequent call to `get()` will not block.
 
-###### Queue.put
 
-```#!py3 put(obj, block=True, timeout=-1)```
+### method `put`
+```python
+put(obj, block=True, timeout=-1)
+```
 
-Insert ```obj``` into the queue. If the queue is full, and ```block``` is True, block until a free slot becomes available. If ```block``` is False, raise QueueFull.
-If ```timeout``` is greater than zero, waits for the specified amount of milliseconds before raising QueueFull exception.
+Insert `obj` into the queue. If the queue is full, and `block` is True, block until a free slot becomes available. If `block` is False, raise QueueFull.
+If `timeout` is greater than zero, waits for the specified amount of milliseconds before raising QueueFull exception.
 
-###### Queue.get
 
-```#!py3 get()```
+### method `get`
+```python
+get(timeout=-1)
+```
 
-Remove and return an object out of the queue. If the queue is empty, block until an item is available.
+`timeout`: set this argument different from -1 to make the `Queue.get()` unblocking (default `timeout=-1` means get blocking)
 
-###### Queue.peek
+Remove and return an object out of the queue. If the queue is empty, block until an item is available or timeout occurred.
 
-```#!py3 peek()```
+
+### method `peek`
+```python
+peek()
+```
 
 Return the object at the head of the queue without removing it. If the queue is empty, wait until an item is available.
 
-###### Queue.clear
 
-```#!py3 clear()```
+### method `clear`
+```python
+clear()
+```
 
 Clear the queue by removing all elements.
-<!--stackedit_data:
-eyJoaXN0b3J5IjpbLTg2MzYzOTI3OSw2MTE0MDI3MDVdfQ==
--->

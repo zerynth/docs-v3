@@ -123,6 +123,7 @@ nav:
             - reference/core/stdlib/docs/requests.md
             - reference/core/stdlib/docs/urlparse.md
             - reference/core/stdlib/docs/ntpclient.md
+            - reference/core/stdlib/docs/Generic-net.md
           - Connectivity: 
             - reference/core/stdlib/docs/eth.md
             - reference/core/stdlib/docs/wireless_wifi.md

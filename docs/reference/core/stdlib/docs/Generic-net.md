@@ -1,6 +1,6 @@
 ---
 layout: blog
-title: Networking Library - net
+title: Generic network
 ---
 ## Generic network
   

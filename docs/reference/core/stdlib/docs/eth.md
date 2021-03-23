@@ -1,105 +1,94 @@
-# Ethernet
+---
+layout: blog
+title: Ethernet
+---
+## Ethernet
 
 This module implements a generic ethernet interface.
-To function correctly it needs an ethernet driver to be loaded, so that the module can use
+To function correctly it needs a ethernet driver to be loaded, so that the module can use
 the driver to access the underlying hardware.
 
-The link between the eth module and the ethernet driver is established without the programmer
-intervention by the driver itself.
+The link between the net module and the ethernet driver is
+established without the programmer
+intervetion by the driver itself.
 
-###### gethostbyname
+## Exceptions
 
-```#!py3 gethostbyname(hostname)```
+### exception `CantRegisterInterfaceError`
+The ethernet interface cannot be registered.
 
-Translate a host name to IPv4 address format. The IPv4 address is returned as a string, such as “192.168.0.5”.
+### exception `ConnectionError`
+A connection error occurred during ethernet interface configuration.
 
-###### select
+### exception `ConnectionTimeoutError`
+The connection attempt has timed out.
 
-```#!py3 select(rlist, wlist, xlist, timeout=None)```
+### exception `ResolveError`
+Host cannot be resolved to its IP address.
 
-This is equivalent to the Unix ```select``` system call.
-The first three arguments are sequences of socket instances.
+### exception `NetworkGenericError`
+Generic error occurred
 
+## Functions
 
-* ```rlist```: wait until ready for reading
+### function `configure`
+```python
+configure(dhcp=True, ip="", mask="", gateway="", dns="8.8.8.8")
+```
+Configures the ethernet interface with given arguments. If `dhcp` is *True* (the default) other arguments are ignored.
+When `dhcp` is *False*, the other arguments are:
+* `ip`: is the IP address.
+* `mask`: the net mask expressed as A.B.C.D dotted address.
+* `gateway`: the gateway to be used as default router.
+* `dns`: the Domain Name Server to be used for name resolution. Default is "8.8.8.8", the Google DNS.  
 
+### function `start`
+```python
+start()
+```
+The function starts the interface by initiating the DHCP configuration and other IP setups (routing, DNS, etc.).
+The DHCP or static IP parameters are used depending upon the arguments passed to the `configure()` function.
 
-* ```wlist```: wait until ready for writing
+### function `stop`
+```python
+stop()
+```
+The interface is stopped, all connections dropped, and all socket closed related to ethernet interface. This is like `disconnect()` but performed only if the interface was previously connected.
 
+### function `disconnect`
+```python
+disconnect()
+```
+The interface is stopped, all connections dropped, and all socket closed related to ethernet interface.
 
-* ```xlist```: wait for an “exceptional condition” (not supported by every wifi driver)
+### function `down`
+```python
+down()
+```
+The ethernet interface is shut down by releasing all resources and low level drivers associated with it.
 
-Empty sequences are allowed. The optional ```timeout``` argument specifies a time-out as an integer number
-in milliseconds.  When the ```timeout``` argument is omitted the function blocks until
-at least one socket is ready.  A ```timeout``` value of zero specifies a
-poll and never blocks.
+### function `resolve`
+```python
+resolve(host)
+```
+Resolves the symbolic name for the given `host` to its IP address by using the configured DNS server and returning a string with the result.
 
-The return value is a triple of lists of objects that are ready: subsets of the
-first three arguments.  When the time-out is reached without a socket
-becoming ready, three empty lists are returned.
+When the `host` cannot be resolved, the `ResolveError` exception is raised.
 
-###### link
+### function `info`
+```python
+info()
+```
+Returns a tuple with the IP parameters associated to the interface. The tuple is composed by the following elements:
+0. `Bool`: DHCP enabled (*True*) or disabled (*False*)
+1. `String`: IP address
+2. `String`: netmask
+3. `String`: gateway
+4. `String`: DNS
+5. `String`: MAC address
 
-```#!py3 link()```
-
-Activate the Ethernet PHY and try to establish a link.
-
-An exception can be raised if the link is not successful.
-
-###### unlink
-
-```#!py3 unlink()```
-
-Disable the Ethernet PHY and disconnect from the currently linked network.
-
-###### is_linked
-
-```#!py3 is_linked()```
-
-Return True if linked
-
-###### set_link_info
-
-```#!py3 set_link_info(ip, mask, gw, dns)```
-
-Set desired eth interface parameters:
-
-
-* ip, the static ipv4 address
-
-
-* mask, the network mask
-
-
-* gw, the default gateway
-
-
-* dns, the default dns
-
-If 0.0.0.0 is given, a default address will be used.
-
-###### link_info
-
-```#!py3 link_info()```
-
-Return information on the currently established link.
-
-The result is a tuple where the elements are, in order:
-
-
-* The assigned IP as a string
-
-
-* The network mask as a string
-
-
-* The gateway IP as a string
-
-
-* The DNS IP as a string
-
-
-* The MAC address of the eth interface as a sequence of 6 bytes
-<!--stackedit_data:
-eyJoaXN0b3J5IjpbMTk0ODUyMTQsMTE5MjQ5OTY3OF19
--->
+### function `is_connected`
+```python
+is_connected()
+```
+Returns *True* if the interface is connected, *False* otherwise.
