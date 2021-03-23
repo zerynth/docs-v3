@@ -128,7 +128,7 @@ Return the device chip id as a single byte integer.
 ### Example:
 Sensor's calibration data are automatically read on object creation and setup method is called with default parameters. Temperature, humidity and pressure values can be easily obtained from the sensor:
 ```python
-from bosch.bme280 import bme280
+from components.bme280 import bme280
 
 ...
 
