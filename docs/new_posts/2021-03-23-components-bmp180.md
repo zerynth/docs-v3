@@ -58,7 +58,7 @@ get_raw_temp()
 ```
 Retrieves the current temperature data from the sensor as raw value.
 
-Returns raw_t
+Returns `raw_t`
 
 ### method get_raw_pres
 ```python
@@ -66,7 +66,7 @@ get_raw_pres()
 ```
 Retrieves the current pressure data from the sensor as raw value; according to the OverSampling Setting value this measure can be faster but less accurate or more precise but slower. (see :method:`set_over_sampling_setting()`)
 
-Returns raw_p
+Returns `raw_p`
 
 ### method get_temp
 ```python
@@ -74,7 +74,7 @@ get_temp()
 ```
 Retrieves the current temperature data from the sensor as calibrate value in °C.
 
-Returns temp
+Returns `temp`
 
 ### method get_pres
 ```python
@@ -82,7 +82,7 @@ get_pres()
 ```
 Retrieves the current pressure data from the sensor as calibrate value in Pa; according to the OverSampling Setting value this measure can be faster but less accurate or more precise but slower. (see :func:`set_over_sampling_setting()`)
 
-Returns pres
+Returns `pres`
 
 ### method get_temp_pres
 ```python
@@ -90,7 +90,24 @@ get_temp_pres()
 ```
 Retrieves the current temperature (in °C) and pressure (in Pa) data from the sensor as calibrate values in one call.
 
-Returns temp, pres
+Returns `temp`, `pres`
+
+### method get_altitude
+```python
+get_altitude()
+```
+Calculates, from measured pressure, the current altitude data as value in meters.
+
+Returns `altitude`
+
+### method get_sea_level_pres
+```python
+get_sea_level_pres()
+```
+Calculates, from measured pressure, the pressure (in Pa) at sea level when given a known altitude in meters.
+
+Returns `p0` (pressure at sea level)
+
 
 
 
