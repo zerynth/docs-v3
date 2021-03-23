@@ -1,6 +1,6 @@
 ---
 layout: blog
-title: Standard Library - queue
+title: Queue
 ---
 ## Queue
 
