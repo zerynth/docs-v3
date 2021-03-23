@@ -18,6 +18,52 @@ Creates an intance of a new BNO055.
 * `addr`: Slave address, default 0x28.
 * `clk`: Clock speed, default 400kHz.
 
+### method init
+```python
+init(mode=None)
+```
+Initialize the BNO055 setting the mode value.
+
+* `mode`: Mode value selectable from Mode table (see `set_mode`), if None then "ndof" is used.
+
+### method set_mode
+```python
+set_mode(mode)
+```
+Sets the Mode value of the BNO055.
+* `mode`: Mode value.
+
+ **note**:The BNO055 provides a variety of output signals, which can be chosen by selecting the appropriate operation mode. The table below lists the different modes and the available sensor signals.
+
+       ========== ============ ========= ========== ========== ===========
+                Mode           Available Library Functions     
+       ----------------------- -------------------------------------------
+       Value      Name         get_acc() get_magn() get_gyro() get_euler()
+       ========== ============ ========= ========== ========== ===========
+       acc        ACCONLY      Yes       No         No         No  
+       magn       MAGONLY      No        Yes        No         No  
+       gyro       GYROONLY     No        No         Yes        No 
+       accmag     ACCMAG       Yes       Yes        No         No 
+       accgyro    ACCGYRO      Yes       No         Yes        No 
+       maggyro    MAGGYRO      No        Yes        Yes        No 
+       amg        AMG          No        Yes        Yes        No 
+       imu        IMU          Yes       No         Yes        Yes
+       comp       COMPASS      Yes       Yes        No         Yes
+       m4g        M4G          Yes       Yes        Yes        Yes
+       ndof_off   NDOF_FMC_OFF No        Yes        Yes        Yes
+       ndof       NDOF         Yes       Yes        Yes        Yes
+       ========== ============ ========= ========== ========== ===========
+
+
+
+
+
+
+
+
+
+
+
 ### Example:
 ```python
 
