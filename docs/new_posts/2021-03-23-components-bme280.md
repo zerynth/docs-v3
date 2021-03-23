@@ -46,7 +46,7 @@ This method sets the operating mode and the sampling parameters of the module.
        ======== =====================
         
    **note**
-See pages 12-13 of the datasheet_ for more details on operating mode and allowed sensor mode transitions.
+See pages 12-13 of the _datasheet_ for more details on operating mode and allowed sensor mode transitions.
         
   
 * `os_t`: Oversampling setting for temperature sensor, see *os_p* for details on allowed values.
