@@ -12,29 +12,37 @@ The use case scenario involves multiple sensors generating data points that, ins
 A separate thread can access the log in read-only mode and extract the data points for sending them to the network when the connection is available.
 
 TSLog is robust and resistant to the challenges of IoT: network unavailability, system resets, power loss, etc..
-Those features are achieved by creating periodic snapshots (called commits) of the current log status.
-Commits are of two types:
-    - data commits: are executed periodically by the log itself and they transfer the accumulated data points to the underlying filesystem
-    - reader commits: are executed by the readers and they save the current "cursor" (i.e. the latest data point sequence number) of the reader
+Those features are achieved by the following architecture.
+
+TSLog works by storing fixed length records into containers called `buckets` in non volatile memory. Each record has a monotonically increasing sequence number and when a bucket is full, a new bucket is created for storing the incoming records. Periodically, the buckets are `committed`, i.e. a snapshot is taken of the current status of the log and saved to non volatile memory. If the snapshot succeeds, all the records up to the current sequence number are safely stored and ready to be retrieved.
+
+TSLog provides `readers`, special objects that can read records from buckets. Each reader has its own `cursor`, namely the sequence number of the last record successfully read. Readers can commit their status too, i.e. saving permanently the last value of their cursor.
+
+With this kind of properties, TSLog is a very good solution in case of power loss or absence of connectivity: when the system comes up again, all the readers will restart from the last committed cursor.
 
 
-In case of power loss, when the system comes up again, all the readers will recover from the point they last committed.
-The log will also contain all data up to the last data commit.
-
-When creating a log, the following parameters are needed:
-    - a folder where to store log files
+When creating a log, the following parameters can be tweaked:
+    - a folder for storing log files
     - a record size: the number of bytes a data record is made of
     - a bucket size: the number of records to store in a single log file
-    - a commit delta: the number of stored records after which a data commit is performed
-    - the number of readers: the number of cursors saved in the reader commit
+    - a commit delta: the number of stored records after which the a snapshot of the log is automatically taken
+    - the number of readers: the number of readers that will be used
 
-The log is automatically cleaned from old data when a new bucket is created: all the buckets that have already
-been read by all the readers are deleted.
 
-The above parameters must be choosen correctly in order to avoid the filesystem to fill up.
 
-NOTE: data corruption is prevented by choosing a corruption resistant filesystem. The internal filesystem of the various
+The log is automatically cleaned from old data when a new bucket is created: all the buckets that have already been consumed by all the readers are deleted.
+
+The above parameters must be chosen correctly in order to avoid the filesystem to fill up.
+
+TSLog is also robust to data corruption which is prevented by choosing a corruption resistant filesystem. The internal filesystem of the various
 Zerynth modules is always corruption resistant (i.e. data is either saved correctly or not saved at all).
+
+
+Usage of TSLog is very simple:
+
+```python
+
+```
 
 
 
