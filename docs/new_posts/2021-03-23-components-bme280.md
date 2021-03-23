@@ -4,7 +4,7 @@ title: Components - bme280
 ---
 ## BME280 Component
 
-.. _datasheet: https://ae-bst.resource.bosch.com/media/_tech/media/datasheets/BST-BME280_DS001-11.pdf
+_datasheet_: https://ae-bst.resource.bosch.com/media/_tech/media/datasheets/BST-BME280_DS001-11.pdf
 
 This module contains the Zerynth driver for Bosch BME280 digital environmental sensor. The unit combine high linearity and accuracy sensors for pressure,
 humidity and temperature and is designed for low current consumption, long term sability and high EMC robustness. The BME280 features I2C and SPI digital
