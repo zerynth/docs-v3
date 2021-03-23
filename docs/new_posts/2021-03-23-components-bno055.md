@@ -54,6 +54,67 @@ Sets the Mode value of the BNO055.
        ndof       NDOF         Yes       Yes        Yes        Yes
        ========== ============ ========= ========== ========== ===========
 
+### method get_calibration_status
+```python
+get_calibration_status()
+```
+
+Retrieves the current calibration status of the BNO055 main components:
+
+* System
+* Accelerometer
+* Gyroscope
+* Magnetometer
+
+
+
+     **note** Read: 3 indicates fully calibrated; 0 indicates not calibrated.
+
+Returns `[sys_cal_sts, acc_cal_sts, gyro_cal_sts, magn_cal_sts]`
+
+### method get_calibration
+```python
+get_calibration(raw=False)
+```
+
+Retrieves the calibration values of the BMO055 main components (list of 11 elements).
+* `raw`: if set to True, returns a list of 22 raw bytes.
+
+
+
+
+Returns `[list of calibration values]`
+
+**note**: List of params:
+
+
+ 1) Accelerometer Offset for X, Y, Z axes (values in m/s²) - list elements 0,1,2;
+ 2) Magnetometer Offset for X, Y, Z axes (values in uT) - list elements 3,4,5;
+ 3) Gyroscope Offset for X, Y, Z axes (values in Dps) - list elements 6,7,8;
+ 4) Accelerometer Radius - list element 9;
+ 5) Magnetometer Radius - list element 10.
+
+
+### method set_calibration
+```python
+set_calibration(data, raw=False)
+```
+Sets the calibration values of the BNO055 main components.
+* `data`: List of values (11 elements) representing the sensors offsets and radius. Data list must follow this order:
+
+      1) Accelerometer Offset for X, Y, Z axes (values in m/s²) - list elements 0,1,2;
+      2) Magnetometer Offset for X, Y, Z axes (values in uT) - list elements 3,4,5;
+      3) Gyroscope Offset for X, Y, Z axes (values in Dps) - list elements 6,7,8;
+      4) Accelerometer Radius - list element 9;
+      5) Magnetometer Radius - list element 10. 
+
+* `raw`: If set to True, following rules are required:
+
+      1) data list must have 22 elements;
+      2) each element must be a byte (value 0 to 255);
+      3) data list must be a sequence of [lsb1, msb1, lsb2, msb2, ..., ...];
+      4) data list order is the same described above (elem0 and elem1 of data list
+         are respectively lsb and msb of accelerometer offset in x axis). 
 
 
 
