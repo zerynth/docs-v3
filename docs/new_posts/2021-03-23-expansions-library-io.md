@@ -22,3 +22,24 @@ Both values are integers from 0 to 3.
 summary()
 ```
 Print the IO expansion summary on the console.
+
+## Example
+
+```python
+from expansions import io
+from bsp import board
+import gpio
+import adc 
+
+board.init()
+sel = (1, 0,) 
+io_e = board.next_expansion(io, sel)
+
+gpio.mode(PE1, OUTPUT)
+gpio.high(PE1)
+
+gpio.high(io_e.OUT1)
+gpio.low(io_e.OUT2)
+gpio.high(io_e.OUT3)
+gpio.low(io_e.OUT4)
+```
