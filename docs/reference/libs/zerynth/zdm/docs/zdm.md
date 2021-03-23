@@ -107,20 +107,6 @@ agent = zdm.Agent(on_fota=fota_checks)
 ```
 In the snippet above, a function is provided to the `on_fota` parameter. This function will be called multiple times at different steps in the FOTA process. When `fota_checks` returns *None* or something *False* the step is considered valid, whereas when a non truthy value is returned the step is canceled and the return valued is sent to the cloud as the reason for the FOTA failure.
 
-##### class Config
-
-```#!py3 class Config(keepalive=60,cycle_timeout=500,command_timeout=60000,clean_session=True,qos_publish=0,qos_subscribe=1)```
-
-Creates a Config instance that set parameters for the connection to the MQTT broker.
-In particular, the following parameters are available:
-
-* ```keepalive``` the MQTT keep alive timeout, in seconds
-* ```cycle_timeout``` how long to block on the socket waiting for broker input, in milliseconds
-* ```command_timeout```, how long to wait for a connect/disconnect command to finish, in milliseconds
-* ```clean_session```, use MQTT clean session flag
-* ```qos_publish```, the quality of service when publishing to the MQTT broker
-* ```qos_subscribe```, the quality of service when subscribing to the MQTT broker
-
 
 ### class Agent
 
@@ -132,7 +118,7 @@ Create an `Agent` instance. The `Agent` class accepts various parameters:
 * `cfg` is an instance of the `Config` class detailing the transport connection parameters. It is set to *None* by default using standard parameters.
 * `jobs` is a dictionary that defines the ZDM jobs the agent can handle. The keys of the dictionary are strings representing the name of the jobs and the values are functions that are called each time a job is triggered. When set to *None* the only jobs that can be triggered are `reset` and `fota`.
 * `conditions` is a list of strings defining the condition's names used by the device.
-* ```on_timestamp```, is a callback function called when timestamp is received after requesting current time to the ZDM (default None).
+* `on_conditions`, is a callback function called when there are open conditions left from previous executions of the firmware.
 * ```on_open_conditions```, is a callback function that is called when the list of open conditions is received (default None).
 * ```fota_callback```, is a function accepting one ore more arguments that will be called at different steps of the FOTA process.
 * ```time_function```, is a synchronous function that returns the time. Default is retrieving the time through a ntp server.
@@ -246,4 +232,18 @@ Return the closing time.
 
 Return the opening time.
 
+
+##### class Config
+
+```#!py3 class Config(keepalive=60,cycle_timeout=500,command_timeout=60000,clean_session=True,qos_publish=0,qos_subscribe=1)```
+
+Creates a Config instance that set parameters for the connection to the MQTT broker.
+In particular, the following parameters are available:
+
+* ```keepalive``` the MQTT keep alive timeout, in seconds
+* ```cycle_timeout``` how long to block on the socket waiting for broker input, in milliseconds
+* ```command_timeout```, how long to wait for a connect/disconnect command to finish, in milliseconds
+* ```clean_session```, use MQTT clean session flag
+* ```qos_publish```, the quality of service when publishing to the MQTT broker
+* ```qos_subscribe```, the quality of service when subscribing to the MQTT broker
 
