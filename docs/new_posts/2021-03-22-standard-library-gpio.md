@@ -6,9 +6,89 @@ title: Standard Library - gpio
 
 Generic GPIO module for transparently handling physical pins and pins controlled by port expanders.
 
-**TODO**: Api documentation
+The `gpio` module definef the following constants:
+```
+PE_ADS7128  = 1
+PE_ADS1015  = 2
+PE_PCAL6524 = 3
+PE_SX1503   = 4
+```
+used as names for the Port Expander supported chips.
 
-### Examples
+### function `set`
+```python
+set(pin, value)
+```
+Sets the `pin` gpio to logic value `value`.
+
+`pin` can be either the pin number or the symbolic name defined into `board` module from `bsp` `value` can be `0` or `1`.
+
+### function `get`
+```python
+get(pin)
+```
+Returns the value read on `pin` gpio.
+
+### function `latch`
+```python
+latch(pin)
+```
+Return the latch register value for the `pin` gpio.
+
+### function `toggle`
+```python
+toggle(pin)
+```
+Invert the output value of the `pin` gpio.
+
+### function `mode`
+```python
+mode(pin, mode)
+```
+Configures the `pin` gpio with `mode` mode.
+
+### function `high`
+```python
+high(pin)
+```
+Set the `pin` gipo to logic `1`.
+
+### function `low`
+```python
+low(pin)
+`Set the `pin` gipo to logic `0`.
+``
+
+### function `on_rise`
+```python
+on_rise(pin, fn, debounce=0, pull=INPUT_PULLDOWN)
+```
+Registers the `fn` function as callback on the rising edge on the `pin` gpio. De-bouncing with a delay of `debounce` milliseconds and setting a `pull` pull-up or pull-down resistor.
+
+### function `on_fall`
+```python
+on_fall(pin, fn, debounce=0, pull=INPUT_PULLUP)
+```
+Registers the `fn` function as callback on the falling edge on the `pin` gpio. De-bouncing with a delay of `debounce` milliseconds and setting a `pull` pull-up or pull-down resistor.
+
+### function `on_rise_and_fall`
+```python
+on_rise_and_fall(pin, fn, debounce=0, pull=INPUT_PULLDOWN)
+```
+Registers the `fn` function as callback either on the rising and falling edges on the `pin` gpio. De-bouncing with a delay of `debounce` milliseconds and setting a `pull` pull-up or pull-down resistor.
+
+### function `disable_interrupt`
+```python
+disable_interrupt(pin)
+```
+Disable the interrupt triggered by configured edge(s) for the `pin` gpio. By disabling the interrupt triggering, the callbacks registered on the `pin` will **not** be called.
+
+### function `add_expander`
+```python
+add_expander(petype, startpin, npins, alertpin, address, i2c=I2C0)
+
+
+## Examples
 
 The module can be used without configuration like this:
 ```python
