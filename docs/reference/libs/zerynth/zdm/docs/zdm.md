@@ -151,38 +151,80 @@ Return *True* if the following conditions are all satisfied:
 connected()
 ```
 
-Return *True* if the following conditions are all satisfied the MQTT connection has been established and the MQTT client has subscribed to all required topics.
+Return *True* if the MQTT connection has been established and the MQTT client has subscribed to all required topics.
 
-###### Device.new_condition
 
-```#!py3 new_condition(condition_tag)```
+### method `has_time`
 
-Create and return a new condition.
+```python
+has_time()
+```
 
-* ```condition_tag``` the tag of the new condition. For the condition to be created correctly, the condition tag must be presend in the ```condition_tags``` parameter of the class constructor.
+Return *True* if the `Agent` has received the current time.
 
-###### Device.request_timestamp
 
-```#!py3 request_timestamp()```
+### method `firmware`
 
-Request the timestamp to the ZDM. When the timestamp is received, the callback ```on_timestamp``` is called.
+```python
+firmware()
+```
 
-###### Device.request_open_conditions
+Return the current firmware version. Version strings have a specific format:
+- an optional prefix terminated with a dash
+- the firmware id
+- a colon
+- the firmware id version
 
-```#!py3 request_open_conditions()```
+When a firmware is loaded into a device manually via the toolchain, the version string is set to "Factory". The firmware id is determined by the ZDM when a new firmware is created while the firmware version can be decided by the user that loads the new version. By default, the new version is equal to the previous one incremented by one.
 
-Request all the open conditions of the device not yet closed. 
+When the a new firmware is launched and it has not been validate yet, the version is prefixed with "testing-"
 
-When the open conditions are received, the callback on_open_conditions is called.
+### method `publish`
 
-##### class Condition
+```python
+publish(payload, tag="default")
+```
 
-```#!py3 class Condition(client, tag)```
+Send data contained in `payload` labeling it with `tag`.
+This method calls into the underlying MQTT client that is configured by default with a `qos` of one.
+ 
+
+### method `reset`
+
+```python
+reset()
+```
+
+Reset the device gracefully by disconnecting the MQTT client, closing network interfaces (i.e. deassociating from WiFi access point) and finally resetting the device. It is used mainly during the FOTA process to start the new firmware but it can also be called externally when there is a need for a clean reset.
+
+### method `new_condition`
+
+```python
+new_condition(condition_tag)
+```
+Create and return a new Condition instance.
+
+* `condition_tag` is the tag of the new condition. For the conditions to be created correctly, the condition tag must be present in the `conditions` parameter of the class Agent.
+
+### method `request_conditions`
+
+```python
+request_conditions()
+```
+
+Triggers the request of open conditions. The result is passed to the callback provided to the Agent with the `on_conditions` parameter.
+
+
+## Conditions
+
+### class Condition
+
+```python 
+class Condition(agent, uuid, tag)
+```
 
 Creates a Condition on a tag.
-
-* ```client``` is the object ZDMClient object used to open and close the condition.
-* ```tag``` is the tag associated with the condition.
+This class is never instantiated
 
 ###### Condition.open
 
