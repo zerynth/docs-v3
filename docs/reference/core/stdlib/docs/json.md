@@ -1,23 +1,27 @@
-# JSON
+## JSON
 
 This module define functions to serialize and deserialize objects to and from [JSON](http://json.org) format.
-The deserialization of objects is performed using a wrapped version of the awesome and lighting fast [JSMN library](http://zserge.com/jsmn.html)
+The deserialization of objects is performed using a wrapped version of the awesome and lighting fast [JSMN library](http://zserge.com/jsmn.html).
 
-###### dumps
+### function `loads`
+```pyhton
+loads(data)
+```
 
-```#!py3 dumps(obj)```
+Returns the object represented in JSON format inside the byte sequence `data`.
 
-Returns a bytearray containing the JSON representation of ```obj```.
+Raises ``JSONError`` when `data` contains bad JSON.
 
-Raises `JSONError` when ```obj``` contains non serializable objects.
+### function `dumps`
+```python
+dumps(obj, indent=0)
+```
 
-###### loads
+Returns a JSON representation of the serialized `obj`.
 
-```#!py3 loads(data)```
+### function `dump`
+```python
+dump(fd, obj, indent=0)
+```
 
-Returns the object represented in JSON format inside the byte sequence ```data```.
-
-Raises `JSONError` when ```data``` contains bad JSON.
-<!--stackedit_data:
-eyJoaXN0b3J5IjpbLTk2OTM2MDkyMCwtOTM1ODUyNDBdfQ==
--->
+Save a JSON representation of the serialized `obj` into `fd` file descriptor, indented by `indent` spaces.

@@ -1,7 +1,3 @@
----
-layout: blog
-title: Protocols Library - http
----
 ## HTTP
 
 ### class `HTTP`

@@ -1,6 +1,6 @@
 ---
 layout: blog
-title: Protocols Library - mqtt
+title: MQTT
 ---
 ## MQTT
 

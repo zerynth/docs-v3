@@ -1,24 +1,54 @@
-# MCU
+## MCU
 
 This module enables the access to low level microcontroller functionalities like:
 
-
 * unique identifiers
-
-
 * soft reset
 
-###### reset
 
-```#!py3 reset()```
+### function `reset_registers`
+```python
+reset_registers()
+```
 
-Restart the microcontroller.
+Returns the code related to last board reset reason.
 
-###### uid
 
-```#!py3 uid()```
+### function `reset`
+```python
+reset()
+```
 
-Return a bytes object containing the unique id of the mcu
-<!--stackedit_data:
-eyJoaXN0b3J5IjpbMTk5Njg0NjEyMCwtMTMwODc0NzgwMF19
--->
+Restarts the microcontroller.
+
+
+### function `uid`
+```python
+uid()
+```
+
+Returns a bytes object containing the unique id of the mcu.
+
+
+### function ` info`
+```python
+info()
+```
+
+Returns a tuple with Zerynth target and Zerynth SDK version.
+
+
+### function ` reset_on_exception`
+```python
+reset_on_exception(default=True)
+```
+
+Sets the Zerynth board to reset on python exception.
+
+
+### function ` reset_on_outofmemory`
+```python
+reset_on_outofmemory(default=True)
+```
+
+Sets the Zerynth board to reset on out of RAM memory.

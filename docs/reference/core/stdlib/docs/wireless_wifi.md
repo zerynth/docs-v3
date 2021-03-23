@@ -1,204 +1,77 @@
-# WiFi
+## WiFi
 
 This module implements a generic wifi interface.
-To function correctly it needs a wifi driver to be loaded, so that the module can use
-the driver to access the underlying hardware.
+To function correctly it needs a wifi driver to be loaded, so that the module can use the driver to access the underlying hardware.
 
-The link between the wifi module and the wifi driver is established without the programmer
-intervetion by the driver itself.
+The link between the wifi module and the wifi driver is established without the programmer intervention by the driver itself.
 
 This module defines the following constants:
 
-
-* WIFI_OPEN = 0; Open Wifi network
-
-
-* WIFI_WEP  = 1; Wifi Network secured with WEP
-
-
-* WIFI_WPA  = 2; Wifi Network secured with WPA
-
-
-* WIFI_WPA2  = 3; Wifi Network secured with WPA2
-
-###### gethostbyname
-
-```#!py3 gethostbyname(hostname)```
-
-Translate a host name to IPv4 address format. The IPv4 address is returned as a string, such as “192.168.0.5”.
-
-###### select
-
-```#!py3 select(rlist, wlist, xlist, timeout=None)```
-
-This is equivalent to the Unix ```select``` system call.
-The first three arguments are sequences of socket instances.
-
-
-* ```rlist```: wait until ready for reading
-
-
-* ```wlist```: wait until ready for writing
-
-
-* ```xlist```: wait for an “exceptional condition” (not supported by every wifi driver)
-
-Empty sequences are allowed. The optional ```timeout``` argument specifies a time-out as an integer number
-in milliseconds.  When the ```timeout``` argument is omitted the function blocks until
-at least one socket is ready.  A ```timeout``` value of zero specifies a
-poll and never blocks.
-
-The return value is a triple of lists of objects that are ready: subsets of the
-first three arguments.  When the time-out is reached without a socket
-becoming ready, three empty lists are returned.
-
-###### scan
-
-```#!py3 scan(duration=5000)```
-
-Return the list of available wifi networks as a tuple of tuples: (SSID, network_security, RSSI, BSSID).
-
-The format of RSSI depends on the specific wifi driver loaded.
-
-```duration``` is the maximum time in milliseconds the scan can last.
-
-###### link
-
-```#!py3 link(ssid, security, password="")```
-
-Try to establish a link with the Access Point handling the wifi network identified by ```ssid```. ```security``` must be one
-of the WIFI constants, and ```password``` is needed if ```security``` is different from WIFI_OPEN
-
-An exception can be raised if the link is not successful.
-
-###### unlink
-
-```#!py3 unlink()```
-
-Disconnect from the currently linked wifi network.
-
-###### is_linked
-
-```#!py3 is_linked()```
-
-Return True if linked to the Access Point
-
-###### set_link_info
-
-```#!py3 set_link_info(ip, mask, gw, dns)```
-
-Set desired wifi interface parameters:
-
-
-* ip, the static ipv4 address
-
-
-* mask, the network mask
-
-
-* gw, the default gateway
-
-
-* dns, the default dns
-
-If 0.0.0.0 is given, a default address will be used.
-
-###### link_info
-
-```#!py3 link_info()```
-
-Return information on the currently established AP link.
-
-The result is a tuple where the elements are, in order:
-
-
-* The assigned IP as a string
-
-
-* The network mask as a string
-
-
-* The gateway IP as a string
-
-
-* The DNS IP as a string
-
-
-* The MAC address of the wifi interface as a sequence of 6 bytes
-
-###### softap_init
-
-```#!py3 softap_init(ssid, sec, password="", max_conn=4)```
-
-Try to activate the Access Point operating mode exposing a wifi network identified by ```ssid```. ```security``` must be one
-of the WIFI constants, and ```password``` is needed if ```security``` is different from WIFI_OPEN; ```max_conn``` represents the maximum number of connections available (default is 4)
-
-An exception can be raised if the activation is not successful.
-
-!!! note
-	Not guaranteed to be supported by every wifi driver!
-
-###### softap_config
-
-```#!py3 softap_config(ip="192.168.0.1", gw="192.168.0.1", net="255.255.255.0")```
-
-Try to configure the Access Point setting the IP address, the Gateway address and the Netmask address.
-Default values are: “192.168.0.1” as IP address, “192.168.0.1” as Gateway address, “255.255.255.0” as Netmask address.
-
-An exception can be raised if the configuration is not successful.
-
-!!! note
-	Not guaranteed to be supported by every wifi driver!
-
-###### softap_get_info
-
-```#!py3 softap_get_info()```
-
-Return information on the current devices connected to the Access Point.
-
-The result is a tuple where every element represents a device connected and includes:
-
-
-* The assigned IP as a string
-
-
-* The MAC address of the wifi interface as a sequence of 6 bytes
-
-!!! note
-	Not guaranteed to be supported by every wifi driver!
-
-###### softap_off
-
-```#!py3 softap_off()```
-
-Try to turn off the Access Point operating mode.
-
-An exception can be raised if the Access Point disabling is not successful.
-
-!!! note
-	Not guaranteed to be supported by every wifi driver!
-
-###### station_on
-
-```#!py3 station_on()```
-
-Try to turn on the Station operating mode.
-
-An exception can be raised if the Station enabling is not successful.
-
-!!! note
-	Not guaranteed to be supported by every wifi driver!
-
-###### station_off
-
-```#!py3 station_off()```
-
-Try to turn off the Station operating mode.
-
-An exception can be raised if the Station disabling is not successful.
-
-!!! note
-	Not guaranteed to be supported by every wifi driver!
-<!--stackedit_data:
-eyJoaXN0b3J5IjpbLTMyNjQ2OTc1NCwxMTk1OTg0MTk4XX0=
--->
+* `WIFI_OPEN`            = 0; Open Wifi network
+* `WIFI_WEP`             = 1; Wifi Network secured with WEP
+* `WIFI_WPA`             = 2; Wifi Network secured with WPA
+* `WIFI_WPA2`            = 3; Wifi Network secured with WPA2
+* `WIFI_WPA_WPA2`        = 4; Wifi Network secured with WPA or WPA2
+* `WIFI_WPA2_ENTERPRISE` = 5; Wifi Network secured with WPA2 enterprise
+* `WIFI_WPA3`            = 6; Wifi Network secured with WPA3
+* `WIFI_WPA2_WPA3`       = 7; Wifi Network secured with WPA2 or WPA3
+
+## Exception
+
+### exception `WifiException`
+Generic exception
+
+### exception `WifiBadPassword`
+The configured password is not correct.
+
+### exception `WifiBadSSID`
+The configured SSID is not available between visible WiFi networks.
+
+## Functions
+
+### function `configure`
+```python
+configure(ssid="", password="", security=WPA_WPA2, dhcp=True, ip="", mask="", gateway="", dns="8.8.8.8")
+```
+Configures the wifi interface with given arguments.
+* `ssid` is the WiFi name to associate to.
+* `password` the the shared secret for the `ssid` network.
+* `security` is the encryption type to be used.
+
+If `dhcp` is *True* (the default) other following arguments are ignored.
+When `dhcp` is *False*, the other arguments are:
+* `ip`: is the IP address.
+* `mask`: the net mask expressed as A.B.C.D dotted address.
+* `gateway`: the gateway to be used as default router.
+* `dns`: the Domain Name Server to be used for name resolution. Default is "8.8.8.8", the Google DNS. 
+
+### function `start`
+```python
+start()
+```
+The function starts the interface by initiating the WiFi association process and stating the DHCP configuration and other IP setups (routing, DNS, etc.).
+The DHCP or static IP parameters are used depending upon the arguments passed to the `configure()` function.
+
+### function `stop`
+```python
+stop()
+```
+The interface is stopped, all connections dropped, and all socket closed related to wifi interface.
+
+### function `resolve`
+```python
+resolve(host)
+```
+Resolves the symbolic name for the given `host` to its IP address by using the configured DNS server and returning a string with the result.
+
+### function `info`
+```python
+info()
+```
+Returns a tuple with the IP parameters associated with the interface. The tuple is composed by the following elements:
+0. `Bool`: DHCP enabled (*True*) or disabled (*False*)
+1. `String`: IP address
+2. `String`: netmask
+3. `String`: gateway
+4. `String`: DNS
+5. `String`: MAC address
