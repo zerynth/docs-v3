@@ -9,16 +9,59 @@ agent = zdm.Agent()
 agent.start()
 
 ```
+
 The above snippet shows the steps required to enable a ZDM connection:
 - import the ZDM module
 - create an instance of the Agent class
 - start the agent
 
+## Connection
 Under the hood a MQTT client is started and a secure connection is established using the device certificates contained in the secure element of every Zerynth hardware. 
 
-In order for the connection to be established correctly it is necessary that the device has been associated with an existing ZDM workspace. This procedure must be performed just once and can be done both from the [command line](TODO/link-to-device-association) and [VSCode extension](TODO/link-to-vscode-association).
+In order for the connection to be established correctly it is necessary that the physical device has been associated with a ZDM device. This procedure links the physical device identity contained in the secure element to its cloud identity represented by the ZDM device unique identifier. The procedure must be performed just once and can be done both from the [command line](TODO/link-to-device-association) and [VSCode extension](TODO/link-to-vscode-association).
  
-After the connection is established, the `Agent` will updated the real time clock to the current time and will try to keep it synchronized. The `Agent` will also take care of the reliability of the connection by automatically retrying to connect in case of network failure.
+After the connection is established, the `Agent` will update the real time clock to the current time and will try to keep it synchronized. The `Agent` will also take care of the reliability of the connection by automatically retrying to connect in case of network failure.
+
+Upon successful connection, the `Agent` also sends some information on the physical device, like the firmware version and the device type.
+
+## Jobs
+
+Once connected the `Agent` can handle remote requests for *jobs*. A job is a task that is performed by a function in the firmware. It is possible to configure the `Agent` to call a specific function by assigning it to the job name. For example:
+
+```
+def job1(agent, arguments):
+    return "OK"
+
+def job2(agent, arguments):
+    raise IOError
+
+agent = zdm.Agent(jobs={"myjob":job1, "another_job":job2})
+
+```
+The above snippet configures the `Agent` to call function `job1` when the `myjob` job is triggered, and `job2` for `another_job`. Notice that the functions have the same signature: the first argument is the instance of the agent, the second is a dictionary containing the arguments of the job.
+
+Jobs are executed by the `Agent` thread and their result is sent to the cloud for reference. If a job fails with an exception, the error is also sent to the cloud for reference.
+
+## Data
+
+The `Agent` is capable of sending raw data points such as sensor readings to the cloud where they are temporarily stored and fed into the various available integrations (i.e. sent to Azure or to the zStorage for further elaboration). Data is sent in JSON format as a dictionary called `payload` thus allowing for the maximum flexibility. The `payload` is also associated to a `tag`, a label that can be used to better organize IoT data and to easily retrieve it from the cloud.
+
+Sending data is very easy:
+
+```python
+
+agent = zdm.Agent()
+agent.start()
+
+agent.publish(payload={"temperature": 25.3, "humidity": 35.2}, tag="room")
+```
+
+
+## Conditions
+
+IoT data can refer not only to a single point in time but also to a time range. For this 
+
+
 
 Finally, the `Agent` is capable of accepting a FOTA update and changing the current firmware with a new one.
 
