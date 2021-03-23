@@ -110,7 +110,7 @@ while True:
 
 
 
-
+## The Log
 
 ### class TSLog
 ```python 
@@ -174,3 +174,61 @@ Return a tuple with information on the log:
 2. contains the readers lag
 
 The readers lag is the difference between the latest sequence number and the minimum of the reader's cursors. It is an indication of how far behind the readers are lagging with respect to the writer.
+
+### method `reader`
+
+```python 
+reader(n)
+```
+
+Create an instance of a `TSReader`. The method requires a parameter `n` that is an integer identifying the reader (0 to 3).
+
+### method `close`
+
+```python 
+close()
+```
+
+Close the log.
+
+## The Reader
+
+### class TSReader
+
+```python
+TSReader(tslog, n, format="")
+```
+
+Create an instance of `TSReader`. This class is never created manually, it is always the result of a call to `TSLog.reader(n)`.
+
+### method `next`
+
+```python
+next()
+```
+
+Return the next record converted to a tuple according to the log `format`.
+Can return *None* if there is no more available data, i.e. the writer has not committed new data yet.
+
+### method `next_record`
+
+```python
+next_record()
+```
+
+Return the next record as a bytearray.
+Can return *None* if there is no more available data, i.e. the writer has not committed new data yet.
+
+### method `commit`
+
+```python
+commit()
+```
+Save the sequence number of the last read record as the current `cursor`.
+
+### method `close`
+
+```python
+close()
+```
+Close the reader
