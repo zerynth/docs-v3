@@ -34,4 +34,46 @@ The master can perform three actions on the bus:
 
 The I2C protocol provides mechanisms to detect bus errors. Zerynth VM catches bus errors and raises exceptions.
 
-**TODO**: API documentation
+### class `I2c`
+```python
+I2c(addr, i2c=I2C0, clock=1000000)
+```
+Creates an `I2C` object to communicate with i2c device at `addr` address on the `i2c` bus number, using the `clock` frequency expressed in Hz.
+
+### method `transmit`
+```python
+transmit(tx, rx, rx_size, tx_ofs=0, rx_ofs=0, timeout=0)
+```
+
+### method `write`
+```python
+write(tx, ofs=0, timeout=0)
+```
+
+### method `read_into`
+```python
+read_into(rx, size=-1, ofs=0, timeout=0)
+```
+
+### method `read`
+```python
+read(size=-1, timeout=0)
+```
+
+### method `write_read_into`
+```python
+write_read_into(tx, rx, rx_size=-1, tx_ofs=0, rx_ofs=0, timeout=0)
+```
+
+### method `write_read`
+```python
+write_read(tx, rx_size=-1, tx_ofs=0, timeout=0)
+```
+
+### function `scan`
+```python
+scan(i2c=I2C0, start_addr=1, n_scan=126, clock=400000)
+```
+Performs a scan on the `i2c` bus number, starting from `start_addr` address (right-aligned 7bits) for `n_scan` addresses, using `clock` frequency, expressed in Hz.
+
+Returns a bytearray containing the addresses of discovered devices. E.g.: `[42, 120]` for a bus with two devices having addresses 42 and 120.
