@@ -40,12 +40,13 @@ In particular, the following parameters are available:
 ### class Agent
 
 ```python 
-class Agent(cfg=None, jobs=None, conditions=[], on_conditions=None, set_clock_every=300, on_fota=None, host="zmqtt.zdm.zerynth.com")```
+class Agent(cfg=None, jobs=None, conditions=[], on_conditions=None, set_clock_every=300, on_fota=None, host="zmqtt.zdm.zerynth.com")
+```
 
 Create an `Agent` instance. The `Agent` class accepts various parameters:
-* `cfg` is an instance of the `Config` class detailing the connection
-* ```jobs_dict``` is the dictionary that defines the device's available jobs
-* ```condition_tags``` is a list of strings defining the conditions tags used by the device (default []).
+* `cfg` is an instance of the `Config` class detailing the transport connection parameters. It is set to *None* by default using standard parameters.
+* `jobs` is a dictionary that defines the ZDM jobs the agent can handle. The keys of the dictionary are strings representing the name of the jobs and the values are functions that are called each time a job is triggered. When set to *None* the only jobs that can be triggered are `reset` and `fota`.
+* `conditions` is a list of strings defining the condition's names used by the device.
 * ```on_timestamp```, is a callback function called when timestamp is received after requesting current time to the ZDM (default None).
 * ```on_open_conditions```, is a callback function that is called when the list of open conditions is received (default None).
 * ```fota_callback```, is a function accepting one ore more arguments that will be called at different steps of the FOTA process.
