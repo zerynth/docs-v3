@@ -1,26 +1,26 @@
 # Getting started
 
-The Zerynth Device Manager (ZDM) Library contains many different commands that allows you to connect your devices to the ZDM. You can use ZDM lib to send data from your devices and to let them receive your remote commands (jobs).
+The ZDM library is central to the IoT development with Zerynth and still it is very simple to use. The simplest usage requires just 3 lines of code:
 
-To learn how to be able to use it and call ZDM methods, see the [ZDM getting started doc](https://www.zerynth.com/blog/docs/the-tools/zdm/getting-started/).
+```python
+from zdm import zdm
 
-# The Credentials class
+agent = zdm.Agent()
+agent.start()
 
-##### class Credentials()
+```
+The above snippet shows the steps required to enable a ZDM connection:
+- import the ZDM module
+- create an instance of the Agent class
+- start the agent
 
-```#!py3 class Credentials()```
+Under the hood a MQTT client is started and a secure connection is established using the device certificates contained in the secure element of every Zerynth hardware. 
 
-Creates a Credentials instance that loads the provisioning information from the appropriate location.
-Provisioning information is saved in the :samp:`zdevice.json` file contained in the Zerynth project folder.
-Based on its content, the Credentials class is capable of loading or creating all the necessary pieces of information:
+In order for the connection to be established correctly it is necessary that the device has been associated with an existing ZDM workspace. This procedure must be performed just once and can be done both from the [command line](TODO/link-to-device-association) and [VSCode extension](TODO/link-to-vscode-association).
+ 
+After the connection is established, the `Agent` will updated the real time clock to the current time and will try to keep it synchronized. The `Agent` will also take care of the reliability of the connection by automatically retrying to connect in case of network failure.
 
-* ```device_id``` the unique identifier of the device in the ZDM
-* ```credential_type``` the type of credentials to use (i.e. cloud token, device token, certificates, etc...)
-* ```device_secret```, secret key. If empty, the secure element is used as key storage
-* ```endpoint```, the mqtt broker address
-* ```ca```, the ZDM root certificate
-
-# The Config class
+Finally, the `Agent` is capable of accepting a FOTA update and changing the current firmware with a new one.
 
 ##### class Config
 
@@ -37,14 +37,13 @@ In particular, the following parameters are available:
 * ```qos_subscribe```, the quality of service when subscribing to the MQTT broker
 
 
-# The Device class
+### class Agent
 
-##### class Device
+```python 
+class Agent(cfg=None, jobs=None, conditions=[], on_conditions=None, set_clock_every=300, on_fota=None, host="zmqtt.zdm.zerynth.com")```
 
-```#!py3 class Device(cred=None, cfg=None, jobs_dict=None, condition_tags=[], on_timestamp=None, on_open_conditions=None, fota_callback=None, time_function=default_time_func)```
-
-Creates a Device instance with uid ```device_id```. All other parameters are optional and have default values.
-
+Create an `Agent` instance. The `Agent` class accepts various parameters:
+* `cfg` is an instance of the `Config` class detailing the connection
 * ```jobs_dict``` is the dictionary that defines the device's available jobs
 * ```condition_tags``` is a list of strings defining the conditions tags used by the device (default []).
 * ```on_timestamp```, is a callback function called when timestamp is received after requesting current time to the ZDM (default None).
