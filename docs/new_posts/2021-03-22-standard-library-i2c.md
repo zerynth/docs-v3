@@ -44,31 +44,87 @@ Creates an `I2C` object to communicate with i2c device at `addr` address on the 
 ```python
 transmit(tx, rx, rx_size, tx_ofs=0, rx_ofs=0, timeout=0)
 ```
+Performs a write and read transaction on i2c bus.
+
+`tx` is the buffer containing the data to write on the bus, as bytearray.
+
+`rx` is the buffer will be filled with read data from the addressed i2c device, as bytearray.
+
+`rx_size` is the max number of bytes to read from the device. If `-1` the `rx` bytearray length is used. It must be less than or equal to the length of `rx` bytearray, otherwise an `ErrorValue` exception is thrown.
+
+`tx_ofs` is the number of bytes in `tx` bytearray to skip before writing data on the i2c bus. Must be in the range 0 to length of `tx` bytearray, otherwise an `ErrorValue` exception is thrown.
+
+`rx_ofs` is the number of bytes to ignore from the read date coming from the addressed i2c device. Must be in the range 0 to length of `rx` bytearray, otherwise an `ErrorValue` exception is thrown.
+
+`timeout` is the time in milliseconds to wait the addressed i2c device to respond. If it is negative, the default timeout for the Zerynth board is used.
 
 ### method `write`
 ```python
 write(tx, ofs=0, timeout=0)
 ```
+Performs a write transaction on i2c bus.
+﻿
+`tx` is the buffer containing the data to write on the bus, as bytearray.
+
+`tx_ofs` is the number of bytes in `tx` bytearray to skip before writing data on the i2c bus. Must be in the range 0 to length of `tx` bytearray, otherwise an `ErrorValue` exception is thrown.
+
+`timeout` is the time in milliseconds to wait the addressed i2c device to respond. If it is negative, the default timeout for the Zerynth board is used.
 
 ### method `read_into`
 ```python
 read_into(rx, size=-1, ofs=0, timeout=0)
 ```
+Performs a read transaction on i2c bus.
+﻿
+`rx` is the buffer will be filled with read data from the addressed i2c device, as bytearray.
+﻿
+`size` is the max number of bytes to read from the device. If `-1` the `rx` bytearray length is used. It must be less than or equal to the length of `rx` bytearray, otherwise an `ErrorValue` exception is thrown.
+﻿
+`ofs` is the number of bytes to ignore from the read date coming from the addressed i2c device. Must be in the range 0 to length of `rx` bytearray, otherwise an `ErrorValue` exception is thrown.
+﻿
+`timeout` is the time in milliseconds to wait the addressed i2c device to respond. If it is negative, the default timeout for the Zerynth board is used.
 
 ### method `read`
 ```python
 read(size=-1, timeout=0)
 ```
+Performs a read transaction on i2c bus by allocating the required data buffer.
+﻿
+`size` is the max number of bytes to read from the device. The returned bytearray will be `size` in length.
+﻿
+`timeout` is the time in milliseconds to wait the addressed i2c device to respond. If it is negative, the default timeout for the Zerynth board is used.
 
 ### method `write_read_into`
 ```python
 write_read_into(tx, rx, rx_size=-1, tx_ofs=0, rx_ofs=0, timeout=0)
 ```
+Performs a write and read transaction on i2c bus.
+﻿
+`tx` is the buffer containing the data to write on the bus, as bytearray.
+﻿
+`rx` is the buffer will be filled with read data from the addressed i2c device, as bytearray.
+﻿
+`rx_size` is the max number of bytes to read from the device. If `-1` the `rx` bytearray length is used. It must be less than or equal to the length of `rx` bytearray, otherwise an `ErrorValue` exception is thrown.
+﻿
+`tx_ofs` is the number of bytes in `tx` bytearray to skip before writing data on the i2c bus. Must be in the range 0 to length of `tx` bytearray, otherwise an `ErrorValue` exception is thrown.
+﻿
+`rx_ofs` is the number of bytes to ignore from the read date coming from the addressed i2c device. Must be in the range 0 to length of `rx` bytearray, otherwise an `ErrorValue` exception is thrown.
+﻿
+`timeout` is the time in milliseconds to wait the addressed i2c device to respond. If it is negative, the default timeout for the Zerynth board is used.
 
 ### method `write_read`
 ```python
 write_read(tx, rx_size=-1, tx_ofs=0, timeout=0)
 ```
+Performs a write and read transaction on i2c bus by allocating the required data buffer.
+﻿
+`tx` is the buffer containing the data to write on the bus, as bytearray.
+﻿
+`rx_size` is the max number of bytes to read from the device. If `-1` the `rx` bytearray length is used. It must be less than or equal to the length of `rx` bytearray, otherwise an `ErrorValue` exception is thrown.
+﻿
+`tx_ofs` is the number of bytes in `tx` bytearray to skip before writing data on the i2c bus. Must be in the range 0 to length of `tx` bytearray, otherwise an `ErrorValue` exception is thrown.
+﻿
+`timeout` is the time in milliseconds to wait the addressed i2c device to respond. If it is negative, the default timeout for the Zerynth board is used.
 
 ### function `scan`
 ```python
