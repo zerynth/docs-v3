@@ -111,9 +111,9 @@ Performs a write and read transaction on i2c bus by allocating the required data
 * `tx_ofs` is the number of bytes in `tx` bytearray to skip before writing data on the i2c bus. Must be in the range 0 to length of `tx` bytearray, otherwise an `ErrorValue` exception is thrown.
 * `timeout` is the time in milliseconds to wait the addressed i2c device to respond. If it is negative, the default timeout for the Zerynth board is used.
 
-### method `close`
+### method `done`
 ```python
-close()
+done()
 ```
 De-initialize the i2c bus and related low level resources are freed.
 
