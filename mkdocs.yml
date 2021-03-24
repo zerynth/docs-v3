@@ -114,6 +114,7 @@ nav:
         - reference/libs/stdlib/mcu.md
     - Networking:
       - reference/libs/networking/net.md
+      - reference/libs/networking/wifi.md
       - reference/libs/networking/eth.md
       - reference/libs/networking/socket.md
     - Protocols:

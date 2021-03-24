@@ -1,6 +1,6 @@
 ---
 layout: blog
-title: Networking Library - wifi
+title: WiFi
 ---
 ## WiFi
 
@@ -38,16 +38,18 @@ The configured SSID is not available between visible WiFi networks.
 configure(ssid="", password="", security=WPA_WPA2, dhcp=True, ip="", mask="", gateway="", dns="8.8.8.8")
 ```
 Configures the wifi interface with given arguments.
+
 * `ssid` is the WiFi name to associate to.
 * `password` the the shared secret for the `ssid` network.
 * `security` is the encryption type to be used.
 
 If `dhcp` is *True* (the default) other following arguments are ignored.
 When `dhcp` is *False*, the other arguments are:
+
 * `ip`: is the IP address.
 * `mask`: the net mask expressed as A.B.C.D dotted address.
 * `gateway`: the gateway to be used as default router.
-* `dns`: the Domain Name Server to be used for name resolution. Default is "8.8.8.8", the Google DNS. 
+* `dns`: the Domain Name Server to be used for name resolution. Default is "8.8.8.8", the Google DNS.
 
 ### function `start`
 ```python
@@ -73,6 +75,7 @@ Resolves the symbolic name for the given `host` to its IP address by using the c
 info()
 ```
 Returns a tuple with the IP parameters associated with the interface. The tuple is composed by the following elements:
+
 0. `Bool`: DHCP enabled (*True*) or disabled (*False*)
 1. `String`: IP address
 2. `String`: netmask
