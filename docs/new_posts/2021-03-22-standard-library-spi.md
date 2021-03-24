@@ -73,25 +73,63 @@ to the master while it is receiving data from the master. Therefore, spi operati
 * `skip`: the master activates SCLK but neither reads or writes
 * `exchange`: the master sends data over MOSI and at the same time receives data from MISO
 
+### Constants
+The module defines the following constants:
+```
+SPI_MODE_LOW_FIRST   = 0
+SPI_MODE_LOW_SECOND  = 1
+SPI_MODE_HIGH_FIRST  = 2
+SPI_MODE_HIGH_SECOND = 3
+```
+used for the SPI bus modes.
+
+`SPI_MODE_LOW_FIRST`: Low polarity (idle low), phase zero (bits captured on the first clock edge)
+
+`SPI_MODE_LOW_SECOND`: Low polarity (idle low), phase one (bits captured on the second clock edge)
+
+`SPI_MODE_HIGH_FIRST`: High polarity (idle high), phase zero (bits captured on the first clock edge)
+
+`SPI_MODE_HIGH_SECOND`: High polarity (idle high), phase one (bits captured on the second clock edge)
+
+
 ### class `Spi`
 ```python
 Spi(nss, spi=SPI0, clock=20000000, mode=SPI_MODE_LOW_FIRST)
 ```
+Creates a `Spi` object to communicate with devices on the SPI bus.
+
+`nss` is the SPI device select pin, can be either the gpio number, or the gpio symbolic name defined into `board` from `bsp`.
+
+`spi` is the SPI bus number to be used.
+
+`clock` is the bus clock expressed in Hz.
+
+`mode` is the bus communication mode.
 
 ### method `select`
 ```python
 select()
 ```
+Selects the configured SPI device in order to write and or read data from it.
 
 ### method `unselect`
 ```python
 unselect()
 ```
+Deselect the SPI device.
 
 ### method `exchange_into`
 ```python
 exchange_into(tx, rx, n_bytes=-1)
 ```
+Performs a write followed by read operations on the SPI bus with selected device.
+
+`tx` is the buffer containing the data to write on the bus, as bytearray.
+
+`rx` is the buffer will be filled with read data from the selected SPI device, as bytearray.
+
+`n_bytes` is the max number of bytes to read from the device. If `-1` the `rx` bytearray length is used. It must be less than or equal to the length of `rx` bytearray, otherwise an `ErrorValue` exception is thrown.
+
 
 ### method `exchange`
 ```python
