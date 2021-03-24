@@ -135,18 +135,36 @@ Performs a write followed by read operations on the SPI bus with selected device
 ```python
 exchange(tx, n_bytes=-1)
 ```
+Performs a write followed by read operations on the SPI bus with selected device, by allocating the required buffer for read data.
+
+`tx` is the buffer containing the data to write on the bus, as bytearray.
+
+`n_bytes` is the max number of bytes to read from the device.
+
+Returns a bytearray with read data.
 
 ### method `write`
 ```python
 write(tx, n_bytes=-1)
 ```
+Performs a write operations on the SPI bus with selected device.
+﻿
+`tx` is the buffer containing the data to write on the bus, as bytearray.
+﻿﻿
+`n_bytes` is the max number of bytes to read from the device. If `-1` the `rx` bytearray length is used. It must be less than or equal to the length of `rx` bytearray, otherwise an `ErrorValue` exception is thrown.
 
 ### method `read`
 ```python
 read(n_bytes)
 ```
+Performs a read operations on the SPI bus with selected device, by allocating the required data buffer.
+﻿
+`n_bytes` is the max number of bytes to read from the device.
+
+Returns a bytearray with read data.
 
 ### method `done`
 ```python
 done()
 ```
+De-initialize the SPI bus and related low level resources are freed. 
