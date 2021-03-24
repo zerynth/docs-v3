@@ -62,7 +62,7 @@ nav:
   - hardware/EXP-PROTO.md
   - hardware/4ZeroBox.md
 - Technical Reference :
-    - {Index: reference.md}
+    - {Index: reference/index.md}
     - Zerynth OS:
       - reference/os/index.md
       - reference/os/basics.md
@@ -77,11 +77,11 @@ nav:
     - VSCode Extension:
       - reference/vscode/index.md
     - Boards and Expansions:
-        - reference/libs/expansions/index.md
-        - reference/libs/expansions/exp-io.md
-        - reference/libs/expansions/exp-proto.md
-        - reference/libs/expansions/exp-relay.md
-        - reference/libs/expansions/exp-ser.md
+      - reference/libs/expansions/index.md
+      - reference/libs/expansions/exp-io.md
+      - reference/libs/expansions/exp-relay.md
+      - reference/libs/expansions/exp-ser.md
+      - reference/libs/expansions/exp-proto.md
     - Standard Library:
       - reference/libs/stdlib/index.md
       - reference/libs/stdlib/builtins.md
@@ -89,6 +89,7 @@ nav:
       - reference/libs/stdlib/struct.md
       - reference/libs/stdlib/gc.md
       - reference/libs/stdlib/timers.md
+      - reference/libs/stdlib/watchdog.md
       - Time and Dates:
         - reference/libs/stdlib/time.md
         - reference/libs/stdlib/datetime.md
@@ -103,13 +104,14 @@ nav:
       - Filesystem:
         - reference/libs/stdlib/fs.md
       - Peripherals:
-        - reference/libs/stdlib/mcu.md
+        - reference/libs/stdlib/serial.md
         - reference/libs/stdlib/gpio.md
         - reference/libs/stdlib/i2c.md
         - reference/libs/stdlib/spi.md
         - reference/libs/stdlib/adc.md
         - reference/libs/stdlib/pwm.md
         - reference/libs/stdlib/can.md
+        - reference/libs/stdlib/mcu.md
     - Networking:
       - reference/libs/networking/net.md
       - reference/libs/networking/eth.md
@@ -127,25 +129,16 @@ nav:
     - Zerynth Libraries:
       - ZDM:
         - reference/libs/zerynth/zdm/index.md
-        - reference/libs/zerynth/zdm/zdm.md
         - reference/libs/zerynth/zdm/examples.md
       - Time Series Log:
         - reference/libs/zerynth/tslog/index.md
-        - reference/libs/zerynth/tslog/tslog.md
-        - reference/libs/zerynth/tslog/examples.md
     - Components:
         - bme280:
           - reference/libs/components/bme280/index.md
-          - reference/libs/components/bme280/bme280.md
-          - reference/libs/components/bme280/examples.md
         - bmp180:
           - reference/libs/components/bmp180/index.md
-          - reference/libs/components/bmp180/bmp180.md
-          - reference/libs/components/bmp180/examples.md
         - bno055:
           - reference/libs/components/bno055/index.md
-          - reference/libs/components/bno055/bno055.md
-          - reference/libs/components/bno055/examples.md
     - Command Line Interface:
         - Zerynth Toolchain:
           - reference/cli/ztc/index.md

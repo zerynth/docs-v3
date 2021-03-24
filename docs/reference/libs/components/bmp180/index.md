@@ -1,33 +1,123 @@
-# BOSCH BMP180
+## BMP180 Component
 
-The BMP180 is a digital fully calibrated barometric pressure sensor of Bosch Sensortec, with a very high performance. This sensor enables applications in advanced mobile devices, such as smartphones, tablet PCs and sports devices. The ultra-low power consumption down to 3 μA makes the BMP180 one of the best sensor in terms of power saving for your mobile devices.
+_datasheet_: <https://ae-bst.resource.bosch.com/media/_tech/media/datasheets/BST-BMP180-DS000-121.pdf>
 
-For optimum system integration the BMP180 is equipped with digital bidirectional I2C interface; Typical applications can regard indoor navigation, GPS-enhancement (for dead-reckoning, slope detection, etc.), weather forecast, vertical velocity indication (rise/sink speed), and many more.
-More information at [Bosch dedicated page](https://www.bosch-sensortec.com/bst/products/all_products/bmp180).
+This module contains the driver for BOSCH BMP180 Digital Barometric Pressure Sensor. The ultra-low power, low voltage electronics of the BMP180 is optimized for use in mobile devices and the I2C interface allows for easy
+system integration with a microcontroller. The BMP180 is based on piezo-resistive technology for EMC robustness, high accuracy and linearity as
+well as long term stability.
 
-## Technical Details
+### class BMP180
+```python
+BMP180(i2cdrv, addr=0x77, clk=400000)
+```
+Creates an intance of a new BMP180 class with given argument.
 
+* `i2cdrv`: I2C Bus used '( I2C0, ... )'
+* `addr`: Slave address, default 0x77
+* `clk`: Clock speed, default 100kHz
 
-* Supply Voltage (Vdd): from 1.8 V to 3.6 V
-* Operation Temperature (Top): from -40 °C to 85 °C
-* Pressure Range: from 300 to 1100 hPa (from 9000 to -500 m relating to sea level)
-* Pressure Accuracy (Vdd=3.3V, Pressure and temperature in range): from -4.0 to +2.0 hPa
-* Pressure Resolution: 0.01 hPa
-* Temperature Range: from 0 to 65 °C
-* Temperature Accuracy (Vdd=3.3V, Pressure and temperature in range): ± 1 °C
-* Temperature Resolution: 0.1 °C
-* Power Consumption (Vbat=3V): from 3 to 12 µA at 1 sample/sec and Top=25°C
-* I²C interface
+### method init
+```python
+init(oss=0)
+```
 
-Here below, the Zerynth driver for the BOSCH BMP180.
+Initialize the BMP180 calibrating the sensor and setting the oss value.
 
-Contents:
-
-* [BMP180 Module](/latest/reference/libs/bosch/bmp180/docs/bmp180/)
-* [Examples](/latest/reference/libs/bosch/bmp180/docs/examples/)
-	* [get temp press alt](/latest/reference/libs/bosch/bmp180/docs/examples/#temperature-pressure-altitude)
+* `oss`: OverSampling Setting value (from 0 to 4), default 0.
 
 
-<!--stackedit_data:
-eyJoaXN0b3J5IjpbMTc1NzkzNzUwOV19
--->
+### methon set_over_sampling_setting
+```python
+set_over_sampling_setting(oss)
+```
+
+
+Sets the OverSampling Setting value of the BMP180.
+
+* `oss`: OverSampling Setting value (from 0 to 4 allowed)
+
+ **note** The OverSampling Setting parameter selects different operating modes according to give the possibility for findind the optimum compromise between power consumption, speed, and resolution; in the table below allowed values are reported with related operating modes.
+
+       ========= ===================== ============ =============== ======================
+       OSS param     Operating Mode    N of samples Conversion time Avg Current 1 sample/s
+       ========= ===================== ============ =============== ======================
+           0        Ultra Low Power         1           4.5 ms                3 uA
+           1           Standard             2           7.5 ms                5 uA
+           2        High Resolution         4          13.5 ms                7 uA
+           3     Ultra High Resolution      8          25.5 ms               12 uA
+       ========= ===================== ============ =============== ======================
+
+
+### method get_raw_temp
+```python
+get_raw_temp()
+```
+Retrieves the current temperature data from the sensor as raw value.
+
+Returns `raw_t`
+
+### method get_raw_pres
+```python
+get_raw_pres()
+```
+Retrieves the current pressure data from the sensor as raw value; according to the OverSampling Setting value this measure can be faster but less accurate or more precise but slower. (see :method:`set_over_sampling_setting()`)
+
+Returns `raw_p`
+
+### method get_temp
+```python
+get_temp()
+```
+Retrieves the current temperature data from the sensor as calibrate value in °C.
+
+Returns `temp`
+
+### method get_pres
+```python
+get_pres()
+```
+Retrieves the current pressure data from the sensor as calibrate value in Pa; according to the OverSampling Setting value this measure can be faster but less accurate or more precise but slower. (see :func:`set_over_sampling_setting()`)
+
+Returns `pres`
+
+### method get_temp_pres
+```python
+get_temp_pres()
+```
+Retrieves the current temperature (in °C) and pressure (in Pa) data from the sensor as calibrate values in one call.
+
+Returns `temp`, `pres`
+
+### method get_altitude
+```python
+get_altitude()
+```
+Calculates, from measured pressure, the current altitude data as value in meters.
+
+Returns `altitude`
+
+### method get_sea_level_pres
+```python
+get_sea_level_pres()
+```
+Calculates, from measured pressure, the pressure (in Pa) at sea level when given a known altitude in meters.
+
+Returns `p0` (pressure at sea level)
+
+
+
+
+### Example:
+```python
+
+
+from components.bmp180 import bmp180
+
+
+...
+
+
+bmp = bmp180.BMP180(I2C0)
+bmp.init()
+temp, pres = bmp.get_temp_pres()
+```
