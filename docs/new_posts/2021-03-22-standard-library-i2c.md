@@ -126,6 +126,12 @@ Performs a write and read transaction on i2c bus by allocating the required data
 ﻿
 `timeout` is the time in milliseconds to wait the addressed i2c device to respond. If it is negative, the default timeout for the Zerynth board is used.
 
+### method `close`
+```python
+close()
+```
+De-initialize the i2c bus and related low level resources are freed.
+
 ### function `scan`
 ```python
 scan(i2c=I2C0, start_addr=1, n_scan=126, clock=400000)
