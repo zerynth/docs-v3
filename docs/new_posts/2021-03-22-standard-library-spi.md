@@ -73,5 +73,42 @@ to the master while it is receiving data from the master. Therefore, spi operati
 * `skip`: the master activates SCLK but neither reads or writes
 * `exchange`: the master sends data over MOSI and at the same time receives data from MISO
 
+### class `Spi`
+```python
+Spi(nss, spi=SPI0, clock=20000000, mode=SPI_MODE_LOW_FIRST)
+```
 
-**TODO** API documentation
+### method `select`
+```python
+select()
+```
+
+### method `unselect`
+```python
+unselect()
+```
+
+### method `exchange_into`
+```python
+exchange_into(tx, rx, n_bytes=-1)
+```
+
+### method `exchange`
+```python
+exchange(tx, n_bytes=-1)
+```
+
+### method `write`
+```python
+write(tx, n_bytes=-1)
+```
+
+### method `read`
+```python
+read(n_bytes)
+```
+
+### method `done`
+```python
+done()
+```
