@@ -33,14 +33,15 @@ Generic error occurred
 
 ### function `configure`
 ```python
-configure(dhcp=True, ip="", mask="", gateway="", dns="8.8.8.8")
+configure(dhcp=True, ip="", mask="", gateway="", dns="8.8.8.8", timeout=60000)
 ```
 Configures the ethernet interface with given arguments. If `dhcp` is *True* (the default) other arguments are ignored.
 When `dhcp` is *False*, the other arguments are:
 * `ip`: is the IP address.
 * `mask`: the net mask expressed as A.B.C.D dotted address.
 * `gateway`: the gateway to be used as default router.
-* `dns`: the Domain Name Server to be used for name resolution. Default is "8.8.8.8", the Google DNS.  
+* `dns`: the Domain Name Server to be used for name resolution. Default is "8.8.8.8", the Google DNS.
+* `timeout`: Connection timeout in milliseconds. `ConnectionTimeoutError` is raised if connection do not succeed during this time. Default value 60000 ms. 
 
 ### function `start`
 ```python

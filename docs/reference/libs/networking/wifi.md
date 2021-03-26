@@ -35,7 +35,7 @@ The configured SSID is not available between visible WiFi networks.
 
 ### function `configure`
 ```python
-configure(ssid="", password="", security=WPA_WPA2, dhcp=True, ip="", mask="", gateway="", dns="8.8.8.8")
+configure(ssid="", password="", security=WPA_WPA2, dhcp=True, ip="", mask="", gateway="", dns="8.8.8.8", timeout=10000)
 ```
 Configures the wifi interface with given arguments.
 
@@ -51,6 +51,7 @@ When `dhcp` is *False*, the other arguments are:
 * `gateway`: the gateway to be used as default router.
 * `dns`: the Domain Name Server to be used for name resolution. Default is "8.8.8.8", the Google DNS.
 
+* `timeout`: Connection timeout in milliseconds. `WifiException` is raised if connection do not succeed during this time. Default value 10000 ms. 
 ### function `start`
 ```python
 start()
