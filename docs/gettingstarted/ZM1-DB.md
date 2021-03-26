@@ -1,51 +1,6 @@
 # Getting Started with ZM1-Development Board
 
-heyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-zxczxczxc
-
-zxc
-
-zxc
-
-zxc
-
-zxc
-
-zxc
-
-zxc
-	Zerynth works on 64-bit platform only
+Zerynth works on 64-bit platform only
 
 To launch the installation, according to your platform, you can:
 
@@ -150,3 +105,50 @@ The following ZTC commands are available:
 ![](img/getting%20started%20zdm%202.png)
 
 To add other commands or customize them you can follow this [guide](https://code.visualstudio.com/docs/editor/tasks#vscode).
+
+## Zerynth3 'Hello Zerynth' example
+
+In the following the 'Hello Zerynth' example is explained step-by-step using the VSCode IDE.
+The assumption is that Zerynth3 VSCode extention is installed and the user is logged in to the ZDM.
+
+Once VSCode has been started, the screen is like the following
+![](img/01-vscode-startup.png)
+
+### ZM1-DB connection and auto detection
+
+By connecting the ZM1-DB to the PC, it will be autodetected and the board type
+shown in the Zerynth extension *Console Manager* section.
+![](img/02-vscode-ZM1-DB-detected.png)
+
+In the image above, the board was connected to a linux system and it was
+detected on `/dev/ttyUSB0` port as *db_zm1*
+
+Into *Supported Device* section a list of supported board is visible. By clicking on the related link item, shown in the following image, the board documentation is opened in the web browser.
+![](img/03-vscode-board-docs-link.png)
+
+### Zerynth3 Examples
+
+By clicking on *Search examples*, as shown in the previous image, the search dialog appears in the Command Line on the top of VSCode window.
+Typing 'hello' the *Hello_Zerynth* example appears.
+![](img/04-vscode-example-search.png)
+
+Selecting it, VSCode asks for a directory where a related git repository gets cloned:
+![](img/05-vscode-example-repo-clone.png)
+
+The example repository gets cloned locally and the project is opened into VSCode, as shown in the following image.
+![](img/06-vscode-connect-devide.png)
+
+### Project build and run
+
+At this point the board has to be connected to the project by clicking on the
+'pen' icon in the *Zerynth Control Panel* at *Connected devices* line. The
+board type is auto detected and displayed as shown in the following image
+![](img/07-vscode-ZM1-DB-connected-to-project.png)
+
+The project can be built, uploaded onto the board and started by clicking on the *Run* voice of *Zerynth Connected Panel*.
+![](img/08-vscode-example-run.png)
+The terminal shows the building and uploading process logs.
+
+In order to see the ZM1-DB console running the project, the user can click on *Console* voice of *Zerynth Connected Panel*.
+![](img/09-vscode-example-running-console.png)
+and the *Terminal* window shows the live console updates.
