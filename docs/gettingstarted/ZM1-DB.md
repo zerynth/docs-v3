@@ -117,7 +117,7 @@ Once VSCode has been started, the screen is like the following
 ### ZM1-DB connection and auto detection
 
 By connecting the ZM1-DB to the PC, it will be autodetected and the board type
-shown *Zerynth Console Manager* section.
+shown in the Zerynth extension *Console Manager* section.
 ![](img/02-vscode-ZM1-DB-detected.png)
 
 In the image above, the board was connected to a linux system and it was
@@ -129,7 +129,7 @@ Into *Supported Device* section a list of supported board is visible. By clickin
 ### Zerynth3 Examples
 
 By clicking on *Search examples*, as shown in the previous image, the search dialog appears in the Command Line on the top of VSCode window.
-Typing 'hello' the *Hello Zerynth* example appears.
+Typing 'hello' the *Hello_Zerynth* example appears.
 ![](img/04-vscode-example-search.png)
 
 Selecting it, VSCode asks for a directory where a related git repository gets cloned:
@@ -150,4 +150,5 @@ The project can be built, uploaded onto the board and started by clicking on the
 The terminal shows the building and uploading process logs.
 
 In order to see the ZM1-DB console running the project, the user can click on *Console* voice of *Zerynth Connected Panel*.
-![](09-vscode-example-running-console.png)
+![](img/09-vscode-example-running-console.png)
+and the *Terminal* window shows the live console updates.
