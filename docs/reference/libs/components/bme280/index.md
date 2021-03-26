@@ -10,7 +10,7 @@ interfaces, the present library enables I2C only.
 ```python
 BME280(drvname, addr=0x76, clk=400000)
 ```
-Creates an intance of the BME280 class with given arguments
+Creates an instance of the BME280 class with given arguments
 * `drvname`: I2C Bus used '( I2C0, ... )'.
 * `addr`: Slave address, default 0x76.
 * `clk`: Clock speed, default 400kHz.

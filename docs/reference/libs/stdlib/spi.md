@@ -94,13 +94,13 @@ Spi(nss, spi=SPI0, clock=20000000, mode=SPI_MODE_LOW_FIRST)
 ```
 Creates a `Spi` object to communicate with devices on the SPI bus.
 
-`nss` is the SPI device select pin, can be either the gpio number, or the gpio symbolic name defined into `board` from `bsp`.
+* `nss` is the SPI device select pin, can be either the gpio number, or the gpio symbolic name defined into `board` from `bsp`.
 
-`spi` is the SPI bus number to be used.
+* `spi` is the SPI bus number to be used.
 
-`clock` is the bus clock expressed in Hz.
+* `clock` is the bus clock expressed in Hz.
 
-`mode` is the bus communication mode.
+* `mode` is the bus communication mode.
 
 ### method `select`
 ```python
@@ -120,11 +120,11 @@ exchange_into(tx, rx, n_bytes=-1)
 ```
 Performs a write followed by read operations on the SPI bus with selected device.
 
-`tx` is the buffer containing the data to write on the bus, as bytearray.
+* `tx` is the buffer containing the data to write on the bus, as bytearray.
 
-`rx` is the buffer will be filled with read data from the selected SPI device, as bytearray.
+* `rx` is the buffer will be filled with read data from the selected SPI device, as bytearray.
 
-`n_bytes` is the max number of bytes to read from the device. If `-1` the `rx` bytearray length is used. It must be less than or equal to the length of `rx` bytearray, otherwise an `ErrorValue` exception is thrown.
+* `n_bytes` is the max number of bytes to read from the device. If `-1` the `rx` bytearray length is used. It must be less than or equal to the length of `rx` bytearray, otherwise an `ErrorValue` exception is thrown.
 
 
 ### method `exchange`
@@ -133,9 +133,9 @@ exchange(tx, n_bytes=-1)
 ```
 Performs a write followed by read operations on the SPI bus with selected device, by allocating the required buffer for read data.
 
-`tx` is the buffer containing the data to write on the bus, as bytearray.
+* `tx` is the buffer containing the data to write on the bus, as bytearray.
 
-`n_bytes` is the max number of bytes to read from the device.
+* `n_bytes` is the max number of bytes to read from the device.
 
 Returns a bytearray with read data.
 
@@ -145,9 +145,9 @@ write(tx, n_bytes=-1)
 ```
 Performs a write operations on the SPI bus with selected device.
 ﻿
-`tx` is the buffer containing the data to write on the bus, as bytearray.
+* `tx` is the buffer containing the data to write on the bus, as bytearray.
 ﻿﻿
-`n_bytes` is the max number of bytes to read from the device. If `-1` the `rx` bytearray length is used. It must be less than or equal to the length of `rx` bytearray, otherwise an `ErrorValue` exception is thrown.
+* `n_bytes` is the max number of bytes to read from the device. If `-1` the `rx` bytearray length is used. It must be less than or equal to the length of `rx` bytearray, otherwise an `ErrorValue` exception is thrown.
 
 ### method `read`
 ```python
@@ -155,7 +155,7 @@ read(n_bytes)
 ```
 Performs a read operations on the SPI bus with selected device, by allocating the required data buffer.
 ﻿
-`n_bytes` is the max number of bytes to read from the device.
+* `n_bytes` is the max number of bytes to read from the device.
 
 Returns a bytearray with read data.
 

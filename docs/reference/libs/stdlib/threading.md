@@ -53,13 +53,13 @@ through :attr:`~Thread.ident`.
 This constructor should always be called with keyword arguments.  Arguments
 are:
 
-`target` is the callable object to be invoked by the :meth:`run` method.
+* `target` is the callable object to be invoked by the :meth:`run` method.
 Defaults to `None`, meaning nothing is called.
 
-`name` is the thread name.  By default, a unique name is constructed of the
+* `name` is the thread name.  By default, a unique name is constructed of the
 form "Thread-*N*" where *N* is the thread id.
 
-`args` is the argument tuple for the target invocation.  Defaults to `()`.
+* `args` is the argument tuple for the target invocation.  Defaults to `()`.
 
 If the subclass overrides the constructor, it must make sure to invoke the
 base class constructor (`Thread.__init__()`) before doing anything else to

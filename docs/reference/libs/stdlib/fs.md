@@ -10,14 +10,14 @@ mount(prefix, what=INTERNAL, spiclk=2000000)
 
 Mounts a storage device.
 
-`prefix`: The path to use as mountpoint
+* `prefix`: The path to use as mountpoint
 
-`what`: The device to mount.
+* `what`: The device to mount.
 Valid values:
 * *INTERNAL*: for on-borad flash memory.
 * *SD*: for MicroSD card. Only FAT filesystem is supported.
 
-`spiclk`: The clock in Hz for the SPI bus where the MicroSD is attached to.
+* `spiclk`: The clock in Hz for the SPI bus where the MicroSD is attached to.
 
 
 ### function `unmount`
@@ -27,7 +27,7 @@ unmount(prefix)
 
 Unmount a storage device.
 
-`prefix`: The mountpoint to unmount.
+* `prefix`: The mountpoint to unmount.
 
 
 ### function `open`
@@ -35,9 +35,9 @@ Unmount a storage device.
 open(path, mode)
 ```
 
-`path` is a string (following chosen low-level filesystem driver format).
+* `path` is a string (following chosen low-level filesystem driver format).
 
-`mode` is a string composed by one or more of the following characters:
+* `mode` is a string composed by one or more of the following characters:
 
 * 'r'	open for reading (default)
 * 'w'	open for writing, truncating the file first
@@ -52,7 +52,7 @@ rmdir(path)
 ```
 Remove a directory.
 
-`path`: is a string referring to the directory to be removed.
+* `path`: is a string referring to the directory to be removed.
 
 
 ### function ` rm`
@@ -62,7 +62,7 @@ rm(path)
 
 Remove a file.
 
-`path` is a string referring to the file to be removed.
+* `path` is a string referring to the file to be removed.
 
 
 ## The FileIO class
@@ -74,9 +74,9 @@ FileIO(path, mode = 'r')
 
 Main class to handle files.
 
-`path` is a string (following chosen low-level filesystem driver format)
+* `path` is a string (following chosen low-level filesystem driver format)
 
-`mode` is a string composed by one or more of the following characters:
+* `mode` is a string composed by one or more of the following characters:
 
 * 'r'	open for reading (default)
 * 'w'	open for writing, truncating the file first
@@ -116,7 +116,7 @@ write(to_w, sync = False)
 
 Write `to_w` object (string or bytes) to the stream and return the number of characters written.
 
-`sync` parameter allows to write changes to disk immediately, without waiting :method:`close` call.
+* `sync` parameter allows to write changes to disk immediately, without waiting :method:`close` call.
 
 
 ### method `close`
