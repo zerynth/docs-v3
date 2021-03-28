@@ -2,7 +2,7 @@
 
 The 4ZeroBox is a modular hardware electronic unit that simplifies the development of Industrial IoT applications allowing rapid integration with sensors, actuators, and Cloud services.
 
-4ZeroBox mounts a powerful ESP32 Microcontroller by Espressif Systems (240MHz, 4Mb Flash, 512KB SRAM) and provides many onboard features like: a DIN-rail mountable case with industrial grade sensor channels, support for Wi-fi, Bluetooth, Ethernet, LoRa, CAN, RS485, RS232, SD Card, JTAG, I2C, SPI; last but not least, there are 2 on-board MikroBUS sockets to extend the 4ZeroBox with hundreds of MikroElektronika click boards (see “MikroBus Slots” section).
+4ZeroBox mounts a powerful ESP32 Microcontroller by Espressif Systems (240MHz, 16Mb Flash, 512KB SRAM) and provides many onboard features like: a DIN-rail mountable case with industrial grade sensor channels, support for Wi-fi, Bluetooth, Ethernet, LoRa, CAN, RS485, RS232, SD Card, JTAG, I2C, SPI; last but not least, there are 2 on-board MikroBUS sockets to extend the 4ZeroBox with hundreds of MikroElektronika click boards (see “MikroBus Slots” section).
 
 ![](img/4zerobox_v1.png)
 
@@ -33,31 +33,27 @@ The internal flash of the ESP32 module is organized in a single flash area with 
 
 In particular, for non-BLE VMs:
 
+# Espressif ESP32 Partition Table
+# Name,   Type, SubType, Offset,  Size
+nvs,       data,   nvs,       0xa000,   0x5000
+phy_init,  data,   phy,       0xf000,   0x1000
+os,         app,  factory,    0x10000,  2M
+bc,         254,     0,       0x210000, 1M
+park,       254,     0,       0x310000, 3M
+scratch,    254,     0,       0x610000, 3M
+otalog,     254,     0,       0x910000, 64k
+fs,        data, spiffs,      0x920000, 7208960
+
 | Start address | Size  | Content                 |
 |---------------|-------|-------------------------|
-| 0x00009000    | 16Kb  | Esp32 NVS area          |
-| 0x0000D000    | 8Kb   | Esp32 OTA data          |
+| 0x0000A000    | 20Kb  | Esp32 NVS area          |
 | 0x0000F000    | 4Kb   | Esp32 PHY data          |
-| 0x00010000    | 1Mb   | Zerynth VM              |
-| 0x00110000    | 1Mb   | Zerynth VM (FOTA)       |
-| 0x00210000    | 512Kb | Zerynth Bytecode        |
-| 0x00290000    | 512Kb | Zerynth Bytecode (FOTA) |
-| 0x00310000    | 512Kb | Free for user storage   |
-| 0x00390000    | 448Kb | Reserved                |
-
-For BLE VMs:
-
-| Start address | Size   | Content                 |
-|---------------|--------|-------------------------|
-| 0x00009000    | 16Kb   | Esp32 NVS area          |
-| 0x0000D000    | 8Kb    | Esp32 OTA data          |
-| 0x0000F000    | 4Kb    | Esp32 PHY data          |
-| 0x00010000    | 1216Kb | Zerynth VM              |
-| 0x00140000    | 1216Kb | Zerynth VM (FOTA)       |
-| 0x00270000    | 320Kb  | Zerynth Bytecode        |
-| 0x002C0000    | 320Kb  | Zerynth Bytecode (FOTA) |
-| 0x00310000    | 512Kb  | Free for user storage   |
-| 0x00390000    | 448Kb  | Reserved                |
+| 0x00010000    | 2Mb   | Zerynth VM              |
+| 0x00210000    | 1Mb   | Zerynth Bytecode        |
+| 0x00310000    | 3Mb   | Zerynth Park (FOTA)     |
+| 0x00610000    | 3Mb   | Zerynth Scratch (FOTA)  |
+| 0x00910000    | 64Kb  | Zerynth Otalog          |
+| 0x00920000    | 7040Kb| File System             |
 
 ## Device Summary
 

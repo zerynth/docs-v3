@@ -1,4 +1,7 @@
-# Programming Guide
+# Introduction
+
+
+## Programming Guide
 
 Zerynth scripts are developed in Python 3.4. Most of the Python Standard Library functions, types and operators are available also in Zerynth, some high level processing features have been removed because not usable in embedded setups and also to reduce the VM dimension allowing the embedded porting. Differences from Zerynth and Python 3.4 standard library are reported in VM Guide.
 

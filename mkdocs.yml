@@ -1,5 +1,10 @@
 ---
-extra_css: [extra.css]
+extra_javascript:
+  - jquery.min.js
+  - jquery.fancybox.min.js
+extra_css:
+  - extra.css
+  - jquery.fancybox.min.css
 markdown_extensions:
 - meta
 - admonition
@@ -23,7 +28,7 @@ nav:
 - Introduction:
   - Zerynth in a nutshell: intro/index.md
 - Getting Started:
-  - Index: gettingstarted/index.md
+  - Zerynth in 5 minutes: gettingstarted/index.md
   - ZM1 Development Board: gettingstarted/ZM1-DB.md
   - ZM1 Evaluation Board: gettingstarted/ZM1-EVA.md
   - 4ZeroBox: gettingstarted/4ZeroBox.md
@@ -62,7 +67,7 @@ nav:
   - hardware/EXP-PROTO.md
   - hardware/4ZeroBox.md
 - Technical Reference :
-    - {Index: reference.md}
+    - {Index: reference/index.md}
     - Zerynth OS:
       - reference/os/index.md
       - reference/os/basics.md
@@ -74,83 +79,74 @@ nav:
       - reference/os/vm.md
       - reference/os/vosal.md
       - reference/os/vhal.md
-    - VSCode Extension:
-      - reference/vscode/index.md
-    - Boards and Expansions:
+    - Zerynth SDK:
+      - Development Environment: reference/vscode/index.md
+      - Boards and Expansions:
         - reference/libs/expansions/index.md
         - reference/libs/expansions/exp-io.md
-        - reference/libs/expansions/exp-proto.md
         - reference/libs/expansions/exp-relay.md
         - reference/libs/expansions/exp-ser.md
-    - Standard Library:
-      - reference/libs/stdlib/index.md
-      - reference/libs/stdlib/builtins.md
-      - reference/libs/stdlib/threading.md
-      - reference/libs/stdlib/struct.md
-      - reference/libs/stdlib/gc.md
-      - reference/libs/stdlib/timers.md
-      - Time and Dates:
-        - reference/libs/stdlib/time.md
-        - reference/libs/stdlib/datetime.md
-        - reference/libs/stdlib/suntime.md
-      - Data Structures: 
-        - reference/libs/stdlib/fifo.md
-        - reference/libs/stdlib/queue.md
-      - Serialization: 
-        - reference/libs/stdlib/base64.md
-        - reference/libs/stdlib/json.md
-        - reference/libs/stdlib/cbor.md
-      - Filesystem:
-        - reference/libs/stdlib/fs.md
-      - Peripherals:
-        - reference/libs/stdlib/mcu.md
-        - reference/libs/stdlib/gpio.md
-        - reference/libs/stdlib/i2c.md
-        - reference/libs/stdlib/spi.md
-        - reference/libs/stdlib/adc.md
-        - reference/libs/stdlib/pwm.md
-        - reference/libs/stdlib/can.md
-    - Networking:
-      - reference/libs/networking/net.md
-      - reference/libs/networking/eth.md
-      - reference/libs/networking/socket.md
-    - Protocols:
-      - reference/libs/protocols/ntp.md
-      - reference/libs/protocols/http.md
-      - reference/libs/protocols/mqtt.md
-      - reference/libs/protocols/modbus.md
-    - Security:
-      - reference/libs/crypto/element.md
-    - Math:
-      - reference/libs/math/math.md
-      - reference/libs/math/bignum.md
-    - Zerynth Libraries:
+        - reference/libs/expansions/exp-proto.md
+      - Standard Library:
+        - reference/libs/stdlib/index.md
+        - reference/libs/stdlib/builtins.md
+        - reference/libs/stdlib/threading.md
+        - reference/libs/stdlib/struct.md
+        - reference/libs/stdlib/gc.md
+        - reference/libs/stdlib/timers.md
+        - reference/libs/stdlib/watchdog.md
+        - Time and Dates:
+          - reference/libs/stdlib/time.md
+          - reference/libs/stdlib/datetime.md
+          - reference/libs/stdlib/suntime.md
+        - Data Structures: 
+          - reference/libs/stdlib/fifo.md
+          - reference/libs/stdlib/queue.md
+        - Serialization: 
+          - reference/libs/stdlib/base64.md
+          - reference/libs/stdlib/json.md
+          - reference/libs/stdlib/cbor.md
+        - Filesystem:
+          - reference/libs/stdlib/fs.md
+        - Peripherals:
+          - reference/libs/stdlib/serial.md
+          - reference/libs/stdlib/gpio.md
+          - reference/libs/stdlib/i2c.md
+          - reference/libs/stdlib/spi.md
+          - reference/libs/stdlib/adc.md
+          - reference/libs/stdlib/pwm.md
+          - reference/libs/stdlib/can.md
+          - reference/libs/stdlib/mcu.md
+      - Networking:
+        - reference/libs/networking/net.md
+        - reference/libs/networking/wifi.md
+        - reference/libs/networking/eth.md
+        - reference/libs/networking/socket.md
+      - Protocols:
+        - reference/libs/protocols/ntp.md
+        - reference/libs/protocols/http.md
+        - reference/libs/protocols/mqtt.md
+        - reference/libs/protocols/modbus.md
+      - Security:
+        - reference/libs/crypto/element.md
+      - Math:
+        - reference/libs/math/math.md
+        - reference/libs/math/bignum.md
       - ZDM:
         - reference/libs/zerynth/zdm/index.md
-        - reference/libs/zerynth/zdm/zdm.md
         - reference/libs/zerynth/zdm/examples.md
       - Time Series Log:
         - reference/libs/zerynth/tslog/index.md
-        - reference/libs/zerynth/tslog/tslog.md
-        - reference/libs/zerynth/tslog/examples.md
-    - Components:
-        - bme280:
+      - Components:
           - reference/libs/components/bme280/index.md
-          - reference/libs/components/bme280/bme280.md
-          - reference/libs/components/bme280/examples.md
-        - bmp180:
           - reference/libs/components/bmp180/index.md
-          - reference/libs/components/bmp180/bmp180.md
-          - reference/libs/components/bmp180/examples.md
-        - bno055:
           - reference/libs/components/bno055/index.md
-          - reference/libs/components/bno055/bno055.md
-          - reference/libs/components/bno055/examples.md
-    - Command Line Interface:
-        - Zerynth Toolchain:
+      - Command Line Interface:
           - reference/cli/ztc/index.md
-        - ZDM CLI:
           - reference/cli/zdm/index.md
+    - zCloud APIs:
+      - reference/api/zdm/index.md
+      - reference/api/zstorage/index.md
 
 - Demos:
   - Zerynth OS:

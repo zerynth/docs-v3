@@ -2,8 +2,7 @@
 layout: blog
 title: Socket
 ---
-The socket class
-================
+## The socket class
 
 ### class `socket`
 ```python

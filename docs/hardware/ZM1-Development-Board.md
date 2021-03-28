@@ -1,6 +1,6 @@
 # ZM1-Development Board
 
-ZM1-DBBBBBBBBBBBBBBBBBBB
+ZM1-DB
 
 ![](img/4zerobox_v1.png)
 
@@ -16,7 +16,6 @@ Other useful documents are:
 -   [Datasheet](https://www.zerynth.com/download/13895/)
 -   [Quick Guide](https://www.zerynth.com/download/15283/)
 
-	
 
 
 ## Pin Mapping
@@ -60,51 +59,51 @@ For BLE VMs:
 ## Device Summary
 
 -   DIN-rail mountable (9 slots)
-    
+
 -   8 to 36V Power Supply
-    
+
 -   4 selectable analog input channels:
-    
+
     > -   4-20mA single-ended
     > -   4-20mA differential
     > -   0-10V standard
-    
+
 -   3 current transformers (non-invasive)
-    
+
 -   4 resistive sensor channels (NTC, RTD, contact, proximity, etc.)
-    
+
 -   2 opto-isolated digital inputs
-    
+
 -   2 sink digital output (60A @ 30V)
-    
+
 -   MicroSD card slot
-    
+
 -   1 Digital I/O + 2 Digital Input (3.3V)
-    
+
 -   2 NO/NC Relay (10A @ 250V AC)
-    
+
 -   CAN peripheral
-    
+
 -   Connectivity:
-    
+
     > -   WiFi IEEE 802.11 b/g/n/e/i (Client and AP mode supported)
     > -   Bluetooth® Low-Energy
     > -   Ethernet
-    
+
 -   Crypto Chip - Secure Hardware Encryption
-    
+
 -   RS-485 and RS232 peripherals
-    
+
 -   2 onboard mikroBUS sockets
-    
+
 -   Li-Po battery support
-    
+
 -   Li-Po battery onboard charging unit
-    
+
 -   RGB status led
-    
+
 -   Espressif ESP32 - 32bit Microcontroller 240MHz clock, 4Mb of Flash, 312Kb SRAM
-    
+
 
 ## Power
 
@@ -141,7 +140,7 @@ For the BSP pack of the 4ZeroBox, The following modules are supported:
 -   Wifi
 -   GSM
 
-Brief Example on how to use it : 
+Brief Example on how to use it :
 ```py
 from bsp.drivers import wifi
 

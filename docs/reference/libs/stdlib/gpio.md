@@ -52,8 +52,8 @@ Set the `pin` gipo to logic `1`.
 ### function `low`
 ```python
 low(pin)
-`Set the `pin` gipo to logic `0`.
-``
+```
+Set the `pin` gipo to logic `0`.
 
 ### function `on_rise`
 ```python

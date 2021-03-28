@@ -2,7 +2,7 @@
 layout: blog
 title: Generic network
 ---
-## Generic network
+## Network Interface
   
 ### exception `CantRegisterInterfaceError`
 The interface cannot be registered.
