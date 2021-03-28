@@ -1,138 +1,156 @@
-# Getting Started with Zerynth
-To get you up and running with Zerynth, you need to install the **Zerynth SDK**.
+# Zerynth in 5 minutes
 
-The Zerynth SDK is the gateway to our platform and includes:
+Welcome to this quick getting started! In 5 minutes we will guide you from zero to your first working Zerynth IoT device.
 
-- The **Zerynth Toolchain** – a command-line interface that integrates all the essential functions for the development of [Zerynth OS](../reference/guide/docs/zos.md) firmware and the management of devices connected to the [Zerynth Device Manager](../zCloud/index.md).
-- The **Zerynth Studio** – a basic [IDE](../reference/core/studio/docs/index.md) for the Zerynth Toolchain. It includes development and debugging tools and a vast number of code examples.
+The magic is done in 4 simple steps:
 
+1. Install Zerynth
+2. Create your first IoT project
+3. Prepare the device for the cloud
+4. Send data!
 
 
+## 1. Install Zerynth
 
-To install the Zerynth SDK, download the Zerynth installer according to your platform from the [Zerynth Download page](https://www.zerynth.com/zsdk/).
+You can download the **Zerynth Installer** for different platforms. Here are the links:
 
-!!! note
-	Zerynth works on 64-bit platform only
+- [**Windows 10**](https://downloads.zerynth.com/v3/installer/zerynth-installer.exe)
+- [**Linux**](https://downloads.zerynth.com/v3/installer/zerynth-installer.AppImage)
+- [**Mac**](https://downloads.zerynth.com/v3/installer/zerynth-installer.dmg)
 
-To launch the installation, according to your platform, you can:
+Once downloaded, simply run it and follow the instructions. The installer is run differently depending on your platform.
 
--   Double click on the executable file on Microsoft Windows
--   Open and run the disk image (.dmg) file on Mac OS
--   Extract the “tar.xz” archive and run the “./zerynth” command from the terminal on Linux
+### Installing for Windows
 
+Double click the `zerynth-installer.exe` you just downloaded. The first time Windows may pop  up a dialog saying that
+the application is signed by Zerynth; just click continue to go on with the execution.
 
+TODO: add screenshot of popup
 
-!!! warning
-	Only for Microsoft Windows platform: if the alert message for “allowing unknown publisher to make changes to this computer” appears click on the “Yes” option
+### Installing for Linux
 
-Once the installation starts, you are asked to agree to the “License and Service Terms” to continue.
+The `zerynth-installer.AppImage` file you just downloaded can be executed in some distributions with a simple double click. However, 
+in general you may need to give execution permissions to the file before running it. This is done from a terminal with the command `chmod 755 <path-to-zerynth-installer>`.
 
-![welcome to zerynth screen](img/welcome%20to%20zerynth.jpg)
+TODO: add screenshot of terminal with commands
 
-After accepting the terms, you can choose between two options to complete the installation: **online** and **offline**.
+### Installing for Mac
 
-![](img/online%20ofline%20zerynth%20zdm.jpg)
+The `zerynth-installer.dmg` archive you just downloaded can be double clicked and mounted on the Finder. Just drag the `zerynth-installer` app contained within to the `Applications` folder. Next, click on `Applications` and run the `zerynth-installer` app.
 
-The online installation is recommended. The offline installation meets the needs of educational and training courses, workshops, or places with network and internet issues. It enables you to download an offline package repository and share it with other people for facilitating and speeding up the installation process.
+### Install the Zerynth SDK
 
-If you choose the online installation, you can select which version of Zerynth SDK you want to install. By clicking the install button, the required files are downloaded and unpacked.
+The installer will install the **Zerynth SDK** in your development machine in a few steps.
 
+<figure>
+  <a data-fancybox="gallery" href="img/installer-01.png">
+  <img src="img/installer-01.png"/>
+  </a>
+</figure>
+First, accept the license and terms and press `Install`. This will install the latest version of the SDK together with Visual Studio Code (a.k.a. VSCode) and the VSCode Zerynth Extension (TODO: add link to marketplace).
 
-![](img/select%20version.jpg)
 
-If you choose the offline installation, you need to have the offline package repository on your machine. It can be downloaded in advance for your platform (Windows, Mac, Linux), from the [Zerynth Download page](https://www.zerynth.com/zsdk/).
+<figure>
+  <a data-fancybox="gallery" href="img/installer-02.png">
+  <img src="img/installer-02.png"/>
+  </a>
+</figure>
+The installer will do its magic and in a couple of minutes will ask you to login to the Zerynth platform.
 
+<figure>
+  <a data-fancybox="gallery" href="img/installer-03.png">
+  <img src="img/installer-03.png"/>
+  </a>
+</figure>
 
+The login is done in your web browser and if everything is ok, you can go back to the installer and start VSCode!
 
-## Expert mode
+<figure>
+  <a data-fancybox="gallery" href="img/installer-05.png">
+  <img src="img/installer-05.png"/>
+  </a>
+</figure>
 
-To reduce the number of files downloaded during the installation process, the installer will let you choose which of the supported architectures to install.
+## 2. Create your first IoT project
 
-By clicking “Install” none of the available architectures will be downloaded and you will be prompted to download the needed dependencies whenever Zerynth Studio recognizes a new board.
+VSCode, together with the VSCode Zerynth extension, is our default development enviroment. We spent quite a lot of effort to make it as user-friendly as possible, hope you enjoy! Let us show how easy it is.
 
-By choosing “Expert Mode” you will be able to select the architectures you wish to download right now, but you will still be prompted to install the needed dependencies if you connect a board with an architecture not included in the already downloaded ones.
+### Clone an example
 
-![](img/select%20architecture.jpg)
+Let's create your first project by cloning an existing example.
 
-## Launching Zerynth Studio
+Just press `Ctrl+Shift+P` and type `examples` in the popup that VSCode displays. 
+<figure>
+  <a data-fancybox="gallery" href="img/project-01.png">
+  <img src="img/project-01.png"/>
+  </a>
+</figure>
+The popup is the VSCode command palette from which most of the available operations (called tasks in the VSCode jargon) can be launched.
+Simply choose `Zerynth > Search examples` and then type `ZDM_`. Select the `ZDM_Simple` example and provide a folder to clone it from its repository as shown in the figures below. When ready, click `Clone Zerynth Example` and you are good to go.
+<figure>
+  <a data-fancybox="gallery" href="img/project-02.png">
+  <img src="img/project-02.png"/>
+  </a>
+</figure>
 
-Now the system unpacks and installs all the required packages creating a working instance on your local machine; you have to wait a few minutes to complete the Zerynth installation.
 
-![](img/instaling%20zerynth.jpg)
 
-Launch Zerynth Studio and you’ll be ready to work.
+Congratulations, you created your first IoT project!
 
 
-## Third-Party IDE plugins
+### Connect your Zerynth Hardware
 
-Once you have the Zerynth SDK installed you can code using your favorite IDE by installing the dedicated plugin or using the ready to use project template. For more details on how to develop for Zerynth OS follow the [develop guide](../develop/index.md) we made for Zerynth studio, the main steps are the same also for third party IDEs.
+The project is not ready yet, you need to add your wifi network name and password. You can do it easily by modifying the already opened file `main.py` (that by the way is the main entry point of every Zerynth firmware). The two variables are `ssid` and `passwd`, quite self explanatory.
 
-### VSCode
+Now that the project knows how to connect to your local network, we need to plug a Zerynth device to your USB port. It doesn't matter if the hardware you have is a [ZM1-DB](TODO/link-to-hardware), a [ZM1-EVA](TODO/link-to-hardware) or the mighty [4ZeroBox](TODO/link-to-hardware); the project will run on all of them seamlessy.
 
-This is a step by step guide for enabling Zerynth SDK usage in Microsoft Visual Studio Code.
+The only thing that you are required to do is to tell VSCode which kind of hardware you want to use! For this, just press the `Connected device` action in the `Zerynth Control Panel` on the left. VSCode will automatically recognize the device connected to your USB (when in doubt, VSCode will ask you to choose between different options) and configure the project accordingly. 
 
-VSCode is a free multi-language editor that can be downloaded and installed from [here](https://code.visualstudio.com/download).
+TODO: screenshot of configured project in zerynth control panel.
 
-We prepared a VSCode template project that enables the execution of compilation, uplink, and other functions of the Zerynth toolchain (ZTC) directly from VSCode while also adding support for Zerynth libraries auto-completion.
+### Run the firmware
 
-!!! note
-	This guide requires Zerynth Version 2.6.0 or later
+Time is ticking, just press `Run` in the `Zerynth Control Panel` and the project will be moved on your device and executed!
+Ignore all the colorful messages for the moment and press `Console` in the `Zerynth Control Panel`. This will open the debug console of your device where you can inspect the device messages. If everything goes well, it will connect to your wifi network but will start printing out misterious messages about MQTT errors. Is this a bug?!? No, it's an advanced security feature! Read on.
 
 
-Download the VSCode project template for your platform from here:
+## 3. Prepare the device for the cloud
 
--   [Windows](https://github.com/zerynth/vscode-template-windows)
--   [Linux](https://github.com/zerynth/vscode-template-linux)
--   [Mac](https://github.com/zerynth/vscode-template-mac)
+IoT devices are not made only of hardware and firmware. They also have a unique cryptographic identity that links their physical existence with their virtual counterpart in the cloud. Yes, it's a lot, take a breath. Let's say that inside each and every Zerynth hardware there is a secret key protected by a somewhat magical secure element that says "hey, I am device xyz".
 
+What is missing in the picture is some piece of information that says "physical device xyz belongs to you and in the cloud it's called my-device", namely the link between physical identity and cloud identity.
 
-!!! note
-	 the templates follow the Zerynth distribution versioning. Go to the Github release section and download the template for your Zerynth installation version. We strongly suggest having Zerynth always updated to the last version thus install the last release fo the VSCode templates.
+### The magic of zero touch provisioning
 
+This information is generated in a step called **provisioning**. It must be done only once, it's just a click and gives you control over the device forever (or until you decide otherwise).
 
+Just click `ZDM device` in the `Zerynth Control Panel`. You will be asked to create a cloud device, give it a name and accept the confirmation dialog and wait a little.
 
-![](img/getting%20started%20zdm%203.png)
+TODO: add screenshots of provisioning
 
+Under the hood the magic has happened! The device is now linked to your account and nobody can claim it back.
 
-The template is a ready-to-use VSCode project for Zerynth. Open the template folder and you are ready to code.
+If you now press `ZDM device eye icon` a page will be opened in your browser where you can inspect the cloud identity of your device and a lot more!
 
-The most important files in the template are:
+TODO: screenshot of ZDM device page
 
--  **main.py**: Write your Zerynth code here
+## 4. Send data!
 
--  **project.yml**: The project configuration file where the target board, board port, and other info need to be added in order to allow compilation, uplink, and other functionalities of the Zerynth tool-chain. The Zerynth commands integrated into the VSCode will support you in preparing the project.yml, see below.
+We are almost there! Now press `Run` again and execute the project on your device. This is needed because the provisioning step erased what you loaded before. Now press `Console` and check that the device now does not complain and is sending data to the cloud!
 
+TODO: screenshot of terminal
 
-####Usage
+You can also go back to the web browser and see the data incoming!
 
-Press **CTRL+SHIFT+B** and select the ZTC command to launch.
+TODO: screenshot of ZDM data console
 
+And as a final bonus, from the web browser, press the `Reset` button. It will send a reset request to the device that will, guess what, reset itself. 
 
+After five minutes everything is in place: you have a securely connected device that is forever under your control; it sends data to the cloud but can also receive request from it!
 
-![](img/getting%20started%20zdm%201.png)
 
+You can learn more at the following resources:
+- TODO: tutorial 1
+- TODO: tutorial 2
+- TODO: etc
 
-
-The following ZTC commands are available:
-
--   **Login**: Open a browser for authentication; paste the authentication token into the vscode terminal
--   **Show Supported Devices**: the list of supported devices is shown on the terminal, find the “target” name of your device. Jtag probe support is also displayed.
--   **Set Target Device Type**: change the target device of the current project. Type your device target name found in the previous step
--   **Register Device**: starts the device registration procedure (mandatory for new devices). It updates the project configuration with the device identifier
--   **Show Available Virtual Machines**: displays the various virtual machine available for the device. Choose one and note down version, features, and RTOS. Open project.yml and type the version, RTOS and feature fields in the VM section
--   **Virtualize Device**: starts the device virtualization procedure (mandatory for new boards). Create, download, and transfer the selected VM on the device. Automatically updates project configuration
--   **Compile**: Compiles the current project. If you get an error about missing dependencies, run the Install Deps command below
--   **Show Available Ports**: list the serial ports on your system; Note down the one corresponding to your device
--   **Set Target Device Port**: set the serial port of the device from the previous list
--   **Set Target Device Probe**: if the device is programmable with a jtag probe, set the correct value
--   **Uplink**: uplink the current project on the selected target device (must be virtualized at least once)
--   **Clean**: clean the project cache and allows full recompilation of sources
--   **Install Deps**: Installs missing dependencies and libs required by the project
--   **Open Device Console**: Opens the serial console on the target device port; Press Ctrl+C twice to close it
--   **Prepare FOTA**: create and uploads new firmware to the ZDM. The *device_id* to prepare the firmware for needs to be specified in the project.yml file under the zdm section (zdm: {device_id: XXXX} ); the firmware version must also be specified in the zdm fota section ( zdm: { fota: {version: X }}); By running the command on a new project, the required fields with empty values are automatically added to the configuration. Edit them with your device data.
-
-
-![](img/getting%20started%20zdm%202.png)
-
-
-To add other commands or customize them you can follow this [guide](https://code.visualstudio.com/docs/editor/tasks#vscode).
