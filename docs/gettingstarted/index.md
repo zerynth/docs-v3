@@ -1,18 +1,31 @@
-# Zerynth in 5 minutes
+# **Zerynth in 5 minutes**
 
-Welcome to this quick getting started! In 5 minutes we will guide you from zero to your first working Zerynth IoT device.
 
-The magic is done in 4 simple steps:
+## **What is Zerynth?**
+Zerynth is a complete software-hardware platform, It simplifies the development of IoT products by offering modular industrial development boards, production-ready SoC modules and Easy-to-use Python enabled development enviornment.
+Zerynth hardware integrates seamlessly with Zerynth cloud, a powerful cloud service that monitors, manages and provisions devices, issues OTAs and procedure calls and visualize data with clear dashboards for the end-user. 
 
+'''Picture of Zerynth as a platform.
+
+
+To get started, You need one of Zerynth development boards, check the boards and Buy them from our hardware page.
+
+## **Get Started**
+
+This 5 minutes tutorial will show you how to connect your Zerynth board, use our VScode plugin and start sending data to the cloud.
+
+In 4 steps we'll go from zero to sending data securely to the cloud.
 1. Install Zerynth
 2. Create your first IoT project
 3. Prepare the device for the cloud
 4. Send data!
 
 
-## 1. Install Zerynth
+## **1. Install Zerynth**
 
-You can download the **Zerynth Installer** for different platforms. Here are the links:
+Zerynth installer is an all-in-one application that installs the Zerynth operating system that will be used on the development board, the Zerynth compiler and the VSCode plugin that enables easy and efficient software development.
+Zerynth installer supports Windows, Mac and linux.
+You can download it from these links:
 
 - [**Windows 10**](https://downloads.zerynth.com/v3/installer/zerynth-installer.exe)
 - [**Linux**](https://downloads.zerynth.com/v3/installer/zerynth-installer.AppImage)
@@ -44,22 +57,23 @@ The installer will install the **Zerynth SDK** in your development machine in a 
 
 <figure>
   <a data-fancybox="gallery" href="img/installer-01.png">
-  <img src="img/installer-01.png"/>
+  <img src="img/installer-01.png" width="600"/>
   </a>
 </figure>
+
 First, accept the license and terms and press `Install`. This will install the latest version of the SDK together with Visual Studio Code (a.k.a. VSCode) and the VSCode Zerynth Extension (TODO: add link to marketplace).
 
 
 <figure>
   <a data-fancybox="gallery" href="img/installer-02.png">
-  <img src="img/installer-02.png"/>
+  <img src="img/installer-02.png"width="600"/>
   </a>
 </figure>
 The installer will do its magic and in a couple of minutes will ask you to login to the Zerynth platform.
 
 <figure>
   <a data-fancybox="gallery" href="img/installer-03.png">
-  <img src="img/installer-03.png"/>
+  <img src="img/installer-03.png"width="600"/>
   </a>
 </figure>
 
@@ -67,7 +81,7 @@ The login is done in your web browser and if everything is ok, you can go back t
 
 <figure>
   <a data-fancybox="gallery" href="img/installer-05.png">
-  <img src="img/installer-05.png"/>
+  <img src="img/installer-05.png"width="600"/>
   </a>
 </figure>
 
@@ -82,14 +96,14 @@ Let's create your first project by cloning an existing example.
 Just press `Ctrl+Shift+P` and type `examples` in the popup that VSCode displays. 
 <figure>
   <a data-fancybox="gallery" href="img/project-01.png">
-  <img src="img/project-01.png"/>
+  <img src="img/project-01.png"width="600"/>
   </a>
 </figure>
 The popup is the VSCode command palette from which most of the available operations (called tasks in the VSCode jargon) can be launched.
 Simply choose `Zerynth > Search examples` and then type `ZDM_`. Select the `ZDM_Simple` example and provide a folder to clone it from its repository as shown in the figures below. When ready, click `Clone Zerynth Example` and you are good to go.
 <figure>
   <a data-fancybox="gallery" href="img/project-02.png">
-  <img src="img/project-02.png"/>
+  <img src="img/project-02.png"width="600"/>
   </a>
 </figure>
 
@@ -154,3 +168,17 @@ You can learn more at the following resources:
 - TODO: tutorial 2
 - TODO: etc
 
+### Zerynth Eco-system
+
+But IoT is not just sending data, how about industrial analog sensors, relays or communicating over RS485,RS232 or CAN?
+
+Zerynth Development boards offer a game-changing standard for connecting and adding functionalities to your application.
+
+Expansion boards vary in features and functionalities. Currently, Zerynth offers expansion boards for :
+
+- EXP-IO: Industrial in/out board with 4x Solid State Relays, 2x 4-20mA/0-10V/NTC channels, 2x opto-isolated digital inputs
+- EXP-RELAY: Relay board with 4 Power Relays.
+- EXP-SER: Serial Communication board offers : CAN, RS232 and RS485 
+- EXP-PROTO: Prototyping board for connecting and testing different types of sensors and devices.
+
+Check our hardware page for more details.
