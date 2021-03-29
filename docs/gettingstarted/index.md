@@ -29,10 +29,14 @@ TODO: add screenshot of popup
 
 ### Installing for Linux
 
-The `zerynth-installer.AppImage` file you just downloaded can be executed in some distributions with a simple double click. However, 
+The `zerynth-installer.AppImage` file you just downloaded can be executed in some distributions with a simple double click. However,
 in general you may need to give execution permissions to the file before running it. This is done from a terminal with the command `chmod 755 <path-to-zerynth-installer>`.
 
-TODO: add screenshot of terminal with commands
+<figure>
+  <a data-fancybox="gallery" href="img/installer-linux-01.png">
+  <img src="img/installer-linux-01.png"/>
+  </a>
+</figure>
 
 ### Installing for Mac
 
