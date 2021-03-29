@@ -577,7 +577,7 @@ Get the status of a FOTA.
 - **fota** (object) - FOTA status object
     - **scheduled_at** (date) - The date of the FOTA scheduling in RFC 3339 format
     - **status** (string) - The status of the FOTA
-    - **value** (object) - An object that contains the **firmware_id** and the **firmware_version**
+    - **value** (object) - An object that contains the **fw_id** and the **fw_version**
 
 ### Example
 `GET https://api.zdm.zerynth.com/devices/dev-123456789/fota`
@@ -611,7 +611,7 @@ Schedule a new FOTA for a device.
 - **fota** (object) - FOTA status object
     - **scheduled_at** (date) - The date of the FOTA scheduling in RFC 3339 format
     - **status** (string) - The status of the FOTA
-    - **value** (object) - An object that contains the **firmware_id** and the **firmware_version**
+    - **value** (object) - An object that contains the **fw_id** and the **fw_version**
 
 ### Example
 `POST https://api.zdm.zerynth.com/devices/dev-123456789/fota/fmw-123456789/versions/1.0`
