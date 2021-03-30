@@ -1,8 +1,10 @@
 # EXP-RELAY
 
-The EXP-RELAY is the Zerynth expansion board dedicated to handle high voltage/current the digital outputs.
+The EXP-RELAY expansion board is an output module that features 6 General Purpose Relays rated at 6A 250VAC. The board enables the developers to control motors, fuel pump, industrial applications where control of high voltages and currents is intended, controlling large power loads.
 
-When connected do the ZM1-DB, the EXP-RELAY adds support for 6 NO/NC Relay (10A @ 250V AC).
+Zerynth expansion boards work seamlessly with all of Zerynth Development boards, combined they can act as a Development Board for prototyping a Product, and a core for industrial applications.
+
+The Z-bus allows the connection in a cascade of different add-on modules to create specific industrial applications that fit into a DIN-RAIL case.
 
 ![](img/4zerobox_v1.png)
 
@@ -27,10 +29,10 @@ Official reference for EXP-RELAY can be found  [here](https://www.zerynth.com/4z
 
 ## Device Summary
 
-* 6 NO/NC Relay (10A @ 250V AC)
+* 6 General Purpose Relays rated at 6A 250VAC
 
-A rotative switch allows to select the I2C address of the onboard port expander.
-Rotative switch configuration:
+### Rotary Switch SW1
+Chooses the address of the ADC Chip, Enable multiple boards to be connected simultaneously.
 
 | Position | Address |
 |----------|---------|
