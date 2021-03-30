@@ -10,6 +10,7 @@ This class implements a stream that can be used to connect to a serial port.
 
 Initialize the serial port driver identified by `drivername` and starts it up with a baud rate of `baud`.
 Additional parameters can be passed such as:
+
 * `parity`: `PARITY_NONE`, `PARITY_EVEN`, `PARITY_ODD`
 * `stopbits`: `STOPBIT_1`, `STOPBIT_1_HALF`, `STOPBIT_2`
 * `bitsize`: `BITSIZE_5`, `BITSIZE_6`, `BITSIZE_7`, `BITSIZE_8`
