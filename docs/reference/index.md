@@ -21,7 +21,7 @@ Zerynth provides IoT hardware as ready to use [development boards](TODO/link-to-
 
 ## Firmware
 
-Once the Zerynth hardware is plugged in, it is extremely easy to write IoT firmware for it. Starting with the [IDE](reference/vscode/index.md) or with the [command line interface](reference/cli/ztc/index.md) for more advanced users, a simple Hello World can be executed in no time.
+Once the Zerynth hardware is plugged in, it is extremely easy to write IoT firmware for it. Starting with the [IDE](vscode/index.md) or with the [command line interface](cli/ztc/index.md) for more advanced users, a simple Hello World can be executed in no time.
 Writing firmware is made even easier by the use of the Zerynth OS and its Python engine together with the vast choice of [libraries](TODO/link-to-lib-index) and battle tested [protocols](TODO/link-to-protocols).
 
 ## Security and Connectivity
@@ -30,7 +30,7 @@ Zerynth connectivity and security libraries are so intertwined with hardware and
 
 ## Device Management
 
-Once the devices are securely connected, they need to be managed throughout their lifecycle. First of all they must be [provisioned](TODO/link-to-provisioning) so that they can be authenticated by the Zerynth Device Manager for receiving [jobs](TODO/link-to-jobs) and performing over the air update of the firmware ([FOTA](TODO/link-to-fota). Care must also be taken to gather the data sent by the device and forward them to third party [integrations](TODO/link-to-integrations). Device management can be completely automated via [API](TODO/link-to-zdm-api) or [CLI](reference/cli/zdm/index.md).
+Once the devices are securely connected, they need to be managed throughout their lifecycle. First of all they must be [provisioned](TODO/link-to-provisioning) so that they can be authenticated by the Zerynth Device Manager for receiving [jobs](TODO/link-to-jobs) and performing over the air update of the firmware ([FOTA](TODO/link-to-fota). Care must also be taken to gather the data sent by the device and forward them to third party [integrations](TODO/link-to-integrations). Device management can be completely automated via [API](TODO/link-to-zdm-api) or [CLI](cli/zdm/index.md).
 
 ## Data Storage (coming soon)
 
