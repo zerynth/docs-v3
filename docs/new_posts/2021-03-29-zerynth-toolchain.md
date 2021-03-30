@@ -1,8 +1,7 @@
 ---
 layout: blog
-title: Zerynth Toolchain
+title: Zerynth Toolchain CLI
 ---
-# Zerynth Toolchain CLI 
 
 # ztc account 
 Manage the Zerynth Account.
@@ -15,7 +14,7 @@ ztc account login
 
 The command opens the default system browser to the login/registration page and waits for user input.
 
-In the login/registration page, the user can log in providing a valid email and the corresponding password. It is also possible to login using Google or Facebook OAuth services. If the user do not have a Zerynth account it is possible to register providing a valid email, a nick name and a password.
+On the login/registration page, the user can log in providing a valid email and the corresponding password. It is also possible to login using Google or Facebook OAuth services. If the user does not have a Zerynth account it is possible to register providing a valid email, a nick name, and a password.
 
 Once a correct login/registration is performed, the browser will display a welcome page.
 
@@ -53,11 +52,7 @@ C object files are packed and included in the output bytecode.
 
 ```bash
 ztc.py compile [OPTIONS] [PROJECT]
-
 ```
-* :option:`-I/--include path`, adds `path` to the list of directories scanned for Zerynth modules. This option can be repeated multiple times.
-* :option:`-D/--define def`, adds a C macro definition as a parameter for native C compiler. This option can be repeated multiple times.
-* :option:`-o/--output path`, specifies the path for the output file. If not specified it is `main.vbo` in the project folder.
 
 Options:
 - `-o, --output TEXT`    Specifies the path for the output file.
@@ -68,14 +63,14 @@ Options:
 
 # ztc device
 In the ZTC a device is a peripheral that can execute Zerynth bytecode. 
-In order to do so a device must be prepared and customized with certain attributes.
+In order to do so, a device must be prepared and customized with certain attributes.
 
 The main attributes of a device are:
 
 - `alias`, a unique name given by the user to the device in order to identify it in ZTC commands
 - `uid`, a unique id provided by the operative system identifying the device at hardware level
 - `target`, specifies what kind of virtual machine can be run by the device
-- `name`, a human readable name describing the device. Automatically set by the ZTC
+- `name`, a human-readable name describing the device. Automatically set by the ZTC
 - `chipid`, the unique identifier of the microcontroller present on the device
 - `remote_id`, the unique identifier of the device in the pool of user registered device
 - `classname`, a Python class name identifying the class containing commands to configure the device
@@ -84,8 +79,8 @@ When a new device is connected, some steps must be taken in order to make it abl
 
 - The device must be discovered, namely its hardware parameters must be collected (uid).
 - Once discovered an alias must be assigned. Depending on the type of device target and classname can be assigned in the same step.
-- The device must be _virtualized_, namely a suited virtual machine must be loaded on the device microcontroller
-Sometimes the device automatic recognition is not enough to gather all the device parameters or to allow the usage of JTAG/SWD probes. In such cases additional commands have been introduced in order to manually specify the additional parameters. A separate database of devices with advanced configurations is maintained.
+- The zerynth OS must be loaded into the device microcontroller.
+Sometimes the device automatic recognition is not enough to gather all the device parameters or to allow the usage of JTAG/SWD probes. In such cases, additional commands have been introduced in order to manually specify the additional parameters. A separate database of devices with advanced configurations is maintained.
 
 ## ztc device burn 
 Burn a device with  `IDENTIFIER` with the archive found in the `ZERYNTH_ARCHIVE` path.
@@ -116,7 +111,7 @@ Options:
 
 ## ztc device discover 
 Device discovery is performed by interrogating the operative system database for USB connected peripherals. Each peripheral returned by the system has at least the following “raw” attributes:
-- `vid`, the USB vendor id
+- `vid`. the USB vendor id
 - `pid`, the USB product id
 - `sid`, the unique identifier assigned by the operative system, used to discriminate between multiple connected devices with the same vid:pid
 - `port`, the virtual serial port used to communicate with the device, if present
