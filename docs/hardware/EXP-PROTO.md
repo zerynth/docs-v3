@@ -1,4 +1,4 @@
-# Prototyping Expansion Board
+# EXP-PROTO
 
 The EXP-PROTO expansion board is a prototyping board, enables connecting and interfacing external sensors, actuators or devices.
 The EXP-PROTO gives flexibility to the user to prototype any sensor, display, MCU or IC in their project. The developer is free to connect any device to the board and interface it using the Z-Bus.
@@ -19,7 +19,6 @@ Other useful documents are:
 -   [Datasheet](https://www.zerynth.com/download/13895/)
 -   [Quick Guide](https://www.zerynth.com/download/15283/)
 
-	
 
 
 ## Pin Mapping

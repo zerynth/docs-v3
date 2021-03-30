@@ -11,6 +11,7 @@ The DB features I/O connectors (the Z-bus) that allow the connection in a cascad
 
 The development board offers a modular expansion system that adds expansion boards through the connectors on the board (Z-bus).
 Expansion boards vary in features and functionalities. Currently, Zerynth offers expansion boards for :
+
 * EXP-IO: Industrial in/out board with 4x Solid State Relays, 2x 4-20mA/0-10V/NTC channels, 2x opto-isolated digital inputs
 * EXP-RELAY: Relay board with 4 Power Relays.
 * EXP-SER: Serial Communication board offers : CAN, RS232 and RS485

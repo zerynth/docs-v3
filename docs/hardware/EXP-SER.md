@@ -22,7 +22,6 @@ Other useful documents are:
 -   [Datasheet](https://www.zerynth.com/download/13895/)
 -   [Quick Guide](https://www.zerynth.com/download/15283/)
 
-	
 
 
 ## Pin Mapping
@@ -32,7 +31,7 @@ Other useful documents are:
 Official reference for EXP-SER can be found  [here](https://www.zerynth.com/4zeroplatform/).
 
 ## Device Summary
-    
+
 * CAN: The board uses the MCP2518FD IC, It is an External CAN FD Controller.
 The board also uses NCV7357 as a CAN FD Transceiver.
 Connections between the controller and the transceiver are digitally isolated by the ISO7763 IC.
@@ -41,6 +40,7 @@ Connections between the controller and the transceiver are digitally isolated by
 
 ### Rotary Switch SW1
 Controls the Interrupt output of the MCP2518 CAN controller.
+
 | Position | Pin on Z-Bus |
 |----------|--------------|
 |    0     |     INTR     |
@@ -49,7 +49,7 @@ Controls the Interrupt output of the MCP2518 CAN controller.
 |    3     |     INTE2    |
 
 ### S1 Switch
-Warning: pins 2 and 3 must never be in the ON position at the same time
+**Warning**: pins 2 and 3 must never be in the ON position at the same time
 
 | PIN |       OFF       |             ON              |
 |-----|-----------------|-----------------------------|
