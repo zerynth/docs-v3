@@ -1,4 +1,4 @@
-## BME280 Component
+# BME280
 
 _datasheet_: <https://ae-bst.resource.bosch.com/media/_tech/media/datasheets/BST-BME280_DS001-11.pdf>
 

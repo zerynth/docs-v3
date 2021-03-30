@@ -6,9 +6,9 @@ This module enables the access to low level microcontroller functionalities like
 * soft reset
 
 
-### function `reset_registers`
+### function `reset_reason`
 ```python
-reset_registers()
+reset_reason()
 ```
 
 Returns the code related to last board reset reason.

@@ -1,4 +1,4 @@
-## BNO055 Component
+# BNO055
 
 _datasheet_: <https://ae-bst.resource.bosch.com/media/_tech/media/datasheets/BST_BNO055_DS000_14.pdf>
 
@@ -102,7 +102,7 @@ Sets the calibration values of the BNO055 main components.
       2) Magnetometer Offset for X, Y, Z axes (values in uT) - list elements 3,4,5;
       3) Gyroscope Offset for X, Y, Z axes (values in Dps) - list elements 6,7,8;
       4) Accelerometer Radius - list element 9;
-      5) Magnetometer Radius - list element 10. 
+      5) Magnetometer Radius - list element 10.
 
 * `raw`: If set to True, following rules are required:
 

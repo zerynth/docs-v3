@@ -1,6 +1,6 @@
 ---
 layout: blog
-title: Pulse Width Modulation
+title: PWM
 ---
 ## PWM
 

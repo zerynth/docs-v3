@@ -45,7 +45,7 @@ from tslog import tslog
 
 # open the log and provide a record format
 # in this case a 64 bits integer followed by two floats
-tlog = tslog.TSLog("/zerynth/test", format="Qff")
+tlog = tslog.TSLog("/zerynth/test", formats=["Qff"])
 
 
 #Let's define a reader thread thats keeps reading from the log
@@ -112,7 +112,7 @@ while True:
 ```python 
 class TSLog(
         folder, 
-        format = "", 
+        formats = [], 
         record_size=128, 
         bucket_size=1024, 
         commit_delta=16, 
@@ -122,7 +122,7 @@ class TSLog(
 
 Create a `TSLog` instance. The `TSLog` class accepts various parameters:
 * `folder` is a folder in a mounted filesystem to store buckets and snapshots. It is suggested to use a folder in the internal flash by prefixing the folder with "/zerynth/"
-* `format` is the format of data that will be saved in the record. If given, it is converted to a record size in bytes via the `struct` library. Check the [struct docs](TODO/link-to-struct-docs) for available formats
+* `formats` is the  list of possible formats of data that will be saved in the record. If given, it is converted to a record size in bytes via the `struct` library. Check the [struct docs](TODO/link-to-struct-docs) for available formats
 * `record_size` is the fixed size of the log record. It is suggested to avoid using this parameter directly in favor of `format`
 * `bucket_size` is the number of records that can fit into a bucket
 * `commit_delta` is the number of records after which a snapshot of the log is taken. Adjust based on the frequency of acquisition of the firmware. 
@@ -135,8 +135,23 @@ Create a `TSLog` instance. The `TSLog` class accepts various parameters:
 store(*args)
 ```
 
-Store the list of arguments to the log according to `format`. 
+Store the list of arguments to the log according to `formats`. The method always store the arguments according to `formats[0]`.
+If the provided formats are zero or more than one, the method raises an exception.
 Return the sequence number of the stored record.
+
+### method `store_with_tag`
+
+```python 
+store_with_tag(tag, *args)
+```
+
+Store the arguments marking the record as belonging to `tag`. `tag` is a non negative integer that selects the 
+format to be used according to `formats`.
+Return the sequence number of the stored record.
+
+For example, if the log has been initialized with two formats, `Qff` and `Qiii`, the method can be used as `store_with_tag(0,100,1.0,2.0)` for storing data according to `Qff` or as `store_with_tag(1,100,1,2,3)` for storing data according to `Qiii`.
+
+If formats provided are less than two, the method raises an exception.
 
 ### method `store_record`
 
@@ -203,8 +218,10 @@ Create an instance of `TSReader`. This class is never created manually, it is al
 next()
 ```
 
-Return the next record converted to a tuple according to the log `format`.
+Return the next record converted to a tuple according to the log `formats`.
+If only one format has been specified, the tuple contans the arguments stored. If the `formats` are more than one, the return value is a tuple with two items: the first is the `tag` as defined in `store_with_tag`, the second is the tuple of stored arguments.
 Can return *None* if there is no more available data, i.e. the writer has not committed new data yet.
+
 
 ### method `next_record`
 
