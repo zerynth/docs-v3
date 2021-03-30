@@ -1,6 +1,6 @@
 ---
 layout: blog
-title: Generic network
+title: Network Interface
 ---
 ## Network Interface
   

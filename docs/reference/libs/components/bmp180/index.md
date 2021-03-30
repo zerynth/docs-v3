@@ -1,4 +1,4 @@
-## BMP180 Component
+# BMP180
 
 _datasheet_: <https://ae-bst.resource.bosch.com/media/_tech/media/datasheets/BST-BMP180-DS000-121.pdf>
 
