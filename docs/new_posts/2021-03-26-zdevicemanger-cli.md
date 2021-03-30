@@ -86,21 +86,21 @@ zdm device create  WORKSPACE_ID FLEET_ID NAME
 
 
 ## zdm device get
-Get a single device by `DEVICE_ID' in a `WORKSPCAE_ID`.
+Get a single device by `DEVICE_ID` in a `WORKSPACE_ID`.
 
 ```bash
 zdm device get WORKSPACE_ID DEVICE_ID
 ```
 
 ## zdm device ls
-List all the devices of a `"WORKSPACE_ID`.
+List all the devices in a `"WORKSPACE_ID`.
 
 ```bash
 zdm device ls [OPTIONS] WORKSPACE_ID
 ```
 
 ## zdm device update
-Update the device  `DEVICE_ID` in the `WORKSPACE_ID`. Ite permits to modify the name and the fleet of the device.
+Update the device with `DEVICE_ID` in the `WORKSPACE_ID`. It permits to update the name and the fleet of the device.
 
 ```bash
 zdm device update  [OPTIONS] WORKSPACE_ID DEVICE_ID
@@ -108,15 +108,15 @@ zdm device update  [OPTIONS] WORKSPACE_ID DEVICE_ID
 
 Options:
 
-*  `--fleet-id FLEET_ID` new fleet id
-*  `--name     TEXT`     new device name
+*  `--fleet-id FLEET_ID` New fleet id
+*  `--name     TEXT`     New device name
 
 # zdm fleet
-In the ZDM a fleet group a set of devices ina workspace. 
-When you log in for the first time, a _default_ workspace containing a _default_ fleet will be created. 
+In the ZDM a fleet group a set of devices in a workspace. 
+When you log in for the first time, a _default_ workspace containing a _default_ fleet is created. 
 
 ## zdm fleet create
-Create a new fleet `NAME` in a workspace `WORKSPACE_ID`.
+Create a new fleet with a `NAME` in a workspace with `WORKSPACE_ID`.
 
 ```bash
 zdm fleet create  WORKSPACE_ID NAME
@@ -128,16 +128,14 @@ Options:
 
 ## zdm fleet get
 
-Get a single fleet by `FLEET_ID`  in a workspace  `WORKSPACE_ID`.
+Get a single fleet by `FLEET_ID`  in a workspace with  `WORKSPACE_ID`.
 
 ```bash
 zdm fleet get WORKSPACE_ID FLEET_ID
 ```
 
-where ```UID``` is the fleet uid
-
 ## zdm fleet ls
-List all your fleets in a workspace `WORKSPACE_ID`.
+List all your fleets in a workspace with `WORKSPACE_ID`.
 
 ```bash
 zdm fleet ls WORKSPACE_ID
@@ -145,24 +143,23 @@ zdm fleet ls WORKSPACE_ID
 
 
 # zdm fota
-The ZDM allows you to perform FOTA (over the air firmware updates) on your devices.
+The ZDM allows you to perform FOTA (over-the-air firmware updates) on your devices.
 
+Once you’ve uploaded your firmware (see the `zdm workspace firmware` commands), you can schedule the FOTA operation. The device will download the firmware from the ZDM and uplink it.
+
+If the FOTA operation is completed, you can see if the device has accepted or refused it using the `zdm fota check` command.
 
 ## zdm fota schedule
 
-Once you’ve uploaded your firmware (see the `zdm workspace firmware` commands) , you can send the FOTA command to a device that will download it from the ZDM and uplink it.
-
-If the FOTA operation is finished, you can see if the device has accepted or refused it using the ```zdm fota check ``` command.
-
-Schedule a fota to a `DEVICE` with a `FIRMWARE_ID` using the `FIRMWARE_VERSION`.
+Schedule a fota to a `DEVICE_ID` uploading the `FIRMWARE_ID` with a `FIRMWARE_VERSION`.
 
 ```bash
-zdm fota schedule DEVICE FIRMWARE_ID FIRMWARE_VERSION
+zdm fota schedule DEVICE_ID FIRMWARE_ID FIRMWARE_VERSION
 ```
 
 ## zdm fota check
 
-To check the status of a FOTA you started, to know if the `DEVICE_ID` finished the task or if an error occurred, type the following command:
+Check the status of a FOTA of a`DEVICE_ID`.
 
 ```bash
 zdm fota check DEVICE_ID
@@ -172,24 +169,16 @@ zdm fota check DEVICE_ID
 In the ZDM a job is a function defined in your firmware that you can call remotely through the ZDM. 
 
 
-
 ## zdm job schedule
-Schedule e job `NAME` to a single `DEVICE_ID`
-To call remotely a function defined in your firmware, use the command:
+Schedule e job `NAME` to a single `DEVICE_ID`. 
 
 ```bash
 zdm job schedule NAME DEVICE_ID [OPTIONS]
 ```
 
 options:
-   -   `--arg <KEY, VALUE>...`: a key value passed as job's argument.
+   -   `--arg <KEY, VALUE>...`: a key value passed as job's argument. Ex. --arg=pump on
 
-Example: 
-Schedule the `jobAdder` to a device `dev-aaaaa` with two arguments: `num1=5` and `num2=6`.
-
-```bash
-zdm job schedule jobAdder dev-aaaaa --arg=num1 5 --arg=num2 6
-```
 
 ## zdm job check
 
@@ -201,7 +190,7 @@ zdm job check NAME DEVICE_ID
 
 
 ## zdm job ls
-List all the jobs of a single `DEVICE_ID`
+List all the jobs of a single `DEVICE_ID`.
 
 ```bash
 zdm job check [OPTIONS] DEVICE_ID
