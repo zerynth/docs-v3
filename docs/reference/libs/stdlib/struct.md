@@ -105,21 +105,13 @@ Alternatively, the first character of the format string can be used to indicate
 the byte order, size and alignment of the packed data, according to the
 following table:
 
-```
-+-----------+------------------------+----------+-----------+
 | Character | Byte order             | Size     | Alignment |
-+===========+========================+==========+===========+
+|-----------|------------------------|----------|-----------|
 | `@`       | native                 | native   | native    |
-+-----------+------------------------+----------+-----------+
 | `=`       | native                 | standard | none      |
-+-----------+------------------------+----------+-----------+
 | `<`       | little-endian          | standard | none      |
-+-----------+------------------------+----------+-----------+
 | `>`       | big-endian             | standard | none      |
-+-----------+------------------------+----------+-----------+
 | `!`       | network (= big-endian) | standard | none      |
-+-----------+------------------------+----------+-----------+
-```
 
 If the first character is not one of these, `'@'` is assumed.
 
@@ -146,8 +138,6 @@ Notes:
 
 3. To align the end of a structure to the alignment requirement of a particular type, end the format with the code for that type with a repeat count of zero.  See :ref:`struct-examples`.
 
-.. _format-characters:
-
 #### Format Characters
 
 Format characters have the following meaning; the conversion between C and
@@ -157,58 +147,33 @@ is, when the format string starts with one of `'<'`, `'>'`, `'!'` or
 `'='`.  When using native size, the size of the packed value is
 platform-dependent.
 
-```
-+--------+--------------------------+--------------------+----------------+------------+
 | Format | C Type                   | Python type        | Standard size  | Notes      |
-+========+==========================+====================+================+============+
+|--------|--------------------------|--------------------|----------------|------------|
 | `x`    | pad byte                 | no value           |                |            |
-+--------+--------------------------+--------------------+----------------+------------+
 | `c`    | :c:type:`char`           | bytes of length 1  | 1              |            |
-+--------+--------------------------+--------------------+----------------+------------+
 | `b`    | :c:type:`signed char`    | integer            | 1              | (1),(3)  |
-+--------+--------------------------+--------------------+----------------+------------+
 | `B`    | :c:type:`unsigned char`  | integer            | 1              | (3)       |
-+--------+--------------------------+--------------------+----------------+------------+
 | `?`    | :c:type:`_Bool`          | bool               | 1              | (1)       |
-+--------+--------------------------+--------------------+----------------+------------+
 | `h`    | :c:type:`short`          | integer            | 2              | (3)       |
-+--------+--------------------------+--------------------+----------------+------------+
 | `H`    | :c:type:`unsigned short` | integer            | 2              | (3)       |
-+--------+--------------------------+--------------------+----------------+------------+
 | `i`    | :c:type:`int`            | integer            | 4              | (3)       |
-+--------+--------------------------+--------------------+----------------+------------+
 | `I`    | :c:type:`unsigned int`   | integer            | 4              | (3)       |
-+--------+--------------------------+--------------------+----------------+------------+
 | `l`    | :c:type:`long`           | integer            | 4              | (3)       |
-+--------+--------------------------+--------------------+----------------+------------+
 | `L`    | :c:type:`unsigned long`  | integer            | 4              | (3)       |
-+--------+--------------------------+--------------------+----------------+------------+
 | `q`    | :c:type:`long long`      | integer            | 8              | (2), (3) |
-+--------+--------------------------+--------------------+----------------+------------+
-| `Q`    | :c:type:`unsigned long   | integer            | 8              | \(2), \(3) |
-|        | long`                    |                    |                |            |
-+--------+--------------------------+--------------------+----------------+------------+
+| `Q`    | :c:type:`unsigned long lond`| integer         | 8              | \(2), \(3) |
 | `n`    | :c:type:`ssize_t`        | integer            |                | (4)       |
-+--------+--------------------------+--------------------+----------------+------------+
 | `N`    | :c:type:`size_t`         | integer            |                | (4)       |
-+--------+--------------------------+--------------------+----------------+------------+
-| `e`    | (7)                     | float              | 2              | (5)       |
-+--------+--------------------------+--------------------+----------------+------------+
+| `e`    | (7)                      | float              | 2              | (5)       |
 | `f`    | :c:type:`float`          | float              | 4              | (5)       |
-+--------+--------------------------+--------------------+----------------+------------+
 | `d`    | :c:type:`double`         | float              | 8              | (5)       |
-+--------+--------------------------+--------------------+----------------+------------+
 | `s`    | :c:type:`char[]`         | bytes              |                |            |
-+--------+--------------------------+--------------------+----------------+------------+
 | `p`    | :c:type:`char[]`         | bytes              |                |            |
-+--------+--------------------------+--------------------+----------------+------------+
 | `P`    | :c:type:`void \*`        | integer            |                | (6)       |
-+--------+--------------------------+--------------------+----------------+------------+
-```
 
 Notes:
 
-1. 
+1.
 The `'?'` conversion code corresponds to the :c:type:`_Bool` type defined by
 C99. If this type is not available, it is simulated using a :c:type:`char`. In
 standard mode, it is always represented by one byte.
@@ -223,7 +188,7 @@ called to convert the argument to an integer before packing.
 .. versionchanged:: 3.2
 Use of the :meth:`__index__` method for non-integers is new in 3.2.
 
-4. 
+4.
 The `'n'` and `'N'` conversion codes are only available for the native
 size (selected as the default or with the `'@'` byte order character).
 For the standard size, you can use whichever of the other integer formats
@@ -288,8 +253,6 @@ For the `'?'` format character, the return value is either :const:`True` or
 :const:`False`. When packing, the truth value of the argument object is used.
 Either 0 or 1 in the native or standard bool representation will be packed, and
 any non-zero value will be `True` when unpacking.
-
-.. _struct-examples:
 
 ### Examples
 
