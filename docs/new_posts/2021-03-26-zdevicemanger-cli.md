@@ -327,12 +327,12 @@ zdm workspace firmware [OPTIONS] WORKSPACE_ID get FIRMWARE_ID
 List all the firmwares of a `WORKSPACE_ID`.
 
 ```bash
-zdm workspace firmware [OPTIONS] WORKSPACE_ID ls
+zdm workspace firmware  WORKSPACE_ID ls
 ```
 
 
 ## zdm workspace firmware upload
-Upload a new version to a firmware.
+Upload a new `VERSION` for a firmware `FIRMWARE_ID` of  a `WORSPACE_ID`.
 
 ```bash
 zdm workspace firmware [OPTIONS] WORKSPACE_ID upload FIRMWARE_ID VERSION ARCHIVE_PATH
