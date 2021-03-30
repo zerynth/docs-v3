@@ -245,14 +245,30 @@ It will be necessary to login again.
 # zdm variable 
 Manage the variable from devices and ZDM.
 
+## zdm variable get
+Get the values of a variable `NAME` of a `DEVICE_ID`.
+It returns the values set by the cloud and the device.
+
+
+```bash
+zdm variable get [OPTIONS] DEVICE_ID NAME
+```
+Options:
+  - `--help`                     Show this message and exit.
+
+
 
 ## zdm variable set
-Set the valu of a a variable for a `DEVICE_ID`.
-The `NAME` is the variable name and `VALUE` is the value.
+Set the value of a  variable of a `DEVICE_ID`.
+The `NAME` is the variable name.
 
 ```bash
 zdm variable create [OPTIONS] DEVICE_ID NAME VALUE
 ```
+Options:
+  - `--val <TEXT TEXT|INT>...`  Values of the variable. Ex. --val pump off
+  - `--help`                     Show this message and exit.
+
 
 
 ## zdm variable ls
