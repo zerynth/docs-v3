@@ -19,9 +19,9 @@ Expansion boards vary in features and functionalities. Currently, Zerynth offers
 
 ## Resources
 
-For more infos about electrical connections, and how to use 4ZeroBox with sensors and other hardware, see the  [user manual](https://www.zerynth.com/download/13894/).
+For more infos about electrical connections, and how to use ZM1-DB with sensors and other hardware, see the  [user manual](https://www.zerynth.com/download/13894/).
 
-For more information on the 4ZeroBox Library as software drivers, Its features, functions and examples
+For more information on the ZM1-DB Library as software drivers, Its features, functions and examples
 [Please check this Link](/latest/reference/libs/zerynth/4zerobox/docs/)
 
 Other useful documents are:
@@ -35,7 +35,7 @@ Other useful documents are:
 
 ![](img/4zeroboxpin.png)
 
-Official reference for Zerynth 4ZeroBox can be found  [here](https://www.zerynth.com/4zeroplatform/).
+Official reference for Zerynth ZM1-DB can be found  [here](https://www.zerynth.com/4zeroplatform/).
 
 ## Flash Layout
 
