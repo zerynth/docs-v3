@@ -100,7 +100,7 @@ zdm device ls [OPTIONS] WORKSPACE_ID
 ```
 
 ## zdm device update
-Update the device with `DEVICE_ID` in the `WORKSPACE_ID`. It permits to update the name and the fleet of the device.
+Update the device with `DEVICE_ID` in the `WORKSPACE_ID`. It permits updating the name and the fleet of the device.
 
 ```bash
 zdm device update  [OPTIONS] WORKSPACE_ID DEVICE_ID
@@ -209,9 +209,9 @@ zdm login
 
 The command opens the default system browser to the login/registration page and waits for user input.
 
-In the login/registration page, the user can log in providing a valid email and the corresponding password.
+On the login/registration page, the user can log in providing a valid email and the corresponding password.
 It is also possible to login using Google or Facebook OAuth services. 
-If the user do not have a Zerynth account it is possible to register providing a valid email, a nick name and a password.
+If the user does not have a Zerynth account it is possible to register providing a valid email, a nick name and a password.
 
 Once a correct login/registration is performed, the browser will display a web welcome page.
 
@@ -219,7 +219,7 @@ Once a correct login/registration is performed, the browser will display a web w
 	Multiple logins with different methods (manual or social) are allowed provided that the email linked to the social OAuth service is the same as the one used in the manual login.
 
 !!! warning
-	For manual registrations, email address confirmation is needed. An email will be sent at the provided address with instructions.
+	For manual registrations, email address confirmation is needed. An email will be sent to the provided address with instructions.
 
 
 # zdm logout
@@ -265,14 +265,14 @@ Options:
 
 
 ## zdm variable ls
-List all the variable of a `DEVICE_ID`.
+List all the variables of a `DEVICE_ID`.
 
 ```bash
 zdm job variable ls DEVICE_ID
 ```
 
 # zdm workspace 
-A workspace is the entity that groups devices. 
+A workspace is an entity that groups devices. 
 You can imagine the workspace as the main folder of your project.
 
 ## zdm workspace create
@@ -332,7 +332,7 @@ zdm workspace firmware  WORKSPACE_ID ls
 
 
 ## zdm workspace firmware upload
-Upload a new `VERSION` for a firmware `FIRMWARE_ID` of  a `WORSPACE_ID`.
+Upload a new `VERSION` for a firmware `FIRMWARE_ID` of a `WORSPACE_ID`.
 
 ```bash
 zdm workspace firmware [OPTIONS] WORKSPACE_ID upload FIRMWARE_ID VERSION ARCHIVE_PATH
@@ -340,7 +340,7 @@ zdm workspace firmware [OPTIONS] WORKSPACE_ID upload FIRMWARE_ID VERSION ARCHIVE
 
 arguments:
 - `FIRMWARE_ID`: the firmware id to upload the new version
-- `VERSION`; the version of the newly uploaded files.
+- `VERSION`: the version of the newly uploaded files.
 - `ARCHIVE_PATH`: path of the archive to be uploaded.
 
 
