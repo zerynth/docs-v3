@@ -233,11 +233,14 @@ zdm logout
 It will be necessary to login again.
 
 # zdm variable 
-Manage the variable from devices and ZDM.
+A variable is a shared value between a device and the ZDM.
+The variable has a name and contains the latest value set by the device and by the ZDM.
+The device value is set by the firmware, the ZDM value is set by calling the ZDM API.
+
 
 ## zdm variable get
 Get the values of a variable `NAME` of a `DEVICE_ID`.
-It returns the values set by the cloud and the device.
+It returns both the values of the device and the ZDM.
 
 
 ```bash
@@ -249,7 +252,7 @@ Options:
 
 
 ## zdm variable set
-Set the value of a  variable of a `DEVICE_ID`.
+Set the value of a  variable of a `DEVICE_ID` calling the ZDM API.
 The `NAME` is the variable name.
 
 ```bash
