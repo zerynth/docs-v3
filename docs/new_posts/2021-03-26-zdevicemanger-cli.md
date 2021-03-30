@@ -2,14 +2,14 @@
 layout: blog
 title: zDeviceManger CLI
 ---
-# The ZDM Command Line Interface 
 
-The Zerynth Device Manager Command Line Interface (ZDM CLI) permit interacting with the ZDM via a command line.
+
+The zDeviceManager Command Line Interface (ZDM CLI) permits interacting with the ZDM via a command line.
 This section is a guide for the most used of the ZDM CLI commands.
 
 ## Installation
 
-The ZDM CLI is installed together the Zerynth SDK.
+The ZDM CLI is installed together with the Zerynth SDK.
 
 !!! Important
 	This guide assumes you are using the Zerynth3 SDK. Download it [here](https://www.zerynth.com/zsdk/) or update to the latest version!
@@ -21,7 +21,8 @@ In order to use the ZDM CLI
 2. Open a terminal and type the command `zdm`
 
 !!! Note
-    If the `zdm` command is not found, try to set the os path.
+    If the `zdm` command is not found, try to set the os path with the following command.
+
     * On **Linux**: open the terminal and launch the following command:
         ```bash
         ~/.zerynth3/dist/sys/cli/zpm setpath
@@ -43,7 +44,7 @@ To list of available commands, either launch `zdm` with no parameters or execute
 $ zdm 
 Usage: zdm [OPTIONS] COMMAND [ARGS]...
 
-  ZDM command line interface
+  ZDM Command Line Interface
 
 Options:
   -v                            Verbose.
@@ -85,7 +86,7 @@ zdm device create  WORKSPACE_ID FLEET_ID NAME
 
 
 ## zdm device get
-Get a single device in a `WORKSPCAE_ID` with a `DEVICE_ID`.
+Get a single device by `DEVICE_ID' in a `WORKSPCAE_ID`.
 
 ```bash
 zdm device get WORKSPACE_ID DEVICE_ID
