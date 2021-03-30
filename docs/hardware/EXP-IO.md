@@ -34,11 +34,11 @@ Official reference for EXP-IO can be found  [here](https://www.zerynth.com/4zero
 
 ## Device Summary
 
-* Relay: The board uses the TLP172A, Rated at 36Vdc.
-    4x Solid State Relays NO.
+* 4x Solid State Relays NO.
+    Uses the TLP172A, Rated at 36Vdc.
 * 2x opto-isolated digital inputs
     Uses ISO1212DBQR IC rated for 36Vdc.
-* 2 Analog Channels channels: Can be configured as
+* 2x Analog Channels channels: Can be configured as
     4-20 mA Current channel
     0-10V Voltage channel
     Resistive Sensor Channel (calibrated for 11 Kohm for best precision).
@@ -68,7 +68,6 @@ Controls on which hardware channel you want to link the interrupt.
 
 ### S1 Switch
 Controls the configuration of the ADC channel.
-
 
 | PIN | AIN  |      OFF     |       ON        |
 |-----|------|--------------|-----------------|

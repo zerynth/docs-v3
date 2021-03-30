@@ -29,7 +29,7 @@ Official reference for EXP-RELAY can be found  [here](https://www.zerynth.com/4z
 
 ## Device Summary
 
-* 6 General Purpose Relays rated at 6A 250VAC
+* 6x General Purpose Relays rated at 6A 250VAC
 
 ### Rotary Switch SW1
 Chooses the address of the ADC Chip, Enable multiple boards to be connected simultaneously.

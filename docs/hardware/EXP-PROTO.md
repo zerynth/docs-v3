@@ -26,5 +26,5 @@ Other useful documents are:
 
 ![](img/4zeroboxpin.png)
 
-Official reference for Zerynth 4ZeroBox can be found  [here](https://www.zerynth.com/4zeroplatform/).
+Official reference for Zerynth EXP-PROTO can be found  [here](https://www.zerynth.com/4zeroplatform/).
 
