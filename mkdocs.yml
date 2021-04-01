@@ -25,6 +25,7 @@ markdown_extensions:
 - pymdownx.tabbed
 - pymdownx.tilde
 nav:
+- Version Selector: "../"
 - Introduction:
   - Zerynth in a nutshell: intro/index.md
 - Getting Started:
@@ -54,6 +55,11 @@ nav:
   - Store and Visualize data: zCloud/store_visualize.md
   - Make Simple Powerful Dashboards: zCloud/dashboard.md
   - Over the Air Updates: zCloud/FOTA.md
+#  - Getting Started with Zerynth SDK: zCloud/getting_started_with_sdk.md
+#  - Getting Started with Raspberry PI: zCloud/getting_started_with_rpi.md
+#  - Web Interface: zCloud/web_interface.md
+# - Integrate:
+#   - integrate/Integrate.md
 - Hardware:
   - hardware/ZM1-Development-Board.md
   - hardware/EXP-SER.md
@@ -61,6 +67,7 @@ nav:
   - hardware/EXP-IO.md
   - hardware/EXP-PROTO.md
   - hardware/4ZeroBox.md
+
 - Technical Reference :
     - {Index: reference/index.md}
     - Zerynth OS:
@@ -168,10 +175,12 @@ nav:
     - demos/4zerobox/Firmware_over_the_air_Updates_for_4ZeroBox_over_WiFi.md
 
 
-
             
 plugins:
 - search
+- mkdocs-versioning:
+      version: 0.0.8
+      version_selection_page: "docs/version_selection.md"
 - minify: {minify_html: true}
 site_name: Zerynth Documentation
 theme:
