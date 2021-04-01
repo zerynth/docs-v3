@@ -1,7 +1,21 @@
 # Filesystem 
 
-TODO: intro 
+Each Zerynth hardware features an internal flash of at least 16 MB, part of which is reserved for an internal filesystem.
+The filesystem module is also capable of handling SD cards formatted with FAT.
 
+The internal filesystem is based on LittleFS, that guarantees wear leveling, bad block detection, and resistance to corruption from power loss or crashes. 
+
+The internal filesystem is automatically mounted to `/zerynth` root at startup.
+
+The internal filesystem can also be automatically formatted and loaded with files or folders when running a project. It can be done by simply adding a `resources` folder into the Zerynth project. All the contents of the folder are packed and transferred into the internal filesystem together with the firmware.
+
+
+!!! note
+    In general the `fs` module do not write immediately to the underlying support. Write operations are guaranteed to be finalized either when the file is close or when an explicit synchronization is manually requested.
+
+## FS Functions
+
+The `fs` module provides many functions for mounting and managing a filesystem. It also provide classes for streamlining operation on files.
 
 ### function `mount`
 ```python
@@ -19,6 +33,14 @@ Valid values:
 
 * `spiclk`: The clock in Hz for the SPI bus where the MicroSD is attached to.
 
+Can raise:
+
+* `FSNoSuchMountpointError` 
+* `FSCantMountError`
+* `FSNoMoreMountpointsError`
+
+All of the above have `IOError` as parent.
+
 
 ### function `unmount`
 ```python
@@ -35,6 +57,8 @@ Unmount a storage device.
 open(path, mode)
 ```
 
+Opens or create a file at `path`.
+
 * `path` is a string (following chosen low-level filesystem driver format).
 
 * `mode` is a string composed by one or more of the following characters:
@@ -45,6 +69,8 @@ open(path, mode)
 * 'b'	binary mode
 * '+'	open a disk file for updating (reading and writing)
 
+
+Return an instance of `FileIO` or raises `IOError`.
 
 ### function `rmdir`
 ```python
@@ -97,16 +123,18 @@ Return type can be string or bytes depending on chosen mode.
 An empty string or an empty bytes object indicate end of file.
 
 
-### method `read`
+### method `read_into`
 ```python
-read(n_bytes = -1)
+read_into(buf, ofs=0, sz=0)
 ```
 
-Read up to size bytes from the object and return them. As a convenience, if size is unspecified or -1, the whole file is read.
+Read bytes from file into `buf` starting from offset `ofs` and reading `sz` bytes.
 
 Return type can be string or bytes depending on chosen mode.
 
 An empty string or an empty bytes object indicate end of file.
+
+Raise `IOError` if `ofs` or `sz` generates overflow.
 
 
 ### method `write`
@@ -116,7 +144,7 @@ write(to_w, sync = False)
 
 Write `to_w` object (string or bytes) to the stream and return the number of characters written.
 
-* `sync` parameter allows to write changes to disk immediately, without waiting :method:`close` call.
+* `sync` parameter allows to write changes to disk immediately, without waiting for `close` call.
 
 
 ### method `close`
@@ -124,7 +152,7 @@ Write `to_w` object (string or bytes) to the stream and return the number of cha
 close()
 ```
 
-Close file stream.
+Close file
 
 
 ### method `size`
@@ -132,7 +160,7 @@ Close file stream.
 size()
 ```
 
-Return file size.
+Return file size in bytes
 
 ### method `tell`
 ```python
@@ -143,22 +171,24 @@ Return the current stream position.
 
 ### method `seek`
 ```python
-seek(offset, whence=0)
+seek(offset, whence=SEEK_SET)
 ```
 
 Move the current position to *offset* bytes with respect to *whence*.
 
 `whence` can be:
 
-* 0: start of file
-* 1: current position
-* 2: end of file
+* `SEEK_SET`: start of file
+* `SEEK_CUR`: current position
+* `SEEK_END`: end of file
 
 
 ### method `readline`
 ```python
-readline()
+readline(max_len=256, end="\r\n", with_end=True):
 ```
 
-Read until newline or EOF and return a single string.
+Read until newline or EOF and return a single string. The maximum length of the line is defined by `max_len`.
+The characters to be used as end of line are in `end`. The line end character is returned by default together with the line
+but this behavior can be controlled by the `with_end` parameter.
 If the stream is already at EOF, an empty string is returned.
