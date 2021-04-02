@@ -3,6 +3,17 @@
 The EXP-SER expansion board allows your application to communicate over RS485, RS232 and CAN interfaces, enables communication with PC, Devices, boards or sensors communicating over serial channels.
 The board features pin headers to connect terminals of CAN bus, R485 and RS232, in addition to exposing the UART/USART pins, I2C and SPI pins in the Z-bus pin header.The board features pin headers to connect terminals of CAN bus, R485 and RS232, in addition to exposing the UART/USART pins, I2C and SPI pins in the Z-bus pin header.
 
+## ZBUS
+
+The modular expansion system uses the Z-bus, The Z-bus is an efficient, powerful standard for connecting and prototyping different sensors and devices.
+The z-bus is using the CN1 pin header (20x2) exposing the following:
+16 GPIO pins.
+4 interrupt pins.
+2 USART/UART instances with full support (TX,RX,RTS,CTS)
+I2C, SPI support.
+5V, 3.3 V output pins.
+Enable pin for controlling the power to attached expansion boards.
+Note: The development board supports up to 3 attached expansion boards.
 
 Zerynth expansion boards work seamlessly with all of Zerynth Development boards, combined they can act as a Development Board for prototyping a Product, and a core for industrial applications.
 
