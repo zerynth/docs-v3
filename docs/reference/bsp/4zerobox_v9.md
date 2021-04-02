@@ -49,7 +49,7 @@ Configure Gain and Samples per second of one adc channel.
 ```python
 set_adc_callback(label, ch, cb=None, sens=None)
 ```
-Setup a callback to convert ADC read values on an ADC channel. The ADC's read function will automatically call the passed callback after the bit to electric value conversion is completed. The callback should have the following signature: `cb(value, sensor)` where `value` will be the electric value passed by the read and `sens` a some sort of structure with data needed by the conversion callback. The callback should return the converted value.
+Setup a callback to convert ADC read values on an ADC channel. The ADC's read function will automatically call the passed callback after the bit to electric value conversion is completed.
 
 * `label` is the label of the adc to use.
     Possible labels are the following:
