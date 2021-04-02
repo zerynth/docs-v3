@@ -13,12 +13,12 @@ The DB features I/O connectors (the Z-bus) that allow the connection in a cascad
 
 The modular expansion system uses the Z-bus, The Z-bus is an efficient, powerful standard for connecting and prototyping different sensors and devices.
 The z-bus is using the CN1 pin header (20x2) exposing the following:
-16 GPIO pins.
-4 interrupt pins.
-2 USART/UART instances with full support (TX,RX,RTS,CTS)
-I2C, SPI support.
-5V, 3.3 V output pins.
-Enable pin for controlling the power to attached expansion boards.
+* 16 GPIO pins.
+* 4 interrupt pins.
+* 2 USART/UART instances with full support (TX,RX,RTS,CTS)
+* I2C, SPI support.
+* 5V, 3.3 V output pins.
+* Enable pin for controlling the power to attached expansion boards.
 Note: The development board supports up to 3 attached expansion boards.
 
 The development board offers a modular expansion system that adds expansion boards through the connectors on the board (Z-bus).
