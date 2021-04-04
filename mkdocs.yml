@@ -55,6 +55,7 @@ nav:
   - Make Simple Powerful Dashboards: zCloud/dashboard.md
   - Over the Air Updates: zCloud/FOTA.md
 - Hardware:
+  - {Index: hardware/index.md}
   - hardware/ZM1-Development-Board.md
   - hardware/EXP-SER.md
   - hardware/EXP-RELAY.md
@@ -94,10 +95,10 @@ nav:
           - reference/libs/stdlib/time.md
           - reference/libs/stdlib/datetime.md
           - reference/libs/stdlib/suntime.md
-        - Data Structures: 
+        - Data Structures:
           - reference/libs/stdlib/fifo.md
           - reference/libs/stdlib/queue.md
-        - Serialization: 
+        - Serialization:
           - reference/libs/stdlib/base64.md
           - reference/libs/stdlib/json.md
           - reference/libs/stdlib/cbor.md
@@ -169,7 +170,6 @@ nav:
 
 
 
-            
 plugins:
 - search
 - minify: {minify_html: true}
@@ -177,7 +177,7 @@ site_name: Zerynth Documentation
 theme:
     custom_dir: material
     favicon: images/favicon.png
-    features: 
+    features:
       - navigation.tabs
     font: {code: Roboto Mono, text: Roboto}
     logo: images/favicon-white.png

@@ -1,14 +1,40 @@
-# ZM1-Development Board
+# ZM1-DB
 
-ZM1-DB
+The ZM1 Development board is an industrial-oriented, modular hardware development unit, Facilitates the development of scalable, secure and connected IoT applications.
+
+The ZM1-DB mounts the ZM1 module, a 32-bit dual Core MCU based on the ESP32-WROOM-32SE. The ZM1 Core features a clock frequency of up to 240 Mhz, Embedded SPI Flash memory of 16 MB, integrates the crypto element ATECC608A for ultra-secure communication.
+
+The ZM1 Development Board can act as a Development Board for prototyping a Product, and a core for industrial applications, thanks to the expansion modules system.
+The DB features I/O connectors (the Z-bus) that allow the connection in a cascade of different add-on modules to create specific industrial applications that fit into a DIN-RAIL case.
 
 ![](img/4zerobox_v1.png)
 
+## ZBUS
+
+The modular expansion system uses the Z-bus, The Z-bus is an efficient, powerful standard for connecting and prototyping different sensors and devices.
+The z-bus is using the CN1 pin header (20x2) exposing the following:
+* 16 GPIO pins.
+* 4 interrupt pins.
+* 2 USART/UART instances with full support (TX,RX,RTS,CTS)
+* I2C, SPI support.
+* 5V, 3.3 V output pins.
+* Enable pin for controlling the power to attached expansion boards.
+Note: The development board supports up to 3 attached expansion boards.
+
+The development board offers a modular expansion system that adds expansion boards through the connectors on the board (Z-bus).
+Expansion boards vary in features and functionalities. Currently, Zerynth offers expansion boards for :
+
+* EXP-IO: Industrial in/out board with 4x Solid State Relays, 2x 4-20mA/0-10V/NTC channels, 2x opto-isolated digital inputs
+* EXP-RELAY: Relay board with 4 Power Relays.
+* EXP-SER: Serial Communication board offers : CAN, RS232 and RS485
+* EXP-PROTO: Prototyping board for connecting and testing different types of sensors and devices.
+
+
 ## Resources
 
-For more infos about electrical connections, and how to use 4ZeroBox with sensors and other hardware, see the  [user manual](https://www.zerynth.com/download/13894/).
+For more infos about electrical connections, and how to use ZM1-DB with sensors and other hardware, see the  [user manual](https://www.zerynth.com/download/13894/).
 
-For more information on the 4ZeroBox Library as software drivers, Its features, functions and examples
+For more information on the ZM1-DB Library as software drivers, Its features, functions and examples
 [Please check this Link](/latest/reference/libs/zerynth/4zerobox/docs/)
 
 Other useful documents are:
@@ -22,171 +48,52 @@ Other useful documents are:
 
 ![](img/4zeroboxpin.png)
 
-Official reference for Zerynth 4ZeroBox can be found  [here](https://www.zerynth.com/4zeroplatform/).
+Official reference for Zerynth ZM1-DB can be found  [here](https://www.zerynth.com/4zeroplatform/).
 
 ## Flash Layout
 
 The internal flash of the ESP32 module is organized in a single flash area with pages of 4096 bytes each. The flash starts at address 0x00000, but many areas are reserved for Esp32 IDF SDK and Zerynth OS. There exist two different layouts based on the presence of BLE support.
 
-In particular, for non-BLE VMs:
-
 | Start address | Size  | Content                 |
 |---------------|-------|-------------------------|
-| 0x00009000    | 16Kb  | Esp32 NVS area          |
-| 0x0000D000    | 8Kb   | Esp32 OTA data          |
+| 0x0000A000    | 20Kb  | Esp32 NVS area          |
 | 0x0000F000    | 4Kb   | Esp32 PHY data          |
-| 0x00010000    | 1Mb   | Zerynth VM              |
-| 0x00110000    | 1Mb   | Zerynth VM (FOTA)       |
-| 0x00210000    | 512Kb | Zerynth Bytecode        |
-| 0x00290000    | 512Kb | Zerynth Bytecode (FOTA) |
-| 0x00310000    | 512Kb | Free for user storage   |
-| 0x00390000    | 448Kb | Reserved                |
-
-For BLE VMs:
-
-| Start address | Size   | Content                 |
-|---------------|--------|-------------------------|
-| 0x00009000    | 16Kb   | Esp32 NVS area          |
-| 0x0000D000    | 8Kb    | Esp32 OTA data          |
-| 0x0000F000    | 4Kb    | Esp32 PHY data          |
-| 0x00010000    | 1216Kb | Zerynth VM              |
-| 0x00140000    | 1216Kb | Zerynth VM (FOTA)       |
-| 0x00270000    | 320Kb  | Zerynth Bytecode        |
-| 0x002C0000    | 320Kb  | Zerynth Bytecode (FOTA) |
-| 0x00310000    | 512Kb  | Free for user storage   |
-| 0x00390000    | 448Kb  | Reserved                |
+| 0x00010000    | 2Mb   | Zerynth VM              |
+| 0x00210000    | 1Mb   | Zerynth Bytecode        |
+| 0x00310000    | 3Mb   | Zerynth Park (FOTA)     |
+| 0x00610000    | 3Mb   | Zerynth Scratch (FOTA)  |
+| 0x00910000    | 64Kb  | Zerynth Otalog          |
+| 0x00920000    | 7040Kb| File System             |
 
 ## Device Summary
 
--   DIN-rail mountable (9 slots)
+* Espressif ESP32 - 32bit Microcontroller 240MHz clock, 16Mb of Flash, 312Kb SRAM
 
--   8 to 36V Power Supply
+* Python/C enabled development on
 
--   4 selectable analog input channels:
+* Modular design with expansion system
 
-    > -   4-20mA single-ended
-    > -   4-20mA differential
-    > -   0-10V standard
+* JTAG support
 
--   3 current transformers (non-invasive)
+* 3 RGB status LEDs
 
--   4 resistive sensor channels (NTC, RTD, contact, proximity, etc.)
+* 9 to 36V input Power Supply
 
--   2 opto-isolated digital inputs
+* MicroSD card slot
 
--   2 sink digital output (60A @ 30V)
+* WiFi (Client and AP mode supported)
 
--   MicroSD card slot
+* Bluetooth® Low-Energy
 
--   1 Digital I/O + 2 Digital Input (3.3V)
+* Ethernet
 
--   2 NO/NC Relay (10A @ 250V AC)
+* Crypto Chip - ATECC608A Secure Hardware Encryption
 
--   CAN peripheral
+* RST button and USR configurable button
 
--   Connectivity:
-
-    > -   WiFi IEEE 802.11 b/g/n/e/i (Client and AP mode supported)
-    > -   Bluetooth® Low-Energy
-    > -   Ethernet
-
--   Crypto Chip - Secure Hardware Encryption
-
--   RS-485 and RS232 peripherals
-
--   2 onboard mikroBUS sockets
-
--   Li-Po battery support
-
--   Li-Po battery onboard charging unit
-
--   RGB status led
-
--   Espressif ESP32 - 32bit Microcontroller 240MHz clock, 4Mb of Flash, 312Kb SRAM
-
+* USB-C (power and programming)
 
 ## Power
 
-Power to the 4ZeroBox is supplied via the on-board USB Micro B connector or directly via the “24V” screw. The power source is selected automatically. Zerynth 4ZeroBox has also a JST Li-Po battery connector (3.7V).
+Power to the ZM1-DB is supplied via the on-board USB-C connector or directly via the “24V” screw.
 
-## Connect, Register, Virtualize and Program
-
-The 4ZeroBox comes with a serial-to-usb chip on board that allows programming and opening the UART of the ESP32 module. The CH340 USB to UART chip is also connected to the boot pins of the module, allowing for a seamless virtualization of the device.
-
-!!! Note
-	**For Linux Platform**: to allow the access to serial ports the user needs read/write access to the serial device file. Adding the user to the group, that owns this file, gives the required read/write access:
--   **Ubuntu**  distribution –> dialout group
--   **Arch Linux**  distribution –> uucp group
-
-Once connected on a USB port, if drivers have been correctly installed, the 4ZeroBox device is recognized by Zerynth Studio. The next steps are:
-
--   **Select**  the 4ZeroBox on the  **Device Management Toolbar**  (disambiguate if necessary);
--   **Register**  the device by clicking the “Z” button from the Zerynth Studio;
--   **Create**  a Virtual Machine for the device by clicking the “Z” button for the second time;
--   **Virtualize**  the device by clicking the “Z” button for the third time.
-
-!!!Note
-	No user intervention on the device is required for registration and virtualization process
-
-After virtualization, the 4ZeroBox is ready to be programmed and the Zerynth scripts  **uploaded**. Just  **Select**  the virtualized device from the “Device Management Toolbar” and  **click**  the dedicated “upload” button of Zerynth Studio.
-
-!!!Note
-	No user intervention on the device is required for the uplink process.
-<!--
-## Board Support Package
-
-For the BSP pack of the 4ZeroBox, The following modules are supported:
--   Ethernet
--   Wifi
--   GSM
-
-Brief Example on how to use it :
-```py
-from bsp.drivers import wifi
-
-...
-
-wifi.init()
-print("Connecting to wifi...")
-interface = wifi.interface()
-interface.link("***Wifi-ssid***", interface.WIFI_WPA2, "***Wifi-password****")
-
-```
--->
-## Firmware Over the Air update (FOTA)
-
-The Firmware Over the Air feature allows to update the device firmware at runtime. Zerynth FOTA in the 4ZeroBox device is available for bytecode and VM.
-
-Flash Layout is shown in table below:
-
-| Start address | Size  | Content                   |
-|---------------|-------|---------------------------|
-| 0x00010000    | 1Mb   | Zerynth VM (slot 0)       |
-| 0x00110000    | 1Mb   | Zerynth VM (slot 1)       |
-| 0x00210000    | 512Kb | Zerynth Bytecode (slot 0) |
-| 0x00290000    | 512Kb | Zerynth Bytecode (slot 1) |
-
-For BLE VMs:
-
-| Start address | Size   | Content                   |
-|---------------|--------|---------------------------|
-| 0x00010000    | 1216Kb | Zerynth VM (slot 0)       |
-| 0x00140000    | 1216Kb | Zerynth VM (slot 1)       |
-| 0x00270000    | 320Kb  | Zerynth Bytecode (slot 0) |
-| 0x002C0000    | 320Kb  | Zerynth Bytecode (slot 1) |
-
-For Esp32 based devices, the FOTA process is implemented mostly by using the provided system calls in the IDF framework. The selection of the next VM to be run is therefore a duty of the Espressif bootloader; the bootloader however, does not provide a failsafe mechanism to revert to the previous VM in case the currently selected one fails to start. At the moment this lack of a safety feature can not be circumvented, unless by changing the bootloader. As soon as Espressif relases a new IDF with such feature, we will release updated VMs.
-
-## Secure Firmware
-
-Secure Firmware feature allows to detect and recover from malfunctions and, when supported, to protect the running firmware (e.g. disabling the external access to flash or assigning protected RAM memory to critical parts of the system).
-
-This feature is strongly platform dependent; more information at  [Secure Firmware - ESP32 section](/latest/reference/core/stdlib/docs/sfw/#watchdogs-for-esp32-devices).
-
-## Zerynth Secure Socket
-
-To be able to use Zerynth Secure Socket on esp32 boards  `NATIVE_MBEDTLS:  true`  must be used instead of  `ZERYNTH_SSL:  true`  in the  `project.yml`  file.
-<!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5MzIwMjAxOCwtMzA3MTU1ODQwLDIwMT
-E0OTI2NV19
--->
