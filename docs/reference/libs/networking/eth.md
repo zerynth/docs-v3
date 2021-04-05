@@ -37,6 +37,7 @@ configure(dhcp=True, ip="", mask="", gateway="", dns="8.8.8.8", timeout=60000)
 ```
 Configures the ethernet interface with given arguments. If `dhcp` is *True* (the default) other arguments are ignored.
 When `dhcp` is *False*, the other arguments are:
+
 * `ip`: is the IP address.
 * `mask`: the net mask expressed as A.B.C.D dotted address.
 * `gateway`: the gateway to be used as default router.
@@ -81,6 +82,7 @@ When the `host` cannot be resolved, the `ResolveError` exception is raised.
 info()
 ```
 Returns a tuple with the IP parameters associated to the interface. The tuple is composed by the following elements:
+
 0. `Bool`: DHCP enabled (*True*) or disabled (*False*)
 1. `String`: IP address
 2. `String`: netmask

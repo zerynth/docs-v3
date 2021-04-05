@@ -1,4 +1,4 @@
-# Introduction to zCloud
+# Zerynth Cloud Introduction
 
 The Internet of Things is all about extracting valuable data from billions of connected devices. However, as developers and IoT product designers, we can't neglect the effort needed to deploy, manage and protect our devices for the entire duration of their life cycles.
 

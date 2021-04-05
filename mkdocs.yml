@@ -45,14 +45,14 @@ nav:
   - tutorials/CLI.md
   - tutorials/mass_prod.md
 - Zerynth Cloud:
-  - Introduction to Zerynth Cloud: zCloud/intro.md
+  - Introduction: zCloud/index.md
   - zDeviceManager: zCloud/zdm_intro.md
-  - zDashboard: zCloud/dashboard_intro.md
-  - zStorage: zCloud/dashboard_zstorage.md
-  - {Tutorials: zCloud/index.md}
-  - Connect to zCloud: zCloud/index.md
-  - Store and Visualize data: zCloud/store_visualize.md
-  - Make Simple Powerful Dashboards: zCloud/dashboard.md
+  - zStorage: zCloud/zstorage_intro.md
+  - zDashboard: zCloud/zdashboard_intro.md
+  - {Tutorials: zCloud/intro.md}
+  - Connect to zCloud: zCloud/connect.md
+  # - Store and Visualize data: zCloud/store_visualize.md
+  # - Make Simple Powerful Dashboards: zCloud/dashboard.md
   - Over the Air Updates: zCloud/FOTA.md
 - Hardware:
   - {Hardware Platforms: hardware/index.md}
@@ -63,7 +63,7 @@ nav:
   - hardware/EXP-IO.md
   - hardware/EXP-PROTO.md
 - Technical Reference:
-    - {Index: reference/index.md}
+    - {Introduction: reference/index.md}
     - Zerynth SDK:
       - Zerynth OS: 
         - reference/os/index.md
@@ -111,26 +111,30 @@ nav:
           - reference/libs/stdlib/can.md
           - reference/libs/stdlib/mcu.md
       - Networking:
+        - reference/libs/networking/index.md
         - reference/libs/networking/net.md
         - reference/libs/networking/wifi.md
         - reference/libs/networking/eth.md
         - reference/libs/networking/socket.md
       - Protocols:
+        - reference/libs/protocols/index.md
         - reference/libs/protocols/ntp.md
         - reference/libs/protocols/http.md
         - reference/libs/protocols/mqtt.md
         - reference/libs/protocols/modbus.md
       - Security and Cryptography:
+        - reference/libs/crypto/index.md
         - reference/libs/crypto/element.md
       - Math:
         - reference/libs/math/math.md
         - reference/libs/math/bignum.md
-      - ZDM:
+      - zDeviceManager:
         - reference/libs/zerynth/zdm/index.md
         - reference/libs/zerynth/zdm/examples.md
       - Time Series Log:
         - reference/libs/zerynth/tslog/index.md
       - Components:
+          - reference/libs/components/index.md
           - reference/libs/components/bme280/index.md
           - reference/libs/components/bmp180/index.md
           - reference/libs/components/bno055/index.md
@@ -139,6 +143,8 @@ nav:
           - reference/cli/zdm/index.md
       - FAQ:
           - reference/faq/installer.md
+          - reference/faq/vscode.md
+          - reference/faq/filesystem.md
     - zCloud APIs:
       - reference/api/zdm/index.md
       - reference/api/zstorage/index.md
