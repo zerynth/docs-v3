@@ -4,42 +4,42 @@ This module supplies classes for manipulating dates, times, and deltas.
 It represents a minimalistic implementation of Python module
 [datetime](https://docs.python.org/3/library/datetime.html).
 
-:class:`datetime` objects may be categorized as “aware” or “naive”
+`datetime` objects may be categorized as “aware” or “naive”
 depending on whether or not they include timezone information.
 An aware object can locate itself relative to other aware objects. An
 *aware* object represents a specific moment in time that is not open to
 interpretation.
 
 A *naive* object does not contain enough information to unambiguously
-locate itself relative to other :class:`datetime` objects. Whether a naive
+locate itself relative to other `datetime` objects. Whether a naive
 object represents Coordinated Universal Time (UTC), local time, or time
 in some other timezone is purely up to the program, just like it is up
 to the program whether a particular number represents metres, miles, or
 mass. Naive objects are easy to understand and to work with, at the cost
 of ignoring some aspects of reality.
 
-For applications requiring aware objects, :class:`datetime` objects have
+For applications requiring aware objects, `datetime` objects have
 an optional time zone information attribute, *tzinfo*, that can be set to
-an instance of a :class:`timezone` class. These objects capture
+an instance of a `timezone` class. These objects capture
 information about the offset from UTC time and the time zone name.
 
 The following classes are provided:
 
-* :class:`~timedelta`
-* :class:`~timezone`
-* :class:`~datetime`
+* `~timedelta`
+* `~timezone`
+* `~datetime`
 
 
 timedelta Objects
 =================
 
-A :class:`timedelta` object represents a duration, the difference between two
+A `timedelta` object represents a duration, the difference between two
 dates or times. With respect to the Python module
 `datetime <https://docs.python.org/3/library/datetime.html>`_,
 this implementation is constrained as follows:
 
 * Minimum resolution is *1 second*, instead of *1 microsecond*.
-* Arithmetic is done via direct function calls (:func:`add` vs :func:`__add__`) due to Zerynth's limits.
+* Arithmetic is done via direct function calls (`add` vs `__add__`) due to Zerynth's limits.
 
 
 Class attributes
@@ -47,34 +47,34 @@ Class attributes
 
 ### attribute `timedelta.MINYEAR`
 
-The year of :attr:`timedelta.min`, i.e.
+The year of `timedelta.min`, i.e.
    
 `timedelta.min.tuple()[1] // (365×24×60×60) == -34`
 
 
 ### attribute `timedelta.MAXYEAR`
 
-The year of :attr:`timedelta.max`, i.e.
+The year of `timedelta.max`, i.e.
 `timedelta.max.tuple()[1] // (365×24×60×60) == 34`
 
 
 ### attribute `timedelta.min`
 
-The most negative :class:`timedelta` object
+The most negative `timedelta` object
 
 `timedelta(-2**30)`
 
 
 ### attribute `timedelta.max`
 
-The most positive :class:`timedelta` object
+The most positive `timedelta` object
 
 `timedelta(2**30 - 1)`
 
 
 ### attribute `timedelta.resolution`
 
-The smallest possible difference between non-equal :class:`timedelta`
+The smallest possible difference between non-equal `timedelta`
 objects
 
 `timedelta(seconds=1)`
@@ -150,7 +150,7 @@ The floor is computed and the remainder (if any) is thrown away. When `other` is
 mod(other)
 ```
 
-The remainder is computed as a :class:`timedelta` object.
+The remainder is computed as a `timedelta` object.
 
 
 ### method `divmod`
@@ -166,7 +166,7 @@ and
 
 `r = td1.mod(td2)`
 
-`q` is an integer and `r` is a :class:`timedelta` object.
+`q` is an integer and `r` is a `timedelta` object.
 
 
 ### method `neg`
@@ -275,13 +275,13 @@ Examples of timedelta arithmetic::
 timezone Objects
 ================
 
-The :class:`timezone` class represents a timezone defined by a fixed
-offset from UTC. Define a subclass of :class:`timezone` to capture
+The `timezone` class represents a timezone defined by a fixed
+offset from UTC. Define a subclass of `timezone` to capture
 information about a particular time zone.
 
-An instance of :class:`timezone` can be passed to the constructors for
-:class:`datetime`. The latter objects view their attributes as being in
-local time, and the :class:`timezone` object supports methods revealing
+An instance of `timezone` can be passed to the constructors for
+`datetime`. The latter objects view their attributes as being in
+local time, and the `timezone` object supports methods revealing
 offset of local time from UTC, the name of the time zone, and DST offset,
 all relative to a date-time object passed to them.
 
@@ -289,9 +289,9 @@ all relative to a date-time object passed to them.
 Methods to customize
 --------------------
 
-A subclass of :class:`timezone` may need to override the following methods.
+A subclass of `timezone` may need to override the following methods.
 Exactly which methods are needed depends on the uses made of aware
-:class:`datetime` objects. If in doubt, simply implement all of them.
+`datetime` objects. If in doubt, simply implement all of them.
 
 
 ### method `utcoffset`
@@ -299,26 +299,26 @@ Exactly which methods are needed depends on the uses made of aware
 utcoffset(dt)
 ```
 
-Return offset of local time from UTC, as a :class:`timedelta` object
+Return offset of local time from UTC, as a `timedelta` object
 that is positive east of UTC. If local time is west of UTC, this should
 be negative.
 
 This represents the *total* offset from UTC; for example, if a
-:class:`timezone` object represents both time zone and DST adjustments,
-:meth:`timezone.utcoffset` should return their sum. If the UTC offset
+`timezone` object represents both time zone and DST adjustments,
+`timezone.utcoffset` should return their sum. If the UTC offset
 isn’t known, return `None`. Else the value returned must be a
-:class:`timedelta` object strictly between `timedelta(hours=-24)` and
+`timedelta` object strictly between `timedelta(hours=-24)` and
 `timedelta(hours=24)` (the magnitude of the offset must be less than one
-day). Most implementations of :meth:`timezone.utcoffset` will probably
+day). Most implementations of `timezone.utcoffset` will probably
 look like one of these two:
 
         return CONSTANT                 # fixed-offset class
         return CONSTANT + self.dst(dt)  # daylight-aware class
 
-If :meth:`timezone.utcoffset` does not return `None`, :meth:`timezone.dst`
+If `timezone.utcoffset` does not return `None`, `timezone.dst`
 should not return None either.
 
-The default implementation of :meth:`timezone.utcoffset` returns the sum
+The default implementation of `timezone.utcoffset` returns the sum
 of time zone and DST adjustments, if available.
 
 ### method `dst`
@@ -326,17 +326,17 @@ of time zone and DST adjustments, if available.
 dst(dt)
 ```
 
-Return the daylight saving time (DST) adjustment, as a :class:`timedelta`
+Return the daylight saving time (DST) adjustment, as a `timedelta`
 object or ``None`` if DST information isn’t known.
 
 Return ``timedelta(0)`` if DST is not in effect. If DST is in effect, return
-the offset as a :class:`timedelta` object (see :meth:`timezone.utcoffset`
+the offset as a `timedelta` object (see `timezone.utcoffset`
 for details). Note that DST offset, if applicable, has already been added
-to the UTC offset returned by :meth:`timezone.utcoffset`, so there’s no
-need to consult :meth:`timezone.dst` unless you’re interested in obtaining
+to the UTC offset returned by `timezone.utcoffset`, so there’s no
+need to consult `timezone.dst` unless you’re interested in obtaining
 DST info separately.
 
-Most implementations of :meth:`timezone.dst` will probably look like one
+Most implementations of `timezone.dst` will probably look like one
 of these two:
 
 ```python
@@ -359,7 +359,7 @@ def dst(self, dt):
     else:
         return timedelta(0)
 ```
-   The default implementation of :meth:`timezone.dst` returns ``None``.
+   The default implementation of `timezone.dst` returns ``None``.
 
 
 ### method `tzname`
@@ -367,25 +367,25 @@ def dst(self, dt):
 tzname(dt)
 ```
 
-   Return the time zone name corresponding to the :class:`datetime` object
+   Return the time zone name corresponding to the `datetime` object
    *dt*, as a string. Nothing about string names is defined by the
-   :class:`datetime` module, and there’s no requirement that it mean anything
+   `datetime` module, and there’s no requirement that it mean anything
    in particular. For example, “GMT”, “UTC”, “-500”, “-5:00”, “EDT”,
    “US/Eastern”, “America/New York” are all valid replies. Return ``None`` if
    a string name isn’t known. Note that this is a method rather than a fixed
-   string primarily because some :class:`timezone` subclasses will wish to
+   string primarily because some `timezone` subclasses will wish to
    return different names depending on the specific value of `dt` passed,
-   especially if the :class:`timezone` class is accounting for daylight time.
+   especially if the `timezone` class is accounting for daylight time.
 
-   The default implementation of :meth:`timezone.tzname` returns the fixed
-   value specified when the :class:`timezone` instance is constructed.
+   The default implementation of `timezone.tzname` returns the fixed
+   value specified when the `timezone` instance is constructed.
    If *name* is not provided in the constructor, the name returned by
    ``tzname()`` is generated from the value of the ``offset`` as follows.
    If *offset* is ``timedelta(0)``, the name is “UTC”, otherwise it returns
-   the string provided by :meth:`timezone.isoformat` method.
+   the string provided by `timezone.isoformat` method.
 
-These methods are called by a :class:`datetime` object, in response to their
-methods of the same names. A :class:`datetime` object passes `self` as `dt`
+These methods are called by a `datetime` object, in response to their
+methods of the same names. A `datetime` object passes `self` as `dt`
 argument.
 
 
@@ -405,13 +405,13 @@ Class methods
 timezone(offset, name=None)
 ```
 
-   The `offset` argument must be specified as a :class:`timedelta`
+   The `offset` argument must be specified as a `timedelta`
    object representing the difference between the local time and UTC.
    It must be strictly between ``timedelta(hours=-24)`` and
-   ``timedelta(hours=24)``, otherwise :exc:`ValueError` is raised.
+   ``timedelta(hours=24)``, otherwise `ValueError` is raised.
 
    The *name* argument is optional. If specified it must be a string
-   that will be used as the value returned by the :meth:`datetime.tzname`
+   that will be used as the value returned by the `datetime.tzname`
    method.
 
 
@@ -477,15 +477,15 @@ to last Sunday of October).
 datetime Objects
 ================
 
-A :class:`datetime` object is a single object containing all the information
+A `datetime` object is a single object containing all the information
 for specifying an absolute date and time point.
 
-:class:`datetime` assumes the current Gregorian calendar extended in both
+`datetime` assumes the current Gregorian calendar extended in both
 directions, past and future. January 1 of year 1 is called day number 1,
 January 2 of year 1 is called day number 2, and so on.
 
-:class:`datetime` assumes there are exactly 3600*24 seconds in every day and
-subject to adjustment via a :class:`timezone` object.
+`datetime` assumes there are exactly 3600*24 seconds in every day and
+subject to adjustment via a `timezone` object.
 
 
 Constructors
@@ -497,7 +497,7 @@ datetime(self, year, month, day, hour=0, minute=0, second=0, tzinfo=None)
 ```
 
    The `year`, `month` and `day` arguments are required. `tzinfo` may be
-   ``None``, or an instance of a :class:`timezone` class. The remaining
+   ``None``, or an instance of a `timezone` class. The remaining
    arguments must be integers in the following ranges:
 
    * ``MINYEAR <= year <= MAXYEAR``,
@@ -507,7 +507,7 @@ datetime(self, year, month, day, hour=0, minute=0, second=0, tzinfo=None)
    * ``0 <= minute < 60``,
    * ``0 <= second < 60``,
 
-   If an argument outside those ranges is given, :exc:`ValueError` is raised.
+   If an argument outside those ranges is given, `ValueError` is raised.
 
 
 ### function `fromisoformat`
@@ -515,8 +515,8 @@ datetime(self, year, month, day, hour=0, minute=0, second=0, tzinfo=None)
 fromisoformat(date_string)
 ```
 
-   Return a :class:`datetime` corresponding to a *date_string* in the format
-   emitted by :meth:`datetime.isoformat`.
+   Return a `datetime` corresponding to a *date_string* in the format
+   emitted by `datetime.isoformat`.
 
    Specifically, this function supports strings in the format::
 
@@ -529,8 +529,8 @@ fromisoformat(date_string)
 fromordinal(n)
 ```
 
-   Return the :class:`datetime` corresponding to the proleptic Gregorian
-   ordinal, where January 1 of year 1 has ordinal 1. :exc:`ValueError` is
+   Return the `datetime` corresponding to the proleptic Gregorian
+   ordinal, where January 1 of year 1 has ordinal 1. `ValueError` is
    raised unless ``1 <= ordinal <= datetime.max.toordinal()``. The hour,
    minute and second of the result are all 0, and *tzinfo* is ``None``.
 
@@ -540,14 +540,14 @@ Class attributes
 
 ### attribute `datetime.MINYEAR`
 
-   The smallest year number allowed in a :class:`datetime` object.
-   :attr:`datetime.MINYEAR` is ``1``.
+   The smallest year number allowed in a `datetime` object.
+   `datetime.MINYEAR` is ``1``.
 
 
 ### attribute `datetime.MAXYEAR`
 
-   The largest year number allowed in a :class:`datetime` object.
-   :attr:`datetime.MAXYEAR` is ``9999``.
+   The largest year number allowed in a `datetime` object.
+   `datetime.MAXYEAR` is ``9999``.
 
 
 Class methods
@@ -561,7 +561,7 @@ add(other)
    In the expression ``datetime2 = datetime1.add(timedelta)``, ``datetime2``
    is a duration of ``timedelta`` removed from ``datetime1``, moving forward
    in time if ``timedelta > 0``, or backward if ``timedelta < 0``. The result
-   has the same :class:`timezone` attribute as the input ``datetime1``, and
+   has the same `timezone` attribute as the input ``datetime1``, and
    ``datetime2 - datetime1 == timedelta`` after.
 
    Note that no time zone adjustments are done even if the input is an aware
@@ -573,23 +573,23 @@ add(other)
 sub(other)
 ```
 
-   If *other* is an instance of :class:`timedelta`, the expression
+   If *other* is an instance of `timedelta`, the expression
    ``datetime2 = datetime1.sub(timedelta)`` computes the ``datetime2`` such that
    ``datetime2 + timedelta == datetime1``. As for addition, the result has the
-   same :class:`timezone` attribute as the input ``datetime1``, and no time
+   same `timezone` attribute as the input ``datetime1``, and no time
    zone adjustments are done even if the input is aware.
 
-   If *other* is an instance of :class:`datetime`, subtraction
+   If *other* is an instance of `datetime`, subtraction
    ``timedelta = datetime2.sub(datetime1)`` is defined only if both operands
    are naive, or if both are aware. If one is aware and the other is naive,
-   :exc:`TypeError` is raised.
+   `TypeError` is raised.
 
-   If both are naive, or both are aware and have the same :class:`timezone`
-   attribute, the :class:`timezone` attributes are ignored, and the result
-   is a :class:`timedelta` object *t* such that ``datetime2 + t == datetime1``.
+   If both are naive, or both are aware and have the same `timezone`
+   attribute, the `timezone` attributes are ignored, and the result
+   is a `timedelta` object *t* such that ``datetime2 + t == datetime1``.
    No time zone adjustments are done in this case.
 
-   If both are aware and have different :class:`timezone` attributes, ``a-b``
+   If both are aware and have different `timezone` attributes, ``a-b``
    acts as if *a* and *b* were first converted to naive UTC datetimes first.
 
 
@@ -639,7 +639,7 @@ utcoffset()
 ```
 
    If *tzinfo* is ``None``, returns ``None``, else returns a
-   :class:`timedelta` object with magnitude less than one day.
+   `timedelta` object with magnitude less than one day.
 
 
 ### method `replace`
@@ -647,10 +647,10 @@ utcoffset()
 replace(year=None, month=None, day=None, hour=None, minute=None, second=None, tzinfo=True)
 ```
 
-   Return a :class:`datetime` with the same attributes, except for those
+   Return a `datetime` with the same attributes, except for those
    attributes given new values by whichever keyword arguments are specified.
    Note that ``tzinfo=None`` can be specified to create a naive
-   :class:`datetime` from an aware :class:`datetime` with no conversion of
+   `datetime` from an aware `datetime` with no conversion of
    date and time data.
 
 
@@ -659,14 +659,14 @@ replace(year=None, month=None, day=None, hour=None, minute=None, second=None, tz
 astimezone(tz)
 ```
 
-   Return a :class:`datetime` object with new *tzinfo* attribute
+   Return a `datetime` object with new *tzinfo* attribute
    *tz*, adjusting the date and time data so the result is the same UTC time
    as *self*, but in *tz*’s local time. *self* must be aware.
 
-   If you merely want to attach a :class:`timezone` object *tz* to a
-   :class:`datetime` *dt* without adjustment of date and time data, use
-   ``dt.replace(tzinfo=tz)``. If you merely want to remove the :class:`timezone`
-   object from an aware :class:`datetime` *dt* without conversion of date and
+   If you merely want to attach a `timezone` object *tz* to a
+   `datetime` *dt* without adjustment of date and time data, use
+   ``dt.replace(tzinfo=tz)``. If you merely want to remove the `timezone`
+   object from an aware `datetime` *dt* without conversion of date and
    time data, use ``dt.replace(tzinfo=None)``.
 
 
@@ -676,7 +676,7 @@ isoformat(sep='T')
 ```
 
    Return a string representing the date and time in ISO 8601 format
-   ``YYYY-MM-DDTHH:MM:SS``. If :meth:`datetime.utcoffset` does not return
+   ``YYYY-MM-DDTHH:MM:SS``. If `datetime.utcoffset` does not return
    ``None``, a string is appended, giving the UTC offset:
    ``YYYY-MM-DDTHH:MM:SS+HH:MM``.
 
@@ -709,7 +709,7 @@ tuple()
 Examples of usage
 -----------------
 
-Examples of working with :class:`datetime` objects::
+Examples of working with `datetime` objects::
 
     from datetime import timedelta, timezone, datetime, fromisoformat
 

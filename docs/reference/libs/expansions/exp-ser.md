@@ -1,4 +1,4 @@
-## SER expansion
+# EXP-SER
 
 ### class `EXP`
 ```python
@@ -19,8 +19,8 @@ Both values are integers from 0 to 3.
 get_can(nss, spi_clk=20000000)
 ```
 Get a ready to use CAN object.
-* `nss` is the chip select pin used to control the CAN peripheral through SPI.
 
+* `nss` is the chip select pin used to control the CAN peripheral through SPI.
 * `spi_clk` is the clock speed used by the SPI.
 
 Returns the initialized CAN object.
@@ -30,18 +30,13 @@ Returns the initialized CAN object.
 get_serial(ser=SERIAL1, baud=115200, stopbits=serial.STOPBIT_1, parity=serial.PARITY_NONE, bitsize=serial.BITSIZE_8, mode=serial.MODE_UART, flow_ctrl=serial.HW_FLOWCTRL_DISABLE)
 ```
 Get a ready to use serial (RS232 or RS485).
+
 * `ser` is the serial port to use. Default `SERIAL1`
-
 * `baud` is the baudrate of to use. Default 115200.
-
 * `stopbits` is the stopbits configuration to use. Default 1 stopbit. See `serial` for possible values.
-
 * `parity` is the parity check configuration to use. Default none. See `serial` for possible values.
-
 * `bitsize` is the bitsize configuration to use. Default size 8. See `serial` for possible values.
-
 * `mode` is the mode to use for the serial. Default RS232. See `serial` for possible values.
-
 * `flow_ctrl` is the flow control configuration to use. Default disabled. See `serial` for possible values.
 
 Returns the initialized serial object.
@@ -54,8 +49,8 @@ Print the IO expansion summary on the console.
 
 ## Example
 ```python
-from expansions import ser
 from bsp import board
+from expansions import ser
 import can
 import serial
 

@@ -1,8 +1,44 @@
-# VM Interface
+# zOS Guide
 
-C functions called from Python can create and handle Python entities like lists, tuples, dictionaries and so on. In the current version of Zerynth only a few selected Python data structures can be accessed from C. Since the internal organization of the VM may change without notice is very important to access VM structures via documented macros and functions only.
+The Zerynth OS can run Python firmware that are mostly hardware independent allowing a high reusability of code. Zerynth supports all the most used high-level features of Python like modules, classes, multithreading, callbacks, timers and exceptions, plus some hardware-related features like interrupts, PWM, digital I/O, etc.
 
-## PObject
+The Zerynth OS is natively multithread and realtime. Indeed it is built on top of a [FreeRtos](https://www.freertos.org/), by wrapping its functionalities in a operative system abstraction layer (VOSAL). 
+
+The inner mechanisms of the Zerynth OS are complex but can be reduced to a few components:
+
+
+* **Python engine**: the Zerynth toolchain turns Python scripts into a set of bytecode objects, each one containing not only a sequence of instructions, but also enough information for memory management and error checking. Each bytecode instruction, called *opcode*, is exactly one byte in length with optional arguments going from 0 to 4 bytes. The Python engine simply scans the bytecode an opcode at time, executes the opcode in the current thread and continues to the next opcode until a stop is encountered. The bytecode closely resembles Python but introduces some embedded specific opcodes.
+* **Global Interpreter Lock**: the GIL is an object shared by all Python threads; it coordinates the sequence of opcode execution between threads so that each opcode can be considered "atomic". This means that while thread-one is executing opcode "x", thread-one has the right to do so until the execution of "x" reaches the end. No other thread can stop it without compromising the engine integrity. When a Python thread goes to sleep, or its time quantum ends, the GIL is released so that another thread can take control of the Python engine.
+* **Garbage Collector**: objects in Python have a life cycle. They are created and used by the programmer and must be removed when they are not needed anymore. While in low level languages the responsibility of freeing unused memory rests on the programmer, in Python it's the garbage collector (gc) duty. When necessary, a complete scan of the created object is performed in order to search the ones that can be removed safely. The OS gc algorithm is a mark-and-sweep-stop-the-world variant.
+* **Interrupt Thread**: it is a very high priority thread that is woken up when an interrupt configured to run a Python function is fired. Python bytecode is executed outside of the ISR routine, but inside the Interrupt Thread. This way the Python function can allocate memory as a normal function. However, since the interrupt thread has the highest priority it is important to spend the least time possible inside it.
+* **VOSAL**: it is the Zerynth OS operative system abstration layer. It contains functions provided by the underlying RTOS to create threads, semaphores and other multi-threading related objects. 
+* **VHAL**: it is the Zerynth OS hardware abstraction layer. It contains functions to control the microcontroller peripherals: serial ports, SPI, I2C, ADC, PWM and so on. Each different Zerynth hardware has its own VHAL implementation so that the programmer calling C from Python can have an uniform hardware API across different architectures.
+
+
+## Zerynth and Python
+
+The Zerynth OS has been developed with the goal of making Python usable in the IoT world. Some features of Python have been discarded because they were too resource intensive, while non-Python features have been introduced because they were more functional in the embedded scenario. Here is a non comprehensive list: 
+
+* Python Object size has been reduced as much as possible:
+
+    * integers are signed and 31 bits wide, so that they can be represented with 4 bytes without additional overhead. 
+    * garbage collectore overhead has been brought down to 8 bytes per object
+    * names are not saved as strings in the bytecode; they are converted to 16 bits integers to occupy much less space. This apparently minor change leads to a series of important consequences. First of all, Zerynth becomes a less "dynamic" language with respect to Python, since introspection is not allowed. However on the pro side, Zerynth scripts can be statically analyzed to remove unused bytecode greatly reducing memory usage. Another important consequence is that *setattr* and *getattr* can not be used with non constant arguments.
+    * sequences and dictionaries can have at most 65536 elements.
+    * exceptions have been transformed from full fledged classes to a name organized in an inheritance tree. So an exception can't have methods, but it is faster to raise and to handle and it just takes 4 bytes of memory.
+
+* Compilation has been moved outside the language; by removing the compile() and eval() builtins the OS shrinked greatly in size.
+* Not so often used Python features have been removed. Closures, generators and decorators will be added in future updates in a modular way.
+* True multi-threading with priorities has been introduced. CPython implementations use green-threads to emulate multi-threaded environments without relying on any native OS capabilities, and they are managed in user space instead of kernel space, enabling them to work in environments that do not have native thread support. In Zerynth each thread is a RTOS thread with its own memory and priority. Because of the GIL, only one thread can execute bytecode in a time quantum, but it is possible to have more than one non-Python thread running in parallel. For example, a complex driver can be structured as a VOSAL thread written in C to control hardware, with any number of Python threads running bytecode.
+* New data structures have been introduced like shorts and short-array to hold sequences of 16 bits integers. Big integeres are supported as an importable module.
+
+
+
+## OS API
+
+C functions called from Python can create and handle Python entities like lists, tuples, dictionaries and so on. In the current version of zOS only a few selected Python data structures can be accessed from C. Since the internal organization of the OS may change without notice is very important to access OS structures via documented macros and functions only.
+
+### PObject
 
 The VM treats every Python object as a pointer to a **PObject** structure. There exist two types of PObjects: tagged and untagged. Tagged PObjects contains all the object information encoded in the 4 bytes of the pointer. Untagged objects are pointers to actual C structures. As a consequence, tagged PObjects are not allocated on the heap but reside on the stack of a frame of execution.
 
@@ -28,7 +64,7 @@ where GCH is an 8 byte header holding both garbage collection info and type/size
 ### Macros
 
 
-**`S_TAGGED(obj)`**
+**`IS_TAGGED(obj)`**
 
 Check if *obj* is tagged or untagged.
 
@@ -137,9 +173,6 @@ Type of a PObject representing an iterator over a sequence. Untagged.
 
 Type of a PObject representing an execution frame. Untagged.
 
-**`PCELL`**
-
-Type of a PObject representing a cell. Tagged.
 
 **`PNONE`**
 
@@ -153,60 +186,11 @@ Type of a PObject representing an exception. Tagged.
 
 Type of a PObject representing a native function. Tagged.
 
-**`PSYSOBJ`**
-
-Type of a PObject representing a system object. Untagged.
-
-**`PDRIVER`**
-
-Type of a PObject representing a driver. Tagged.
-
 **`PTHREAD`**
 
 Type of a PObject representing a Python thread. Untagged.
 
-### Functions
-
-
-**`int parse_py_args(const char *fmt, int nargs, PObject **args, ...)`**
-
-Given an array of PObject pointers *args*, with *nargs* elements, try to convert such elements to C structures according to a format string *fmt*. *fmt* is conceptually similar to the format string of printf.
-
-The variadic arguments (vararg) are usually pointers to store the converted value of *args[n]*. The nth character of *fmt* identifies the type of PObject expected in *args[n]*. If the length of *fmt* is greater than *nargs*, the remaining varargs must also specify default values.
-
-*fmt* may contain any of the following characters in the nth position:
-
-
-* “l”: the nth argument must be of type PINTEGER. One vararg required of type int64_t* to store the converted value.
-* “L”: the nth argument is an optional PINTEGER. Two varargs are required, one of type int64_t holding the default value, and one of type int64_t* holding the converted value.
-* “i”: the nth argument must be of type PINTEGER. One vararg required of type int32_t* to store the converted value.
-* “I”: the nth argument is an optional PINTEGER. Two varargs are required, one of type int32_t holding the default value, and one of type int32_t* holding the converted value.
-* “s”: the nth argument must be of type PSTRING or PBYTES or PBYTEARRAY. Two varargs are required; the first of type uint8_t** to hold the byte sequence, the second of type int32_t* to hold the number of elements of the sequence.
-* “S”: the nth argument must be of type PSTRING or PBYTES or PBYTEARRAY. Three varargs are required; the first of type uint_8* holding a default byte sequence, the second of type uint8_t** to hold the byte sequence, the third of type int32_t* to hold the number of elements of the sequence.
-* “b” and “B”: same as “s” and “S” with the difference that the last vararg holds the maximum amount of elements storable in the sequence.
-* “f”: the nth argument must be of type PFLOAT. One vararg required of type double* to store the converted value.
-* “F”: the nth argument is an optional PFLOAT. Two varargs are required, one of type double holding the default value, and one of type double* holding the converted value.
-
-Return the number of converted objects. If the return value is less than the length of `fmt`, a conversion error has occurred.
-
-The following code illustrates the use of parse_py_args:
-
-```py
-int32_t a;
-double b;
-uint8_t *c;
-int32_t len,d;
-
-if (parse_py_args("ifsI",nargs,args,&a,&b,&c,&len,2,&d)!=4)
-        return ERR_TYPE_EXC;
-
-// a will hold the converted value of args[0] (must be a PSMALLINT)
-// b will hold the converted value of args[1] (must be a PFLOAT)
-// c will hold the byte sequence in args[2], len will hold the number of bytes in args[2]
-// d will hold 2 if nargs<=3, otherwise it will hold args[3] converted from PSMALLINT to int32_t
-```
-
-## Numbers
+### Numbers
 
 In the current version there are only three supported type of numbers: PSMALLINT, PINTEGER and PFLOAT.
 
@@ -229,7 +213,7 @@ Return the integer value contained in *x*; works for PSMALLINT and PINTEGER type
 **`PFLOAT_VALUE(x)`**
 Return the float value contained in *x*, an untagged PObject of type PFLOAT.
 
-### Functions
+#### Functions
 
 
 **`pinteger_new(int64_t x)`**
@@ -240,7 +224,7 @@ Return a PINTEGER object with value *x*.
 
 Return a PFLOAT object with value *x*.
 
-## Bool & None
+### Bool & None
 
 Python has some special values of boolean type, True and False, and a special value None. Accessing such values can be done with the following macros:
 
@@ -264,11 +248,11 @@ Return a tagged PObject of type PBOOL and value False.
 
 Return a tagged PObject of type PNONE and value None.
 
-## Sequences
+### Sequences
 
 Python provides many objects representing sequences of items. Zerynth supports lists, tuples, bytes, bytearrays, strings and introduces shorts and shortarrays. All this PObjects must be created, accessed and manipulated through the following macros and functions.
 
-### Macros
+#### Macros
 
 
 **`PSEQUENCE_ELEMENTS(seq)`**
@@ -320,7 +304,7 @@ Return the i-th item in *lst* with *lst* of type PTUPLE.
 
 Set the i-th item in *lst* to *item*, with *lst* of type PTUPLE.
 
-### Functions
+#### Functions
 
 
 
@@ -360,13 +344,13 @@ Create a sequence of type PLIST with len elements. If buf is not NULL, len objec
 
 Return NULL on failure.
 
-## Dictionaries and Sets
+### Dictionaries and Sets
 
 Some data structures in Python have functionalities similar to hash tables. In particular dictionaries are mappings from keys to values; set and frozenset are collections of items optimized to test the presence of a given item inside the set.Internally, the hash code of an item is calculated and used to find the item inside the structure in a fast way.
 
 Dictionaries and sets must be created, managed and manipulated with the following functions and macros only. Set and dictionaries automatically grow as needed.
 
-### Macros
+#### Macros
 
 
 **`PHASH_ELEMENTS(obj)`**
@@ -413,7 +397,7 @@ Remove k and its associated value from  of type PDICT. Return NULL if  is not pr
 
 Remove *k* from *f*k in f of type PSET. Return NULL if  is not present.
 
-### Functions
+#### Functions
 
 
 **`PObject*pdict_new(int size)`**
@@ -429,7 +413,7 @@ Create an empty set or frozenset depending on *type, with enough space to contai
 
 Return NULL on failure.
 
-## Exceptions
+### Exceptions
 
 The following macros must be returned by functions declared with C_NATIVE to signal the result of the call and eventually rise an exception. Non builtin exception names can not be retrieved by VM system calls, so no exception macro exists; a workaround for this limitation is to pass exception names from Python and store them somewhere in a C structure to be raised when needed.
 
@@ -524,3 +508,4 @@ Raise InvalidHardwareStatusError.
 
 **`ERR_PERIPHERAL_INITIALIZATION_ERROR`**
 Raise HardwareInitializationError.
+ 

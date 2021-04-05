@@ -44,7 +44,7 @@ atan2(y, x)
 
 Return ``atan(y / x)``, in radians. The result is between ``-pi`` and ``pi``.
 The vector in the plane from the origin to point ``(x, y)`` makes this angle
-with the positive X axis. The point of :func:`atan2` is that the signs of both
+with the positive X axis. The point of `atan2` is that the signs of both
 inputs are known to it, so it can compute the correct quadrant for the angle.
 For example, ``atan(1)`` and ``atan2(1, 1)`` are both ``pi/4``, but ``atan2(-1,
 -1)`` is ``-3*pi/4``.
@@ -108,9 +108,9 @@ pow(x, y)
 
 Return ``x`` raised to the power ``y``.
 
-Unlike the built-in ``**`` operator, :func:`math.pow` converts both
-its arguments to type :class:`float`.  Use ``**`` or the built-in
-:func:`pow` function for computing exact integer powers.
+Unlike the built-in ``**`` operator, `math.pow` converts both
+its arguments to type `float`.  Use ``**`` or the built-in
+`pow` function for computing exact integer powers.
 
 ### function `sqrt`
 ```python

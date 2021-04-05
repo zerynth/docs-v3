@@ -60,7 +60,7 @@ Returns `raw_t`
 ```python
 get_raw_pres()
 ```
-Retrieves the current pressure data from the sensor as raw value; according to the OverSampling Setting value this measure can be faster but less accurate or more precise but slower. (see :method:`set_over_sampling_setting()`)
+Retrieves the current pressure data from the sensor as raw value; according to the OverSampling Setting value this measure can be faster but less accurate or more precise but slower. (see `set_over_sampling_setting()`)
 
 Returns `raw_p`
 
@@ -76,7 +76,7 @@ Returns `temp`
 ```python
 get_pres()
 ```
-Retrieves the current pressure data from the sensor as calibrate value in Pa; according to the OverSampling Setting value this measure can be faster but less accurate or more precise but slower. (see :func:`set_over_sampling_setting()`)
+Retrieves the current pressure data from the sensor as calibrate value in Pa; according to the OverSampling Setting value this measure can be faster but less accurate or more precise but slower. (see `set_over_sampling_setting()`)
 
 Returns `pres`
 

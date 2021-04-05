@@ -1,27 +1,29 @@
 # EXP-IO
 
 The EXP-IO expansion board is a mixed input/output module that features:
+
 * Relay: The board features 4 Solid state relays Normally open connection rated at 36Vdc, This enables developers to control actuators easily using Software libraries with Zerynth SDK.
-
 * Opto-isolated digital inputs: 2 channels of opto-isolated digital inputs are available on the board.
-
 * 2 Analog Channels channels: Connect your sensor easily and read the data from the sensors over the 2 industrial-compatible channels on the board. The channels support voltage-based ( ±10V), current-based (±20mA) or resistive sensors (calibrated for 11 Kohm for best precision).
 
-Zerynth expansion boards work seamlessly with all of Zerynth Development boards, combined they can act as a Development Board for prototyping a Product, and a core for industrial applications.
+Zerynth expansion boards work seamlessly with all of Zerynth Development boards and combined they can act as a Development Board for prototyping a Product, and a core for industrial applications.
 
-## ZBUS
+## Z-Bus
 
-The modular expansion system uses the Z-bus, The Z-bus is an efficient, powerful standard for connecting and prototyping different sensors and devices.
-The z-bus is using the CN1 pin header (20x2) exposing the following:
+The modular expansion system uses the Z-Bus. The Z-Bus is an efficient, powerful standard for connecting and prototyping different sensors and devices.
+The Z-Bus is using the CN1 pin header (20x2) exposing the following:
+
 * 16 GPIO pins.
 * 4 interrupt pins.
 * 2 USART/UART instances with full support (TX,RX,RTS,CTS)
 * I2C, SPI support.
 * 5V, 3.3 V output pins.
 * Enable pin for controlling the power to attached expansion boards.
-Note: The development board supports up to 3 attached expansion boards.
 
-The Z-bus allows the connection in a cascade of different add-on modules to create specific industrial applications that fit into a DIN-RAIL case.
+!!! note 
+    The development boards support up to 3 attached expansion boards.
+
+The Z-Bus allows the connection in a cascade of different add-on modules to create specific industrial applications that fit into a DIN-RAIL case.
 
 ![](img/4zerobox_v1.png)
 

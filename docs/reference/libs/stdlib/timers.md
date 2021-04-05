@@ -1,6 +1,6 @@
 ## Software Timers
 
-This module contain the :class:`timer` to handle time and timed events
+This module contain the `timer` to handle time and timed events
 
 
 ### function `now`
@@ -57,7 +57,7 @@ start()
 ```
 
 Start the timer. A started timer begins counting the number of passing milliseconds. Such number can be read by calling
-:ref:`timer.get()`.
+`timer.get()`.
 
 
 ### method `reset`

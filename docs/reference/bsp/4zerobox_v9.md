@@ -1,22 +1,30 @@
-## 4ZeroBox_v9
+# 4ZeroBox
+
+This `bsp` module exposes various functions to interact with the [4ZeroBox](../../hardware/4ZeroBox.md).
 
 ### function config_adc
 ```python
 config_adc(label, ch, pga, sps)
 ```
+
 Configure Gain and Samples per second of one adc channel.
+
 * `label` is the label of the adc to use.
     Possible labels are the following:
+
     1. `ADC_010_420` for 0-10 Volt / 4-20 mA ADC;
     2. `ADC_RES` for resistive ADC;
     3. `ADC_CUR` for current ADC.
 
 * `ch` is the channel of the labelled ADC to configure.
+
     1. 1-4 for `ADC_010_420` and `ADC_RES`;
     2. 1-3 for `ADC_CUR`.
 
 * `pga` is the desired gain for the ADC channel.
+*
     Follow the following table to select `pga`
+
     | `pga` | ADC Volt Range |
     |-------|----------------|
     |   0   |   ± 6.144 V    |
@@ -31,7 +39,9 @@ Configure Gain and Samples per second of one adc channel.
     default value is `2`.
 
 * `sps` is the desired sample rate for the ADC channel.
+
     Follow the following table to select `sps`
+
     | `sps` | SPS  |
     |-------|------|
     |   0   | 128  |
@@ -71,8 +81,8 @@ Setup a callback to convert ADC read values on an ADC channel. The ADC's read fu
 read_010(ch, raw=False)
 ```
 Read a channel from the ADC_010_420 in Voltage mode.
-* `ch` is the channel to be read. Possible values 1-4.
 
+* `ch` is the channel to be read. Possible values 1-4.
 * `raw` if set to `True` ADC's bits are returned as result.
 
 Returns the value converted by the channel callback. Voltage value (V) if callback is set to `None`.
@@ -82,8 +92,8 @@ Returns the value converted by the channel callback. Voltage value (V) if callba
 read_420(ch, raw=False)
 ```
 Read a channel from the ADC_010_420 in Current mode.
-* `ch` is the channel to be read. Possible values 1-4.
 
+* `ch` is the channel to be read. Possible values 1-4.
 * `raw` if set to `True` ADC's bits are returned as result.
 
 Returns the value converted by the channel callback. Current value (mA) if callback is set to `None`.
@@ -93,8 +103,8 @@ Returns the value converted by the channel callback. Current value (mA) if callb
 read_resistive(ch, raw=False)
 ```
 Read a channel from the ADC_RES.
-* `ch` is the channel to be read. Possible values 1-4.
 
+* `ch` is the channel to be read. Possible values 1-4.
 * `raw` if set to `True` ADC's bits are returned as result.
 
 Returns the value converted by the channel callback. Resistance value (Ohm) if callback is set to `None`.
@@ -103,11 +113,11 @@ Returns the value converted by the channel callback. Resistance value (Ohm) if c
 ```python
 read_power(ch, samples=400, raw=False)
 ```
+
 Read a differnce of min and max read values from the ADC_CUR.
+
 * `ch` is the channel to be read. Possible values 1-3.
-
 * `samples` is the number of samples to search min Max on. Default 400.
-
 * `raw` if set to `True` ADC's bits are returned as result.
 
 Returns the value converted by the channel callback. Difference is bits if callback is set to `None`.
@@ -117,6 +127,7 @@ Returns the value converted by the channel callback. Difference is bits if callb
 relay_on(rel)
 ```
 Close the selected relay switch.
+
 * `rel` is the relay to close. Possible choices are `REL1` and `REL2`.
 
 ### function realy_off
@@ -124,6 +135,7 @@ Close the selected relay switch.
 relay_off(rel)
 ```
 Open the selected relay switch.
+
 * `rel` is the relay to open. Possible choices are `REL1` and `REL2`.
 
 ### function sink_on
@@ -131,6 +143,7 @@ Open the selected relay switch.
 sink_on(snk)
 ```
 Close the selected sink switch.
+
 * `snk` is the sink to close. Possible choices are `SNK1` and `SNK2`.
 
 ### function sink_off
@@ -138,6 +151,7 @@ Close the selected sink switch.
 sink_off(snk)
 ```
 Open the selected sink switch.
+
 * `snk` is the sink to open. Possible choices are `SNK1` and `SNK2`.
 
 ### function get_opto
@@ -145,6 +159,7 @@ Open the selected sink switch.
 get_opto(iso)
 ```
 Get the logic value on a opto-isolated digital input.
+
 * `iso` is the digital input to get. Possile choices are `ISO1` and `ISO2`.
 
 Returns logic value of the input.
@@ -154,12 +169,10 @@ Returns logic value of the input.
 get_serial_rs485(baud=9600, stopbits=serial.STOPBIT_1, parity=serial.PARITY_NONE, bitsize=serial.BITSIZE_8)
 ```
 Get the a ready to use serial for RS485.
+
 * `baud` is the desired baud rate for the serial. Default 9600.
-
 * `stopbits` is the desired stop bit configuration for the serial. Default is 1 stopbit. See `serial` for possible values.
-
 * `parity` is the desired parity check configuration for the serial. Default is none. See `serial` for possible values.
-
 * `bitsize` is the desired bit size configuration for the serial. Default is 8. See `serial` for possible values.
 
 Return the configured RS485 serial object.
@@ -168,13 +181,12 @@ Return the configured RS485 serial object.
 ```python
 get_serial_rs232(baud=19200, stopbits=serial.STOPBIT_1, parity=serial.PARITY_NONE, bitsize=serial.BITSIZE_8)
 ```
+
 Get the a ready to use serial for RS232.
+
 * `baud` is the desired baud rate for the serial. Default 19200.
-
 * `stopbits` is the desired stop bit configuration for the serial. Default is 1 stopbit. See `serial` for possible values.
-
 * `parity` is the desired parity check configuration for the serial. Default is none. See `serial` for possible values.
-
 * `bitsize` is the desired bit size configuration for the serial. Default is 8. See `serial` for possible values.
 
 Return the configured RS232 serial object.

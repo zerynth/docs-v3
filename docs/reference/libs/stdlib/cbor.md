@@ -11,7 +11,7 @@ loads(data)
 
 Returns a Python object represented by the byte sequence `data`.
 For CBOR specific structures such as `tags` and `undefined` values, 
-the function returns instances of the :class:`Tag` and :class:`Undefined` classes.
+the function returns instances of the `Tag` and `Undefined` classes.
 
 Raises `ValueError` when `data` contains bad or unsupported CBOR.
 
@@ -21,10 +21,10 @@ Raises `ValueError` when `data` contains bad or unsupported CBOR.
 dumps(obj)
 ```
 Returns a bytes object containing the CBOR representation of *obj*.
-If a Python object is not serializable to CBOR, it is serialized to :class:`Undefined`.
+If a Python object is not serializable to CBOR, it is serialized to `Undefined`.
 The function always produces definite major types (bytestrings, string, arrays and maps).
 To generate CBOR specific structures such as *tags* and *undefined* values, pass as argument instances
-of the :class:`Tag` and :class:`Undefined` classes.
+of the `Tag` and `Undefined` classes.
 
 Raises `RuntimeError` when `obj` can't be serialized.
 
@@ -35,8 +35,8 @@ Raises `RuntimeError` when `obj` can't be serialized.
 ```python
 Tag(tag, value)
 ```
-Create a Tag instance. Tag instances have two attributes, :samp:`tag` and :samp:`value` that can be manually changed if needed.
-:samp:`tag` must be an integer while :samp:`value` can be any CBOR serializable python object.
+Create a Tag instance. Tag instances have two attributes, `tag` and `value` that can be manually changed if needed.
+`tag` must be an integer while `value` can be any CBOR serializable python object.
 An instance of this class is returned during deserialization if a tag is found.
 
 

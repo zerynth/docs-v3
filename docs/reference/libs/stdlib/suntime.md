@@ -67,7 +67,7 @@ ss3 = CapeTown.get_sunset_time (*dt3) # (17, 57)
 print('Cape Town:', sr3, ss3)
 ```
 
-If :mod:`datetime` module is available, results above can be expressed
+If `datetime` module is available, results above can be expressed
 in local time::
 
 ```python

@@ -12,9 +12,10 @@ To get started, You need one of Zerynth development boards, check the boards and
 
 ## **Get Started**
 
-This 5 minutes tutorial will show you how to connect your Zerynth board, use our VScode plugin and start sending data to the cloud.
+This 5 minutes tutorial will show you how to connect your Zerynth hardware, use our VScode extension and start sending data to the cloud.
 
 In 4 steps we'll go from zero to sending data securely to the cloud.
+
 1. Install Zerynth
 2. Create your first IoT project
 3. Prepare the device for the cloud
@@ -33,14 +34,14 @@ You can download it from these links:
 
 Once downloaded, simply run it and follow the instructions. The installer is run differently depending on your platform.
 
-### Installing for Windows
+#### Installing for Windows
 
 Double click the `zerynth-installer.exe` you just downloaded. The first time Windows may pop  up a dialog saying that
 the application is signed by Zerynth; just click continue to go on with the execution.
 
 TODO: add screenshot of popup
 
-### Installing for Linux
+#### Installing for Linux
 
 The `zerynth-installer.AppImage` file you just downloaded can be executed in some distributions with a simple double click. However,
 in general you may need to give execution permissions to the file before running it. This is done from a terminal with the command `chmod 755 <path-to-zerynth-installer>`.
@@ -51,13 +52,13 @@ in general you may need to give execution permissions to the file before running
   </a>
 </figure>
 
-### Installing for Mac
+#### Installing for Mac
 
 The `zerynth-installer.dmg` archive you just downloaded can be double clicked and mounted on the Finder. Just drag the `zerynth-installer` app contained within to the `Applications` folder. Next, click on `Applications` and run the `zerynth-installer` app.
 
 ### Install the Zerynth SDK
 
-The installer will install the **Zerynth SDK** in your development machine in a few steps.
+The installer will install the **Zerynth SDK** in your development machine in a few steps. If you encounter any error please refere to our [Installer FAQ](../reference/faq/installer.md).
 
 <figure>
   <a data-fancybox="gallery" href="img/installer-01.png">

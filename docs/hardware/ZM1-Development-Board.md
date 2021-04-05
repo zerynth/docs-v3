@@ -9,25 +9,30 @@ The DB features I/O connectors (the Z-bus) that allow the connection in a cascad
 
 ![](img/4zerobox_v1.png)
 
-## ZBUS
+## Z-Bus
 
-The modular expansion system uses the Z-bus, The Z-bus is an efficient, powerful standard for connecting and prototyping different sensors and devices.
-The z-bus is using the CN1 pin header (20x2) exposing the following:
+The modular expansion system uses the Z-Bus. The Z-Bus is an efficient, powerful standard for connecting and prototyping different sensors and devices.
+The Z-Bus is using the CN1 pin header (20x2) exposing the following:
+
 * 16 GPIO pins.
 * 4 interrupt pins.
 * 2 USART/UART instances with full support (TX,RX,RTS,CTS)
 * I2C, SPI support.
 * 5V, 3.3 V output pins.
 * Enable pin for controlling the power to attached expansion boards.
-Note: The development board supports up to 3 attached expansion boards.
+
+!!! note 
+    The development boards support up to 3 attached expansion boards.
+
+The Z-Bus allows the connection in a cascade of different add-on modules to create specific industrial applications that fit into a DIN-RAIL case.
 
 The development board offers a modular expansion system that adds expansion boards through the connectors on the board (Z-bus).
 Expansion boards vary in features and functionalities. Currently, Zerynth offers expansion boards for :
 
-* EXP-IO: Industrial in/out board with 4x Solid State Relays, 2x 4-20mA/0-10V/NTC channels, 2x opto-isolated digital inputs
-* EXP-RELAY: Relay board with 4 Power Relays.
-* EXP-SER: Serial Communication board offers : CAN, RS232 and RS485
-* EXP-PROTO: Prototyping board for connecting and testing different types of sensors and devices.
+* [EXP-IO](EXP-IO.md): Industrial in/out board with 4x Solid State Relays, 2x 4-20mA/0-10V/NTC channels, 2x opto-isolated digital inputs
+* [EXP-RELAY](EXP-RELAY.md): Relay board with 4 Power Relays.
+* [EXP-SER](EXP-SER.md): Serial Communication board offers : CAN, RS232 and RS485
+* [EXP-PROTO](EXP-PROTO.md): Prototyping board for connecting and testing different types of sensors and devices.
 
 
 ## Resources
@@ -58,11 +63,9 @@ The internal flash of the ESP32 module is organized in a single flash area with 
 |---------------|-------|-------------------------|
 | 0x0000A000    | 20Kb  | Esp32 NVS area          |
 | 0x0000F000    | 4Kb   | Esp32 PHY data          |
-| 0x00010000    | 2Mb   | Zerynth VM              |
+| 0x00010000    | 2Mb   | Zerynth OS              |
 | 0x00210000    | 1Mb   | Zerynth Bytecode        |
-| 0x00310000    | 3Mb   | Zerynth Park (FOTA)     |
-| 0x00610000    | 3Mb   | Zerynth Scratch (FOTA)  |
-| 0x00910000    | 64Kb  | Zerynth Otalog          |
+| 0x00310000    | 3Mb   | Zerynth OTA             |
 | 0x00920000    | 7040Kb| File System             |
 
 ## Device Summary

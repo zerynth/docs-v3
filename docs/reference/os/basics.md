@@ -2,12 +2,11 @@
 
 ## Types and Operators
 
-This is quick reference guide for Python 3 Syntax that can be usefull during Zerynth scripts development.
+This is a quick reference guide for Python 3.5 syntax for firmware development.
 This section is based on the [official Python 3 guide](https://docs.python.org/3/tutorial/).
 
-In this guide input (what is wrote in the Zerynth Python script) and output (the results of the operations) are distinguished by the presence or absence of the prompts line characters (>>> and …).
+In this guide input (what is written in the Zerynth firmware) and output (the results of the operations) are distinguished by the presence or absence of the prompts line characters (>>> and …).
 
-This reference has been adopted in order to be aligned with the official Python 3 guide and also to allow testing these examples, if necessary for better understanding, also on the the Python interpreter.
 
 **Let’s go step by step.**
 

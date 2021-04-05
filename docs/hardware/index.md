@@ -14,7 +14,7 @@ You can find more info about ZM1-DB [here](ZM1-Development-Board/)
 
 The expansion boards can be daisy chained on the Z-Bus to compose the system at wishes. The available expansion boards are:
 
-* [EXP-IO](EXP-IO/): a mixed input/output module with solid state relays, opto-isolated digital inputs, and analog inputs.
-* [EXP-RELAY](EXP-RELAY/): a module with general purpose relays rated 6A 250VAC.
-* [EXP-SER](EXP-SER/): a module with RS232, RC485, and CAN serialinterfaces.
-* [EXP-PROTO](EXP-PROTO/): a module with a generic prototyping board.
+* [EXP-IO](EXP-IO.md): a mixed input/output module with solid state relays, opto-isolated digital inputs, and analog inputs.
+* [EXP-RELAY](EXP-RELAY.md): a module with general purpose relays rated 6A 250VAC.
+* [EXP-SER](EXP-SER.md): a module with RS232, RC485, and CAN serialinterfaces.
+* [EXP-PROTO](EXP-PROTO.md): a module with a generic prototyping board.

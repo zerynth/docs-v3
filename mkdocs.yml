@@ -55,36 +55,33 @@ nav:
   - Make Simple Powerful Dashboards: zCloud/dashboard.md
   - Over the Air Updates: zCloud/FOTA.md
 - Hardware:
-  - {Index: hardware/index.md}
+  - {Hardware Platforms: hardware/index.md}
   - hardware/ZM1-Development-Board.md
+  - hardware/4ZeroBox.md
   - hardware/EXP-SER.md
   - hardware/EXP-RELAY.md
   - hardware/EXP-IO.md
   - hardware/EXP-PROTO.md
-  - hardware/4ZeroBox.md
-- Technical Reference :
+- Technical Reference:
     - {Index: reference/index.md}
-    - Zerynth OS:
-      - reference/os/index.md
-      - reference/os/basics.md
-      - reference/os/seqmap.md
-      - reference/os/pinmap.md
-      - reference/os/clang.md
-      - reference/os/zos.md
-      - reference/os/lang.md
-      - reference/os/vm.md
-      - reference/os/vosal.md
-      - reference/os/vhal.md
     - Zerynth SDK:
+      - Zerynth OS: 
+        - reference/os/index.md
+        - reference/os/basics.md
+        - reference/os/seqmap.md
+        - reference/os/pinmap.md
+        - reference/os/clang.md
+        - reference/os/os.md
       - Development Environment: reference/vscode/index.md
       - Boards and Expansions:
         - reference/libs/expansions/index.md
+        - reference/bsp/4zerobox_v9.md
+        - reference/bsp/zm1_db.md
         - reference/libs/expansions/exp-io.md
         - reference/libs/expansions/exp-relay.md
         - reference/libs/expansions/exp-ser.md
         - reference/libs/expansions/exp-proto.md
       - Standard Library:
-        - reference/libs/stdlib/index.md
         - reference/libs/stdlib/builtins.md
         - reference/libs/stdlib/threading.md
         - reference/libs/stdlib/struct.md
@@ -123,7 +120,7 @@ nav:
         - reference/libs/protocols/http.md
         - reference/libs/protocols/mqtt.md
         - reference/libs/protocols/modbus.md
-      - Security:
+      - Security and Cryptography:
         - reference/libs/crypto/element.md
       - Math:
         - reference/libs/math/math.md
@@ -140,6 +137,8 @@ nav:
       - Command Line Interface:
           - reference/cli/ztc/index.md
           - reference/cli/zdm/index.md
+      - FAQ:
+          - reference/faq/installer.md
     - zCloud APIs:
       - reference/api/zdm/index.md
       - reference/api/zstorage/index.md

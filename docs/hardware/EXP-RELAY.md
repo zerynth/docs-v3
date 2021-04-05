@@ -4,19 +4,24 @@ The EXP-RELAY expansion board is an output module that features 6 General Purpos
 
 Zerynth expansion boards work seamlessly with all of Zerynth Development boards, combined they can act as a Development Board for prototyping a Product, and a core for industrial applications.
 
-## ZBUS
 
-The modular expansion system uses the Z-bus, The Z-bus is an efficient, powerful standard for connecting and prototyping different sensors and devices.
-The z-bus is using the CN1 pin header (20x2) exposing the following:
+## Z-Bus
+
+The modular expansion system uses the Z-Bus. The Z-Bus is an efficient, powerful standard for connecting and prototyping different sensors and devices.
+The Z-Bus is using the CN1 pin header (20x2) exposing the following:
+
 * 16 GPIO pins.
 * 4 interrupt pins.
 * 2 USART/UART instances with full support (TX,RX,RTS,CTS)
 * I2C, SPI support.
 * 5V, 3.3 V output pins.
 * Enable pin for controlling the power to attached expansion boards.
-Note: The development board supports up to 3 attached expansion boards.
 
-The Z-bus allows the connection in a cascade of different add-on modules to create specific industrial applications that fit into a DIN-RAIL case.
+!!! note 
+    The development boards support up to 3 attached expansion boards.
+
+The Z-Bus allows the connection in a cascade of different add-on modules to create specific industrial applications that fit into a DIN-RAIL case.
+
 
 ![](img/4zerobox_v1.png)
 

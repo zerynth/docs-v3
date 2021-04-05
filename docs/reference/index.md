@@ -7,9 +7,9 @@ description: ...
 
 This section contains the developer documentation for the vast ecosystem of tools and APIs provided by Zerynth.
 
-It can be daunting to navigate all the information, but the task is made easier by the search bur on the upper right.
+It can be daunting to navigate all the information, but the task is made easier by the search bar on the upper right.
 
-The technical reference spans a wide range of topics from the details of writing a Zerynth based firmware for embedded devices to the zCloud APIs. For this reason it might be useful having a journey through Zerynth by starting from the lower layers of the IoT stack and then going up.
+The technical reference spans a wide range of topics from the details of writing a Zerynth based firmware for embedded devices to the zCloud APIs. For this reason it's useful starting a journey through Zerynth from the lower layers of the IoT stack and then going up.
 
 !!! warning "V2 Documentation"
     Documentation for versions of Zerynth before v3.0.0 can be found <a href="https://docsv2.zerynth.com" target="_blank">here</a>

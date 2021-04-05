@@ -125,7 +125,7 @@ int(x=0, base=10)
    truncated towards zero.
 
    If *x* is not a number or if *base* is given, then *x* must be a string,
-   :class:`bytes`, or :class:`bytearray` instance representing an :integer
+   `bytes`, or `bytearray` instance representing an :integer
    in radix *base*.  Optionally, the literal can be
    preceded by `+` or `-` (with no space in between) and surrounded by
    whitespace.  A base-n literal consists of the digits 0 to n-1, with `a`
@@ -157,7 +157,7 @@ Function *fun* is launched in a new thread using args as its parameters.
 *prio* sets the thread priority and accepts one of ``PRIO_LOWEST``, ``PRIO_LOWER``, ``PRIO_LOW``, ``PRIO_NORMAL``, ``PRIO_HIGH``, ``PRIO_HIGHER``, ``PRIO_HIGHEST``.
 *size* is the memory in bytes , reserved for the thread inner workings. Negative values select the VM default size.
 
-Returns the created thread, already started. Raises :exc:`RuntimeError` if no more threads can be created.
+Returns the created thread, already started. Raises `RuntimeError` if no more threads can be created.
 
 ### function `sleep`
 ```python
@@ -166,7 +166,7 @@ sleep(time, time_unit=MILLIS)
 Suspend the current thread for *time* expressed in *time_units*. All the other threads are free to continue their execution.
 If *time_unit* is MICROS, sleep does not suspend the current thread, but starts polling the cycles counter in a loop.
 
-For high precision sleep refer to :module:`hwtimers`
+For high precision sleep refer to `hwtimers`
 
 ### function `random`
 ```python
@@ -192,13 +192,13 @@ bytearray([source])
 
    Return a new array of bytes. A bytearray is a mutable
    sequence of integers in the range 0 <= x < 256.  It has most of the usual
-   methods of mutable sequences, described in :ref:`typesseq-mutable`, as well
-   as most methods that the :class:`bytes` type has, see :ref:`bytes-methods`.
+   methods of mutable sequences, described in `typesseq-mutable`, as well
+   as most methods that the `bytes` type has, see `bytes-methods`.
 
    The optional *source* parameter can be used to initialize the array in a few
    different ways:
 
-* If it is a *string*, :func:`bytearray` then converts the string to
+* If it is a *string*, `bytearray` then converts the string to
   bytes.
 * If it is an *integer*, the array will have that size and will be
   initialized with null bytes.
@@ -211,11 +211,11 @@ bytes([source])
 ```
 
    Return a new "bytes" object, which is an immutable sequence of integers in
-   the range `0 <= x < 256`.  :class:`bytes` is an immutable version of
-   :class:`bytearray` -- it has the same non-mutating methods and the same
+   the range `0 <= x < 256`.  `bytes` is an immutable version of
+   `bytearray` -- it has the same non-mutating methods and the same
    indexing and slicing behavior.
 
-   Accordingly, constructor arguments are interpreted as for :func:`bytearray`.
+   Accordingly, constructor arguments are interpreted as for `bytearray`.
 
 ### function `shortarray`
 ```python
@@ -224,8 +224,8 @@ shortarray([source])
 
    Return a new array of shorts. A shortarray is a mutable
    sequence of integers in the range 0 <= x < 65536.  It has most of the usual
-   methods of mutable sequences, described in :ref:`typesseq-mutable`, as well
-   as most methods that the :class:`shorts` type has, see :ref:`shorts-methods`.
+   methods of mutable sequences, described in `typesseq-mutable`, as well
+   as most methods that the `shorts` type has, see `shorts-methods`.
 
    The optional *source* parameter can be used to initialize the array in a few
    different ways:
@@ -242,20 +242,20 @@ shortarray([source])
 shorts([source])
 ```
    Return a new shorts object, which is an immutable sequence of integers in
-   the range `0 <= x < 65536`.  :class:`shorts` is an immutable version of
-   :class:`shortarray` -- it has the same non-mutating methods and the same
+   the range `0 <= x < 65536`.  `shorts` is an immutable version of
+   `shortarray` -- it has the same non-mutating methods and the same
    indexing and slicing behavior.
 
-   Accordingly, constructor arguments are interpreted as for :func:`shortarray`.
+   Accordingly, constructor arguments are interpreted as for `shortarray`.
 
 ### function `enumerate`
 ```python
 enumerate(iterable, start=0)
 ```
    Return an enumerate object. *iterable* must be a sequence, an
-   :term:`iterator`, or some other object which supports iteration.
-   The :meth:`~iterator.__next__` method of the iterator returned by
-   :func:`enumerate` returns a tuple containing a count (from *start* which
+   `iterator`, or some other object which supports iteration.
+   The `~iterator.__next__` method of the iterator returned by
+   `enumerate` returns a tuple containing a count (from *start* which
    defaults to 0) and the values obtained from iterating over *iterable*.
 
    It is normally used in `for` loops: ::
@@ -278,9 +278,9 @@ enumerate(iterable, start=0)
 ```python
 reversed(seq)
 ```
-   Return a reverse :term:`iterator`.  *seq* must be an object which has
-   a :meth:`__reversed__` method or supports the sequence protocol (the
-   :meth:`__len__` method and the :meth:`__getitem__` method with integer
+   Return a reverse `iterator`.  *seq* must be an object which has
+   a `__reversed__` method or supports the sequence protocol (the
+   `__len__` method and the `__getitem__` method with integer
    arguments starting at `0`).
 
    In this version of the VM, reversed works only for primitive iterable types, not yet for instances with `__next__` and `__iter__` methods.
@@ -291,7 +291,7 @@ ord(c)
 ```
    Given a string representing one character, return an integer
    representing that character.  For example, `ord('a')` returns the integer `97`.
-   This is the inverse of :func:`chr`.
+   This is the inverse of `chr`.
 
    When *c* is a literal string, the compiler macro __ORD(c) can be used to reduce code size.
    For example:
@@ -324,7 +324,7 @@ chr(i)
 
    Return the string representing a character whose byte representation is the integer
    *i*.  For example, `chr(97)` returns the string `'a'`. This is the
-   inverse of :func:`ord`. :exc:`ValueError` will be raised if *i* is
+   inverse of `ord`. `ValueError` will be raised if *i* is
    outside the valid range.
 
 ### function `isinstance`
@@ -335,10 +335,10 @@ isinstance(object, class)
    Return true if the *object* argument is an instance of the *class*
    argument, or of a (direct, indirect) subclass thereof.  If *object* is not
    an object of the given type, the function always returns false.  If *class* is not a class,
-   a :exc:`TypeError` exception is raised.
+   a `TypeError` exception is raised.
 
    In this version of the VM, isinstance is still not compliant with the Python one.
-   It is suggested to use isinstance to determine the hierarchy of instances and to use :func:`type` for primitive types.
+   It is suggested to use isinstance to determine the hierarchy of instances and to use `type` for primitive types.
 
 ### function `thread`
 ```python
@@ -354,13 +354,13 @@ print(*args,sep=" ",end="\\n", stream=None)
    by *end*.  *sep*, *end* and *stream*, if present, must be given as keyword
    arguments.
 
-   All non-keyword arguments are converted to strings like :func:`str` does and
+   All non-keyword arguments are converted to strings like `str` does and
    written to the stream, separated by *sep* and followed by *end*.  Both *sep*
-   and *end* must be strings. If no *objects* are given, :func:`print` will just write
+   and *end* must be strings. If no *objects* are given, `print` will just write
    *end*.
 
    The *stream* argument must be an object with a `write(string)` method; if it
-   is not present or `None`, :data:`__default_stream` will be used.
+   is not present or `None`, `__default_stream` will be used.
 
    Whether output is buffered is usually determined by *stream*.
 
@@ -440,7 +440,7 @@ round(number[, ndigits])
    *ndigits* is omitted or is `None`, it returns the nearest integer to its
    input.
 
-   For the built-in types supporting :func:`round`, values are rounded to the
+   For the built-in types supporting `round`, values are rounded to the
    closest multiple of 10 to the power minus *ndigits*; if two multiples are
    equally close, rounding is done toward the even choice (so, for example, both
    `round(-1.5)` and `round(-0.5)` are `0`, and `round(1.5)` is `2`).
@@ -448,13 +448,13 @@ round(number[, ndigits])
    return value is an integer if *ndigits* is omitted or `None`. Otherwise
    the return value has the same type as number.
 
-   The behavior of :func:`round` for floats can be surprising: for example,
+   The behavior of `round` for floats can be surprising: for example,
    `round(1.125, 2)` gives `1.1200000000000001` instead of the expected `1.12`.
    This is not a bug: it’s a result of the fact that most decimal fractions
    can’t be represented exactly as a float (e.g., `print(2.675)` gives
    `2.6749999999999998` in Zerynth).
 
-   For a general Python object *number*, :func:`round` is not implemented.
+   For a general Python object *number*, `round` is not implemented.
 
 ### function `len`
 ```python
@@ -478,7 +478,7 @@ hex(x,prefix="0x")
   '-0x2a'
 ```
 
-   See also :func:`int` for converting a hexadecimal string to an
+   See also `int` for converting a hexadecimal string to an
    integer using a base of 16.
 
 ### function `str`

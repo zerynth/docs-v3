@@ -9,7 +9,7 @@ This module loads the Analog to Digital Converter (adc) driver of the embedded d
 
 When imported, automatically sets the system adc driver to  the default one.
 
-### functions `read`
+### function `read`
 ```python
 read(pin, samples=1, sps=0)
 ```

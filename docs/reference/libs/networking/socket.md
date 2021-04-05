@@ -11,7 +11,7 @@ socket(family=AF_INET, type=SOCK_STREAM, proto=IPPROTO_TCP, fileno=None)
 
 This class represents a BSD socket.
 
-Raise :data:`__builtins__.IOError` exceptions if socket creation goes wrong.
+Raise `__builtins__.IOError` exceptions if socket creation goes wrong.
 
 Sockets can be used like this:
 
@@ -55,8 +55,8 @@ connect(address)
 
 Tries to connect the underlying socket (tcp or udp) to `address`.
 A tcp socket must be connected to be used successfully. Udp sockets are connectionless and everytime a datagram
-is sent, the receiver address must be specified (:meth:`.sendto`). However if an udp socket is connected to an address,
-it can be used with methods like :meth:`.recv` and :meth:`.send` without specifying a receiver address.
+is sent, the receiver address must be specified (`.sendto`). However if an udp socket is connected to an address,
+it can be used with methods like `.recv` and `.send` without specifying a receiver address.
 When an udp socket is connected to `address`, datagram packets coming from addresses different from `address` are ignored.
 
 

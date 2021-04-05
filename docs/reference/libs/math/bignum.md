@@ -51,7 +51,7 @@ Return a new big number instance equal to the addition of the current instance a
 iadd(b)
 ```
 
-Add to the current instance the big number *b*. Return :samp:`None`
+Add to the current instance the big number *b*. Return `None`
 
 ### method `sub`
 ```python
@@ -65,7 +65,7 @@ Return a new big number instance equal to the difference of the current instance
 isub(b)
 ```
 
-Subtracts to the current instance the big number *b*. Return :samp:`None`
+Subtracts to the current instance the big number *b*. Return `None`
 
 ### method `mul`
 ```python
@@ -79,7 +79,7 @@ Return a new big number instance equal to the multiplication of the current inst
 imul(,b)
 ```
 
-Multiply the current instance for the big number *b*. Return :samp:`None`
+Multiply the current instance for the big number *b*. Return `None`
 
 ### method `div`
 ```python
@@ -93,7 +93,7 @@ Return a new big number instance equal to the division of the current instance b
 idiv(b)
 ```
 
-Divides the current instance for the big number *b*. Return :samp:`None`
+Divides the current instance for the big number *b*. Return `None`
 
 ### method `mod`
 ```python
@@ -107,7 +107,7 @@ Return a new big number instance equal to the remainder of the division of the c
 imod(b)
 ```
 
-Set the current instance to the remainder of the division by *b*. Return :samp:`None`
+Set the current instance to the remainder of the division by *b*. Return `None`
 
 ### method `divmod`
 ```python

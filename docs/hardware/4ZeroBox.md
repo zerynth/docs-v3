@@ -35,11 +35,9 @@ The internal flash of the ESP32 module is organized in a single flash area with 
 |---------------|-------|-------------------------|
 | 0x0000A000    | 20Kb  | Esp32 NVS area          |
 | 0x0000F000    | 4Kb   | Esp32 PHY data          |
-| 0x00010000    | 2Mb   | Zerynth VM              |
+| 0x00010000    | 2Mb   | Zerynth OS              |
 | 0x00210000    | 1Mb   | Zerynth Bytecode        |
-| 0x00310000    | 3Mb   | Zerynth Park (FOTA)     |
-| 0x00610000    | 3Mb   | Zerynth Scratch (FOTA)  |
-| 0x00910000    | 64Kb  | Zerynth Otalog          |
+| 0x00310000    | 3Mb   | Zerynth OTA             |
 | 0x00920000    | 7040Kb| File System             |
 
 ## Device Summary
@@ -50,9 +48,9 @@ The internal flash of the ESP32 module is organized in a single flash area with 
     
 * 4 selectable analog input channels:
     
-    > -   4-20mA single-ended
-    > -   4-20mA differential
-    > -   0-10V standard
+    -   4-20mA single-ended
+    -   4-20mA differential
+    -   0-10V standard
     
 * 3 current transformers (non-invasive)
     
@@ -72,9 +70,9 @@ The internal flash of the ESP32 module is organized in a single flash area with 
     
 * Connectivity:
     
-    > -   WiFi IEEE 802.11 b/g/n/e/i (Client and AP mode supported)
-    > -   Bluetooth® Low-Energy
-    > -   Ethernet
+    -   WiFi IEEE 802.11 b/g/n/e/i (Client and AP mode supported)
+    -   Bluetooth® Low-Energy
+    -   Ethernet
     
 * Crypto Chip - Secure Hardware Encryption
     

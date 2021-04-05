@@ -1,4 +1,4 @@
-## IO expansion
+# EXP-IO
 
 ### class `EXP`
 ```python
@@ -6,6 +6,7 @@ EXP(position, selectors)
 ```
 Created an object for the expansion board connected to Zerynth ZM1 board at the `position` number, counting from left to right. Valid positions are 1 to 4.
 `selectors` is a tuple composed as in the following:
+
 0. Port Expansion (PE) address.
 1. Interrupt pin.
 
@@ -90,7 +91,7 @@ import gpio
 import adc 
 
 board.init()
-sel = (1, 0,) 
+sel = (1, 0) 
 io_e = board.next_expansion(io, sel)
 
 gpio.mode(PE1, OUTPUT)
