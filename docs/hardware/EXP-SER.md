@@ -1,8 +1,47 @@
 # EXP-SER
 
 The EXP-SER expansion board allows your application to communicate over RS485, RS232 and CAN interfaces, enables communication with PC, Devices, boards or sensors communicating over serial channels.
-The board features pin headers to connect terminals of CAN bus, R485 and RS232, in addition to exposing the UART/USART pins, I2C and SPI pins in the Z-bus pin header.The board features pin headers to connect terminals of CAN bus, R485 and RS232, in addition to exposing the UART/USART pins, I2C and SPI pins in the Z-bus pin header.
+The board features pin headers to connect terminals of CAN bus, R485 and RS232, in addition to exposing the UART/USART pins, I2C and SPI pins in the Z-bus pin header.
 
+
+## Device Summary
+
+* CAN: The board uses the MCP2518FD IC, It is an External CAN FD Controller.
+The board also uses NCV7357 as a CAN FD Transceiver.
+Connections between the controller and the transceiver are digitally isolated by the ISO7763 IC.
+* RS232 interface: The board uses the MAX3232 IC, 3-V to 5.5-V Multichannel RS-232 Line Driver/Receiver. The output pins of the IC are directly connected to the header P1.
+* RS485 interface: The board uses SN65HVD1786D RS485 Transceiver. The output pins of the IC are directly connected to the header P2.
+
+
+<figure>
+  <a data-fancybox="gallery" href="../img/DB-ZM1 front.png">
+  <img src="../img/ZDK-res.png"width="300"/>
+  </a>
+</figure>
+## Resources and Documents
+
+-   [User manual](https://www.zerynth.com/download/13895/)
+
+## ZM1-DB Software Drivers
+
+For more information on the EXP-SER Library as software drivers, features, functions and examples
+[Please check this Link](../../reference/reference/bsp/zm1_db/)
+
+## Pin Mapping
+
+![](img/4zeroboxpin.png)
+
+Official reference for EXP-SER can be found  [here](https://www.zerynth.com/4zeroplatform/).
+
+
+
+### Rotart and Standard switches
+
+For information on the switches and other hardware details, Please refer to the [User manual of the board](#resources-and-documents)
+
+## Power
+
+Power to the EXP-SER is supplied directly by the ZM1-DB.
 
 ## Z-Bus
 
@@ -19,66 +58,16 @@ The Z-Bus is using the CN1 pin header (20x2) exposing the following:
 !!! note 
     The development boards support up to 3 attached expansion boards.
 
-The Z-Bus allows the connection in a cascade of different add-on modules to create specific industrial applications that fit into a DIN-RAIL case.
 
+<figure>
+  <a data-fancybox="gallery" href="../img/installer-02.png">
+  <img src="../img/Boards.jpg"width="300"/>
+  </a>
+</figure>
 
-![](img/4zerobox_v1.png)
+Expansion boards vary in features and functionality. Currently, Zerynth offers expansion boards for :
 
-## Resources
-
-For more infos about electrical connections, and how to use EXP-SER with sensors and other hardware, see the  [user manual](https://www.zerynth.com/download/13894/).
-
-For more information on the EXP-SER Library as software drivers, Its features, functions and examples
-[Please check this Link](/latest/reference/libs/zerynth/4zerobox/docs/)
-
-Other useful documents are:
-
--   [Datasheet](https://www.zerynth.com/download/13895/)
--   [Quick Guide](https://www.zerynth.com/download/15283/)
-
-
-
-## Pin Mapping
-
-![](img/4zeroboxpin.png)
-
-Official reference for EXP-SER can be found  [here](https://www.zerynth.com/4zeroplatform/).
-
-## Device Summary
-
-* CAN: The board uses the MCP2518FD IC, It is an External CAN FD Controller.
-The board also uses NCV7357 as a CAN FD Transceiver.
-Connections between the controller and the transceiver are digitally isolated by the ISO7763 IC.
-* RS232 interface: The board uses the MAX3232 IC, 3-V to 5.5-V Multichannel RS-232 Line Driver/Receiver. The output pins of the IC are directly connected to the header P1.
-* RS485 interface: The board uses SN65HVD1786D RS485 Transceiver. The output pins of the IC are directly connected to the header P2.
-
-### Rotary Switch SW1
-Controls the Interrupt output of the MCP2518 CAN controller.
-
-| Position | Pin on Z-Bus |
-|----------|--------------|
-|    0     |     INTR     |
-|    1     |     INTB     |
-|    2     |     INTE1    |
-|    3     |     INTE2    |
-
-### S1 Switch
-**Warning**: pins 2 and 3 must never be in the ON position at the same time
-
-| PIN |       OFF       |             ON              |
-|-----|-----------------|-----------------------------|
-|  1  | Select Serial 1 | Select Serial 2             |
-|  2  |        -        | Connect CTS with CS MCP2518 |
-|  3  |        -        | Connect CTS with serial 232 |
-
-### S2 Switch
-
-| PIN |            OFF           |            ON               |
-|-----|--------------------------|-----------------------------|
-|  1  |             -            | RS485 120 Ohm Connection    |
-|  2  | Disable RX channel RS485 | Connect CTS with CS MCP2518 |
-|  3  |             -            | CAN 120 Ohm Connection      |
-
-## Power
-
-Power to the EXP-SER is supplied directly by the ZM1-DB.
+* [EXP-IO](EXP-IO.md): Industrial input/output board with 4 solid-state relays, 2 analog channels (4-20mA/0-10V/NTC/current clamp) channels, 2 opto-isolated digital inputs
+* [EXP-RELAY](EXP-RELAY.md): Relay board with 6 Electromechanical power relays rated 6A 250VAC.
+* [EXP-SER](EXP-SER.md): Serial Communication board with : CAN, RS232 and RS485  interfaces.
+* [EXP-PROTO](EXP-PROTO.md): Prototyping board for connecting and testing different types of sensors and devices.
