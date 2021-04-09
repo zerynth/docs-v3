@@ -1,20 +1,59 @@
-# Welcome to Zerynth hardware platforms
+# Zerynth hardware platform
 
-## 4ZeroBox
+## Easy-to-use hardware platform for creating Industrial IoT applications and connecting products to IoT, both in development and in production.
 
-The 4ZeroBox is an electronic unit that simplifies the development of Industrial IoT applications allowing rapid integration with sensors, actuators, and Cloud services.
+* Picture with 3 Tiles: Development Boards, Expansion boards and SoCs.
 
+# Development Boards 
+
+The ZM1-DB is a flexible, modular, development board that features the ZM1 SoM. With the integrated Zerynth software, It is ready for developing a prototype or a proof-of-concept right out of the box.
+
+<figure>
+  <a data-fancybox="gallery" href="img/installer-02.png">
+  <img src="img/DB-ZM1 front.png"width="300"/>
+  </a>
+</figure>
+
+The ZM1-DB easily connects with the Zerynth expansion boards. The expansion system enables fast and efficient prototyping, and adding/removing functionalities in no time.
+
+
+
+Buy now at this link.
+For more information on the ZM1-DB, Please refer to [ZM1-DB Hardware page here](ZM1-Development-Board/)
+
+# Modular Expansion System
+Zerynth Development boards offer a game-changing way of connecting and adding functionalities to your application in a simple and easy way.
+The development board offers a modular expansion system that adds expansion boards through the connectors on the board (Z-bus).
+
+
+<figure>
+  <a data-fancybox="gallery" href="img/installer-02.png">
+  <img src="img/Boards.jpg"width="300"/>
+  </a>
+</figure>
+
+Expansion boards vary in features and functionality. Currently, Zerynth offers expansion boards for :
+
+* [EXP-IO](EXP-IO.md): Industrial input/output board with 4 solid-state relays, 2 analog channels (4-20mA/0-10V/NTC/current clamp) channels, 2 opto-isolated digital inputs
+* [EXP-RELAY](EXP-RELAY.md): Relay board with 6 Electromechanical power relays rated 6A 250VAC.
+* [EXP-SER](EXP-SER.md): Serial Communication board with : CAN, RS232 and RS485  interfaces.
+* [EXP-PROTO](EXP-PROTO.md): Prototyping board for connecting and testing different types of sensors and devices.
+
+
+### 4ZeroBox
+
+Industrial IoT device for acquisition, monitoring and control of industrial machines
+4ZeroBox is a versatile data acquisition unit, designed to be integrated into both legacy and modern industrial machines. The 4ZeroBox easily improves visibility on production processes, enables predictive maintenance of machines, and performs power management monitoring. 
+
+<figure>
+  <a data-fancybox="gallery" href="img/installer-02.png">
+  <img src="img/4zerobox_v1.png"width="300"/>
+  </a>
+</figure>
+
+The 4ZeroBox modernizes any industrial machinery and equipment allowing companies to drive their Industry 4.0 digital transformation.
+
+
+
+Buy now at this link.
 You can find more info about 4ZeroBox [here](4ZeroBox/).
-
-## ZM1-DB
-
-The ZM1-DB is a modular hardware electronic device expandable with dedicated Z-Bus boards. The board is ESP32 mcu powered with 16MB flash, WiFi, Ethernet interface
-
-You can find more info about ZM1-DB [here](ZM1-Development-Board/)
-
-The expansion boards can be daisy chained on the Z-Bus to compose the system at wishes. The available expansion boards are:
-
-* [EXP-IO](EXP-IO.md): a mixed input/output module with solid state relays, opto-isolated digital inputs, and analog inputs.
-* [EXP-RELAY](EXP-RELAY.md): a module with general purpose relays rated 6A 250VAC.
-* [EXP-SER](EXP-SER.md): a module with RS232, RC485, and CAN serialinterfaces.
-* [EXP-PROTO](EXP-PROTO.md): a module with a generic prototyping board.
