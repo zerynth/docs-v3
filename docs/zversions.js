@@ -2,15 +2,7 @@
 var zversions = {"versions":["v3.0.0"]}
 
 var zversion_set = function(versions) {
-    var version = "latest"
     var pathArray = window.location.pathname.split('/');
-    if (pathArray[1] == "latest") {
-        //select last version
-        version="latest"
-    } else {
-        version=pathArray[1]
-    }
-    $(".zversion_current").html(version)
     //fill version list
     var j,i;
     var vv= versions["versions"]
@@ -21,11 +13,20 @@ var zversion_set = function(versions) {
             newPathname += (i==1)?vv[j]:pathArray[i];
         } 
         $(".zversion_ul").append('<li class="md-version__item"><a href="'+newPathname+'" class="md-version__link">'+vv[j]+'</a></li>')
-        
     }
 }
 
+var zversion_set_version_from_url = function() {
+    var pathArray = window.location.pathname.split('/');
+    var version=pathArray[1]
+    $(".zversion_current").html(version)
+
+}
+
 $(document).ready(function(){
+    //immediately set version text
+    zversion_set_version_from_url()
+    //load all versions
     $.getJSON('/versions.json', function(data) {
         // JSON result in `data` variable
         console.log(data)
