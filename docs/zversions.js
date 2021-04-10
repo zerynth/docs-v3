@@ -26,11 +26,12 @@ var zversion_set = function(versions) {
 }
 
 
-$.getJSON('versions.json', function(data) {
+$.getJSON('/versions.json', function(data) {
     // JSON result in `data` variable
     console.log(data)
     zversion_set(data)
 }).fail(function(){
+    console.log("FAILED TO LOAD VERSIONS")
     zversion_set(zversions)
 });
 
