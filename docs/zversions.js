@@ -4,11 +4,11 @@ var zversions = {"versions":["v3.0.0"]}
 var zversion_set = function(versions) {
     var version = "latest"
     var pathArray = window.location.pathname.split('/');
-    if (pathArray[0] == "latest") {
+    if (pathArray[1] == "latest") {
         //select last version
         version="latest"
     } else {
-        version=pathArray[0]
+        version=pathArray[1]
     }
     $(".zversion_current").text(version)
     //fill version list
@@ -16,9 +16,9 @@ var zversion_set = function(versions) {
     var vv= versions["versions"]
     for(j=0;j<vv.length;j++) {
         var newPathname = "";
-        for (i = 0; i < pathArray.length; i++) {
+        for (i = 1; i < pathArray.length; i++) {
             newPathname += "/";
-            newPathname += (i==0)?vv[j]:pathArray[i];
+            newPathname += (i==1)?vv[j]:pathArray[i];
         } 
         $(".zversion_ul").append('<li class="md-version__item"><a href="'+newPathname+'" class="md-version__link">'+vv[j]+'</a></li>')
         
