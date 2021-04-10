@@ -10,7 +10,7 @@ var zversion_set = function(versions) {
     } else {
         version=pathArray[1]
     }
-    $(".zversion_current").text(version)
+    $(".zversion_current").html(version)
     //fill version list
     var j,i;
     var vv= versions["versions"]
@@ -25,15 +25,16 @@ var zversion_set = function(versions) {
     }
 }
 
-
-$.getJSON('/versions.json', function(data) {
-    // JSON result in `data` variable
-    console.log(data)
-    zversion_set(data)
-}).fail(function(){
-    console.log("FAILED TO LOAD VERSIONS")
-    zversion_set(zversions)
-});
+$(document).ready(function(){
+    $.getJSON('/versions.json', function(data) {
+        // JSON result in `data` variable
+        console.log(data)
+        zversion_set(data)
+    }).fail(function(){
+        console.log("FAILED TO LOAD VERSIONS")
+        zversion_set(zversions)
+    });
+})
 
 
 
