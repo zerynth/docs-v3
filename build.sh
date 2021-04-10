@@ -6,4 +6,4 @@ if [ -z "$DOCPATH" ]; then
     DOCPATH=${PWD}
 fi
 
-docker run --rm -it -p 8081:8000 -v ${PWD}:/docs squidfunk/mkdocs-material:6.1.7 $2
+docker run --rm -t -p 8081:8000 -v ${PWD}:/docs squidfunk/mkdocs-material:7.1.0 $2

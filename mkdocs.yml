@@ -2,6 +2,7 @@
 extra_javascript:
   - jquery.min.js
   - jquery.fancybox.min.js
+  - zversions.js
 extra_css:
   - extra.css
   - jquery.fancybox.min.css
