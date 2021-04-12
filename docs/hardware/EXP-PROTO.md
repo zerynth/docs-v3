@@ -6,6 +6,18 @@ Zerynth provides hardware development services and Certification services for th
 
 Zerynth expansion boards work seamlessly with all of Zerynth Development boards, combined they can act as a Development Board for prototyping a Product, and a core for industrial applications.
 
+## Resources and Documents
+
+-   [User manual](https://www.zerynth.com/download/13895/)
+
+## Pin Mapping
+
+![](img/4zeroboxpin.png)
+
+Official reference for EXP-SER can be found  [here](https://www.zerynth.com/4zeroplatform/).
+
+
+
 ## Z-Bus
 
 The modular expansion system uses the Z-Bus. The Z-Bus is an efficient, powerful standard for connecting and prototyping different sensors and devices.
@@ -21,24 +33,16 @@ The Z-Bus is using the CN1 pin header (20x2) exposing the following:
 !!! note 
     The development boards support up to 3 attached expansion boards.
 
-The Z-Bus allows the connection in a cascade of different add-on modules to create specific industrial applications that fit into a DIN-RAIL case.
 
-![](img/4zerobox_v1.png)
+<figure>
+  <a data-fancybox="gallery" href="../img/installer-02.png">
+  <img src="../img/Boards.jpg"width="300"/>
+  </a>
+</figure>
 
-## Resources
+Expansion boards vary in features and functionality. Currently, Zerynth offers expansion boards for :
 
-For more infos about electrical connections, and how to use EXP-PROTO with sensors and other hardware, see the  [user manual](https://www.zerynth.com/download/13894/).
-
-Other useful documents are:
-
--   [Datasheet](https://www.zerynth.com/download/13895/)
--   [Quick Guide](https://www.zerynth.com/download/15283/)
-
-
-
-## Pin Mapping
-
-![](img/4zeroboxpin.png)
-
-Official reference for Zerynth EXP-PROTO can be found  [here](https://www.zerynth.com/4zeroplatform/).
-
+* [EXP-IO](EXP-IO.md): Industrial input/output board with 4 solid-state relays, 2 analog channels (4-20mA/0-10V/NTC/current clamp) channels, 2 opto-isolated digital inputs
+* [EXP-RELAY](EXP-RELAY.md): Relay board with 6 Electromechanical power relays rated 6A 250VAC.
+* [EXP-SER](EXP-SER.md): Serial Communication board with : CAN, RS232 and RS485  interfaces.
+* [EXP-PROTO](EXP-PROTO.md): Prototyping board for connecting and testing different types of sensors and devices.
