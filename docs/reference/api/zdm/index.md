@@ -4,15 +4,14 @@
 The **zDeviceManager REST APIs** offer access to devices, job and FOTA services, as well as workspaces and fleets.
 This API can be called from any application that can send an HTTPS request and receive an HTTPS response.
 
-!!! note
-
+!!! note 
     - Set the **Content-Type** header to **application/json**.
     - Set the **X-API-KEY** header to a valid API Key. For information about how to get an API key, see [Authentication](#authentication).
 
 ## Authentication
 zDeviceManager grants access to endpoints by verifying an API key.
 
-The API key is a unique identifier that authenticates your requests and it is bound to a single workspace.
+The API key is a unique identifier that authenticates your requests and it is bound to a single workspace. 
 
 ### Create an API key
 
@@ -725,10 +724,10 @@ Schedule a new FOTA for multiple fleets.
 
 #### Response
 - **fota** (object) - FOTA status object
-    - **scheduled_at** (date) - The date of the FOTA scheduling in RFC 3339 format
-    - **status** (string) - The status of the FOTA
-    - **value** (object) - An object that contains the **fw_id** and the **fw_version**
-    - **devices** (string[]) - An array that contains all devices on which the FOTA has been scheduled
+  - **scheduled_at** (date) - The date of the FOTA scheduling in RFC 3339 format
+  - **status** (string) - The status of the FOTA
+  - **value** (object) - An object that contains the **fw_id** and the **fw_version**
+  - **devices** (string[]) - An array that contains all devices on which the FOTA has been scheduled
 
 #### Example
 `POST https://api.zdm.zerynth.com/workspaces/wks-123456789/fota/fmw-123456789/versions/1.0?fleet=flt-123456789&fleet=flt-987654321`
@@ -748,3 +747,50 @@ Schedule a new FOTA for multiple fleets.
   }
 }
 ```
+
+## Integrations
+zDeviceManager allows you to forward data received from devices to third-party services.
+
+!!! note "Note - Message Delivery Reliability"
+    All zDeviceManager integrations follow an **at-least-once** rule for message sends: this means that zDeviceManager ensures you that all data that has been sent from devices is forwarded to the external service, but some messages may be sent multiple times. It is up to the external service the duplicates handling. 
+### Webhook data format
+
+
+```json
+{
+  "batch_id": "data-123456789",
+  "result": [
+    {
+      "id": "0",
+      "workspace_id": "wks-123456789",
+      "fleet_id": "flt-123456789",
+      "device_id": "dev-123456789",
+      "device_name": "my_new_device",
+      "timestamp_device": "2021-03-18T16:27:30.122Z",
+      "timestamp_in": "2021-03-18T16:27:30.125Z",
+      "tag": "weather",
+      "payload": {
+        "temp": 24,
+        "hum": 65
+      }
+    },
+    {
+      "id": "1",
+      "workspace_id": "wks-123456789",
+      "fleet_id": "flt-123456789",
+      "device_id": "dev-123456789",
+      "device_name": "my_new_device",
+      "timestamp_device": "2021-03-18T16:27:30.122Z",
+      "timestamp_in": "2021-03-18T16:27:30.125Z",
+      "tag": "weather",
+      "payload": {
+        "temp": 27,
+        "hum": 69
+      }
+    }
+  ]
+}
+```
+
+!!! warning
+    The field **'device_name'** is deprecated and may be removed in a future release
