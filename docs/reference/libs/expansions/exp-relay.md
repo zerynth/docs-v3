@@ -15,6 +15,22 @@ Once the `EXP` object is created, the expansion board can be used from the appli
 
 Both values are integers from 0 to 3.
 
+### method `relay_on`
+```python
+relay_on(rel)
+```
+Switch the specified relay COM to the NO (Normally Open).
+
+* `rel` is the RELAY to open.
+
+### method `relay_off`
+```python
+relay_off(rel)
+```
+Switch the specified relay COM to the NC (Normally Closed).
+
+* `rel` is the RELAY to close.
+
 ### method `summary`
 ```python
 summary()
