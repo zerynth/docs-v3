@@ -51,9 +51,9 @@ The DB features I/O connectors (the Z-bus) that allow the connection in a cascad
 
 For step-by-step guide on connecting, running your first example, Please refer to [the Getting started guide for the ZM1-DB](../../gettingstarted/ZM1-DB/)
 
-## ZM1-DB Software Drivers
+## ZM1-DB Software Library
 
-For more information on the ZM1-DB Library as software drivers, Its features, functions and examples demos
+For more information on the ZM1-DB Library as software Library, Its features, functions and examples demos
 [Please check this Link](../../reference/reference/bsp/zm1_db/)
 
 

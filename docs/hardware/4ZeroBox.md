@@ -80,9 +80,9 @@ Official reference for Zerynth 4ZeroBox can be found  [here](https://www.zerynth
 
 For step-by-step guide on connecting, running your first example, Please refer to [the Getting started guide for the 4ZeroBox](../../gettingstarted/4ZeroBox/)
 
-## 4ZeroBox Software Drivers
+## 4ZeroBox Software Library
 
-For more information on the ZM1-DB Library as software drivers, Its features, functions and examples demos
+For more information on the ZM1-DB Library as software Library, Its features, functions and examples demos
 [Please check this Link](../../reference/reference/bsp/4zerobox_v9/)
 
 

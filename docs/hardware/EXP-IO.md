@@ -30,9 +30,9 @@ Zerynth expansion boards work seamlessly with all of Zerynth Development boards 
 
 -   [User manual](https://www.zerynth.com/download/13895/)
 
-## ZM1-DB Software Drivers
+## ZM1-DB Software Library
 
-For more information on the EXP-IO Library as software drivers, features, functions and examples
+For more information on the EXP-IO Library as software Library, features, functions and examples
 [Please check this Link](../../reference/reference/bsp/zm1_db/)
 
 ## Pin Mapping
