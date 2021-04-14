@@ -92,6 +92,16 @@ Open the contact on the specified OUT.
 
 * `out` is the OUT to open.
 
+### method `is_out_on`
+```python
+is_out_on(out)
+```
+Get the status of the specified OUT.
+
+* `out` is the OUT to check.
+
+Return 1 if the OUT is on. 0 otherwise.
+
 ### method `din_get`
 ```python
 din_get(din)

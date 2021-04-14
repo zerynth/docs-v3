@@ -31,6 +31,16 @@ Switch the specified relay COM to the NC (Normally Closed).
 
 * `rel` is the RELAY to close.
 
+### method `is_relay_on`
+```python
+is_relay_on(out)
+```
+Get the status of the specified RELAY.
+
+* `out` is the RELAY to check.
+
+Return 1 if the RELAY is on. 0 otherwise.
+
 ### method `summary`
 ```python
 summary()
