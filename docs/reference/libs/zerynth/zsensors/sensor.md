@@ -1,7 +1,7 @@
 # Sensor
 
 The `Sensor` module allows to automatically configure and create sensor object that easily reads and convert measrues form ADC's sensors.
-The configuration of the sensor and data for the conversion of the ADC data are given through a `sensors.json` file, put under `resources` folder placed in the same path of the main file.
+The configuration of the sensor and data for the conversion of the ADC data are given through a `sensors.json` file, put under `resources` folder placed in the same path of the main file. The file can have different names, `sensors.json` is the default one.
 The `sensors.json` should be structured as follows:
 ```
 {
@@ -129,9 +129,11 @@ Get the last read value of the sensor.
 
 ## function `get_sensors_dict`
 ```python
-get_sensor_dict(cb_module=None)
+get_sensor_dict(file="sensors.json", cb_module=None)
 ```
 Get a dictionary of `Sensor` objects reading their configuration form the json. All objects on the dictionary are already configured and ready to use. Returned dictionary keys are the one used on the json.
+
+* `file` is the path of the file containing the JSON dictionary. Starting path is allways `"/zerynth/"`. Default `"/zerynth/sensors.json"`.
 
 * `cb_module` is the module file containing custom callbacks if they are used.
 
