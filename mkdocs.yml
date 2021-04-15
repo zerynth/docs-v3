@@ -33,6 +33,7 @@ nav:
   - ZM1 Development Board: gettingstarted/ZM1-DB.md
   - ZM1 Evaluation Board: gettingstarted/ZM1-EVA.md
   - 4ZeroBox: gettingstarted/4ZeroBox.md
+  - Visual Studio Code: gettingstarted/vscode.md
 - Tutorials:
   - tutorials/index.md
   - tutorials/Multithreaded.md

@@ -1,48 +1,50 @@
 # Getting Started with ZM1-Development Board
 
-## 'Hello Zerynth' example
+So you have a shiny new ZM1 Development Board (ZM1-DB) and would like to start playing with it?
+First, you need to install the [Zerynth SDK](index.md#1-install-zerynth), it takes just a couple of minutes.
 
-In the following the 'Hello Zerynth' example is explained step-by-step using the VSCode IDE.
-The assumption is that Zerynth VSCode extention is installed and the user is logged in to the ZDM.
+When the SDK is installed, you can run Visual Studio Code that comes already configured with our Zerynth extension.
 
-Once VSCode has been started, the screen is like the following
-![](img/01-vscode-startup.png)
+Using the ZM1-DB with the SDK is really easy
 
-### ZM1-DB connection and auto detection
 
-By connecting the ZM1-DB to the PC, it will be autodetected and the board type
-shown in the Zerynth extension *Console Manager* section.
-![](img/02-vscode-ZM1-DB-detected.png)
+## 1. Create a project
 
-In the image above, the board was connected to a linux system and it was
-detected on `/dev/ttyUSB0` port as *db_zm1*
+Before connecting the ZM1-DB a project must be created. 
+Zerynth SDK provides a lot of examples that can be easily cloned and used as a starting point for a new project.
 
-Into *Supported Device* section a list of supported board is visible. By clicking on the related link item, shown in the following image, the board documentation is opened in the web browser.
-![](img/03-vscode-board-docs-link.png)
+Just press `Ctrl+Shift+P` and type `examples` in the popup that VSCode displays.
+<figure>
+  <a data-fancybox="gallery" href="img/project-01.png">
+  <img src="img/project-01.png"width="600"/>
+  </a>
+</figure>
+The popup is the VSCode command palette from which most of the available operations can be launched.
+Simply choose `Zerynth > Search examples` and then type `Hello`. Select the `Hello_World` example and provide a folder to clone it from its repository as shown in the figures below. When ready, click `Clone Zerynth Example` and you are good to go.
 
-### Zerynth Examples
+TODO: figure of cloning
 
-By clicking on *Search examples*, as shown in the previous image, the search dialog appears in the Command Line on the top of VSCode window.
-Typing 'hello' the *Hello_Zerynth* example appears.
-![](img/04-vscode-example-search.png)
+## 2. Connect and configure the ZM1-DB
 
-Selecting it, VSCode asks for a directory where a related git repository gets cloned:
-![](img/05-vscode-example-repo-clone.png)
+Connect the ZM1-DB with a USB-C cable to the development machine. The VSCode extension provides a panel labeled *Zerynth Control Panel* that contains information about the current project.
 
-The example repository gets cloned locally and the project is opened into VSCode, as shown in the following image.
-![](img/06-vscode-connect-devide.png)
+Press *Physical Device* and the Zerynth SDK will automtically recognize the ZM1-DB and configure the project accordingly.
 
-### Project build and run
+TODO: figure of Zerynth control panel with and without connected device
 
-At this point the board has to be connected to the project by clicking on the
-'pen' icon in the *Zerynth Control Panel* at *Connected devices* line. The
-board type is auto detected and displayed as shown in the following image
-![](img/07-vscode-ZM1-DB-connected-to-project.png)
+## 3. Run the example
 
-The project can be built, uploaded onto the board and started by clicking on the *Run* voice of *Zerynth Connected Panel*.
-![](img/08-vscode-example-run.png)
-The terminal shows the building and uploading process logs.
+Check the project for errors by pressing *Build*. If everything is ok, you can press *Run*. The Zerynth SDK compiles the source files, creates a binary firmware and moves it into the ZM1-DB.
 
-In order to see the ZM1-DB console running the project, the user can click on *Console* voice of *Zerynth Connected Panel*.
-![](img/09-vscode-example-running-console.png)
-and the *Terminal* window shows the live console updates.
+Just press *Console* and the serial output of ZM1-DB will appear in the VSCode terminal.
+
+TODO: add screenshots
+
+## 4. Explore Zerynth!
+
+Zerynth can do much more than a simple Hello World, for additional examples refer to:
+
+- [Zerynth in 5 minutes](index.md#2-create-your-first-iot-project)
+- [ZM1-DB Reference](../hardware/ZM1-Development-Board.md)
+- TODO: tutorial 1
+- TODO: tutorial 2
