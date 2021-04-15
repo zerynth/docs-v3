@@ -84,6 +84,40 @@ Difference between max and min in bits is passed to the callback.
 
 Returns the value converted by the pin callback. Differnce (max - min) in bits if callback is set to `None`
 
+### method `out_on`
+```python
+out_on(out)
+```
+Close the contact on the specified OUT.
+
+* `out` is the OUT to close.
+
+### method `out_off`
+```python
+out_off(out)
+```
+Open the contact on the specified OUT.
+
+* `out` is the OUT to open.
+
+### method `is_out_on`
+```python
+is_out_on(out)
+```
+Get the status of the specified OUT.
+
+* `out` is the OUT to check.
+
+Return 1 if the OUT is on. 0 otherwise.
+
+### method `din_get`
+```python
+din_get(din)
+```
+Get the logic value of a digital input (DIN).
+
+* `din` is the DIN to get.
+
 ### method `summary`
 ```python
 summary()
