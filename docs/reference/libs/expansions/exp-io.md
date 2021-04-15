@@ -14,6 +14,16 @@ Once the `EXP` object is created, the expansion board can be used from the appli
 
 Both values are integers from 0 to 3.
 
+### method `set_adc_config`
+```python
+set_adc_config(pin, pga=1, sps=0)
+```
+Set sps configuration to use for an ADC pin. Pga currently not implemented.
+
+* `pin` is the pin to configure.
+* `pga` is the gain. Not implemented yet.
+* `sps` is the sample for seconds for the ADC pin. Default value use max speed.
+
 ### method `set_adc_callback`
 ```python
 set_adc_callback(label, pin, cb=None, sens=None)
@@ -63,7 +73,7 @@ Returns the value converted by the pin callback. Current value (mA) if the callb
 
 ### method `read_power`
 ```python
-read_power(pin, samples=400, sps=0):
+read_power(pin, samples=400):
 ```
 Read and convert power value from ADC pin. To do so, the ADC will get min and max values read on `samples`.
 Difference between max and min in bits is passed to the callback.
@@ -71,8 +81,6 @@ Difference between max and min in bits is passed to the callback.
 * `pin` is the ADC pin to read from.
 
 * `samples` is the number of samples to get to find min and max values. Default value is 400.
-
-* `sps` is the acquisition rata (samples per seconds). If 0, max acquisition rate speed is used. Default value is 0.
 
 Returns the value converted by the pin callback. Differnce (max - min) in bits if callback is set to `None`
 
