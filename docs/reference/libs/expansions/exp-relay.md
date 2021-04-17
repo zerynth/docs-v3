@@ -15,7 +15,7 @@ Once the `EXP` object is created, the expansion board can be used from the appli
 
 Both values are integers from 0 to 3.
 
-### method `relay_on`
+### method `relay_on` 
 ```python
 relay_on(rel)
 ```

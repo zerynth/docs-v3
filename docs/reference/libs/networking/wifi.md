@@ -84,3 +84,90 @@ Returns a tuple with the IP parameters associated with the interface. The tuple 
 4. `String`: DNS
 5. `String`: MAC address
 
+
+## Examples
+
+Using the wifi module is very easy:
+
+```python
+from bsp import board
+
+from networking import wifi
+
+board.init()
+board.summary()
+
+try:
+    # Configure ethernet to use dhcp with a specific network
+    wifi.configure(ssid="My-Network",password="My-Password")
+    # Start the interface
+    wifi.start()
+    # Print the ip, gateway, mask, dns and mac address
+    print(wifi.info())
+    # Try resolving some hostname via dns
+    ip=wifi.resolve("www.zerynth.com")
+    print("resolved",ip)
+    # sleep a little bit
+    sleep(5000)
+    # disable wifi
+    wifi.stop()
+
+except WifiBadPassword:
+    print("Bad Password")
+except WifiBadSSID:
+    print("Bad SSID")
+except WifiException:
+    print("Generic Wifi Exception")
+except Exception as e:
+    raise e
+
+
+
+while True:
+    sleep(1000)
+
+```
+
+
+More configuration is also available:
+
+```python
+from bsp import board
+
+from networking import wifi
+
+board.init()
+board.summary()
+
+try:
+    # Configure ethernet to use dhcp with a specific network and security
+    wifi.configure(ssid="My-Network",password="My-Password", security=wifi.WPA)
+    # Start the interface
+    wifi.start()
+    # Print the ip, gateway, mask, dns and mac address
+    print(wifi.info())
+    # Try resolving some hostname via dns
+    ip=wifi.resolve("www.zerynth.com")
+    print("resolved",ip)
+    # sleep a little bit
+    sleep(5000)
+    # disable wifi
+    wifi.stop()
+
+except WifiBadPassword:
+    print("Bad Password")
+except WifiBadSSID:
+    print("Bad SSID")
+except WifiException:
+    print("Generic Wifi Exception")
+except Exception as e:
+    raise e
+
+
+
+while True:
+    sleep(1000)
+
+```
+
+

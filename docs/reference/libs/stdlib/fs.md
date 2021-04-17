@@ -192,3 +192,71 @@ Read until newline or EOF and return a single string. The maximum length of the 
 The characters to be used as end of line are in `end`. The line end character is returned by default together with the line
 but this behavior can be controlled by the `with_end` parameter.
 If the stream is already at EOF, an empty string is returned.
+
+
+## Examples
+
+The internal filesystem is always mounted at boot and ready to be used. Put a  `test.txt` file inside the `resources` folder of a project
+and test the following.
+
+```python
+import fs
+
+while True:
+
+    # read an existing file in read mode
+    f = fs.open("/zerynth/test.txt", "r")
+    # read it all and print it
+    print(f.read()) 
+    # close the file
+    f.close()
+
+    # create a new file and read it back
+    f = fs.open("/zerynth/test02.txt","w")
+    f.write("first row: test 01\n")
+    f.write("second row: test 02\n")
+    f.close()
+
+    f = fs.open("/zerynth/test02.txt", "r")
+    print(f.read())
+    f.close()
+
+    sleep(5000)
+
+
+```
+
+Filesystem can also be used on SD cards by simply mounting them.
+
+
+```python
+
+import fs
+
+while True:
+    # mount the sd card under /sd on a 10 MHz SPI bus
+    fs.mount("/sd", fs.SD, 10000000)
+
+    # read an existing file
+    try:
+        f = fs.open("/sd/test.txt", "r")
+        print(f.read())
+        f.close()
+    except Exception as e:
+        print("Can't read /sd/test.txt")
+
+    # create a new file and read it back
+    f = fs.open("/sd/test02.txt","w")
+    f.write("first row: test 01\n")
+    f.write("second row: test 02\n")
+    f.close()
+
+    f = fs.open("/sd/test02.txt","r")
+    print(f.read())
+    f.close()
+
+    # Unmount the sd card
+    fs.unmount("/sd")
+
+    sleep(5000)
+```

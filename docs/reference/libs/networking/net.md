@@ -3,6 +3,8 @@ layout: blog
 title: Network Interface
 ---
 ## Network Interface
+
+The `net` module is never used directly but it is imported by more specific moduleslike [eth](eth.md) and [wifi](wifi.md)
   
 ### exception `CantRegisterInterfaceError`
 The interface cannot be registered.

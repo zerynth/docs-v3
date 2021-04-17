@@ -137,3 +137,67 @@ Set a timeout on blocking socket operations. The `timeout` argument can be a non
 If a non-zero value is given, subsequent socket operations will raise a timeout exception if the timeout period value has elapsed before the operation has completed.
 If zero is given, the socket is put in non-blocking mode.
 If None is given, the socket is put in blocking mode.
+
+
+
+## Examples
+
+Sockets are easy to use and require an active network interface.
+
+```python
+from bsp import board
+
+from networking import eth
+from networking import socket
+
+board.init()
+board.summary()
+
+try:
+    # Configure ethernet to use dhcp
+    eth.configure(dhcp=True)
+    # Start the interface
+    eth.start()
+    # Print the ip, gateway, mask, dns and mac address
+    print(eth.info())
+    # Try resolving some hostname via dns
+    ip=eth.resolve("now.zerynth.com")
+    print("resolved",ip)
+    if ip != None:
+        print("creating socket...")
+        # open up a socket to the http server
+        s = socket.socket()
+        print("connecting socket...")
+        # connect to port 80
+        s.connect((ip,80))
+        # send some HTTP strings
+        s.send("GET / HTTP/1.1\n")
+        s.send("Host: now.zerynth.com\n\n")
+        # receive the response
+        b = s.recv(256)
+        # print it
+        print(b)
+        # and remember to close the socket
+        print("close socket...")
+        s.close()
+    print("disconnecting...")
+    # sleep a little bit
+    sleep(5000)
+    # disable ethernet
+    eth.stop()
+except ConnectionError:
+    print("Ethernet Connection Exception")
+except ConnectionTimeoutError:
+    print("Ethernet Connection Timeout Exception")
+except ResolveError:
+    print("Resolv error Exception")
+except NetworkGenericError:
+    print("Generic Ethernet Exception")
+except Exception as e:
+    raise e
+
+
+while True:
+    sleep(1000)
+
+```

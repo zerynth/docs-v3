@@ -1,8 +1,10 @@
-# Sensor
+# Getting Started
 
-The `Sensor` module allows to automatically configure and create sensor object that easily reads and convert measrues form ADC's sensors.
-The configuration of the sensor and data for the conversion of the ADC data are given through a `sensors.json` file, put under `resources` folder placed in the same path of the main file. The file can have different names, `sensors.json` is the default one.
-The `sensors.json` should be structured as follows:
+The `sensor` module allows the automatic configuration of `Sensor` objects from a simple JSON configuration. Sensor objects abstract away the complexity of reading industrial sensors connected to ADC channels of various types: current, voltage, resistive.
+
+The configuration of the sensors is provided as a `sensors.json` file placed under the `resources` folder of a project.
+
+The `sensors.json` is structured as follows:
 ```
 {
     "sensor_name_1": {
@@ -41,10 +43,15 @@ The `sensors.json` should be structured as follows:
     }
 }
 ```
-* `sensor name` is the custom name for the sensor. This will be transported to python to refer to the sensor object.
 
-* `set` is a set of configuration for the ADC.
+where: 
+
+* `sensor name` is the custom name for the sensor. This will be used as a label in Python to refer to the sensor object.
+
+* `set` is a set of configuration values for the ADC.
+
     - `type` is the type of conversion for raw ADC value.
+
         |   `type`    |         measure         |
         |-------------|-------------------------|
         | "Volt_010"  | Voltage 0-10 V          |
@@ -53,6 +60,7 @@ The `sensors.json` should be structured as follows:
         | "current"   | Peak to peak on AC (mA) |
 
     - `exp` is the expansion holding the ADC.
+    
         |  `exp`  |        meaning       |
         |---------|----------------------|
         | null    | Not on an expansion  |
@@ -62,48 +70,52 @@ The `sensors.json` should be structured as follows:
 
     - `PGA` is the gain used by the ADC.
 
-    - `SPS` is the number of samples per sencond to use.
+    - `SPS` is the number of samples per sncond to use.
 
 * `conversion` is the set of data used to convert ADC electric value to sensor final value.
+
     - `type` is the type of conversion. Different conversion will call different callbacks. If `type` is not a standard one, it is possible to use custom callbacks with custom parameters.
+
         |     `type`     |           conversion           |
         |----------------|--------------------------------|
         | "linear"       | linear                         |
         | "lookup_table" | linear over a ref table values |
         | "power"        | Current clamp to power         |
         | "custom_names" | Custom conversion              |
-    - `args` are the arguments required for the conversion. They depends on the types.
 
-`args` for differnt types of conversions.
-* `linear` has the following arguments.
-    - `"y_min"` minumum electric value of the sensor.
-    - `"y_max"` maximum electric value of the sensor.
-    - `"offset"` offset of the linear conversion.
-    - `"under_x"` return value if x is under of range.
-    - `"over_x"` return value if x is over of range.
+    - `args` are the arguments required for the conversion. They depends on the types:
 
-* `lookup_table"` has the following arguments.
-    - `"v_min"` minimum value of the sensor.
-    - `"ref_table"` conversion value table.
-    - `"delta"` step of the table.
-    - `"out_of_rage"` return value if value is out of range.
+        * `linear` has the following arguments.
+            - `"y_min"` minumum electric value of the sensor.
+            - `"y_max"` maximum electric value of the sensor.
+            - `"offset"` offset of the linear conversion.
+            - `"under_x"` return value if x is under of range.
+            - `"over_x"` return value if x is over of range.
 
-* `power` has the following arguments.
-    - `"ratio"` is the nuber of loops of the cable clamped.
-    - `"ncoil"` is the number of coil of the clamp.
-    - `"voltage"` is the voltage of the AC current.
-    - `"vref"` is the ref voltage of the ADC.
-    - `"offset"` is the offset of the AC current.
+        * `lookup_table"` has the following arguments.
+            - `"v_min"` minimum value of the sensor.
+            - `"ref_table"` conversion value table.
+            - `"delta"` step of the table.
+            - `"out_of_rage"` return value if value is out of range.
+
+        * `power` has the following arguments.
+            - `"ratio"` is the nuber of loops of the cable clamped.
+            - `"ncoil"` is the number of coil of the clamp.
+            - `"voltage"` is the voltage of the AC current.
+            - `"vref"` is the ref voltage of the ADC.
+            - `"offset"` is the offset of the AC current.
 
 `conversion` can have custom `type` and `args`. In this case the user must create a custom callback and link that to the `type` with a dictionary called `cb_dict`.
-To do so, the user should create a module with the callback and the dictionary.
-The callbacks must have the following signature `name(value, sens)` where value will be the passed electric value and sens the `args` dictionary of the json file, and return the converted value.
+
+To do so, the user should create a module with the callbacks and the dictionary.
+The callbacks must have the following signature `name(value, sens)` where `value` is the raw ADC measurement converted to the configured electrical unit and `sens` is the `args` in field in the sensor configuration.
 
 ```python
 def user_defined_callback(value, sens):
     return (value * sens["multiplier"])
 
 cb_dict = {"user_defined_type", user_defined_callback}
+
 ```
 
 

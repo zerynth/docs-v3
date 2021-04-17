@@ -95,3 +95,90 @@ Returns a tuple with the IP parameters associated to the interface. The tuple is
 is_connected()
 ```
 Returns *True* if the interface is connected, *False* otherwise.
+
+## Examples
+
+Using the ethernet module is very easy:
+
+```python
+from bsp import board
+
+from networking import eth
+
+board.init()
+board.summary()
+
+try:
+    # Configure ethernet to use dhcp
+    eth.configure(dhcp=True)
+    # Start the interface
+    eth.start()
+    # Print the ip, gateway, mask, dns and mac address
+    print(eth.info())
+    # Try resolving some hostname via dns
+    ip=eth.resolve("www.zerynth.com")
+    print("resolved",ip)
+    # sleep a little bit
+    sleep(5000)
+    # disable ethernet
+    eth.stop()
+except ConnectionError:
+    print("Ethernet Connection Exception")
+except ConnectionTimeoutError:
+    print("Ethernet Connection Timeout Exception")
+except ResolveError:
+    print("Resolv error Exception")
+except NetworkGenericError:
+    print("Generic Ethernet Exception")
+except Exception as e:
+    raise e
+
+
+while True:
+    sleep(1000)
+
+```
+
+More configuration is also available:
+
+```python
+from bsp import board
+
+from networking import eth
+
+board.init()
+board.summary()
+
+try:
+    # Configure ethernet to use static address
+    eth.configure(dhcp=False, ip="192.168.1.20", gateway="192.168.1.1", mask="255.255.255.0", dns="8.8.4.4")
+    # Start the interface
+    eth.start()
+    # Print the ip, gateway, mask, dns and mac address
+    print(eth.info())
+    # Try resolving some hostname via dns
+    ip=eth.resolve("www.zerynth.com")
+    print("resolved",ip)
+    # sleep a little bit
+    sleep(5000)
+    # disable ethernet
+    eth.stop()
+except ConnectionError:
+    print("Ethernet Connection Exception")
+except ConnectionTimeoutError:
+    print("Ethernet Connection Timeout Exception")
+except ResolveError:
+    print("Resolv error Exception")
+except NetworkGenericError:
+    print("Generic Ethernet Exception")
+except Exception as e:
+    raise e
+
+
+while True:
+    sleep(1000)
+
+```
+
+
+

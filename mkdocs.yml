@@ -82,7 +82,6 @@ nav:
         - reference/libs/expansions/exp-io.md
         - reference/libs/expansions/exp-relay.md
         - reference/libs/expansions/exp-ser.md
-        - reference/libs/expansions/exp-proto.md
       - Standard Library:
         - reference/libs/stdlib/builtins.md
         - reference/libs/stdlib/threading.md
@@ -135,6 +134,8 @@ nav:
         - reference/libs/zerynth/zdm/examples.md
       - Time Series Log:
         - reference/libs/zerynth/tslog/index.md
+      - Sensors:
+        - reference/libs/zerynth/zsensors/index.md
       - Components:
           - reference/libs/components/index.md
           - reference/libs/components/bme280/index.md

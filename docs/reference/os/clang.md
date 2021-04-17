@@ -1,6 +1,6 @@
 # C Language Interface
 
-Zerynth OS allows mixing Python and C code in the same project. The Python language is compiled to bytecode and executed by the zOS independently of the target hardware; C language is compiled to object code dependent on the target hardware instruction set. 
+Zerynth OS allows mixing Python and C code in the same project. The Python language is compiled to bytecode and executed by the zOS independently of the target hardware; C language is compiled to object code dependent on the target hardware instruction set.
 
 This kind of “hybrid” programming is extremely useful in those scenarios where the programmer needs to write or has already written performant low level code for time critical tasks, but wants to retain Python flexibility and readability for non time critical sections.
 
@@ -19,14 +19,14 @@ A minimal example of C function calling from Python follows.
 
 In Python:
 
-```py
+```python
 # main.py
 
 @c_native("my_c_function",["my_c_source.c"],[])
 def my_py_function(a,b):
         """
         a simple function that returns the sum of a and b, with a and b integers
-        """"
+        """
         # just pass, the body of my_py_fun is ignored by the compiler
         pass
 ```
@@ -109,3 +109,105 @@ C functions callable from Python have some limitations:
 
 Refer to [zOS Guide](os.md) for the available API.
 
+
+## Advanced Example
+
+More advances uses cases for Python/C interaction are possible when arguments are of more complex types.
+
+A checksum function is presented below. It returns the checksum of a string/bytes in a tuple with different representations.
+
+```python
+
+# main.py
+
+@c_native("to_checksum",["my_c_source.c"],[])
+def checksum(b):
+    """
+    a simple function that convert the sequence b to hexadecimal form
+    """
+    pass
+
+
+# pass a bytes
+print(checksum(b'Zerynth'))
+# pass a string
+print(checksum("Zerynth"))
+# pass a tuple
+
+
+
+```
+
+
+```c
+#include "zerynth.h"
+
+
+const uint32_t MOD_ADLER = 65521;
+
+uint32_t adler32(uint8_t *data, int32_t len)
+/*
+    where data is the location of the data in physical memory and
+    len is the length of the data in bytes
+*/
+{
+    uint32_t a = 1, b = 0;
+    size_t index;
+
+    // Process each byte of the data in order
+    for (index = 0; index < len; ++index)
+    {
+        a = (a + data[index]) % MOD_ADLER;
+        b = (b + a) % MOD_ADLER;
+    }
+
+    return (b << 16) | a;
+}
+
+
+C_NATIVE(to_checksum) {
+   C_NATIVE_UNWARN();
+   //declare a pointer to the buffer of bytes passed by Python
+   uint8_t* buffer;
+   //also declare a variable to hold its length
+   int32_t buflen;
+
+   // let's first check that the type is correct, we expect a string, bytes or bytearray
+   PYC_CHECK_ARG_BUFFER(0);  //first argument is index 0
+   // now get the pointer to the buffer
+   buffer = PYC_ARG_BUF(0);
+   //retrieve the length
+   buflen = PYC_ARG_BUFLEN(0);
+
+   //we have it all, let's calculate te checksum
+   uint32_t chksum = adler32(buffer, buflen);
+
+   //now for te sake of example we will return a tuple with different representations
+
+   // convert chksum to a Python integer
+   PObject *chksum_int = (PObject*)pinteger_new(chksum);
+
+   // convert chksum to a Python hexadecimal string
+   // declare a temporary buffer to hold the hexadecimal representation of chksum
+   uint8_t hex_temp_buffer[16];
+   //call the snprintf function of the zOS and get the length of the string
+   int hex_len = platform_snprintf(hex_temp_buffer, 16, "%x", chksum);
+   //now hex_temp_buffer contains the checksum in hexadecimal format
+   //let's convert it into a Python string
+   PObject *chksum_str = (PObject*)pstring_new(hex_len,hex_temp_buffer);
+
+   //now we need a tuple with two items to return both the integer and the string
+   PObject *ret_tuple = ptuple_new(2, NULL);
+   //it's an empty tuple, it must be filled
+   //let's use tuple macros
+   PTUPLE_SET_ITEM(ret_tuple,0,chksum_int);
+   PTUPLE_SET_ITEM(ret_tuple,1,chksum_str);
+
+   //done! let's return it
+   MAKE_RESULT(ret_tuple);  //set the Python result to ret_tuple
+   return ERR_OK; //return ok, no exception raised
+}
+
+
+
+```
