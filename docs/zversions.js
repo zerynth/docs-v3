@@ -6,12 +6,19 @@ var zversion_set = function(versions) {
     //fill version list
     var j,i;
     var vv= versions["versions"]
+    vv.push("v2.x")
+    var newPathname = "";
+
     for(j=0;j<vv.length;j++) {
-        var newPathname = "";
-        for (i = 1; i < pathArray.length; i++) {
-            newPathname += "/";
-            newPathname += (i==1)?vv[j]:pathArray[i];
-        } 
+        if (vv.startsWith("v3".) {
+            newPathname = "";
+            for (i = 1; i < pathArray.length; i++) {
+                newPathname += "/";
+                newPathname += (i==1)?vv[j]:pathArray[i];
+            }
+        } else {
+            newPathname = "https://docsv2.zerynth.com"
+        }
         $(".zversion_ul").append('<li class="md-version__item"><a href="'+newPathname+'" class="md-version__link">'+vv[j]+'</a></li>')
     }
 }
