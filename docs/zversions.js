@@ -17,7 +17,7 @@ var zversion_set = function(versions) {
                 newPathname += "/";
                 newPathname += (i==1)?vv[j]:pathArray[i];
             }
-        } else if (vv[j].startsWith("v2.6.") {
+        } else if (vv[j].startsWith("v2.6.")) {
             newPathname = "https://docsv2.zerynth.com"
         } else {
             newPathname = "https://olddocs.zerynth.com"
