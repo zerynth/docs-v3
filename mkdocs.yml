@@ -37,6 +37,7 @@ nav:
 - Tutorials:
   - tutorials/index.md
   - tutorials/cli.md
+  - tutorials/digicomm.md
   - tutorials/multithreaded.md
   - tutorials/rs485.md
   - tutorials/eth.md
