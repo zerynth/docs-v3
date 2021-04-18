@@ -36,16 +36,13 @@ nav:
   - Visual Studio Code: gettingstarted/vscode.md
 - Tutorials:
   - tutorials/index.md
-  - tutorials/Multithreaded.md
-  - tutorials/rs485.md
-  - tutorials/Ethernet.md
-  - tutorials/Wifi.md
-  - tutorials/MQTT.md
-  - tutorials/HTTPS.md
-  - tutorials/GPS.md
-  - tutorials/GSM.md
   - tutorials/cli.md
-  - tutorials/mass_prod.md
+  - tutorials/multithreaded.md
+  - tutorials/rs485.md
+  - tutorials/eth.md
+  - tutorials/wifi.md
+  - tutorials/mqtt.md
+  - tutorials/https.md
 - Zerynth Cloud:
   - Introduction: zCloud/index.md
   - zDeviceManager: zCloud/zdm_intro.md

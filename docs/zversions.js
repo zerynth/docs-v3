@@ -10,7 +10,7 @@ var zversion_set = function(versions) {
     var newPathname = "";
 
     for(j=0;j<vv.length;j++) {
-        if (vv.startsWith("v3".) {
+        if (vv.startsWith("v3".)) {
             newPathname = "";
             for (i = 1; i < pathArray.length; i++) {
                 newPathname += "/";
