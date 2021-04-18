@@ -44,7 +44,7 @@ nav:
   - tutorials/HTTPS.md
   - tutorials/GPS.md
   - tutorials/GSM.md
-  - tutorials/CLI.md
+  - tutorials/cli.md
   - tutorials/mass_prod.md
 - Zerynth Cloud:
   - Introduction: zCloud/index.md
