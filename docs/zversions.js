@@ -6,6 +6,7 @@ var zversion_set = function(versions) {
     //fill version list
     var j,i;
     var vv= versions["versions"]
+    vv.push("v2.6.x")
     vv.push("v2.x")
     var newPathname = "";
 
@@ -16,8 +17,10 @@ var zversion_set = function(versions) {
                 newPathname += "/";
                 newPathname += (i==1)?vv[j]:pathArray[i];
             }
-        } else {
+        } else if (vv[j].startsWith("v2.6.") {
             newPathname = "https://docsv2.zerynth.com"
+        } else {
+            newPathname = "https://olddocs.zerynth.com"
         }
         $(".zversion_ul").append('<li class="md-version__item"><a href="'+newPathname+'" class="md-version__link">'+vv[j]+'</a></li>')
     }
