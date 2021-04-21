@@ -91,6 +91,7 @@ The `sensors.json` should be structured as follows:
 * `power` has the following arguments.
     - `"ratio"` is the nuber of loops of the cable clamped.
     - `"ncoil"` is the number of coil of the clamp.
+    - `"n_samples"` is the number to samples to take to do the measure.
     - `"voltage"` is the voltage of the AC current.
     - `"vref"` is the ref voltage of the ADC.
     - `"offset"` is the offset of the AC current.
