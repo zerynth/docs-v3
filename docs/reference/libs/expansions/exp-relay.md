@@ -51,16 +51,15 @@ Print the IO expansion summary on the console.
 ```python
 from bsp import board
 from expansions import relay
-import gpio
 
 board.init()
 sel = (1,)
 rel_e = board.next_expansion(relay,sel)
 
-gpio.low(rel_e.OUT1)
-gpio.low(rel_e.OUT2)
-gpio.low(rel_e.OUT3)
-gpio.low(rel_e.OUT4)
-gpio.low(rel_e.OUT5)
-gpio.low(rel_e.OUT6)
+rel_e.relay_off(rel_e.OUT1)
+rel_e.relay_off(rel_e.OUT2)
+rel_e.relay_off(rel_e.OUT3)
+rel_e.relay_on(rel_e.OUT4)
+rel_e.relay_on(rel_e.OUT5)
+rel_e.relay_on(rel_e.OUT6)
 ```

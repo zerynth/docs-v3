@@ -128,11 +128,10 @@ board.init()
 sel = (1, 0) 
 io_e = board.next_expansion(io, sel)
 
-gpio.mode(PE1, OUTPUT)
-gpio.high(PE1)
+io_e.out_on(io_e.OUT1)
+io_e.out_off(io_e.OUT2)
+io_e.out_on(io_e.OUT3)
+io_e.out_off(io_e.OUT4)
 
-gpio.high(io_e.OUT1)
-gpio.low(io_e.OUT2)
-gpio.high(io_e.OUT3)
-gpio.low(io_e.OUT4)
+din1 = io_e.din_get(io_e.DIN1)
 ```
