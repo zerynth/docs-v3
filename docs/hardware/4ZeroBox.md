@@ -72,7 +72,7 @@ Other useful documents are:
 
 ## Pin Mapping
 
-![](img/4zeroboxpin.png)
+![](img/4zerobox-pin-map.jpg)
 
 Official reference for Zerynth 4ZeroBox can be found  [here](https://www.zerynth.com/4zeroplatform/).
 
