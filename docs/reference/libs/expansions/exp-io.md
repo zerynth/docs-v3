@@ -121,8 +121,6 @@ Print the IO expansion summary on the console.
 ```python
 from expansions import io
 from bsp import board
-import gpio
-import adc 
 
 board.init()
 sel = (1, 0) 
