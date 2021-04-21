@@ -45,12 +45,12 @@ The `sensors.json` should be structured as follows:
 
 * `set` is a set of configuration for the ADC.
     - `type` is the type of conversion for raw ADC value.
-        |   `type`    |         measure         |
-        |-------------|-------------------------|
-        | "Volt_010"  | Voltage 0-10 V          |
-        | "Curr_420"  | Current 4-20 mA         |
-        | "resistive" | Resistance kOhm         |
-        | "current"   | Peak to peak on AC (mA) |
+        |    `type`    |         measure         |
+        |--------------|-------------------------|
+        | "voltage"    | Voltage 0-10 V          |
+        | "current"    | Current 4-20 mA         |
+        | "resistive"  | Resistance kOhm         |
+        | "current_ac" | Peak to peak on AC (mA) |
 
     - `exp` is the expansion holding the ADC.
         |  `exp`  |        meaning       |
@@ -90,7 +90,7 @@ The `sensors.json` should be structured as follows:
 
 * `power` has the following arguments.
     - `"ratio"` is the nuber of loops of the cable clamped.
-    - `"ncoil"` is the number of coil of the clamp.
+    - `"n_coil"` is the number of coil of the clamp.
     - `"n_samples"` is the number to samples to take to do the measure.
     - `"voltage"` is the voltage of the AC current.
     - `"vref"` is the ref voltage of the ADC.
