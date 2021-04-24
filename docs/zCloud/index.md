@@ -1,6 +1,6 @@
 # Introduction to zCloud
 
-The Internet of Things is all about extracting valuable data from billions of connected devices. Easier said than done if you need to take care of the security of your fleets, the scalability of your services and the safety of your data.
+The Internet of Things is all about extracting valuable data from billions of connected devices. The task is made complex by the need of taking care of the security of your fleets, the scalability of your services and the safety of your data.
 
 **zCloud** is the platform that frees you from the burden of maintaining all the technology and infrastructure, while focusing on the added value of IoT data.
 

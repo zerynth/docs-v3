@@ -1,33 +1,107 @@
-# FOTA
-The Internet of Things is all about extracting valuable data from billions of connected devices. However, as developers and IoT product designers, we can't neglect the effort needed to deploy, manage and protect our devices for the entire duration of their life cycles.
+# Over the Air Updates
 
-For this often daunting task, we have developed the Zerynth Device Manager (ZDM). It is a device management service that speeds up the development of scalable, secure and reliable IoT solutions.
-In particular, it takes care of the following tasks:
+In the life cycle of an IoT device, a remote firmware update (FOTA) is a necessity and must be performed quickly and securely.
 
-- **Onboarding and provisioning:** transfer or generate each device credentials choosing different levels of security, from simple tokens to a full-fledged public key infrastructure entirely under your control.
-- **Lifecycle Management:** perform complex orchestration tasks by sending jobs and over-the-air updates via rich REST APIs.
-- **Data Buffering:** avoid losing precious data by buffering it on the ZDM and forwarding it via convenient webhooks or API to the final IoT application.
-- **Integrate:** automate integration with third-party data visualization and business intelligence engines like Grafana or PowerBI
 
-ZDM adapts to all kinds of deployments, being available as a Software-as-a-Service hosted by Zerynth or as an on-premises containerized application.
+During a FOTA, the IoT device needs to:
 
-ZDM is hardware and firmware independent, allowing the connection of both [microcontroller-based devices](https://docs.zerynth.com/latest/zCloud/getting_started_with_sdk/) programmed with the Zerynth OS and [microprocessor-based devices](https://docs.zerynth.com/latest/zCloud/getting_started_with_rpi/) such as the Raspberry Pi.
+- download a new firmware
+- verify its integrity and authenticity
+- test the new firmware
+- make it permanent if everything is ok or switch back to the previous working firmware in case of errors
 
-![](img/ZDM-diagram-light.jpg)
+To make the process even more complicated, anything can happen during the firmware update, like power loss and interruption of connectivity.
 
-The Zerynth Device Manager is based on the following key concepts:
+## How FOTA works
 
-- A **Device** is the smallest entity you can find in the ZDM. It is represented by the physical IoT device connected to the ZDM.
-- A **Workspace** is the entity that encloses devices and their data. You can imagine the workspace as the main folder of your project.
-- A **Fleet** is a group of devices belonging to a Workspace. You can use fleets to group devices with similar features and applications. Fleets allow sending bulk device commands, OTA updates and jobs.
-- A **Tag** is a data label used for querying data. Each device can publish its data on multiple Tags and the ZDM will take care of storing and retaining them.
-- A **Gate** is an interface between the ZDM and an external service like your IoT application backend. Gates are used to stream data out of the ZDM.
-- A **Condition** is an event on steroids. Conditions can be opened, updated and closed by devices to notify specific status (e.i. Battery status). Conditions can be monitored in real-time using the ZDM web interface or via API. 
-- An **Alert** is a notification fired by a condition. Alerts are like GATES for conditions. Alerts can be notified via email or webhook allowing seamless integration with the IOT application backend.
-- A **Job** is a command sent to a device. Jobs usually maps to firmware functions like reset, perform diagnostics, update firmware, etc...
+The FOTA process starts with a Zerynth project representing the new firmware. After the project is thoroughly tested, the binary firmware can be uploaded to the zDeviceManger directly from VSCode or by using the cli. 
 
-If you want to know more, we have a [5 minutes tutorial](/latest/gettingstarted/) to get you started with the ZDM.
+The zDeviceManager keeps track of all the different versions of a firmware. From the firmware page it is possible to schedule a FOTA, namely sending to a device (or to a fleet) the command to update itself.
 
-ZDM can be easily accessed via the Web App at https://zdm.zerynth.com or, for more advanced usages, via the ZDM Command Line Interface integrated in the Zerynth SDK (download from https://www.zerynth.com/zsdk/).
+TODO: firmware screenshot
 
-You can also follow the tutorial on the ZDM [Web Interface](https://docs.zerynth.com/latest/zCloud/web_interface/) for finding your way around.
+Once the device receive the request, it start downloading the new firmare from the zDeviceManager.
+
+The new firmware is saved in the internal filesystem of the device and from there it is checked for integrity: if by chance some bytes of the new firmware have been downloaded incorrectly, the FOTA immediately fails without risking to run a corrupted firmware.
+
+If the integrity check is passed, the device resets and gives control to the Zerynth bootloader.
+
+The bootloader is a small program that runs when the device powers up and that is in charge of handling FOTA updates. As the bootloader discovers a new firmware, it starts replacing the old one with the new one while preserving a backup copy in case the old firmware needs to be restored.
+
+This process is extremely delicate: what happens if the power goes down while the bootloader is in the middle of replacing one firmware with the other? Luckily, the Zerynth bootloader is battle tested and engineered for robustness. In case of power loss, it will restart swapping the two firmwares exactly from the point it left without losing a single bit.
+
+Once the swap ends, the bootloader launches the new firmware. Before declaring the FOTA a success, the new firmware must be able to connect to the zDeviceManager and confirm that the FOTA was successful. From now on, the bootloader will always start the new firmware, until the next FOTA request.
+
+
+## FOTA in 5 minutes
+
+Performing an over the air update with Zerynth is really easy!
+
+For executing a FOTA you need the Zerynth SDK and Zerynth hardware connected to the zDeviceManager.
+Just follow the [Zerynth getting started](../gettingstarted/index.md) tutorial and you will be ready in no time.
+
+Once you have a provisioned and connected IoT device, all that is required for a FOTA is to:
+
+- prepare the new firmware
+- upload it to the zDeviceManager with a proper version
+- trigger a FOTA
+
+All of the above can be done with a single click in VSCode. Just click `FOTA` in the `Zerynth Control Panel`; VSCode will ask for confirmation and will start performing all the steps.
+
+With the debug console open one can follow the ongoing FOTA process. 
+The output of the device will change from this:
+
+TODO: screenshot of example
+
+
+to this when the device first receives the trigger.
+
+TODO: screenshot
+
+When the firmware download and integrity check is done, the device will reset itself leaving the stage to the Zerynth bootloader.
+It will swap the firmwares and prepare the device for the next reboot. It is design with robustness in mind, feel free to manually reset the device multiple times and the FOTA will go on no matter what. 
+
+TODO: bootloader screenshot
+
+
+As soon as the swap is perfomerd, the new firmware will reboot in testing mode;
+
+TODO: screenshot of testing mode
+
+When a connection to the zDeviceManager is reestablished, the firmware becomes permanent.
+
+TODO: screenshot of permanent mode
+
+You can simulate the various failures by doing the following:
+
+- reset the device while the new firmware is downloaded (TODO: screenshot), and check that the FOTA fails in the device page
+- reset the device when the new firmware is in testing mode. The bootloader will restore the previous firmware (TODO: screenshot)
+
+## FOTA from the web app
+
+Once a firmware is uploaded into a zDeviceManager workspace, it can be sent to devices directly from the web app. From the `Firmwares` tab, 
+you can select the firmware you want to send. Each firmware can have multiple versions and for each of them can be triggered with the FOTA button.
+
+TODO: screenshot
+
+It is possible to send a FOTA update to multiple devices at once by selecting a fleet.
+
+TODO: screenshot
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

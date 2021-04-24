@@ -157,3 +157,37 @@ When the device is connected to the ZDM it is always possible to update the firm
 
 TODO: screenshots of FOTA steps.
 
+
+### Shortcuts
+
+All the commands of the extension can be run from VSCode command palette. Just press `Ctrl+Shift+P` and type one of the following (or just part of it until it appears in the dropdown):
+
+- `Zerynth > Login`, start login
+- `Zerynth > New Zerynth project`, creates a new Zerynth project with some default folders and files:
+    + .vscode, a folder containing the project workspace settings;
+    + .zerynth, required by Zerynth;
+    + main.py, the firmware main python file;
+    + readme.md, a description file initially filled with creation date;
+    + .gitignore, ignore SDK temporary files;
+    + config.yml, a configuration file for firmware macros and settings.
+- `Zerynth > Clone Example`, clone a Zerynth example into a new project.
+- `Zerynth > Search Examples`, search examples based on their content
+- `Zerynth > Set Device Type`, set the type of the physical device connected to the USB port
+- `Zerynth > Device Pinmap`, opens the device schematics in the browser
+- `Zerynth > Device Documentation`, opens the device documentation in the browser
+- `Zerynth > Compile`, produces an executable bytecode file compiling the current project for the physical device
+- `Zerynth > Run`, run the bytecode on the physical device
+- `Zerynth > Console`, open the serial port monitor for the physical device
+- `Zerynth > Attach to ZDM`, attach the physical device to a ZDM device identifier
+- `Zerynth > Device Provisioning`, attach the physical device credentials contained in the secure element to a ZDM device identifier
+- `Zerynth > Detach from ZDM`, detach the physical device credentials from the ZDM device identifier
+- `Zerynth > FOTA`, prepare the current project for over the air update and send the update to the device
+- `Zerynth > Go To ZDM`, open the ZDM web app
+- `Zerynth > Device Page`, open the device page on the ZDM web app
+- `Zerynth > Add Workspace`, create a new workspace in the ZDM
+- `Zerynth > Add Fleet`, create a new fleet of inside a ZDM workspace
+- `Zerynth > Add Device`, create a new device of inside a ZDM fleet
+- `Zerynth > Logout`, log out
+
+
+

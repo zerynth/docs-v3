@@ -36,8 +36,9 @@ Once downloaded, simply run it and follow the instructions. The installer is run
 
 #### Installing for Windows
 
-Double click the `zerynth-installer.exe` you just downloaded. The first time Windows may pop  up a dialog saying that
-the application is signed by Zerynth; just click continue to go on with the execution.
+Double click the `zerynth-installer.exe` you just downloaded. The first time Windows may pop up a dialog saying that
+the application is signed by Zerynth; just click continue to go on with the execution. It is possible that Windows will present you 
+a blue dialog title "Windows protected your PC"; in that case, just click "more info" and run the installer.
 
 TODO: add screenshot of popup
 
@@ -173,7 +174,7 @@ You can learn more at the following resources:
 - TODO: tutorial 2
 - TODO: etc
 
-### Zerynth Eco-system
+### Zerynth eco-system
 
 But IoT is not just sending data, how about industrial analog sensors, relays or communicating over RS485,RS232 or CAN?
 

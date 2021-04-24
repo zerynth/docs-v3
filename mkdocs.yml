@@ -26,8 +26,6 @@ markdown_extensions:
 - pymdownx.tabbed
 - pymdownx.tilde
 nav:
-- Introduction:
-  - Zerynth in a nutshell: intro/index.md
 - Getting Started:
   - Zerynth in 5 minutes: gettingstarted/index.md
   - ZM1 Development Board: gettingstarted/ZM1-DB.md
@@ -150,6 +148,8 @@ nav:
       - reference/api/zdm/index.md
       - reference/api/zstorage/index.md
     - Changelog: reference/changelogs/index.md
+    - What's new in Zerynth v3.x: reference/changelogs/whatsnew.md
+
 
 - Demos:
   - Zerynth OS:
