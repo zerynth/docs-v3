@@ -2,6 +2,20 @@
 {#-
   This file was automatically generated - do not edit
 -#}
+
+<style> 
+input[type=button], input[type=submit], input[type=reset] {
+  background-color: #F1782A;
+  border: none;
+  color: white;
+  padding: 8px 32px;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+</style>
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="{{ lang.t('header.title') }}">
     <a href="{{ config.extra.homepage | d(nav.homepage.url, true) | url }}" title="{{ config.site_name | e }}" class="md-header__button md-logo" aria-label="{{ config.site_name }}" data-md-component="logo">
@@ -63,6 +77,9 @@
         </div>
       </div>
     {% endif %}
+    <form action="https://zerynth.com/products">
+      <input type="submit" value="Buy Hardware">
+    </form>
     {% if "search" in config["plugins"] %}
       <label class="md-header__button md-icon" for="__search">
         {% include ".icons/material/magnify.svg" %}

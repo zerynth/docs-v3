@@ -1,11 +1,8 @@
 # Getting Started with ZM1-Development Board
 
 So you have a shiny new ZM1 Development Board (ZM1-DB) and would like to start playing with it?
-First, you need to install the [Zerynth SDK](index.md#1-install-zerynth), it takes just a couple of minutes.
-
+First, you need to install the [Zerynth SDK](zerynth.com/products/zsdk), it takes just a couple of minutes.
 When the SDK is installed, you can run Visual Studio Code that comes already configured with our Zerynth extension.
-
-Using the ZM1-DB with the SDK is really easy
 
 
 ## 1. Create a project
@@ -40,11 +37,9 @@ Just press *Console* and the serial output of ZM1-DB will appear in the VSCode t
 
 TODO: add screenshots
 
-## 4. Explore Zerynth!
+## 4. Explore the ZM1-DB
 
 Zerynth can do much more than a simple Hello World, for additional examples refer to:
 
-- [Zerynth in 5 minutes](index.md#2-create-your-first-iot-project)
-- [ZM1-DB Reference](../hardware/ZM1-Development-Board.md)
-- TODO: tutorial 1
-- TODO: tutorial 2
+- [ZM1-DB Hardware page](../hardware/ZM1-Development-Board.md)
+- [Tutorials](../tutorials/index.md)
