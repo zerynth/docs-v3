@@ -19,7 +19,7 @@ You can start VSCode:
 
 
 The extension adds some panels and tabs.
-In particular, in the Explorer tab (`Ctrl+Shift+E`) three more panels are present for managing projects, searching examples and integrating with the [zDeviceManager](TODO: put link). Moreover the extension also modifies some standard panels adding shortcuts to common actions.
+In particular, in the Explorer tab (`Ctrl+Shift+E`) three more panels are present for managing projects, searching examples and integrating with the [zDeviceManager](../zCloud/zdm_intro.md). Moreover the extension also modifies some standard panels adding shortcuts to common actions.
 
 Let's quickly go through them.
 
@@ -27,21 +27,39 @@ Let's quickly go through them.
 
 When no projects are opened, VSCode shows a `No Folder Opened` panel with some shortcuts to create a new Zerynth project from scratch or from existing examples.
 
-TODO: screenshot
+<figure>
+  <a data-fancybox="gallery" href="../img/vscode-01-startup.png">
+  <img src="../img/vscode-01-startup.png" />
+  </a>
+  <figcaption>VSCode opening page</figcaption>
+</figure>
 
 ### Zerynth Control Panel
 
 The Zerynth control panel is the main entry point for the SDK functionalities and its content is available as soon as a Zerynth project is opened. You can perform all common actions on a device in this panel: from configuring the current project for a specific Zerynth hardware to sending an over the air update to devices.
 
-TODO: screenshot
+<figure>
+  <a data-fancybox="gallery" href="../img/zerynth-control-panel-no-device.png">
+  <img src="../img/zerynth-control-panel-no-device.png" />
+  </a>
+  <figcaption>Zerynth Control Panel</figcaption>
+</figure>
 
 ### Zerynth Examples
 
 From this panel the vast collection of examples can be browsed by category or searched by content. Cloning an example is the quickest way to create a working new project.
 
+<figure>
+  <a data-fancybox="gallery" href="../img/zerynth-examples-panel.png">
+  <img src="../img/zerynth-examples-panel.png" />
+  </a>
+  <figcaption>Zerynth Examples Panel</figcaption>
+</figure>
+
+
 ### Zerynth Device Manager
 
-From this panel you can interact with the zDeviceManager (ZDM) by browsing through the fleets of devices connected to the [zCloud](TODO:link)
+From this panel you can interact with the zDeviceManager (ZDM) by browsing through the fleets of devices connected to the [zCloud](../zCloud/index.md)
 
 ### Zerynth Tab
 
@@ -52,7 +70,12 @@ In the Zerynth tab reachable from the Zerynth logo on the VSCode sidebar, you ca
 
 Let's create a new Zerynth project by pressing `Ctrl+Shift+P`, typing `new` and selecting `Zerynth > New Project`. You need to specify a folder where to create the project and the Explorer tab populates itself with a minimal Zerynth project with:
 
-TODO: empty project screenshot
+<figure>
+  <a data-fancybox="gallery" href="../img/zerynth-explorer-panel.png">
+  <img src="../img/zerynth-explorer-panel.png" />
+  </a>
+  <figcaption>Zerynth Examples Panel</figcaption>
+</figure>
 
 - `main.py`, the entrypoint for the firmware
 - `config.yml`, the advanced project configuration
@@ -67,7 +90,12 @@ As usual you can either click `Run` or press `Ctrl+Shift+P` and type `Zerynth > 
 
 Notice that the various terminal tabs on VSCode are displaying the output of each operation.
 
-TODO: screenshots
+<figure>
+  <a data-fancybox="gallery" href="../img/vscode-02-task.png">
+  <img src="../img/vscode-02-task.png" />
+  </a>
+  <figcaption>Run output on a terminal</figcaption>
+</figure>
 
 
 ## 3. Debug and monitor
@@ -89,8 +117,13 @@ If you need the names of pins or the position of a communication bus, just click
 The extension is also integrated with the zCloud, in particular with the zDeviceManager. The `Zerynth Control Panel` allows interacting with the cloud counterpart of the physical device. To start accessing the cloud, just press `Provisioning` and accept the warning about the current program being deleted. The provisioning process creates a cloud device and associates it with your physical device in your Zerynth account. 
 
 After a successful provisioning your physical device can connect to the zDeviceManager and send data.
-Moreover you can jump directly to the cloud device web page by clicking on `Cloud device`. You can also perform an over the air update of the firmware by clicking `FOTA`! The [over the air update](TODO:link) is one of the essentials features of the zDeviceManager that allows managing all your devices remotely with just a click.
+Moreover you can jump directly to the cloud device web page by clicking on `Cloud device`. You can also perform an over the air update of the firmware by clicking `FOTA`! The [over the air update](../zCloud/FOTA.md) is one of the essentials features of the zDeviceManager that allows managing all your devices remotely with just a click.
 
-TODO: screenshots
+<figure>
+  <a data-fancybox="gallery" href="../img/vscode-03-zdm.png">
+  <img src="../img/vscode-03-zdm.png" />
+  </a>
+  <figcaption>Zerynth ZDM panel</figcaption>
+</figure>
 
 

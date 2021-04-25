@@ -5,7 +5,7 @@
 Zerynth is a complete software-hardware platform, It simplifies the development of IoT products by offering modular industrial development boards, production-ready SoC modules and Easy-to-use Python enabled development enviornment.
 Zerynth hardware integrates seamlessly with Zerynth cloud, a powerful cloud service that monitors, manages and provisions devices, issues OTAs and procedure calls and visualize data with clear dashboards for the end-user. 
 
-'''Picture of Zerynth as a platform.
+TODO: Picture of Zerynth as a platform.
 
 
 To get started, You need one of Zerynth development boards, check the boards and Buy them from our hardware page.
@@ -40,7 +40,13 @@ Double click the `zerynth-installer.exe` you just downloaded. The first time Win
 the application is signed by Zerynth; just click continue to go on with the execution. It is possible that Windows will present you 
 a blue dialog title "Windows protected your PC"; in that case, just click "more info" and run the installer.
 
-TODO: add screenshot of popup
+<figure>
+  <a data-fancybox="gallery" href="img/windows-screen.png">
+  <img src="img/windows-screen.png"/>
+  </a>
+  <figcaption>Windows Smartscreen warning</figcaption>
+</figure>
+
 
 #### Installing for Linux
 
@@ -67,8 +73,7 @@ The installer will install the **Zerynth SDK** in your development machine in a 
   </a>
 </figure>
 
-First, accept the license and terms and press `Install`. This will install the latest version of the SDK together with Visual Studio Code (a.k.a. VSCode) and the VSCode Zerynth Extension (TODO: add link to marketplace).
-
+First, accept the license and terms and press `Install`. This will install the latest version of the SDK together with Visual Studio Code (a.k.a. VSCode) and the [VSCode Zerynth Extension](https://marketplace.visualstudio.com/items?itemName=zerynth.zerynth3).
 
 <figure>
   <a data-fancybox="gallery" href="img/installer-02.png">
@@ -105,8 +110,10 @@ Just press `Ctrl+Shift+P` and type `examples` in the popup that VSCode displays.
   <img src="img/project-01.png"width="600"/>
   </a>
 </figure>
+
 The popup is the VSCode command palette from which most of the available operations (called tasks in the VSCode jargon) can be launched.
 Simply choose `Zerynth > Search examples` and then type `ZDM_`. Select the `ZDM_Simple` example and provide a folder to clone it from its repository as shown in the figures below. When ready, click `Clone Zerynth Example` and you are good to go.
+
 <figure>
   <a data-fancybox="gallery" href="img/project-02.png">
   <img src="img/project-02.png"width="600"/>
@@ -122,16 +129,27 @@ Congratulations, you created your first IoT project!
 
 The project is not ready yet, you need to add your wifi network name and password. You can do it easily by modifying the already opened file `main.py` (that by the way is the main entry point of every Zerynth firmware). The two variables are `ssid` and `passwd`, quite self explanatory.
 
-Now that the project knows how to connect to your local network, we need to plug a Zerynth device to your USB port. It doesn't matter if the hardware you have is a [ZM1-DB](TODO/link-to-hardware), a [ZM1-EVA](TODO/link-to-hardware) or the mighty [4ZeroBox](TODO/link-to-hardware); the project will run on all of them seamlessy.
+Now that the project knows how to connect to your local network, we need to plug a Zerynth device to your USB port. It doesn't matter if the hardware you have is a [ZM1-DB](../hardware/ZM1-Development-Board.md) or the mighty [4ZeroBox](../hardware/4ZeroBox.md); the project will run on all of them seamlessy.
 
-The only thing that you are required to do is to tell VSCode which kind of hardware you want to use! For this, just press the `Connected device` action in the `Zerynth Control Panel` on the left. VSCode will automatically recognize the device connected to your USB (when in doubt, VSCode will ask you to choose between different options) and configure the project accordingly. 
+The only thing that you are required to do is to tell VSCode which kind of hardware you want to use! For this, just press the `Physical device` action in the `Zerynth Control Panel` on the left. VSCode will automatically recognize the device connected to your USB (when in doubt, VSCode will ask you to choose between different options) and configure the project accordingly. 
 
-TODO: screenshot of configured project in zerynth control panel.
+<figure>
+  <a data-fancybox="gallery" href="img/project-03.png">
+  <img src="img/project-03.png" />
+  </a>
+</figure>
 
 ### Run the firmware
 
 Time is ticking, just press `Run` in the `Zerynth Control Panel` and the project will be moved on your device and executed!
 Ignore all the colorful messages for the moment and press `Console` in the `Zerynth Control Panel`. This will open the debug console of your device where you can inspect the device messages. If everything goes well, it will connect to your wifi network but will start printing out misterious messages about MQTT errors. Is this a bug?!? No, it's an advanced security feature! Read on.
+
+<figure>
+  <a data-fancybox="gallery" href="img/project-04.png">
+  <img src="img/project-04.png" />
+  </a>
+  <figcaption>MQTT errors in not provisioned device</figcaption>
+</figure>
 
 
 ## 3. Prepare the device for the cloud
@@ -144,25 +162,60 @@ What is missing in the picture is some piece of information that says "physical 
 
 This information is generated in a step called **provisioning**. It must be done only once, it's just a click and gives you control over the device forever (or until you decide otherwise).
 
-Just click `ZDM device` in the `Zerynth Control Panel`. You will be asked to create a cloud device, give it a name and accept the confirmation dialog and wait a little.
+Just click `Provisioning` in the `Zerynth Control Panel`. You will be asked to create a cloud device, give it a name like `my-iot-device` and accept the confirmation dialog and wait a little.
 
-TODO: add screenshots of provisioning
+<figure>
+  <a data-fancybox="gallery" href="img/project-05.png">
+  <img src="img/project-05.png" />
+  </a>
+  <figcaption>Select a device to provision</figcaption>
+</figure>
+<figure>
+  <a data-fancybox="gallery" href="img/project-06.png">
+  <img src="img/project-06.png" />
+  </a>
+  <figcaption>Accept the confirmation dialog</figcaption>
+</figure>
+<figure>
+  <a data-fancybox="gallery" href="img/project-07.png">
+  <img src="img/project-07.png" />
+  </a>
+  <figcaption>Successful provisioning!</figcaption>
+</figure>
+<figure>
+  <a data-fancybox="gallery" href="img/zerynth-control-panel-with-device.png">
+  <img src="img/zerynth-control-panel-with-device.png" />
+  </a>
+  <figcaption>Updated control panel</figcaption>
+</figure>
 
 Under the hood the magic has happened! The device is now linked to your account and nobody can claim it back.
 
-If you now press `ZDM device eye icon` a page will be opened in your browser where you can inspect the cloud identity of your device and a lot more!
+!!! note
+    If you need to use the same device in another account or workspace, right click on `Provisioning` and choose `Detach`. You can then provision the physical device again
 
-TODO: screenshot of ZDM device page
+If you now press `Cloud device` a page will be opened in your browser where you can inspect the cloud identity of your device and a lot more!
+
+<figure>
+  <a data-fancybox="gallery" href="img/project-08.png">
+  <img src="img/project-08.png" />
+  </a>
+  <figcaption>zDeviceManager device page</figcaption>
+</figure>
 
 ## 4. Send data!
 
 We are almost there! Now press `Run` again and execute the project on your device. This is needed because the provisioning step erased what you loaded before. Now press `Console` and check that the device now does not complain and is sending data to the cloud!
 
-TODO: screenshot of terminal
+You can also go back to the web browser, scroll down and check the data incoming!
 
-You can also go back to the web browser and see the data incoming!
+<figure>
+  <a data-fancybox="gallery" href="img/project-09.png">
+  <img src="img/project-09.png" />
+  </a>
+  <figcaption>zDeviceManager device data console</figcaption>
+</figure>
 
-TODO: screenshot of ZDM data console
 
 And as a final bonus, from the web browser, press the `Reset` button. It will send a reset request to the device that will, guess what, reset itself. 
 
@@ -170,21 +223,22 @@ After five minutes everything is in place: you have a securely connected device 
 
 
 You can learn more at the following resources:
-- TODO: tutorial 1
-- TODO: tutorial 2
-- TODO: etc
 
-### Zerynth eco-system
+- [Tutorials](../tutorials/index.md)
+- [Technical reference](../reference/index.md)
+- [Hardware reference](../hardware/index.md)
 
-But IoT is not just sending data, how about industrial analog sensors, relays or communicating over RS485,RS232 or CAN?
+## Zerynth eco-system
 
-Zerynth Development boards offer a game-changing standard for connecting and adding functionalities to your application.
+But IoT is not just sending data; how about industrial analog sensors, relays or communicating over RS485, RS232 or CAN?
 
-Expansion boards vary in features and functionalities. Currently, Zerynth offers expansion boards for :
+Zerynth Development boards offer a game-changing standard for connecting and adding functionalities to your application via expansions.
 
-- EXP-IO: Industrial in/out board with 4x Solid State Relays, 2x 4-20mA/0-10V/NTC channels, 2x opto-isolated digital inputs
-- EXP-RELAY: Relay board with 4 Power Relays.
-- EXP-SER: Serial Communication board offers : CAN, RS232 and RS485 
-- EXP-PROTO: Prototyping board for connecting and testing different types of sensors and devices.
+Expansion boards vary in features and functionalities. Currently, Zerynth offers expansion boards for:
 
-Check our hardware page for more details.
+- [EXP-IO](../hardware/EXP-IO.md): Industrial in/out board with 4x Solid State Relays, 2x 4-20mA/0-10V/NTC channels, 2x opto-isolated digital inputs
+- [EXP-RELAY](../hardware/EXP-RELAY.md): Relay board with 4 Power Relays.
+- [EXP-SER](../hardware/EXP-SER.md): Serial Communication board offers : CAN, RS232 and RS485 
+- [EXP-PROTO](../hardware/EXP-PROTO.md): Prototyping board for connecting and testing different types of sensors and devices.
+
+Check our [hardware](../hardware/index.md) page for more details.

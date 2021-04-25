@@ -752,7 +752,8 @@ Schedule a new FOTA for multiple fleets.
 zDeviceManager allows you to forward data received from devices to third-party services.
 
 !!! note "Note - Message Delivery Reliability"
-    All zDeviceManager integrations follow an **at-least-once** rule for message sends: this means that zDeviceManager ensures you that all data that has been sent from devices is forwarded to the external service, but some messages may be sent multiple times. It is up to the external service the duplicates handling. 
+    All zDeviceManager integrations follow an **at-least-once** rule for data forwarding: the zDeviceManager guarantees that all data that has been received from devices is forwarded to the external service, but some messages may be sent multiple times. It is up to the external service to handle deduplication. 
+
 ### Webhook data format
 
 

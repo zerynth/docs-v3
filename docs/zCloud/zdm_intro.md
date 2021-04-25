@@ -66,7 +66,7 @@ If you don't want to be locked in by a third party cloud or you already have a c
 
 Just create a webhook integration from the zDeviceManager web app and point it to the http address of your endpoint. The integration will keep sending data to your endpoint where a service running on your servers will receive them and be responsible for database insertion.
 
-It seems a lot of work but we have you covered: from [here](TODO:link to github) you can checkout a demo repository with all the components already in place!
+It seems a lot of work but we have you covered: from [here](https://github.com/zerynth/demo-template) you can checkout a demo repository with all the components already in place!
 
 ### The SaaS way
 

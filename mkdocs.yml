@@ -29,7 +29,7 @@ nav:
 - Getting Started:
   - Zerynth in 5 minutes: gettingstarted/index.md
   - ZM1 Development Board: gettingstarted/ZM1-DB.md
-  - ZM1 Evaluation Board: gettingstarted/ZM1-EVA.md
+  # - ZM1 Evaluation Board: gettingstarted/ZM1-EVA.md
   - 4ZeroBox: gettingstarted/4ZeroBox.md
   - Visual Studio Code: gettingstarted/vscode.md
 - Hardware:
@@ -45,7 +45,6 @@ nav:
   - zDeviceManager: zCloud/zdm_intro.md
   - zStorage: zCloud/zstorage_intro.md
   - zDashboard: zCloud/zdashboard_intro.md
-  - {Tutorials: zCloud/intro.md}
   - Connect to zCloud: zCloud/connect.md
   - Over the Air Updates: zCloud/FOTA.md
 - Tutorials and Demos:

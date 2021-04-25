@@ -15,11 +15,21 @@ A command line interface toolchain is built to be run in a shell. There are so m
 
 For Windows you can find Powershell in the start menu while for Mac you can install [iTerm2](https://iterm2.com/)
 
-TODO: screenshot of terminal running
+<figure>
+  <a data-fancybox="gallery" href="../img/cli-01.png">
+  <img src="../img/cli-01.png" />
+  </a>
+  <figcaption>Windows Powershell</figcaption>
+</figure>
 
 Fire up a terminal and type the command `ztc`. If everything has been installed correctly you should see the following output:
 
-TODO: screenshot of ztc
+<figure>
+  <a data-fancybox="gallery" href="../img/cli-02.png">
+  <img src="../img/cli-02.png" />
+  </a>
+  <figcaption>ztc output</figcaption>
+</figure>
 
 `ztc` is the command line toolchain of the Zerynth SDK. As you can see from the help message, it can perform all the operations required for developing an IoT project.
 
@@ -29,7 +39,12 @@ ztc info
 ```
  and look at the result.
 
-TODO: screenshot of ztc info
+<figure>
+  <a data-fancybox="gallery" href="../img/cli-03.png">
+  <img src="../img/cli-03.png" />
+  </a>
+  <figcaption>ztc info output</figcaption>
+</figure>
 
 `ztc` printed the version of the sdk.
 
@@ -55,7 +70,12 @@ ztc project create tutorial-cli
 ```
 The project `tutorial-cli` is created and some files are copied inside. Those files can be displayed in the terminal by first typing `cd tutorial-cli` for moving inside the project and then typing `ls`.
 
-TODO: ls screenshot
+<figure>
+  <a data-fancybox="gallery" href="../img/cli-04.png">
+  <img src="../img/cli-04.png" />
+  </a>
+  <figcaption>Project creation</figcaption>
+</figure>
 
 The files in projects are:
 
@@ -69,20 +89,81 @@ The files in projects are:
 You can now open the `main.py` file and look at the code. By default it's a simple `Hello World`:
 
 ```python
+###############################################################################
+# Hello Zerynth
+###############################################################################
 
-TODO: put the exact code created by the cli
+# Welcome to the first and simplest Zerynth example.
+# Let's just loop forever by printing something to the standard output,
+# in this case, the USB serial port (open the device console to view the output)
+
+# loop forever
+while True:
+    # print something
+    print("Hello Zerynth!")
+    # sleep 1 second
+    sleep(1000)
 
 ```
 
 Let's modify it with this:
 
 ```python linenums="1"
+################################################################################
+# ZDM Simple
+################################################################################
 
-TODO: put the code of the simplest ZDM example
+from bsp import board
+from zdm import zdm
+from networking import wifi
+
+# Set the ssid and password of your wifi network
+ssid = "your-ssid"
+passwd = "your-password"
+
+while True:
+
+    try:
+        # Let's connect to the wifi
+        print("configuring wifi...")
+        wifi.configure(
+            ssid=ssid,
+            password=passwd)
+        print("connecting to wifi...")
+        wifi.start()
+        print("connected!",wifi.info())
+
+        # the Agent class implements all the logic to talk with the ZDM
+        agent = zdm.Agent()
+        # just start it
+        agent.start()
+
+        while True:
+            # use the agent to publish values to the ZDM
+            # Just open the device page from VSCode and check that data is incoming
+            agent.publish({"value":random(0,100)}, "test")
+            sleep(5000)
+            # The agent automatically handles connections and reconnections
+            print("ZDM is online:    ",agent.online())
+            # And provides info on the current firmware version
+            print("Firmware version: ",agent.firmware())
+
+        wifi.stop()
+        print("disconnected from wifi")
+    except WifiBadPassword:
+        print("Bad Password")
+    except WifiBadSSID:
+        print("Bad SSID")
+    except WifiException:
+        print("Generic Wifi Exception")
+    except Exception as e:
+        raise e
+
+    sleep(3000)
 
 ```
 
-In the editor modify the `ssid` and `password` variables at lines (TODO: add lines) with your network name and password.
+In the editor modify the `ssid` and `password` variables at lines 10-11 with your network name and password.
 
 
 ### Configure the project
@@ -94,7 +175,13 @@ First, let's see what kind of hardware it is. Plug it in the USB and type
 ztc device discover
 ```
 
-TODO: screenshot of device discover
+<figure>
+  <a data-fancybox="gallery" href="../img/cli-05.png">
+  <img src="../img/cli-05.png" />
+  </a>
+  <figcaption>ztc device discover</figcaption>
+</figure>
+
 
 That's a lot of information! Notice that `ztc` recognized the hardware as a `4zerobox_v9`. However, all you need to go on is the `uid`. It basically is a hardware identifier that allows the
 Zerynth SDK to interact with the device you just plugged into the USB. Keep note of the `uid` (in our case `b08a15d393e42ed94f38145dfbd48a628f9ca30b` because it will be needed in the next command.
@@ -103,7 +190,8 @@ Type
 ```bash
 ztc project update --uid b08a15d393e42ed94f38145dfbd48a628f9ca30b --board 4zerobox_v9
 ```
-. This configure the project for our specific hardware.
+
+This configure the project for our specific hardware.
 Note that the option `--board` is not really needed because the SDK already recognized the device. However, there might be cases when this will not happen (i.e. multiple devices connected), so it's a good habit to always specify the board.
 
 
@@ -116,18 +204,21 @@ ztc compile
 ```
  to verify that the project code has no errors.
 
-TODO: screensjot of compile
+<figure>
+  <a data-fancybox="gallery" href="../img/cli-06.png">
+  <img src="../img/cli-06.png" />
+  </a>
+  <figcaption>ztc compile</figcaption>
+</figure>
 
 Again, that's a lot of information, but all you need is that the file `firmware.z` has been saved correcty. `firmware.z` is compressed archive
 that contains all the files required to run a project on a Zerynth hardware. 
 
-After compilation it contains just some binary files and the [zOS](TODO: link to zos). We need another step before having a real executable. Let's type 
+After compilation it contains just some binary files and the [zOS](../reference/os/index.md). We need another step before having a real executable. Let's type 
+
 ```bash
 ztc link ./build/firmware.z
 ```
-.
-
-TODO: screenshot of link
 
 Now `firmware.z` also contains an executable version of the project ready to be run!
 
@@ -135,7 +226,8 @@ Let's type
 ```bash
 ztc device burn b08a15d393e42ed94f38145dfbd48a628f9ca30b ./build/firmware.z
 ```
-. This takes the executable in `firmware.z` and copies it into te device identified by the `uid`.
+
+This takes the executable in `firmware.z` and copies it into te device identified by the `uid`.
 
 
 Type the command 
@@ -144,7 +236,12 @@ ztc device console b08a15d393e42ed94f38145dfbd48a628f9ca30b
 ```
  and check the output of the project.
 
-TODO: screenshot
+<figure>
+  <a data-fancybox="gallery" href="../img/cli-07.png">
+  <img src="../img/cli-07.png" />
+  </a>
+  <figcaption>Console with MQTT errors</figcaption>
+</figure>
 
 As you can see, there are errors, because the device is not yet recognized by the zCloud. You have a device, not yet an IoT device!
 In order to connect it properly and securely, let's go on with the tutorial, but first press `Ctrl+c` to stop receiving the output from the device.
@@ -166,7 +263,12 @@ zdm fleet ls wks-4tqb61zth8ug
 ```
  and take not of your fleet also (in our case `flt-4tqb622bdlah`).
 
-TODO: screenshots of commands
+<figure>
+  <a data-fancybox="gallery" href="../img/cli-08.png">
+  <img src="../img/cli-08.png" />
+  </a>
+  <figcaption>zdm commands</figcaption>
+</figure>
 
 Armed with workspace and fleet you can create our first cloud device!
 
@@ -199,9 +301,14 @@ Note the bundle down and let's get back to the `zdm` for the association:
 ```bash
 zdm device identity create wks-4tqb61zth8ug dev-5urjl32twpyv the-bundle-from-previous-command
 ```
- 
 
-TODO: screenshot
+<figure>
+  <a data-fancybox="gallery" href="../img/cli-09.png">
+  <img src="../img/cli-09.png" />
+  </a>
+  <figcaption>zdm provisioning</figcaption>
+</figure>
+
 
 And done! The physical device is now cryptographically linked to the cloud device.
 
@@ -216,7 +323,12 @@ ztc device console b08a15d393e42ed94f38145dfbd48a628f9ca30b
 ```
  the serial log will show that the device is connected to the zCloud.
 
-TODO: screenshot
+<figure>
+  <a data-fancybox="gallery" href="../img/cli-10.png">
+  <img src="../img/cli-10.png" />
+  </a>
+  <figcaption>working project</figcaption>
+</figure>
 
 
 ### Device management
@@ -250,7 +362,6 @@ Let's upload the `firmware.z` to the newly created firmware with
 zdm workspace firmware wks-4tqb61zth8ug upload fmw-5us79pzw429k v1 ./build/firmware.z
 ```
 
-TODO: screenshot
 
 It's a long command, but basically takes the executable parts of `firmware.z` and uploads them to the cloud under the `fmw-5us79pzw429k` container assigning version `v1`. 
 Once the new firmware is safely stored on the cloud, it can be sent to the device (or to fleets for bulk updates).

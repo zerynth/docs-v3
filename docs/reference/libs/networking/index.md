@@ -7,7 +7,7 @@ Interfaces are accessed from a common interface. The normal usage is:
 * **import** a network interface specific module (i.e. `eth`)
 * **configure** the network interface (i.e. call `eth.configure()` with specific parameters)
 * **start** the network interface in order to establish a link (i.e. call `eth.start()`)
-* use [protocols](../protocols/index.md) or directly [sockets](sockets.md)
+* use [protocols](../protocols/index.md) or directly [sockets](socket.md)
 * **stop** the network interface in order to get the link down (i.e. call `eth.stop()`)
 
 

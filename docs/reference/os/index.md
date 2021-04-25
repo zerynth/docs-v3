@@ -17,7 +17,7 @@ This section of the documentation is organized “from top to bottom”; it firs
 * [Basics](basics.md)
 * [Sequences and Maps](seqmap.md)
 * [Pins and Peripherals](pinmap.md)
-* [C Language Interface](clanf.md)
+* [C Language Interface](clang.md)
 * [zOS Guide](os.md)
 
 

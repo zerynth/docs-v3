@@ -19,7 +19,7 @@ The above snippet shows the steps required to enable a ZDM connection:
 ## Connection
 Under the hood a MQTT client is started and a secure connection is established using the device certificates contained in the secure element of every Zerynth hardware. 
 
-In order for the connection to be established correctly it is necessary that the physical device has been associated with a ZDM device. This procedure links the physical device identity contained in the secure element to its cloud identity represented by the ZDM device unique identifier. The procedure must be performed just once and can be done both from the [command line](TODO/link-to-device-association) and [VSCode extension](TODO/link-to-vscode-association).
+In order for the connection to be established correctly it is necessary that the physical device has been associated with a ZDM device. This procedure links the physical device identity contained in the secure element to its cloud identity represented by the ZDM device unique identifier. The procedure must be performed just once and can be done both from the [command line](../../../cli/ztc/index.md)  and [VSCode extension](../../../vscode/index.md).
  
 After the connection is established, the `Agent` will update the real time clock to the current time and will try to keep it synchronized. The `Agent` will also take care of the reliability of the connection by automatically retrying to connect in case of network failure.
 
