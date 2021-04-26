@@ -34,25 +34,21 @@ set_over_sampling_setting(oss)
 
 Sets the OverSampling Setting value of the BMP180.
 
-* `oss`: OverSampling Setting value (from 0 to 4 allowed)
+* `oss`: OverSampling Setting value (from 0 to 4 allowed). The OverSampling Setting parameter selects different operating modes according to give the possibility for findind the optimum compromise between power consumption, speed, and resolution; in the table below allowed values are reported with related operating modes.
 
- **note** The OverSampling Setting parameter selects different operating modes according to give the possibility for findind the optimum compromise between power consumption, speed, and resolution; in the table below allowed values are reported with related operating modes.
-
-       ========= ===================== ============ =============== ======================
-       OSS param     Operating Mode    N of samples Conversion time Avg Current 1 sample/s
-       ========= ===================== ============ =============== ======================
-           0        Ultra Low Power         1           4.5 ms                3 uA
-           1           Standard             2           7.5 ms                5 uA
-           2        High Resolution         4          13.5 ms                7 uA
-           3     Ultra High Resolution      8          25.5 ms               12 uA
-       ========= ===================== ============ =============== ======================
-
+    | `oss` | Operating Mode        | N of samples | Conversion time | Avg Current 1 sample/s |
+    |-------|-----------------------|--------------|-----------------|------------------------|
+    | 0     | Ultra Low Power       | 1            | 4.5 ms          | 3 uA                   |
+    | 1     | Standard              | 2            | 7.5 ms          | 5 uA                   |
+    | 2     | High Resolution       | 4            | 13.5 ms         | 7 uA                   |
+    | 3     | Ultra High Resolution | 8            | 25.5 ms         | 12 uA                  |
 
 ### method get_raw_temp
 ```python
 get_raw_temp()
 ```
-Retrieves the current temperature data from the sensor as raw value.
+
+Retrieves the current temperature data from the sensor as raw value.
 
 Returns `raw_t`
 
@@ -60,7 +56,8 @@ Returns `raw_t`
 ```python
 get_raw_pres()
 ```
-Retrieves the current pressure data from the sensor as raw value; according to the OverSampling Setting value this measure can be faster but less accurate or more precise but slower. (see `set_over_sampling_setting()`)
+Retrieves the current pressure data from the sensor as raw value; according to the OverSampling Setting value this measure can be
+ faster but less accurate or more precise but slower. (see `set_over_sampling_setting()`)
 
 Returns `raw_p`
 
@@ -76,7 +73,8 @@ Returns `temp`
 ```python
 get_pres()
 ```
-Retrieves the current pressure data from the sensor as calibrate value in Pa; according to the OverSampling Setting value this measure can be faster but less accurate or more precise but slower. (see `set_over_sampling_setting()`)
+Retrieves the current pressure data from the sensor as calibrate value in Pa; according to the OverSampling Setting value this measure can be
+ faster but less accurate or more precise but slower. (see `set_over_sampling_setting()`)
 
 Returns `pres`
 
@@ -117,7 +115,8 @@ from components.bmp180 import bmp180
 ...
 
 
-bmp = bmp180.BMP180(I2C0)
+bmp = bmp180.BMP180(I2C0)
+
 bmp.init()
 temp, pres = bmp.get_temp_pres()
 ```

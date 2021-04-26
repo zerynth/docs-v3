@@ -23,13 +23,11 @@ This method sets the operating mode and the sampling parameters of the module.
 
 * `mode`: Control the operating mode. Sleep mode is entered by default after power on reset. In sleep mode, no measurement are performed and all registers are accessible. In normal mode the sensor cycles between an active measurement period and an inactive standby period. In forced mode a single measurement is perfomed in accordance to the selected measurement and filter options, after which the sensor enter in sleep mode.
 
-       ======== =====================
-        mode        Operating mode
-       ======== =====================
-        0         Sleep Mode
-        1 or 2    Forced Mode
-        3         Normal Mode
-       ======== =====================
+    | `mode`   | Operating mode |
+    |----------|----------------|
+    | 0        | Sleep Mode     |
+    | 1 or 2   | Forced Mode    |
+    | 3        | Normal Mode    |
         
    **note**
 See pages 12-13 of the _datasheet_ for more details on operating mode and allowed sensor mode transitions.
@@ -41,43 +39,37 @@ See pages 12-13 of the _datasheet_ for more details on operating mode and allowe
         
 * `os_p`: Oversampling setting for pressure sensor.
         
-        ======  ===========================
-        os_p     Oversampling setting
-        ======  ===========================
-         0       Skipped (output set to 0)
-         1       oversampling 1x
-         2       oversampling 2x
-         3       oversampling 4x
-         4       oversampling 8x
-         5       oversampling 16x
-        ======  ===========================
+    | `os_p` | Oversampling setting      |
+    |--------|---------------------------|
+    | 0      | Skipped (output set to 0) |
+    | 1      | oversampling 1x           |
+    | 2      | oversampling 2x           |
+    | 3      | oversampling 4x           |
+    | 4      | oversampling 8x           |
+    | 5      | oversampling 16x          |
         
 * `t_sb`: Control the inactive duration t_standby in normal mode.
         
-        ====== =====================
-        t_sb    t_standby [ms]
-        ====== =====================
-         0      0.5
-         1      62.5
-         2      125
-         3      250
-         4      500
-         5      1000
-         6      10
-         7      20
-        ====== =====================
+    | `t_sb` | t_standby [ms] |
+    |--------|----------------|
+    | 0      | 0.5            |
+    | 1      | 62.5           |
+    | 2      | 125            |
+    | 3      | 250            |
+    | 4      | 500            |
+    | 5      | 1000           |
+    | 6      | 10             |
+    | 7      | 20             |
         
 * `filter`: Control the time constant of the internal IIR filter. It reduces the bandwidth of the temperature and pressure output signals and increases the resolution of the pressure and temperature output data to 20 bit.
         
-        ====== =====================
-        filter  Filter coefficient
-        ====== =====================
-         0      Filter off
-         1      2
-         2      4
-         3      8
-         4      16
-        ====== =====================
+    | `filter` |  Filter coefficient |
+    |----------|---------------------|
+    | 0        | Filter off          |
+    | 1        | 2                   |
+    | 2        | 4                   |
+    | 3        | 8                   |
+    | 4        | 16                  |
 
 ### method get_temp
 ```python

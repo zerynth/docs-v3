@@ -27,28 +27,22 @@ Initialize the BNO055 setting the mode value.
 set_mode(mode)
 ```
 Sets the Mode value of the BNO055.
-* `mode`: Mode value.
+* `mode`: Mode value. The BNO055 provides a variety of output signals, which can be chosen by selecting the appropriate operation mode. The table below lists the different modes and the available sensor signals.
 
- **note**:The BNO055 provides a variety of output signals, which can be chosen by selecting the appropriate operation mode. The table below lists the different modes and the available sensor signals.
-
-       ========== ============ ========= ========== ========== ===========
-                Mode           Available Library Functions     
-       ----------------------- -------------------------------------------
-       Value      Name         get_acc() get_magn() get_gyro() get_euler()
-       ========== ============ ========= ========== ========== ===========
-       acc        ACCONLY      Yes       No         No         No  
-       magn       MAGONLY      No        Yes        No         No  
-       gyro       GYROONLY     No        No         Yes        No 
-       accmag     ACCMAG       Yes       Yes        No         No 
-       accgyro    ACCGYRO      Yes       No         Yes        No 
-       maggyro    MAGGYRO      No        Yes        Yes        No 
-       amg        AMG          No        Yes        Yes        No 
-       imu        IMU          Yes       No         Yes        Yes
-       comp       COMPASS      Yes       Yes        No         Yes
-       m4g        M4G          Yes       Yes        Yes        Yes
-       ndof_off   NDOF_FMC_OFF No        Yes        Yes        Yes
-       ndof       NDOF         Yes       Yes        Yes        Yes
-       ========== ============ ========= ========== ========== ===========
+    | `mode`       | Name         | `get_acc()` | `get_magn()` | `get_gyro()` | `get_euler()` |
+    |--------------|--------------|-------------|--------------|--------------|---------------|
+    | `"acc"`      | ACCONLY      | Yes         | No           | No           | No            |
+    | `"magn"`     | MAGONLY      | No          | Yes          | No           | No            |
+    | `"gyro"`     | GYROONLY     | No          | No           | Yes          | No            |
+    | `"accmag"`   | ACCMAG       | Yes         | Yes          | No           | No            |
+    | `"accgyro"`  | ACCGYRO      | Yes         | No           | Yes          | No            |
+    | `"maggyro"`  | MAGGYRO      | No          | Yes          | Yes          | No            |
+    | `"amg"`      | AMG          | No          | Yes          | Yes          | No            |
+    | `"imu"`      | IMU          | Yes         | No           | Yes          | Yes           |
+    | `"comp"`     | COMPASS      | Yes         | Yes          | No           | Yes           |
+    | `"m4g"`      | M4G          | Yes         | Yes          | Yes          | Yes           |
+    | `"ndof_off"` | NDOF_FMC_OFF | No          | Yes          | Yes          | Yes           |
+    | `"ndof"`     | NDOF         | Yes         | Yes          | Yes          | Yes           |
 
 ### method get_calibration_status
 ```python
@@ -133,14 +127,17 @@ Returns `[gyro_x, gyro_y, gyro_z]`
 ```python
 get_magn()
 ```
-Retrieves the current magnetometer reading as a list of X, Y, Z values in micro-Teslas.
-Returns `[value_magn_x, value_magn_y, value_magn_z]`
+Retrieves the current magnetometer reading as a list of X, Y, Z values
+ in micro-Teslas.
+
+Returns `[value_magn_x, value_magn_y, value_magn_z]`
 
 ### method get_euler
 ```python
 get_euler()
 ```
-Retrieves the current orientation as a list of heading, roll, and pitch euler angles in degrees.
+Retrieves the current orientation as a list of heading, roll,
+ and pitch euler angles in degrees.
 
 Returns `[abs_or_h, abs_or_r, abs_or_p]`
 
@@ -165,7 +162,8 @@ Returns `[grav_x, grav_y, grav_z]`
 ```python
 get_quaternion()
 ```
-Retrieves the current orientation as a list of X, Y, Z, W quaternion values.
+Retrieves the current orientation as a list of X, Y, Z, W quaternion
+ values.
 
 Returns `[w, x, y, z]`
 
@@ -185,7 +183,8 @@ from components.bno055 import bno055
 
 ...
 
-bno = bno055.BNO055(I2C0)
+bno = bno055.BNO055(I2C0)
+
 bno.init()
 abs_orientation = bno.get_euler()
 ```

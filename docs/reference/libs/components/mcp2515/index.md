@@ -1,6 +1,6 @@
 # MCP2515 Module
 
-.. _datasheet: <http://ww1.microchip.com/downloads/en/DeviceDoc/20001801H.pdf>
+_datasheet_: <http://ww1.microchip.com/downloads/en/DeviceDoc/20001801H.pdf>
 
 This module contains the driver for Microchip MCP2515, a second generation
 stand-alone CAN controller. It is pin and function compatible with the MCP2510
