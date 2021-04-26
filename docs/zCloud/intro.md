@@ -12,7 +12,7 @@ In particular, it takes care of the following tasks:
 
 ZDM adapts to all kinds of deployments, being available as a Software-as-a-Service hosted by Zerynth or as an on-premises containerized application.
 
-ZDM is hardware and firmware independent, allowing the connection of both [microcontroller-based devices](https://docs.zerynth.com/latest/zCloud/getting_started_with_sdk/) programmed with the Zerynth OS and [microprocessor-based devices](https://docs.zerynth.com/latest/zCloud/getting_started_with_rpi/) such as the Raspberry Pi.
+ZDM is hardware and firmware independent, allowing the connection of both [microcontroller-based devices](/latest/zCloud/getting_started_with_sdk/) programmed with the Zerynth OS and [microprocessor-based devices](/latest/zCloud/getting_started_with_rpi/) such as the Raspberry Pi.
 
 ![](img/ZDM-diagram-light.jpg)
 
@@ -31,4 +31,4 @@ If you want to know more, we have a [5 minutes tutorial](/latest/gettingstarted/
 
 ZDM can be easily accessed via the Web App at https://zdm.zerynth.com or, for more advanced usages, via the ZDM Command Line Interface integrated in the Zerynth SDK (download from https://www.zerynth.com/zsdk/).
 
-You can also follow the tutorial on the ZDM [Web Interface](https://docs.zerynth.com/latest/zCloud/web_interface/) for finding your way around.
+You can also follow the tutorial on the ZDM [Web Interface](/latest/zCloud/web_interface/) for finding your way around.

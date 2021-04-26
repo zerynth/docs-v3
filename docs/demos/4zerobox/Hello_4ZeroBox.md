@@ -6,9 +6,10 @@ In this example, we will be using:
 
 1. [Zerynth OS](https://www.zerynth.com/zos/) - a **multithreaded Real-Time OS** that provides real hardware independence, allowing code reuse on a wide range of 32-bit microcontrollers, in a very small footprint;
 2. [Zerynth SDK](https://www.zerynth.com/zsdk/) - the gateway to our platform which includes:
-    - [Zerynth Toolchain](/latest/reference/core/toolchain/docs/) – a command-line interface that integrates all the essential functions for the development with [Zerynth OS](https://www.zerynth.com/zos/) and the management of the Zerynth Device Manager cloud service.
-    - [Zerynth Studio](/latest/develop/) – an advanced [IDE](https://docs.zerynth.com/latest/reference/core/studio/docs/) for the Zerynth Toolchain. It includes development and debugging tools and numerous code examples.
-3. [4ZeroBox](/latest/hardware/4ZeroBox/) - a modular hardware electronic unit that simplifies the development of Industrial IoT applications allowing rapid integration with sensors, actuators, and Cloud services. 4ZeroBox is programmable in Python (or hybrid C/Python) thanks to the Zerynth SDK.
+    - [Visual Studio Code](/latest/gettingstarted/vscode/) – the official development environment for Zerynth.
+    - [Zerynth Installer](/latest/gettingstarted/#1-install-zerynth) – an all-in-one application that installs the Zerynth operating system that will be used on the development board, the Zerynth compiler and the VSCode plugin
+3. [Zerynth Device Manager(ZDM)](/latest/zCloud/) -it helps you register, organize, monitor, and remotely manage IoT devices at scale. ZDM allows managing devices and also collects and aggregates the data they produce. ZDM integrates with all primary cloud service providers to easily connect devices to the cloud and other devices so you can remotely control your fleet. You can use ZDM to take mitigating actions such as pushing security fixes. You can also easily send firmware-over-the-air (FOTA) updates to your Zerynth OS powered devices, such as the latest software version or a new firmware update.
+4. [4ZeroBox](/latest/hardware/4ZeroBox/) - a modular hardware electronic unit that simplifies the development of Industrial IoT applications allowing rapid integration with sensors, actuators, and Cloud services. 4ZeroBox is programmable in Python and C, thanks to the Zerynth SDK.
 
 ## Hardware Setup
 
@@ -76,7 +77,7 @@ import sfw
 sfw.watchdog(0, 60000)
 
 # open the default serial port, the output will be visible in the serial console
-streams.serial()  
+streams.serial()
 
 # loop forever
 while True:
@@ -95,10 +96,10 @@ We hope that this first demo will be the first step towards creating more intere
 
 The user can find the complete 4ZeroBox documentation at this [link](/latest/hardware/4ZeroBox/).
 
-Other useful documents are: 
+Other useful documents are:
 
-- [Quick Guide](https://www.zerynth.com/download/15283/), 
-- [Brochure](https://www.zerynth.com/download/13895/), 
+- [Quick Guide](https://www.zerynth.com/download/15283/),
+- [Brochure](https://www.zerynth.com/download/13895/),
 - [Examples](/latest/reference/libs/zerynth/zdm/docs/examples/).
 
 It's important to note that the user needs to have the latest version of the [Zerynth Device Manager](https://www.zerynth.com/zsdk/) to develop this project.

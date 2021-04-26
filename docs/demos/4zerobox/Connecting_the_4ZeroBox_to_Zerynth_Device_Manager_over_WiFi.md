@@ -1,17 +1,18 @@
 # Connecting the 4ZeroBox to Zerynth Device Manager over WiFi
 
 In this tutorial, we will show you how to connect the 4ZeroBox to the Zerynth Device Manager sending data to a cloud service.
-Zerynth Device Manager (ZDM) is a device and data management service that makes it easy to securely register, organize, monitor, and remotely manage IoT devices at scale. 
+
+Zerynth Device Manager (ZDM) is a device and data management service that makes it easy to securely register, organize, monitor, and remotely manage IoT devices at scale.
 With Zerynth Device Manager, you can manage large and diverse device fleets such as operational technology systems, machines, appliances, vehicles, and more.
 
 In this example, we will be using:
 
 1. [Zerynth OS](https://www.zerynth.com/zos/) - a **multithreaded Real-Time OS** that provides real hardware independence, allowing code reuse on a wide range of 32-bit microcontrollers, in a very small footprint;
 2. [Zerynth SDK](https://www.zerynth.com/zsdk/) - the gateway to our platform which includes:
-    - [Zerynth Toolchain](https://docs.zerynth.com/latest/reference/core/toolchain/docs/) – a command-line interface that integrates all the essential functions for the development with [Zerynth OS](https://www.zerynth.com/zos/)  and the management of the Zerynth Device Manager cloud service.
-    - [Zerynth Studio](https://docs.zerynth.com/latest/develop/) – an advanced [IDE](https://docs.zerynth.com/latest/reference/core/studio/docs/) for the Zerynth Toolchain. It includes development and debugging tools and numerous code examples.
-3. [Zerynth Device Manager(ZDM)](https://testdocs.zerynth.com/latest/zCloud/) -it helps you register, organize, monitor, and remotely manage IoT devices at scale. ZDM allows managing devices and also collects and aggregates the data they produce. ZDM integrates with all primary cloud service providers to easily connect devices to the cloud and other devices so you can remotely control your fleet. You can use ZDM to take mitigating actions such as pushing security fixes. You can also easily send firmware-over-the-air (FOTA) updates to your Zerynth OS powered devices, such as the latest software version or a new firmware update.
-4. [4ZeroBox](https://docs.zerynth.com/latest/hardware/4ZeroBox/) - a modular hardware electronic unit that simplifies the development of Industrial IoT applications allowing rapid integration with sensors, actuators, and Cloud services. 4ZeroBox is programmable in Python and C, thanks to the Zerynth SDK.
+    - [Visual Studio Code](/latest/gettingstarted/vscode/) – the official development environment for Zerynth.
+    - [Zerynth Installer](/latest/gettingstarted/#1-install-zerynth) – an all-in-one application that installs the Zerynth operating system that will be used on the development board, the Zerynth compiler and the VSCode plugin
+3. [Zerynth Device Manager(ZDM)](/latest/zCloud/) -it helps you register, organize, monitor, and remotely manage IoT devices at scale. ZDM allows managing devices and also collects and aggregates the data they produce. ZDM integrates with all primary cloud service providers to easily connect devices to the cloud and other devices so you can remotely control your fleet. You can use ZDM to take mitigating actions such as pushing security fixes. You can also easily send firmware-over-the-air (FOTA) updates to your Zerynth OS powered devices, such as the latest software version or a new firmware update.
+4. [4ZeroBox](/latest/hardware/4ZeroBox/) - a modular hardware electronic unit that simplifies the development of Industrial IoT applications allowing rapid integration with sensors, actuators, and Cloud services. 4ZeroBox is programmable in Python and C, thanks to the Zerynth SDK.
 
 ## Hardware Setup
 
@@ -22,6 +23,7 @@ First, connect the 4ZeroBox and PC with a USB cable, as shown below:
 ## Board setup:
 
 Regarding the power supply, you can use a USB or external 24V power supply.
+
 Compared to the previous versions of the 4ZeroBox, there are no jumpers, so just connect the desired power supply and continue with board setup.
 
 ## Software setup
@@ -57,19 +59,19 @@ After virtualization, the 4ZeroBox is ready to be programmed and the Zerynth scr
 In this step by step tutorial we will explain how to program the 4ZeroBox with the Zerynth SDK and connect it to the Zerynth Device Manager.
 
 **1. Create an account**
-   
+
 Register or login to the [ZDM](https://zdm.zerynth.com/). The first time you access the ZDM, a default workspace and a default fleet are created for you. Workspaces and fleets are ways of organizing your devices in the ZDM. Open the workspace by clicking on it.
 
 ![](img/workspace.jpg)
 
 **2. Create a device**
-   
+
 Having accessed the workspace, it's time to create your first device! Go to the Devices tab in the workspace page, then click on the Add device button. In the popup you can provide a human readable name for the device and choose the fleet it will live in. For now, just accept the default by clicking on the Add button.
 
 ![](img/new_device.jpg)
 
 **3. Device security**
-   
+
 Once the device is created, it needs a set of credentials to access the ZDM endpoints in a secure way. Choosing credential types and the security level can be a daunting task. Luckily the ZDM presents you a pop-up with sensible defaults. Just press the OK button and you get a medium level of security just out of the box.
 
 ![](img/device_security.jpg)
@@ -82,7 +84,7 @@ Once the credentials are ready, you can download them into a zdevice.json file. 
 
 ## Implementation
 
-In this section, we will run a very simple application which will connect the 4ZeroBox to the Zerynth Device Manager and send fibonacci numbers as data to the cloud service. At the same time data will be printed on the console, so you can monitor both ZDM devices and physical devices in parallel. 
+In this section, we will run a very simple application which will connect the 4ZeroBox to the Zerynth Device Manager and send fibonacci numbers as data to the cloud service. At the same time data will be printed on the console, so you can monitor both ZDM devices and physical devices in parallel.
 
 So, let’s start with the implementation.
 
@@ -118,11 +120,11 @@ config:
 
 By pasting this inside `project.yml` we have enabled the usage of WIFI - as you can see WIFI has the value `true` compared to others which are `null`.
 
-**Copy the `zdevice.json` saved in previous steps to the project folder.** 
+**Copy the `zdevice.json` saved in previous steps to the project folder.**
 
 **2. System Initialization**
 
-Let’s first import all necessary modules and create a sequence which will initialize the system. 
+Let’s first import all necessary modules and create a sequence which will initialize the system.
 
 In this example, we are using a watchdog timer that must be reset every pre-defined period. Alongside with that we will initialize serial and create an instance of the fourzerobox class.
 
@@ -201,7 +203,7 @@ def publish_handler():
     		mcu.reset()
 ```
 
-As you can see - sending is pretty easy - the single method call is enough to send data to the cloud. 
+As you can see - sending is pretty easy - the single method call is enough to send data to the cloud.
 
 **5. Main loop**
 
@@ -225,7 +227,7 @@ Here, you can see a picture of the folder structure:
 
 ![](img/folder_structure.jpg)
 
-After compilation of the code and uplinking to the 4ZeroBox you will be able to monitor the fibonacci sequence on the Console and ZDM web application in parallel. 
+After compilation of the code and uplinking to the 4ZeroBox you will be able to monitor the fibonacci sequence on the Console and ZDM web application in parallel.
 
 ![](img/data.jpg)
 

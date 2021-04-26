@@ -17,7 +17,7 @@ iterator objects themselves are required to support the following two methods, w
 
 
 **`iterator.\__iter__()`**
- 
+
 Return the iterator object itself.  This is required to allow both containersand iterators to be used with the `for` and `in` statements.
 
 
@@ -30,7 +30,7 @@ Implementations that do not obey this property are deemed broken.
 
 ## Sequence Types
 
-There are three basic sequence types: lists, tuples, and range objects. Additional sequence types tailored for processing of [binary data](/latest/reference/guide/docs/seqmap/#binary-sequence-types) and [text strings](/latest/reference/guide/docs/seqmap/#strings) are described in dedicated sections.
+There are three basic sequence types: lists, tuples, and range objects. Additional sequence types tailored for processing of [binary data](/latest/reference/os/seqmap/#binary-sequence-types) and [text strings](/latest/reference/os/seqmap/#strings) are described in dedicated sections.
 
 ### Common Sequence Operations
 
@@ -211,7 +211,7 @@ Testing range objects for equality with `==` and `!=` compares them as sequences
 
 ## Strings
 
-Textual data in Python is handled with strin.. Strings are immutable [sequences](https://docs.zerynth.com/latest/official/core.zerynth.stdlib/docs/seq_map.html#typesseq) of 8 bit characters. Zerynth does not support Unicode yet. String literals are written in a variety of ways:
+Textual data in Python is handled with strin.. Strings are immutable [sequences](/latest/reference/os/seqmap/#sequence-types) of 8 bit characters. Zerynth does not support Unicode yet. String literals are written in a variety of ways:
 
 
 * Single quotes: `'allows embedded "double" quotes'`
@@ -232,7 +232,7 @@ multiple fragments.
 
 **`class str(object='')`**
 
-Return a [string](/latest/reference/guide/docs/seqmap/#strings) version of *object.  If *object* is not
+Return a [string](/latest/reference/os/seqmap/#strings) version of *object.  If *object* is not
 provided, returns the empty string. Returns
 `object.__str__()`, which is the “informal” or nicely
 printable string representation of *object.  For string objects, this is the string itself.  If *object does not have a `__str__()` method, then `str()` raises TypeError.
@@ -304,7 +304,7 @@ For example:
 ['1', '2', '3']
 ```
 
-**`str.startswith(prefix[,start[,end] ])`** 
+**`str.startswith(prefix[,start[,end] ])`**
 
 Return `True` if string starts with the *prefix*, otherwise return `False`. With optional *start* test string beginning at that position.  With optional *end*, stop comparing string at that position.
 
@@ -347,7 +347,7 @@ A conversion specifier contains two or more characters and has the following com
 5. Precision (optional), given as a `'.'` (dot) followed by the precision.  If specified as `'*'` (an asterisk), the actual precision is read from the next element of the tuple in *values*, and the value to convert comes after the precision.
 6. Conversion type.
 
-When the right argument is a dictionary (or other mapping type), then the formats in the string *must* include a parenthesized mapping key into that dictionary inserted immediately after the `'%'` character. The mapping key selects the value to be formatted from the mapping.  
+When the right argument is a dictionary (or other mapping type), then the formats in the string *must* include a parenthesized mapping key into that dictionary inserted immediately after the `'%'` character. The mapping key selects the value to be formatted from the mapping.
 
 For example:
 
@@ -419,7 +419,7 @@ Since bytes objects are sequences of integers (akin to a tuple), for a bytes obj
 * Creating a zero-filled instance with a given length: `bytearray(10)`
 * From an iterable of integers: `bytearray([1,2,3])`
 
-As bytearray objects are mutable, they support the mutable sequence operations in addition to the common bytes and bytearray operations described in [Bytes and Bytearray Operations](/latest/reference/guide/docs/seqmap/#bytes-and-bytearray-operations).
+As bytearray objects are mutable, they support the mutable sequence operations in addition to the common bytes and bytearray operations described in [Bytes and Bytearray Operations](/latest/reference/os/seqmap/#bytes-and-bytearray-operations).
 
 Since 2 hexadecimal digits correspond precisely to a single byte, hexadecimal numbers are a commonly used format for describing binary data.
 
@@ -430,8 +430,8 @@ Since bytearray objects are sequences of integers (akin to a list), for a bytear
 Both bytes and bytearray objects support the common sequence operations. They interoperate not just with operands of the same type, but with any bytes-like object. Due to this flexibility, they can be freely mixed in operations without causing errors. However, the return type of the result may depend on the order of operands.
 
 !!! note
-    Contrary to Python, in Zerynth the methods on bytes and bytearray objects accept strings as their arguments, just as the methods on strings accept bytes as their arguments.  
-    
+    Contrary to Python, in Zerynth the methods on bytes and bytearray objects accept strings as their arguments, just as the methods on strings accept bytes as their arguments.
+
 For example, you can write:
 
 ```py
@@ -439,7 +439,7 @@ a = "abc"
 b = a.replace(b"a", "f")
 ```
 
-and: 
+and:
 
 
 ```py
