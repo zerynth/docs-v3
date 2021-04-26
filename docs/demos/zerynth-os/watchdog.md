@@ -1,26 +1,27 @@
 # Watchdog
 
-The demonstration of how to use watchdog. It is necessary to have "Secure Firmware" VM enabled to run this demo successfully. After we initialized the watchdog to reset the MCU after 15000 milliseconds, inside the loop we increasing the delay time between watchdog kicks. When delay time become higher then 15000 ms the MCU - watchdog will reset the MCU.
+Watchdogs are timers that reset the device if they are not manually restarte, a.k.a. kicked.
+The watchdog is initialized by the bootloader thanks to some `config.yml` macros.
+Moreover the watchdog is setup to a different time windows at startup.
+In an infinite loop the sleeping time is always increased until it is longer than the watchdog window and the device resets.
+
 
 More information about modules used in this demo:
 
-- [Watchdog](/latest/reference/core/stdlib/docs/sfw/#watchdogs)
+- [Watchdog](../reference/libs/stdlib/watchdog.md)
 
 ```python
-# Import necessary modules.
-import streams
-import sfw
+# main.py
+import watchdog
+import mcu
 
 # Set Watchdog timeout after 15 seconds.
-sfw.watchdog(0, 15000)
-
-# Open the default serial port.
-streams.serial()
+watchdog.setup(0, 15000)
 
 print("Hello Watchdog!")
 
 # Check is the watchdog triggered.
-trig = sfw.watchdog_triggered()
+trig = mcu.reset_reason() == mcu.RESET_WATCHDOG
 print("Triggered: ", trig)
 
 delay = 1000
@@ -28,8 +29,16 @@ delay = 1000
 while True:
     print("Delaying for ", delay)
     sleep(delay)
-    sfw.kick()
+    watchdog.kick()
     delay = delay + 8000
 ```
 
-![](img/watchdog_log.png)
+
+Watchdog is enabled by adding the macro `ZERYNTH_EARLY_WATCHDOG` into `config.yml`
+
+```yml
+# config.yml
+config:
+    ZERYNTH_EARLY_WATCHDOG: 5000
+
+```

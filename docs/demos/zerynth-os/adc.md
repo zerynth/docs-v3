@@ -1,22 +1,22 @@
 # ADC
 
-This demonstration of ADC usage. During first ADC readout, single sample will be read and then converted to the real voltage based on ADC resolution and reference voltage. During second readout, 4 samples will be read from the single analog pin with default sampling period. During the third readout, 4 samples will be read from two analog pins.
+This is a demo about simple analog to digital conversion. Reading from ADC pins are shown in different modalities:
 
-More information about modules used in this demo:
+- single reading of a raw value (integer, 12 bits)
+- single reading of a raw value converted to voltage
+- multiple readings of raw values
 
-- [ADC](latest/reference/guide/docs/vhal/#adc)
+    More information about modules used in this demo:
 
-```py
+- [ADC](../reference/libs/stdlib/adc.md)
+
+```python
 # Import necessary modules.
-import streams
 import adc
 
 # Reference voltage and ADC resolution values.
 VOLTAGE_REFERENCE = 3.3
 ADC_RESOLUTION = 4095
-
-# Open the default serial port.
-streams.serial()
 
 # Print initial message.
 print("Hello ADC!")
@@ -35,10 +35,6 @@ while True:
     samples = adc.read(A0, 4)
     print("Samples: ", samples)
 
-    # Acquire 4 samples from 2 analog pins with default sampling period.
-    more_samples = adc.read([A0, A1], 4)
-    print("More samples A0, A1: ", more_samples)
     sleep(300)
 ```
 
-![](img/adc_log.png)

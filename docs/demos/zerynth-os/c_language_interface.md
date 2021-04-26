@@ -1,12 +1,14 @@
 # C Language Interface
 
-The demonstration of how to write the C code function inside separate file which is then wrapped in python code. C functions are implemented to do basic operations of multiplying and addition of the two variables. Then inside main module they are wrapped with python functions and called in order to add and multiply two numbers.
+Zeryth support interfacing Python with C code. Python functions can be decorated with information on how to call the respective C function.
+After some conversion from python arguments to C variables, all the power of C language is ready to be used.
+
 
 More information about content used in this demo:
 
-- [C Language Interface](/latest/reference/guide/docs/clang/)
+- [C Language Interface](../reference/os/clang.md)
 
-File which carries C source code `c_file.c` should be placed inside project folder.
+C source code `c_file.c` should be created inside project folder.
 
 ```c
 #include "zerynth.h"
@@ -18,12 +20,11 @@ C_NATIVE( c_addition )
     int32_t a;
     int32_t b;
 
-    if ( parse_py_args( "ii", nargs, args, &a, &b ) != 2 )
-    {
-        return ERR_TYPE_EXC;
-    }
+    a = PYC_ARG_INT(0);
+    b = PYC_ARG_INT(1);
 
-    * res = PSMALLINT_NEW( a + b );
+
+    MAKE_RESULT(pinteger_new( a + b ));
 
     return ERR_OK;
 }
@@ -35,22 +36,19 @@ C_NATIVE( c_multiply )
     int32_t a;
     int32_t b;
 
-    if ( parse_py_args( "ii", nargs, args, &a, &b ) != 2 )
-    {
-        return ERR_TYPE_EXC;
-    }
+    a = PYC_ARG_INT(0);
+    b = PYC_ARG_INT(1);
 
-    * res = PSMALLINT_NEW( a * b );
+
+    MAKE_RESULT(pinteger_new( a * b ));
 
     return ERR_OK;
 }
 ```
 
-File which carries python code `main.py` placed inside project folder.
+Content of `main.py`:
 
-```py
-# Import necessary modules.
-import streams
+```python
 
 # Wrap C function for adding two numbers in python.
 @c_native("c_addition", ["c_file.c"], [])
@@ -62,8 +60,6 @@ def py_addition(a, b):
 def py_multiply(a, b):
         pass
 
-# Open the default serial port.
-streams.serial()
 
 print("Hello C Language Interface")
 
@@ -81,4 +77,3 @@ while True:
     sleep(2000)
 ```
 
-![](img/c_iface.png)

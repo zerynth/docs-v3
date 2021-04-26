@@ -1,6 +1,6 @@
 # Hello 4ZeroBox
 
-In this tutorial, we will demonstrate how to get the 4ZeroBox up and running starting with the famous Hello Zerynth example.
+In this tutorial, we will demonstrate how to get the 4ZeroBox up and running starting with the Hello Zerynth example.
 
 In this example, we will be using:
 

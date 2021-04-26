@@ -4,19 +4,12 @@ The simplest demo which uses serial port and GPIO to toggle the LED. After the i
 
 More information about modules used in this demo:
 
-- [GPIO](latest/reference/guide/docs/vhal/#gpio)
-- [Serial](latest/reference/guide/docs/vhal/#serial)
+- [GPIO](../reference/libs/stdlib/gpio.md)
 
 ```python
-# Import the streams module.
-import streams
+from bsp import board
+import gpio
 
-# Initialize appropriate pins used to drive LED as output.
-pinMode(D0,OUTPUT)
-pinMode(D2,OUTPUT)
-
-# Open the default serial port.
-streams.serial()
 
 # Print initial message.
 print("Hello Zerynth!")
@@ -25,14 +18,10 @@ print("Hello Zerynth!")
 while True:
 
     print("Drive Pins HIGH")
-    digitalWrite(D0, HIGH)
-    digitalWrite(D2, HIGH)
+    gpio.set(LED_BLUE,1)
     sleep(1000)
 
     print("Drive Pins LOW")
-    digitalWrite(D0, LOW)
-    digitalWrite(D2, LOW)
+    gpio.set(LED_BLUE,0)
     sleep(1000)
 ```
-
-![](img/hello_zerynth_log.png)

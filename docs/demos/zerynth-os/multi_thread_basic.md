@@ -1,23 +1,15 @@
 # Multi Thread Basic
 
-The basic demonstration of Zerynth multi-threading. Two threads are running in parallel, each thread toggle the single LED and in same time print the message about which thread toggle the LED and polarity of the GPIO pin.
+The basic demonstration of Zerynth multi-threading. Two threads are running in parallel, each thread toggle the LED and at same time print the message about which thread toggle the LED and polarity of the GPIO pin.
 
 More information about modules used in this demo:
 
-- [Threading](/latest/reference/core/stdlib/docs/threading/)
-- [GPIO](/latest/reference/guide/docs/vhal/#gpio)
-- [Serial](/latest/reference/guide/docs/vhal/#serial)
+- [Threading](../reference/libs/stdlib/threading.md)
+- [GPIO](../reference/libs/stdlib/gpio.md)
+- [Serial](../reference/libs/stdlib/serial.md)
 
 ```python
-# Import the streams module.
-import streams
-
-# Initialize appropriate pins used to drive LED as output.
-pinMode(D0,OUTPUT)
-pinMode(D2,OUTPUT)
-
-# Open the default serial port.
-streams.serial()
+import gpio
 
 # Print initial message.
 print("Hello Multi-Threading!")
@@ -27,10 +19,10 @@ def thread_1():
 
         # Toggle appropriate first pin from infinite loop.
         print("Thread 1 - Drive Pin HIGH")
-        digitalWrite(D0, HIGH)
+        gpio.set(LED_BLUE, HIGH)
         sleep(1000)
         print("Thread 1 - Drive Pin LOW")
-        digitalWrite(D0, LOW)
+        gpio.set(LED_BLUE, LOW)
         sleep(1000)
 
 def thread_2():
@@ -38,14 +30,13 @@ def thread_2():
 
         # Toggle appropriate second pin from infinite loop.
         print("Thread 2 - Drive Pin HIGH")
-        digitalWrite(D2, HIGH)
+        gpio.set(LED_RED, HIGH)
         sleep(300)
         print("Thread 2 - Drive Pin LOW")
-        digitalWrite(D2, LOW)
+        gpio.set(LED_RED, LOW)
         sleep(300)
 
 # Start both threads.
 thread(thread_1)
 thread(thread_2)
 ```
-![](img/multi_thread_basic_log.png)
