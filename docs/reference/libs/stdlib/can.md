@@ -194,7 +194,7 @@ Receive a message from a RXF channel if the channel is not empty.
 
 * `ch` is the channel to receive from.
 
-Returns a bytearray with the message.
+Returns sid, msg
 
 ### function `stop_receive`
 ```python
