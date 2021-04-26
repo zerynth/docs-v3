@@ -1,256 +1,245 @@
 # CAN
 
-This module loads the Controller Area Network (CAN) driver.
+This module loads the Controller Area Network (CAN) driver of the mcp2518.
 
 A Controller Area Network (CAN bus) is a robust vehicle bus standard designed to allow microcontrollers and devices to communicate with each other’s applications without a host computer.
 It is a message-based protocol, designed originally for multiplex electrical wiring within automobiles to save on copper, but can also be used in many other contexts.
 For each device the data in a frame is transmitted sequentially but in such a way that if more than one device transmits at the same time the highest priority device is able to continue while the others back off.
 Frames are received by all devices, including by the transmitting device.
 
-## The Can class
+Only CAN2.0 is supported right now.
 
-##### class Can
+### function `init`
+```python
+init(nss, spi=SPI0, spi_clk=15000000)
+```
+Initialize the mcp2518 CAN controlled by the SPI peripheral. This function must be called to be able to use other CAN's APIs.
 
-```#!py3 class Can(drvname, baud, options=0, sample_point=75.0, prop=0, phase1=0, phase2=0, sjw=1)```
+* `nss` is the chip select pin use to communicate with the CAN device.
 
-This class implements CAN controller functionalities.
+* `spi` is the SPI peripheral connected to the mcp2518. Default `SPI0`
 
-Can is initialized by passing the driver name ```drvname```, in the form of CAN0, CAN1, etc… depending on the
-board capabilities. Refer to the board pinout to locate the actual pins belonging to the driver.
+* `spi_clk` is the clock speed of the SPI.
 
-The bus speed must be also specified in the ```baud``` argument. Optional timing parameters can specify
-either the bit sample point ```sample_point```, as a percentage of the bit time, or standard CAN parameters
-as propagation segment ```prop```, phase segment 1 ```phase1``` and phase segment 2 ```phase2```.
+### function `conf`
+```python
+conf(cdiv=3, iso_crc_en=False, tef_en=False, txq_en=False, btime=10, sysclk=0)
+```
+Configure main parameter of the CAN communication. This includes clock speed, crcs and if Transmit Event Fifo and Transmit Queue channels are active.
+Must be called before `start` is called.
 
-When the sample point is used, the bit timing arguments must be zero and they are calculated automatically.
-The synchronization jump width ```sjw``` can be specified in any case.
-
-
-* **```Arguments```**
-
+* `cdiv` is the clock division of the CAN internal clock. Clock division parameter follows the table below.
     
-    * ```drvname``` – peripheral driver identifier (one of CAN0, CAN1, etc…)
-
-
-    * ```baud``` – bus speed, in bits per second (up to 1000000)
-
-
-    * ```sample_point``` – bit sample point, in percent (0 to 100.0)
-
-
-    * ```prop``` – propagation segment, in time quanta (1 to 8)
-
-
-    * ```phase1``` – phase segment 1, in time quanta (1 to 8)
-
-
-    * ```phase2``` – phase segment 2, in time quanta (1 to 8)
-
-
-    * ```sjw``` – synchronization jump width, in time quanta (1 to 4)
-
-
-    * ```options``` – a combination of the following option flags:
-
-
-        * `OPTION_NO_RETRY` to prevent automatic retransmission (one-shot mode)
-
-
-        * `OPTION_NO_AUTO_OFF` to prevent automatic recovery from Bus-Off errors
-
-
-        * `OPTION_KEEP_ORDER` to maintain the chronological order of messages
-
-
-        * `OPTION_LISTEN_ONLY` to silently listen to the bus (Ack is sent internally), receive-only mode, no transmission possible
-
-
-        * `OPTION_LOOPBACK` to activate internal loopback test mode (can be combined with listen-only)
-
-
-###### Can.add_filter
-
-```#!py3 add_filter(id, mask)```
-
-Add a message acceptance filter for this CAN controller. A received message is accepted if:
-
-**`(received_id ^ id) & mask == 0`**
-
-The returned value is a number that uniquely identifies the filter and can be used to remove the filter at a later time.
-
-
-* **```Arguments```**
-
+    | `cdiv` | Clock division |
+    |--------|----------------|
+    | 0      | 1              |
+    | 1      | 2              |
+    | 2      | 4              |
+    | 3      | 10             |
     
-    * ```id``` – contains the message identifier (11-bit for standard frames, 29-bit for extended frames),             plus the ID Extension (IDE) flag `FRAME_EXT_FLAG` and the Remote Transmission Request (RTR) flag `FRAME_RTR_FLAG`.
+    Default value is 3.
 
+* `iso_crc_en` enables the iso crc check on messages. Default is `False`.
 
-    * ```mask``` – is a bit mask where each bit is 1 if the received message id must match the corresponding bit in the message id             or 0 if the corresponding bit in the message id is ignored. To match a single id you can use `FRAME_STD_MASK`             for standard frames or `FRAME_EXT_MASK` combined with `FRAME_EXT_FLAG` for extended frames.
+* `tef_en` enables Transmit Event Fifo and its APIs. This allows to keep track the completed transmit events. Default is `False`.
 
+* `txq_en` enables the Transmit Queue. This will always be on channel 0. Diffrently from the Transmit Fifos, the Queue will transmit messages following ID priority (lower ID -> higher priority). Default is `False`.
 
+* `btime` is the data rate of the CAN. `btime` parameter follows the table below.
 
-* ```Returns```
+    | `btime` | Data rate (kbps) |
+    |---------|------------------|
+    | 0       | 500              |
+    | 10      | 250              |
+    | 15      | 1000             |
+    | 17      | 125              |
 
-    the index of the filter added.
+    Default value is 10.
 
+* `sysclk` is the CAN internal clock speed. `sysclk` follows the table below.
 
-`del_filter(filter)`
+    | `sysclk` | Clock speed (MHz) |
+    |----------|-------------------|
+    | 0        | 40                |
+    | 1        | 20                |
+    | 2        | 10                |
 
-Remove a previously added message acceptance filter.
+    Default value is 0.
 
+### function `tef_conf`
+```python
+tef_conf(queue_size)
+```
+Configure the Transmit Event Fifo.
+Must be called before `start` is called.
 
-* ```Arguments```
+* `queue_size` is the size of the Transmit Event Fifo. The TEF will keep track of the last `queue_size` completed transmissions.
 
-    
-    * ```filter``` – the index of the filter to remove.
+### function `txq_conf`
+```python
+txq_conf(queue_size, prio, tx_attempts=0)
+```
+Configure the Transmit Queue. This will be always configured to channel 0, which is reserved for it. Diffrently from the Transmit Fifos, the Queue will transmit messages following ID priority (lower ID -> higher priority).
 
+* `queue_size` is the size of the Transmit Queue.
 
+* `prio` is the TXQ channel priority. Lower value -> higher priority.
 
-`transmit(id, dlc, data=None, timeout=-1)`
+* `tx_attempts` is the number of retransmission attempts if transmissions are not successful. This follows the table below.
 
-Send a message to the CAN bus output mailboxes.
+    | `tx_attempts` | Retransmissions |
+    |---------------|-----------------|
+    | 0             | Disabled        |
+    | 1             | 3               |
+    | 2             | Unlimited       |
 
+    Default value is 0.
 
-* **```Arguments```**
+### function `txf_conf`
+```python
+txf_conf(ch, queue_size, prio, rtr_en=False, tx_attempts=0)
+```
+Configure a Transmit Fifo Channel. More than one channel can be configured as TXF.
+Must be called before `start` is called.
 
-    
-    * ```id``` – contains the message identifier (11-bit for standard frames, 29-bit for extended frames),             plus the ID Extension (IDE) flag `FRAME_EXT_FLAG` and the Remote Transmission Request (RTR) flag `FRAME_RTR_FLAG`.
+* `ch` is the channel to configure as TXF. Possible channels go from 1 to 32.
 
+* `queue_size` is the size of the Transmit Fifo.
 
-    * ```dlc``` – is the Data Length Code (DLC) used in a Data Frame or a Remote Frame. For Data Frames it is             the number of data bytes included in the message.
+* `prio` is the TXF channel priority. Lower value -> higher priority.
 
+* `rtr_en` enables the remote request frames. Default is `False`.
 
-    * ```data``` – is a byte array that contains the message data (up to 8 bytes for classic CAN),             not used for Remote Frames (RTR bit set).
+* `tx_attempts` is the number of retransmission attempts if transmissions are not successful. This follows the table below.
 
+    | `tx_attempts` | Retransmissions |
+    |---------------|-----------------|
+    | 0             | Disabled        |
+    | 1             | 3               |
+    | 2             | Unlimited       |
 
-    * ```timeout``` – the maximum time to wait for queuing the message or -1 to wait indefinitely
+    Default value is 0.
 
+### function `rxf_conf`
+```python
+rx_conf(ch, queue_size)
+```
+Configure a Receive Fifo Channel. More than one channel can be configured as RXF.
+Must be called before `start` is called.
 
-###### Can.receive
+* `ch` is the channel to configure as RXF. Possible channels go from 1 to 32.
 
-```#!py3 receive(data=None, timeout=-1)```
+* `queue_size` is the size of the Receive Fifo.
 
-Receive a message from the CAN bus input mailboxes.
+### function `start`
+```python
+start()
+```
+Starts the configured CAN channels. If configured channels require to much RAM of the CAN, PERIPHERAL_ERROR exception is raised. Try to reduce queue sizes is this case to reduce RAM requirements.
 
-If a ```data``` bytearray is provided it is used to store received data, otherwise a new buffer is created.
+### function `transmit`
+```python
+transmit(ch, tx, sid, rtr=False, seq=0)
+```
+Send a message on a target TXF channel. Tx messages are automatically transmitted by the Fifo.
 
+* `ch` is the target TXF channel.
 
-* **```Arguments```**
+* `tx` is the message to transmit. Max size 8 bytes.
 
-    
-    * ```data``` – a bytes or bytearray object to receive message data or ```None```
+* `sid` is the message standard 11b ID.
 
+* `rtr` defines if the message is a RTR. Default is `False`.
 
-    * ```timeout``` – the maximum time to wait for a message or -1 to wait indefinitely
+* `seq` is the sequence number of the message. Default is 0.
 
+If the ch queue is full, PERIPHERAL_ERROR exception is raised.
 
+### function `stop_transmit`
+```python
+stop_transmit(ch)
+```
+Stop transmissions on a target channel.
 
-* **```Returns```**
+* `ch` Target channel.
 
-    a tuple of the form (id,dlc,data), where:
+### function `add_filter`
+```python
+add_filter(filter, ch, sid, msid)
+```
+Add a filter on received messages ID on a specified channel.
+Each RXF channel requires an active filter.
 
+* `filter` is the number of the filter. Up to 32 filters.
 
-    * id contains the message identifier (11-bit for standard frames, 29-bit for extended frames),                 plus the ID Extension (IDE) flag `FRAME_EXT_FLAG` and the Remote Transmission Request (RTR) flag `FRAME_RTR_FLAG`.
+* `ch` is the RXF channel to link the filter to.
 
+* `sid` is the filtered standard ID.
 
-    * dlc is the Data Length Code (DLC) used in a Data Frame or a Remote Frame. For Data Frames it is                 the number of data bytes included in the message.
+* `msid` is the mask of ignored bits or the filter.
 
+### function `rm_filter`
+```python
+rm_filter(filter)
+```
+Removes a target filter. This
 
-    * data is a byte array that contains the message data (up to 8 bytes for classic CAN),                 not used for Remote Frames (RTR bit set).
+* `filter` filter number to remove.
 
+### function `receive`
+```python
+receive(ch)
+```
+Receive a message from a RXF channel if the channel is not empty.
 
+* `ch` is the channel to receive from.
 
-###### Can.get_errors
+Returns a bytearray with the message.
 
-```#!py3 get_errors()```
+### function `stop_receive`
+```python
+stop_receive(ch)
+```
+Stop receiving from a RXF channel.
 
-Get the accumulated error information.
+* `ch` is the channel to stop receiving from.
 
+### function `tef_get`
+```python
+tef_get()
+```
+Get the next messege from the Transmit Event Fifo.
 
-* **```Returns```**
+### function `en_rx_intr`
+```python
+en_rx_intr(ch)
+```
+Enables the alert pin for a specific channel RX channel.
+If the target channel will receive a message, the alert pin will be lowered.
 
-    a tuple of the form (flags,rx_count,tx_count), where:
+* `ch` is the channel to activate the alert on.
 
+### function `dis_rx_intr`
+```python
+dis_rx_intr(ch)
+```
+Disable the alert pin for a specific RX channel. 
 
-    * flags contains the error flags, a combinations of:
+* `ch` is the channel to deactivate.
 
-    > 
-    >     * `ERROR_WARNING` in Error-Active mode, when the error counter is over the warning threshold (usually >= 96)
+## Example
 
+```python
+import can
 
-    >     * `ERROR_PASSIVE` in Error-Passive mode (error counter >= 128)
+nss_can_pin = D10
+tx_ch = 1
 
+can.init(nss_can_pin)
+can.conf()
+can.txf_conf(tx_ch, 5, 1)
 
-    >     * `ERROR_BUSOFF` in Bus-Off mode (error counter > 255)
-
-
-    >     * `ERROR_STUFF` if Bit-Stuffing errors have been detected (more than 5 bits at the same level)
-
-
-    >     * `ERROR_FORM` if Form errors have been detected (Dominant bits detected during Recessive spaces)
-
-
-    >     * `ERROR_ACK` if no Ack bit is detected for a transmitted message
-
-
-    >     * `ERROR_RECESSIVE` if error detected when trasmitting Recessive bits
-
-
-    >     * `ERROR_DOMINANT` if error detected when trasmitting Dominant bits
-
-
-    >     * `ERROR_CRC` if CRC mismatch have been detected
-
-
-    >     * `ERROR_RX_OVERRUN` if the receive queue is full when receiving a new message
-
-
-    >     * `ERROR_TX_ARBLOST` if transmitted message lost abitration due to higher priority message on the bus
-
-
-    >     * `ERROR_TX_ERROR` if some error has been detected during transmission
-
-
-    * rx_count is the current value of the Receive error counter.
-
-
-    * tx_count is the current value of the Transmit error counter.
-
-
-
-###### Can.abort_receive
-
-```#!py3 abort_receive()```
-
-Abort any pending `receive()` calls, that will raise a ```TimeoutError```, and prevent further messages
-to be received, raising ```ConnectionAbortedError```, until resumed.
-
-###### Can.abort_transmit
-
-```#!py3 abort_transmit()```
-
-Abort any pending `transmit()` calls, that will raise a ```TimeoutError```, and prevent further messages
-to be transmitted, raising ```ConnectionAbortedError```, until resumed.
-
-###### Can.resume_receive
-
-```#!py3 resume_receive()```
-
-Resume receiving messages from the bus.
-
-###### Can.resume_transmit
-
-```#!py3 resume_transmit()```
-
-Resume transmitting messages to the bus.
-
-###### Can.done
-
-```#!py3 done()```
-
-Close this CAN driver instance and release used resources. Any pending function call or subsequent calls
-will raise an ```IOError``` exception.
-<!--stackedit_data:
-eyJoaXN0b3J5IjpbMjgxODM2NTE0LDEzMzU4NzA0MzQsMjg3Mz
-kzOTI2XX0=
--->
+can.start()
+tx_buff = bytearray("Test msg")
+can.transmit(tx_ch, tx_buff, 0x300)
+```
