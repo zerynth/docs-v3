@@ -1,7 +1,7 @@
 # CBOR
 
-This module define functions to serialize and deserialize objects to and from [CBOR](http://cbor.io>) format.
-The serialization and deserialization of objects is performed using a wrapped version of the awesome and lighting fast [libcbor](http://libcbor.org/)
+This module define functions to serialize and deserialize objects to and from [CBOR](http://cbor.io/) format.
+The serialization and deserialization of objects is performed using a wrapped version of the awesome and lighting fast [libcbor](https://github.com/PJK/libcbor/)
 
 
 ### function `loads`
@@ -10,7 +10,7 @@ loads(data)
 ```
 
 Returns a Python object represented by the byte sequence `data`.
-For CBOR specific structures such as `tags` and `undefined` values, 
+For CBOR specific structures such as `tags` and `undefined` values,
 the function returns instances of the `Tag` and `Undefined` classes.
 
 Raises `ValueError` when `data` contains bad or unsupported CBOR.

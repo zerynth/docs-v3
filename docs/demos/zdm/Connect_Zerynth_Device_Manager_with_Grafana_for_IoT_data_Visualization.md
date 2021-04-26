@@ -11,7 +11,7 @@ Components required:
 - [Python Requests lib](https://pypi.org/project/requests/),
 - [Python Pytz lib](https://pypi.org/project/pytz/).
 
-First of all, it’s necessery to install the Grafana simple JSON data source plugin following this [guide](https://grafana.com/grafana/plugins/grafana-simple-json-datasource/installation).
+First of all, it’s necessery to install the Grafana simple JSON data source plugin following this [guide](https://grafana.com/grafana/plugins/grafana-simple-json-datasource/).
 
 Then, to download the ZDM simple JSON connector Python (ZDMgrafana.py) file we prepared from [here](https://github.com/zerynth/zdm-grafana-bridge).
 
