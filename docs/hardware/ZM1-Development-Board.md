@@ -1,4 +1,4 @@
-# ZM1-DB
+# **ZM1-DB**
 
 The ZM1 Development board is an industrial-oriented, modular hardware development unit, Facilitates the development of scalable, secure and connected IoT applications.
 
@@ -8,12 +8,12 @@ The ZM1 Development Board can act as a Development Board for prototyping a Produ
 The DB features I/O connectors (the Z-bus) that allow the connection in a cascade of different add-on modules to create specific industrial applications that fit into a DIN-RAIL case.
 
 <figure>
-  <a data-fancybox="gallery" href="../img/DB-ZM1 front.png">
-  <img src="../img/DB-ZM1 front.png"width="300"/>
+  <a data-fancybox="gallery" href="../img/ZM1-DB-front.png">
+  <img src="../img/ZM1-DB-front.png"width="300"/>
   </a>
 </figure>
 
-## Device Summary
+## **Device Summary**
 
 * ZM1 Core: 32-bit Microcontroller runs on up to 240MHz, 16Mb of Flash, 312Kb SRAM
 
@@ -42,39 +42,40 @@ The DB features I/O connectors (the Z-bus) that allow the connection in a cascad
 * USB-C (power and programming)
 
 
-## Resources and Documents
+## **Resources and Documents**
 
 -   [User manual](https://www.zerynth.com/download/13895/)
 -   [Quick Guide](https://www.zerynth.com/download/15283/)
 
-## Getting Started
+## **Getting Started**
 
 For step-by-step guide on connecting, running your first example, Please refer to [the Getting started guide for the ZM1-DB](../../gettingstarted/ZM1-DB/)
 
-## ZM1-DB Software Library
+## **ZM1-DB Software Library**
 
 For more information on the ZM1-DB Library as software Library, Its features, functions and examples demos
 [Please check this Link](../../reference/reference/bsp/zm1_db/)
 
 
 
-## Pin Mapping
+## **Pin Mapping**
 
-![](img/4zeroboxpin.png)
+![](img/zm1-db-pinmap.jpg)
 
-## Power
+## **Power**
 
 The development board can be powered through the USB type-C connection, 9-36V Power Supply connector P1.
 DC power supply has priority over the USB power supply, but the power circuit automatically detects and uses the available power source.
-## Ethernet
+## **Ethernet**
 
 The ZM1-DB supports Ethernet connection, The board uses the RJ45 Connector and LAN8710 as a physical layer transceiver.
 For the Ethernet software driver and Examples,[Please refer to the Ethernet](../../reference/libs/networking/eth/#ethernet)
 
-## SD Card
+## **SD Card**
 
-The board features an on-board SD Card interface,For more information [please refer to the SpiSD module](../../reference/libs/SPISD)
+The board features an on-board SD Card interface,For more information [please refer to the Filesystem module](../../reference/libs/stdlib/fs/)
 
+<!---
 ## Flash Layout
 
 The internal flash of the ZM1 module is organized in a single flash area with pages of 4096 bytes each. The flash starts at address 0x00000, but many areas are reserved for Esp32 IDF SDK and Zerynth OS. There exist two different layouts based on the presence of BLE support.
@@ -88,7 +89,9 @@ The internal flash of the ZM1 module is organized in a single flash area with pa
 | 0x00310000    | 3Mb   | Zerynth OTA             |
 | 0x00920000    | 7040Kb| File System             |
 
-## Z-Bus
+-->
+
+## **Z-Bus**
 
 The modular expansion system uses the Z-Bus. The Z-Bus is an efficient, powerful standard for connecting and prototyping different sensors and devices.
 The Z-Bus is using the CN1 pin header (20x2) exposing the following:
@@ -108,7 +111,7 @@ The Z-Bus allows the connection in a cascade of different add-on modules to crea
 The development board offers a modular expansion system that adds expansion boards through the connectors on the board (Z-bus).
 Expansion boards vary in features and functionalities. Currently, Zerynth offers expansion boards for :
 <figure>
-  <a data-fancybox="gallery" href="../img/installer-02.png">
+  <a data-fancybox="gallery" href="../img/Boards.jpg">
   <img src="../img/Boards.jpg"width="300"/>
   </a>
 </figure>

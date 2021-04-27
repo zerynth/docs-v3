@@ -5,10 +5,8 @@
 Zerynth is a complete software-hardware platform, It simplifies the development of IoT products by offering modular industrial development boards, production-ready SoC modules and Easy-to-use Python enabled development enviornment.
 Zerynth hardware integrates seamlessly with Zerynth cloud, a powerful cloud service that monitors, manages and provisions devices, issues OTAs and procedure calls and visualize data with clear dashboards for the end-user. 
 
-TODO: Picture of Zerynth as a platform.
 
-
-To get started, You need one of Zerynth development boards, check the boards and Buy them from our hardware page.
+To get started, You need one of Zerynth development boards, [**Click here for more information on Zerynth Boards.**](https://zerynth.com/products/hardware/)
 
 ## **Get Started**
 

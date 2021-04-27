@@ -1,24 +1,23 @@
-# EXP-SER
+# **EXP-SER**
 
-The EXP-SER expansion board allows your application to communicate over RS485, RS232 and CAN interfaces, enables communication with PC, Devices, boards or sensors communicating over serial channels.
-The board features pin headers to connect terminals of CAN bus, R485 and RS232, in addition to exposing the UART/USART pins, I2C and SPI pins in the Z-bus pin header.
-
-
-## Device Summary
-
-* CAN: The board uses the MCP2518FD IC, It is an External CAN FD Controller.
-The board also uses NCV7357 as a CAN FD Transceiver.
-Connections between the controller and the transceiver are digitally isolated by the ISO7763 IC.
-* RS232 interface: The board uses the MAX3232 IC, 3-V to 5.5-V Multichannel RS-232 Line Driver/Receiver. The output pins of the IC are directly connected to the header P1.
-* RS485 interface: The board uses SN65HVD1786D RS485 Transceiver. The output pins of the IC are directly connected to the header P2.
-
+The EXP-SER expansion board allows your application to communicate over RS485, RS232 and CAN interfaces. It enables communication with PC, Devices, boards or sensors communicating over serial channels.
+The board features pin headers to connect terminals of CAN bus, R485 and RS232, in addition to exposing the UART/USART pins, I2C and SPI pins in the zBUS pin header.
 
 <figure>
-  <a data-fancybox="gallery" href="../img/DB-ZM1 front.png">
-  <img src="../img/ZDK-res.png"width="300"/>
+  <a data-fancybox="gallery" href="../img/EXP-SER-front.png">
+  <img src="../img/EXP-SER-front.png"width="300"/>
   </a>
 </figure>
-## Resources and Documents
+
+## **Device Summary**
+
+* **CAN:** The board uses the MCP2518FD IC, It is an External CAN FD Controller.
+The board also uses NCV7357 as a CAN FD Transceiver.
+Connections between the controller and the transceiver are digitally isolated by the ISO7763 IC.
+* **RS232 interface:** The board uses the MAX3232 IC, 3-V to 5.5-V Multichannel RS-232 Line Driver/Receiver. The output pins of the IC are directly connected to the header P1.
+* **RS485 interface:** The board uses SN65HVD1786D RS485 Transceiver. The output pins of the IC are directly connected to the header P2.
+
+## **Resources and Documents**
 
 -   [User manual](https://www.zerynth.com/download/13895/)
 
@@ -27,23 +26,23 @@ Connections between the controller and the transceiver are digitally isolated by
 For more information on the EXP-SER Library as software Library, features, functions and examples
 [Please check this Link](../../reference/reference/bsp/zm1_db/)
 
-## Pin Mapping
+## **Pin Mapping**
 
-![](img/4zeroboxpin.png)
+![](img/EXP-SER_pin.jpg)
 
 Official reference for EXP-SER can be found  [here](https://www.zerynth.com/4zeroplatform/).
 
 
 
-### Rotart and Standard switches
+### **Rotart and Standard switches**
 
 For information on the switches and other hardware details, Please refer to the [User manual of the board](#resources-and-documents)
 
-## Power
+## **Power**
 
 Power to the EXP-SER is supplied directly by the ZM1-DB.
 
-## Z-Bus
+## **Z-Bus**
 
 The modular expansion system uses the Z-Bus. The Z-Bus is an efficient, powerful standard for connecting and prototyping different sensors and devices.
 The Z-Bus is using the CN1 pin header (20x2) exposing the following:
@@ -60,7 +59,7 @@ The Z-Bus is using the CN1 pin header (20x2) exposing the following:
 
 
 <figure>
-  <a data-fancybox="gallery" href="../img/installer-02.png">
+  <a data-fancybox="gallery" href="../img/Boards.jpg">
   <img src="../img/Boards.jpg"width="300"/>
   </a>
 </figure>

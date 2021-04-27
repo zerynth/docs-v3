@@ -1,4 +1,4 @@
-# Getting Started with 4ZeroBox
+# **Getting Started with 4ZeroBox**
 
 So you have a shiny new 4ZeroBox and would like to start playing with it?
 First, you need to install the [Zerynth SDK](index.md#1-install-zerynth), it takes just a couple of minutes.
@@ -8,7 +8,7 @@ When the SDK is installed, you can run Visual Studio Code that comes already con
 Using the 4ZeroBox with the SDK is really easy
 
 
-## 1. Create a project
+## **1. Create a project**
 
 Before connecting the 4ZeroBox a project must be created. 
 Zerynth SDK provides a lot of examples that can be easily cloned and used as a starting point for a new project.
@@ -29,7 +29,7 @@ Simply choose `Zerynth > Search examples` and then type `Hello`. Select the `Hel
   <figcaption>The Hello Zerynth example</figcaption>
 </figure>
 
-## 2. Connect and configure the 4ZeroBox
+## **2. Connect and configure the 4ZeroBox**
 
 Connect the 4ZeroBox with a USB-C cable to the development machine. The VSCode extension provides a panel labeled *Zerynth Control Panel* that contains information about the current project.
 
@@ -49,7 +49,7 @@ Press *Physical Device* and the Zerynth SDK will automtically recognize the 4Zer
   <figcaption>Control Panel after selecting the physical device</figcaption>
 </figure>
 
-## 3. Run the example
+## **3. Run the example**
 
 Check the project for errors by pressing *Build*. If everything is ok, you can press *Run*. The Zerynth SDK compiles the source files, creates a binary firmware and moves it into the 4ZeroBox.
 
@@ -62,10 +62,9 @@ Just press *Console* and the serial output of 4ZeroBox will appear in the VSCode
   <figcaption>Hello Zerynth console</figcaption>
 </figure>
 
-## 4. Explore Zerynth!
+## **4. Explore Zerynth!**
 
 Zerynth can do much more than a simple Hello World, for additional examples refer to:
 
-- [4ZeroBox Reference](../hardware/4ZeroBox.md)
-- [Zerynth in 5 minutes](index.md#2-create-your-first-iot-project)
+- [4ZeroBox Hardware page](../hardware/4ZeroBox.md)
 - [Tutorials](../tutorials/index.md)

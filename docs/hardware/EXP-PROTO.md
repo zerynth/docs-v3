@@ -1,4 +1,4 @@
-# EXP-PROTO
+# **EXP-PROTO**
 
 The EXP-PROTO expansion board is a prototyping board, enables connecting and interfacing external sensors, actuators or devices.
 The EXP-PROTO gives flexibility to the user to prototype any sensor, display, MCU or IC in their project. The developer is free to connect any device to the board and interface it using the Z-Bus.
@@ -6,19 +6,25 @@ Zerynth provides hardware development services and Certification services for th
 
 Zerynth expansion boards work seamlessly with all of Zerynth Development boards, combined they can act as a Development Board for prototyping a Product, and a core for industrial applications.
 
-## Resources and Documents
+<figure>
+  <a data-fancybox="gallery" href="../img/EXP-PROTO-front.png">
+  <img src="../img/EXP-PROTO-front.png"width="300"/>
+  </a>
+</figure>
+
+## **Resources and Documents**
 
 -   [User manual](https://www.zerynth.com/download/13895/)
 
-## Pin Mapping
+## **Pin Mapping**
 
-![](img/4zeroboxpin.png)
+![](img/EXP-PROTO_pin.jpg)
 
 Official reference for EXP-SER can be found  [here](https://www.zerynth.com/4zeroplatform/).
 
 
 
-## Z-Bus
+## **Z-Bus**
 
 The modular expansion system uses the Z-Bus. The Z-Bus is an efficient, powerful standard for connecting and prototyping different sensors and devices.
 The Z-Bus is using the CN1 pin header (20x2) exposing the following:
@@ -35,7 +41,7 @@ The Z-Bus is using the CN1 pin header (20x2) exposing the following:
 
 
 <figure>
-  <a data-fancybox="gallery" href="../img/installer-02.png">
+  <a data-fancybox="gallery" href="../img/Boards.jpg">
   <img src="../img/Boards.jpg"width="300"/>
   </a>
 </figure>

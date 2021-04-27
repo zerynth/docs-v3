@@ -1,11 +1,11 @@
-# Getting Started with ZM1-Development Board
+# **Getting Started with ZM1-Development Board**
 
 So you have a shiny new ZM1 Development Board (ZM1-DB) and would like to start playing with it?
 First, you need to install the [Zerynth SDK](zerynth.com/products/zsdk), it takes just a couple of minutes.
 When the SDK is installed, you can run Visual Studio Code that comes already configured with our Zerynth extension.
 
 
-## 1. Create a project
+## **1. Create a project**
 
 Before connecting the ZM1-DB a project must be created. 
 Zerynth SDK provides a lot of examples that can be easily cloned and used as a starting point for a new project.
@@ -28,7 +28,7 @@ Simply choose `Zerynth > Search examples` and then type `Hello`. Select the `Hel
   <figcaption>The Hello Zerynth example</figcaption>
 </figure>
 
-## 2. Connect and configure the ZM1-DB
+## **2. Connect and configure the ZM1-DB**
 
 Connect the ZM1-DB with a USB-C cable to the development machine. The VSCode extension provides a panel labeled *Zerynth Control Panel* that contains information about the current project.
 
@@ -49,7 +49,7 @@ Press *Physical Device* and the Zerynth SDK will automatically recognize the ZM1
 </figure>
 
 
-## 3. Run the example
+## **3. Run the example**
 
 Check the project for errors by pressing *Build*. If everything is ok, you can press *Run*. The Zerynth SDK compiles the source files, creates a binary firmware and moves it into the ZM1-DB.
 
@@ -62,10 +62,10 @@ Just press *Console* and the serial output of ZM1-DB will appear in the VSCode t
   <figcaption>Hello Zerynth console</figcaption>
 </figure>
 
-## 4. Explore the ZM1-DB
+## **4. Explore the ZM1-DB**
+
+For more information on the ZM1-DB hardware features, components and user manual, Please refer to the [ZM1-DB Hardware page](../hardware/ZM1-Development-Board.md)
 
 Zerynth can do much more than a simple Hello World, for additional examples refer to:
 
-- [ZM1-DB Hardware page](../hardware/ZM1-Development-Board.md)
-- [Zerynth in 5 minutes](index.md#2-create-your-first-iot-project)
 - [Tutorials](../tutorials/index.md)

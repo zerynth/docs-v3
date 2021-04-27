@@ -34,12 +34,12 @@ nav:
   - Visual Studio Code: gettingstarted/vscode.md
 - Hardware:
   - {Hardware Platforms: hardware/index.md}
-  - hardware/ZM1-Development-Board.md
-  - hardware/4ZeroBox.md
-  - hardware/EXP-SER.md
-  - hardware/EXP-RELAY.md
-  - hardware/EXP-IO.md
-  - hardware/EXP-PROTO.md
+  - ZM1-DB: hardware/ZM1-Development-Board.md
+  - EXP-SER: hardware/EXP-SER.md
+  - EXP-RELAY: hardware/EXP-RELAY.md
+  - EXP-IO: hardware/EXP-IO.md
+  - EXP-PROTO: hardware/EXP-PROTO.md
+  - 4ZeroBox: hardware/4ZeroBox.md
 - Zerynth Cloud:
   - Introduction: zCloud/index.md
   - zDeviceManager: zCloud/zdm_intro.md

@@ -1,46 +1,47 @@
-# EXP-RELAY
+# **EXP-RELAY**
 
 The EXP-RELAY expansion board is an output module that features 6 General Purpose Relays rated at 6A 250VAC. The board enables the developers to control motors, fuel pump, industrial applications where control of high voltages and currents is intended, controlling large power loads.
 
 Zerynth expansion boards work seamlessly with all of Zerynth Development boards, combined they can act as a Development Board for prototyping a Product, and a core for industrial applications.
 
-## Device Summary
-
-* 6x General Purpose Relays rated at 6A 250VAC
-
 <figure>
-  <a data-fancybox="gallery" href="../img/ZDK-relay.jpg">
-  <img src="../img/ZDK-relay.jpg"width="300"/>
+  <a data-fancybox="gallery" href="../img/EXP-RELAY-front.png">
+  <img src="../img/EXP-RELAY-front.png"width="300"/>
   </a>
 </figure>
 
-## Resources and Documents
+## **Device Summary**
+
+* 6x General Purpose Relays rated at 6A 250VAC
+
+
+## **Resources and Documents**
 
 -   [User manual](xx)
 
-## ZM1-DB Software Library
+## **ZM1-DB Software Library**
 
 For more information on the EXP-RELAY Library as software Library, features, functions and examples
 [Please check this Link](../../reference/reference/bsp/zm1_db/)
 
-## Pin Mapping
+## **Pin Mapping**
 
-![](img/4zeroboxpin.png)
+![](img/EXP-RELAY_pin.jpg)
 
 Official reference for EXP-RELAY can be found  [here](https://www.zerynth.com/4zeroplatform/).
 
 
-### Rotart and Standard switches
+### **Rotart and Standard switches**
 
 For information on the switches and other hardware details, Please refer to the [User manual of the board](#resources-and-documents)
 
 
-## Power
+## **Power**
 
 Power to the EXP-RELAY is supplied directly by the ZM1-DB.
 
  	
-## Z-Bus
+## **Z-Bus**
 
 The modular expansion system uses the Z-Bus. The Z-Bus is an efficient, powerful standard for connecting and prototyping different sensors and devices.
 The Z-Bus is using the CN1 pin header (20x2) exposing the following:
@@ -57,7 +58,7 @@ The Z-Bus is using the CN1 pin header (20x2) exposing the following:
 
 
 <figure>
-  <a data-fancybox="gallery" href="../img/installer-02.png">
+  <a data-fancybox="gallery" href="../img/Boards.jpg">
   <img src="../img/Boards.jpg"width="300"/>
   </a>
 </figure>

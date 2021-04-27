@@ -1,4 +1,4 @@
-# 4ZeroBox
+# **4ZeroBox**
 
 The 4ZeroBox is a modular hardware electronic unit that simplifies the development of Industrial IoT applications allowing rapid integration with sensors, actuators, and Cloud services.
 
@@ -6,7 +6,7 @@ The 4ZeroBox is a modular hardware electronic unit that simplifies the developme
 
 ![](img/4zerobox_v1.png)
 
-## Device Summary
+## **Device Summary**
 
 * DIN-rail mountable (9 slots)
     
@@ -55,7 +55,7 @@ The 4ZeroBox is a modular hardware electronic unit that simplifies the developme
 * Espressif ESP32 - 32bit Microcontroller 240MHz clock, 4Mb of Flash, 312Kb SRAM
     
 
-## Resources
+## **Resources**
 
 For more infos about electrical connections, and how to use 4ZeroBox with sensors and other hardware, see the  [user manual](https://www.zerynth.com/download/13894/).
 
@@ -70,27 +70,28 @@ Other useful documents are:
 	
 
 
-## Pin Mapping
+## **Pin Mapping**
 
 ![](img/4zerobox-pin-map.jpg)
 
 Official reference for Zerynth 4ZeroBox can be found  [here](https://www.zerynth.com/4zeroplatform/).
 
-## Getting Started
+## **Getting Started**
 
 For step-by-step guide on connecting, running your first example, Please refer to [the Getting started guide for the 4ZeroBox](../../gettingstarted/4ZeroBox/)
 
-## 4ZeroBox Software Library
+## **4ZeroBox Software Library**
 
 For more information on the ZM1-DB Library as software Library, Its features, functions and examples demos
 [Please check this Link](../../reference/reference/bsp/4zerobox_v9/)
 
 
-## Power
+## **Power**
 
 Power to the 4ZeroBox is supplied via the on-board USB Micro B connector or directly via the “24V” screw. The power source is selected automatically. Zerynth 4ZeroBox has also a JST Li-Po battery connector (3.7V).
 
 
+<!--
 
 ## Flash Layout
 
@@ -106,3 +107,4 @@ The internal flash of the ESP32 module is organized in a single flash area with 
 | 0x00920000    | 7040Kb| File System             |
 
 
+-->

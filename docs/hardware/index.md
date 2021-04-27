@@ -1,10 +1,10 @@
-# Zerynth hardware platform
+# **Zerynth hardware platform**
 
 Easy-to-use hardware platform for creating Industrial IoT applications and connecting products to IoT, both in development and in production.
 
 TODO: Picture with 3 Tiles: Development Boards, Expansion boards and SoCs.
 
-## Development Boards 
+## **Development Boards **
 
 The ZM1-DB is a flexible, modular, development board that features the ZM1 SoM. With the integrated Zerynth software, It is ready for developing a prototype or a proof-of-concept right out of the box.
 
@@ -21,7 +21,7 @@ The ZM1-DB easily connects with the Zerynth expansion boards. The expansion syst
 
 For more information on the ZM1-DB, Please refer to [ZM1-DB Hardware page here](ZM1-Development-Board.md)
 
-## Modular Expansion System
+## **Modular Expansion System**
 Zerynth Development boards offer a game-changing way of connecting and adding functionalities to your application in a simple and easy way.
 The development board offers a modular expansion system that adds expansion boards through the connectors on the board (Z-bus).
 
@@ -40,7 +40,7 @@ Expansion boards vary in features and functionality. Currently, Zerynth offers e
 * [EXP-PROTO](EXP-PROTO.md): Prototyping board for connecting and testing different types of sensors and devices.
 
 
-## 4ZeroBox
+## **4ZeroBox**
 
 Industrial IoT device for acquisition, monitoring and control of industrial machines
 4ZeroBox is a versatile data acquisition unit, designed to be integrated into both legacy and modern industrial machines. The 4ZeroBox easily improves visibility on production processes, enables predictive maintenance of machines, and performs power management monitoring. 
