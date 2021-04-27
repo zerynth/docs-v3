@@ -230,6 +230,7 @@ Disable the alert pin for a specific RX channel.
 ## Example
 
 ```python
+from bsp import board
 import can
 
 nss_can_pin = D10
