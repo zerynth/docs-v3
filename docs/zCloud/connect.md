@@ -130,8 +130,8 @@ To play with the your device data you need to input the id of your workspace (yo
 From the controls in the upper right corner you can change the time range of the panels and even enable auto refresh.
 
 <figure>
-  <a data-fancybox="gallery" href="../img/connect-08.png">
-  <img src="../img/connect-08.png" />
+  <a data-fancybox="gallery" href="../img/connect-07.png">
+  <img src="../img/connect-07.png" />
   </a>
   <figcaption>Test Dashboard</figcaption>
 </figure>
