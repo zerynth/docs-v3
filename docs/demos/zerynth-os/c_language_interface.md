@@ -1,12 +1,12 @@
 # C Language Interface
 
-Zeryth support interfacing Python with C code. Python functions can be decorated with information on how to call the respective C function.
+Zerynth support interfacing Python with C code. Python functions can be decorated with information on how to call the respective C function.
 After some conversion from python arguments to C variables, all the power of C language is ready to be used.
 
 
 More information about content used in this demo:
 
-- [C Language Interface](../reference/os/clang.md)
+- [C Language Interface](../../reference/os/clang.md)
 
 C source code `c_file.c` should be created inside project folder.
 

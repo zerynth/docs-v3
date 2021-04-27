@@ -27,7 +27,7 @@ Let's change the above snippet to send some different data:
 
 ```python
 # Power consumption data
-agent.publish({ "pow": random(0,100) }, "power")
+agent.publish({ "pow1": random(0,100) }, "power")
 
 # Temperature and humidity data
 agent.publish({ "temp": random(0,100), "hum": random(0,100) }, "env")
@@ -41,8 +41,6 @@ Even better, if you have our [Industrial Kit](TODO: link to industrial kit) you 
 
 So the device is now sending correctly tagged data, let's move to the next step following the data up the IoT stack.
 
-TODO: screenshot of console
-
 
 ## Inspect and Control
 
@@ -54,12 +52,23 @@ Let's open the device page in the zDeviceManager. It can be done directly from V
 
 That brings up the device page where incoming data can be inspected from the console:
 
-TODO screenshot
+<figure>
+  <a data-fancybox="gallery" href="../img/connect-01.png">
+  <img src="../img/connect-01.png" />
+  </a>
+  <figcaption>Device Console</figcaption>
+</figure>
 
 
 From the same page, you can also send `jobs` to the device. Just press the `Reset` button for forcing your device to reset itself.
 More complex jobs can be sent from the `Jobs` button provided the firmware supports them.
 
+<figure>
+  <a data-fancybox="gallery" href="../img/connect-02.png">
+  <img src="../img/connect-02.png" />
+  </a>
+  <figcaption>Device Page</figcaption>
+</figure>
 
 ## Add Integrations
 
@@ -77,7 +86,34 @@ In this guide we are using a custom service written in go that decodes the data 
 
 The next information requested by the integration dialog is the type of data: zDeviceManager supports both data and conditions streams. Select `data stream` and give it a name like `my-iot-integration`. The most important piece of information required by the integration is the url of the endpoint that will be receiving data. Type `http://hello.zerynth.com/zdm/data` and click `Submit`.
 
-TODO: step by step screenshot
+<figure>
+  <a data-fancybox="gallery" href="../img/connect-03.png">
+  <img src="../img/connect-03.png" />
+  </a>
+  <figcaption>Integration Tab</figcaption>
+</figure>
+
+<figure>
+  <a data-fancybox="gallery" href="../img/connect-04.png">
+  <img src="../img/connect-04.png" />
+  </a>
+  <figcaption>Integration Selection</figcaption>
+</figure>
+
+<figure>
+  <a data-fancybox="gallery" href="../img/connect-05.png">
+  <img src="../img/connect-05.png" />
+  </a>
+  <figcaption>Data Stream Integration</figcaption>
+</figure>
+
+<figure>
+  <a data-fancybox="gallery" href="../img/connect-06.png">
+  <img src="../img/connect-06.png" />
+  </a>
+  <figcaption>Integration List</figcaption>
+</figure>
+
 
 Data is now flowing from the IoT device to the endpoint on `hello.zerynth.com` and the zDeviceManager will take care of resending any missed batch to avoid any data loss.
 
@@ -93,10 +129,18 @@ To play with the your device data you need to input the id of your workspace (yo
 
 From the controls in the upper right corner you can change the time range of the panels and even enable auto refresh.
 
+<figure>
+  <a data-fancybox="gallery" href="../img/connect-08.png">
+  <img src="../img/connect-08.png" />
+  </a>
+  <figcaption>Test Dashboard</figcaption>
+</figure>
+
+
 
 ## Host your own dashboard
 
-Our little demo dashboard at `hello.zerynth.com` is just a simple example of what can be done with IoT data. However, with zDeviceManager integrations you can easily forward data to your own endpoints. To jump start the deployment of a zDeviceManager compatible endpoint you can refer to our github repo (TODO add github repo).
+Our little demo dashboard at `hello.zerynth.com` is just a simple example of what can be done with IoT data. However, with zDeviceManager integrations you can easily forward data to your own endpoints. To jump start the deployment of a zDeviceManager compatible endpoint you can refer to our github template [repository](https://github.com/zerynth/demo-template).
 
 It is a simple Docker Compose based repository that creates a setup much similar to the one used in this guide:
 

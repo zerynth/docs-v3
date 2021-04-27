@@ -4,7 +4,7 @@ The simplest demo which uses serial port and GPIO to toggle the LED. After the i
 
 More information about modules used in this demo:
 
-- [GPIO](../reference/libs/stdlib/gpio.md)
+- [GPIO](../../reference/libs/stdlib/gpio.md)
 
 ```python
 from bsp import board
