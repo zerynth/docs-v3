@@ -1,4 +1,4 @@
-# Introduction to zDashboard
+# **Introduction to zDashboard**
 
 The zDashboard is the data visualization solution that integrates perfectly with all the other components on the zCloud.
 

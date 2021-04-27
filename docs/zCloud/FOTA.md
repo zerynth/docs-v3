@@ -1,4 +1,4 @@
-# Over the Air Updates
+# **Over the Air Updates**
 
 In the life cycle of an IoT device, a remote firmware update (FOTA) is a necessity and must be performed quickly and securely.
 
@@ -12,7 +12,7 @@ During a FOTA, the IoT device needs to:
 
 To make the process even more complicated, anything can happen during the firmware update, like power loss and interruption of connectivity.
 
-## How FOTA works
+## **How FOTA works**
 
 The FOTA process starts with a Zerynth project containing the new firmware. After the project is thoroughly tested, the binary firmware can be uploaded to the zDeviceManger directly from VSCode or by using the cli. 
 
@@ -38,7 +38,7 @@ This process is extremely delicate: what happens if the power goes down while th
 Once the swap ends, the bootloader launches the new firmware. Before declaring the FOTA a success, the new firmware must be able to connect to the zDeviceManager and confirm that the FOTA was successful. From now on, the bootloader will always start the new firmware, until the next FOTA request.
 
 
-## FOTA in 5 minutes
+## **FOTA in 5 minutes**
 
 Performing an over the air update with Zerynth is really easy!
 
@@ -115,7 +115,7 @@ You can simulate the various failures by doing the following:
 - reset the device while the new firmware is downloaded, and check that the FOTA fails in the device page
 - reset the device when the new firmware is in testing mode. The bootloader will restore the previous firmware
 
-## FOTA from the web app
+## **FOTA from the web app**
 
 Once a firmware is uploaded into a zDeviceManager workspace, it can be sent to devices directly from the web app. From the `Firmwares` tab, 
 you can select the firmware you want to send. Each firmware can have multiple versions and for each of them can be triggered with the FOTA button.

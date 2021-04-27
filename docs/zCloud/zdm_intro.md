@@ -1,4 +1,4 @@
-# Introduction to zDeviceManager
+# **Introduction to zDeviceManager**
 
 
 As developers and IoT product designers, we can't neglect the effort needed to deploy, manage and protect our devices for the entire duration of their life cycles.
@@ -22,7 +22,7 @@ zDeviceManager can be adapted to all kinds of deployments, being available as a 
 </figure>
 
 
-zDeviceManager is based on the following key concepts:
+**zDeviceManager is based on the following key concepts:**
 
 - A **Device** is the cloud representation of the physical IoT device. A zDeviceManager device is associated to a physical device during provisioning. An action performed over a zDeviceManager device (i.e. sending an update or a new configuration) is always reflected and communicated to the physical device.
 - A **Workspace** is an entity that groups together all the devices belonging to a single project. zDeviceManager accounts can have multiple independent workspaces, one for each project.
@@ -70,7 +70,7 @@ It seems a lot of work but we have you covered: from [here](https://github.com/z
 
 ### The SaaS way
 
-Managing a database can be difficult but we have you covered. By integrating the zDeviceManager with out zStorage you don't need to worry about keeping the database online: we manage it for you and we also give you database independent API to access your data from any service.
+Managing a database can be difficult but we have you covered. By integrating the zDeviceManager with zStorage you don't need to worry about keeping the database online: we manage it for you and we also give you database independent API to access your data from any service.
 
 
 

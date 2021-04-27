@@ -1,11 +1,11 @@
-# Connect to zCloud
+# **Connect to zCloud**
 
 In this step by step guide we will show you how to build a demo IoT dashboard with the zCloud.
 
 All you need is a [Zerynth hardware](../hardware/index.md) connected to the zDeviceManager sending some data; we will guide you through the process of inspecting the incoming data and forwarding it to a dashboard.
 
 
-## Prepare your device
+## **Prepare your device**
 
 The first step is preparing your device with firmware and credentials in order to connect it to the [zDeviceManager](zdm_intro.md).
 
@@ -42,7 +42,7 @@ Even better, if you have our [Industrial Kit](TODO: link to industrial kit) you 
 So the device is now sending correctly tagged data, let's move to the next step following the data up the IoT stack.
 
 
-## Inspect and Control
+## **Inspect and Control**
 
 Let's open the device page in the zDeviceManager. It can be done directly from VSCode by clicking `Cloud Device` in the `Zerynth Control Panel` or by opening the web app at [zdm.zerynth.com](https://zdm.zerynth.com) and:
 
@@ -70,7 +70,7 @@ More complex jobs can be sent from the `Jobs` button provided the firmware suppo
   <figcaption>Device Page</figcaption>
 </figure>
 
-## Add Integrations
+## **Add Integrations**
 
 In the zDeviceManager, the incoming data from the devices of your workspace is stored just temporarily. To really use the IoT data it must be persisted to a time series storage like the [zStorage](zstorage_intro.md) or your own database. Whatever the storage, the data must be first sent out of the zDeviceManager to its final destination.
 
@@ -119,7 +119,7 @@ Data is now flowing from the IoT device to the endpoint on `hello.zerynth.com` a
 
 
 
-## Play with data
+## **Play with data**
 
 The data ingested at `hello.zerynth.com` is stored in a local database that can be queried by any dashboarding solution. We have installed a [Grafana](https://grafana.com/) instance that serves a public dashboard for you to play with. Grafana is one of the best dashboarding tool out there and you can use it without worrying about its maintenance directly from our custom [zDashboard](zdashboard_intro.md) solution.
 
@@ -138,7 +138,7 @@ From the controls in the upper right corner you can change the time range of the
 
 
 
-## Host your own dashboard
+## **Host your own dashboard**
 
 Our little demo dashboard at `hello.zerynth.com` is just a simple example of what can be done with IoT data. However, with zDeviceManager integrations you can easily forward data to your own endpoints. To jump start the deployment of a zDeviceManager compatible endpoint you can refer to our github template [repository](https://github.com/zerynth/demo-template).
 

@@ -1,4 +1,4 @@
-# Introduction to zStorage
+# **Introduction to zStorage**
 
 The zStorage is the storage solution that integrates perfectly with all the other components of the zCloud.
 
