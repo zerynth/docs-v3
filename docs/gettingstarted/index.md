@@ -42,7 +42,7 @@ a blue dialog title "Windows protected your PC"; in that case, just click "more 
 
 <figure>
   <a data-fancybox="gallery" href="img/windows-screen.png">
-  <img src="img/windows-screen.png"/>
+  <img src="img/windows-screen.png" width="200px"/>
   </a>
   <figcaption>Windows Smartscreen warning</figcaption>
 </figure>
