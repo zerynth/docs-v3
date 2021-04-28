@@ -129,7 +129,7 @@ By pressing `Console` you can check the output of the firmware and the values be
 
 The next step is configuring the zDeviceManager to send the incoming data to a dashboard for visualization.
 
-In the zDeviceManager, the incoming data from the 4ZeroBox is stored just temporarily. To really use the IoT data it must be persisted to a time series storage like the [zStorage](zstorage_intro.md) or your own database. Whatever the storage, the data must be first sent out of the zDeviceManager to its final destination.
+In the zDeviceManager, the incoming data from the 4ZeroBox is stored just temporarily. To really use the IoT data it must be persisted to a time series storage like the [zStorage](../../zCloud/zstorage_intro.md) or your own database. Whatever the storage, the data must be first sent out of the zDeviceManager to its final destination.
 
 This is accomplished thanks to `Integrations`. In the workspace screen at [zdm.zerynth.com](https://zdm.zerynth.com), in the Integrations tab, it is possible to configure many different forwarding point.
 
@@ -174,7 +174,7 @@ Data is now flowing from the IoT device to the endpoint on `hello.zerynth.com` a
 
 ## Dashboarding
 
-The data ingested at `hello.zerynth.com` is stored in a local database that can be queried by any dashboarding solution. We have installed a [Grafana](https://grafana.com/) instance that serves a public dashboard for you to play with. Grafana is one of the best dashboarding tool out there and you can use it without worrying about its maintenance directly from our custom [zDashboard](zdashboard_intro.md) solution.
+The data ingested at `hello.zerynth.com` is stored in a local database that can be queried by any dashboarding solution. We have installed a [Grafana](https://grafana.com/) instance that serves a public dashboard for you to play with. Grafana is one of the best dashboarding tool out there and you can use it without worrying about its maintenance directly from our custom [zDashboard](../../zCloud/zdashboard_intro.md) solution.
 
 Dashboards can be easily created by adding panels, and each panel is the result of a query into the incoming data.
 

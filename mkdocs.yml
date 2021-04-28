@@ -51,13 +51,13 @@ nav:
   - Tutorials:
     - tutorials/index.md
     - tutorials/cli.md
-    - tutorials/digicomm.md
-    - tutorials/multithreaded.md
-    - tutorials/rs485.md
-    - tutorials/eth.md
-    - tutorials/wifi.md
-    - tutorials/mqtt.md
-    - tutorials/https.md
+    # - tutorials/digicomm.md
+    # - tutorials/multithreaded.md
+    # - tutorials/rs485.md
+    # - tutorials/eth.md
+    # - tutorials/wifi.md
+    # - tutorials/mqtt.md
+    # - tutorials/https.md
   - Demos:
     - Zerynth SDK:
       - demos/zerynth-os/hello_zerynth.md
@@ -65,15 +65,7 @@ nav:
       - demos/zerynth-os/multi_thread_basic.md
       - demos/zerynth-os/c_language_interface.md
       - demos/zerynth-os/adc.md
-      # - demos/zerynth-os/i2c.md
-      # - demos/zerynth-os/spi.md
       - demos/zerynth-os/watchdog.md
-      # - demos/zerynth-os/zdm_simple.md
-      # - demos/zerynth-os/Combining_IoT_and_Blockchain_Using_Simple_Python.md
-    # - ZDM:
-      # - {Getting Started: /latest/deploy/getting_started_with_sdk/}
-      # - demos/zdm/Connect_Power_Bi_to_the_Zerynth_Device_Manager.md
-      # - demos/zdm/Connect_Zerynth_Device_Manager_with_Grafana_for_IoT_data_Visualization.md
     - 4ZeroBox:
       - demos/4zerobox/hello_4zerobox.md
       - demos/4zerobox/industrial_kit.md
@@ -160,6 +152,7 @@ nav:
           - reference/libs/components/bme280/index.md
           - reference/libs/components/bmp180/index.md
           - reference/libs/components/bno055/index.md
+          - reference/libs/components/mcp2515/index.md
       - Command Line Interface:
           - reference/cli/ztc/index.md
           - reference/cli/zdm/index.md

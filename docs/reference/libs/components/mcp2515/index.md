@@ -1,4 +1,4 @@
-# MCP2515 Module
+# MCP2515
 
 _datasheet_: <http://ww1.microchip.com/downloads/en/DeviceDoc/20001801H.pdf>
 
