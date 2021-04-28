@@ -2,7 +2,7 @@
 
 The ZM1 Development board is an industrial-oriented, modular hardware development unit, Facilitates the development of scalable, secure and connected IoT applications.
 
-The ZM1-DB mounts the ZM1 module, a 32-bit dual Core MCU based on the ESP32-WROOM-32SE. The ZM1 Core features a clock frequency of up to 240 Mhz, Embedded SPI Flash memory of 16 MB, integrates the crypto element ATECC608A for ultra-secure communication.
+The ZM1-DB mounts the ZM1 module, a 32-bit dual Core MCU. The ZM1 Core features a clock frequency of up to 240 Mhz, Embedded SPI Flash memory of 16 MB, integrates the crypto element ATECC608A for ultra-secure communication.
 
 The ZM1 Development Board can act as a Development Board for prototyping a Product, and a core for industrial applications, thanks to the expansion modules system.
 The DB features I/O connectors (the Z-bus) that allow the connection in a cascade of different add-on modules to create specific industrial applications that fit into a DIN-RAIL case.

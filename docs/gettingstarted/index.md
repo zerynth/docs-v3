@@ -63,6 +63,13 @@ in general you may need to give execution permissions to the file before running
 
 The `zerynth-installer.dmg` archive you just downloaded can be double clicked and mounted on the Finder. Just drag the `zerynth-installer` app contained within to the `Applications` folder. Next, click on `Applications` and run the `zerynth-installer` app.
 
+<figure>
+  <a data-fancybox="gallery" href="img/installer-mac-01.png">
+  <img src="img/installer-mac-01.png"/>
+  </a>
+</figure>
+
+
 ### Install the Zerynth SDK
 
 The installer will install the **Zerynth SDK** in your development machine in a few steps. If you encounter any error please refere to our [Installer FAQ](../reference/faq/installer.md).
