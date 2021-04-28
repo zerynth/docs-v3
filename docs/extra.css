@@ -1,7 +1,7 @@
 /* change background color */
 [data-md-color-primary=indigo]{--md-primary-fg-color: rgba(0, 112, 239, 1);--md-primary-fg-color--light: hsla(231deg, 44%, 74%, 1);--md-primary-fg-color--dark: hsla(232deg, 54%, 41%, 1);--md-primary-bg-color: var(--md-default-bg-color);--md-primary-bg-color--light: var(--md-default-bg-color--light)}
 
-.md-tabs{background-color: #1e1e1e;}
+.md-tabs{background-color: #ffffff;color:#000000;font-size:1.5rem;font-weight: bold;}
 
 .md-main__inner {
     max-width: 80% !important;
