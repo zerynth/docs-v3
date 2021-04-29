@@ -67,6 +67,8 @@ The `zerynth-installer.dmg` archive you just downloaded can be double clicked an
   </a>
 </figure>
 
+!!! Note
+    If you are using a Mac based on the new M1 cpu, you are required to install [Rosetta](https://osxdaily.com/2020/12/04/how-install-rosetta-2-apple-silicon-mac/).
 
 ### Install the Zerynth SDK
 
