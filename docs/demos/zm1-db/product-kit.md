@@ -1,47 +1,21 @@
 # Product Innovation Kit
 
-This tutorial will guide you in building a remote controllable IoT device with the Zerynth product innovation kit.
+The Product Innovation Kit is composed of:
 
-The kit consists of:
+- a [ZM1-DB](../../hardware/ZM1-Development-Board.md)
+- an [EXP-IO](../../hardware/EXP-IO.md)
+- an [EXP-RELAY](../../hardware/EXP-RELAY.md)
+- an [EXP-SER](../../hardware/EXP-SER.md)
 
-- zm1 db
-- exp ser
-- exp relay
-- exp io
-- exp proto
+<figure>
+  <a data-fancybox="gallery" href="../img/product-innovation-kit.jpg">
+  <img src="../img/product-innovation-kit.jpg" />
+  </a>
+  <figcaption>Product Innovation Kit</figcaption>
+</figure>
 
-TODO: screenshot of material
+We prepared multiple demos to get you started with the different expansions:
 
-goal
-
-## Board and sensor setup
-
-
-
-## Writing the firmware
-
-fw description
-
-### Clone the example
-
-The source code of this tutorial can be found in the Zerynth examples. Just clone the `Industrial Kit` example from the `Zerynth Examples` panel into a new project.
-
-TODO: screenshot industrial kit example windows
-
-The firmware is composed of many files, but the most important is `main.py` since it is the entrypoint of the entire firmware.
-
-Some customization is required to make the firmware work in your environment. In `main.py` at lines TODO, 
-
-
-
-### Provision the device
-
-### Run the firmware
-
-
-## Configuring the zCloud
-
-
-## Dashboarding
-
-
+- [EXP-IO Demo](exp-io.md)
+- [EXP-RELAY Demo](exp-relay.md)
+- [EXP-SER Demo](exp-ser.md)

@@ -17,7 +17,7 @@ The technical reference spans a wide range of topics from the details of writing
 
 ## Hardware
 
-Zerynth provides IoT hardware as ready to use [development boards](../hardware/index.md) with [expansions](../hardware/index.md/#modular-expansion-system), industrial grade units like the [4ZeroBox](../hardware/4ZeroBox.md) or even [IoT modules](TODO/link-to-iot-module) for developing Zerynth based IoT products from scratch.
+Zerynth provides IoT hardware as ready to use [development boards](../hardware/index.md) with [expansions](../hardware/index.md/#modular-expansion-system), industrial grade units like the [4ZeroBox](../hardware/4ZeroBox.md) for developing Zerynth based IoT products from scratch.
 
 ## Firmware
 

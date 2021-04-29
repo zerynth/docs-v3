@@ -36,7 +36,7 @@ agent.publish({ "temp": random(0,100), "hum": random(0,100) }, "env")
 
 Run the example again and now the device is sending two tags, one for power consumption measured by a current sensor and one for environmental data of temperature and humidity. The device is still sending random data, but you can substitute the `random` function with real readings from supported sensors such as [BME280](../reference/libs/components/bme280/index.md).
 
-Even better, if you have our [Industrial Kit](TODO: link to industrial kit) you can generate real data with the included current sensor and the ntc temperature probe. Just clone the "Industrial Kit" example instead of "ZDM Simple" in VSCode, run it and you are good to go.
+Even better, if you have our [Industrial Kit](../demos/4zerobox/industrial_kit.md) you can generate real data with the included current sensor and the ntc temperature probe. Just clone the "Industrial Kit" example instead of "ZDM Simple" in VSCode, run it and you are good to go.
 
 
 So the device is now sending correctly tagged data, let's move to the next step following the data up the IoT stack.
