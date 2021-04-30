@@ -8,8 +8,8 @@ Easy-to-use hardware platform for creating Industrial IoT applications and conne
 The ZM1-DB is a flexible, modular, development board that features the ZM1 SoM. With the integrated Zerynth software, It is ready for developing a prototype or a proof-of-concept right out of the box.
 
 <figure>
-  <a data-fancybox="gallery" href="img/DB-ZM1-front.png">
-  <img src="img/DB-ZM1-front.png" width="300"/>
+  <a data-fancybox="gallery" href="img/ZM1-DB-front.png.png">
+  <img src="img/ZM1-DB-front.png" width="300"/>
   </a>
 </figure>
 
