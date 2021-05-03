@@ -44,8 +44,8 @@ The DB features I/O connectors (the Z-bus) that allow the connection in a cascad
 
 ## **Resources and Documents**
 
--   [User manual](https://www.zerynth.com/download/13895/)
--   [Quick Guide](https://www.zerynth.com/download/15283/)
+-   [User manual](https://www.zerynth.com/download/20117/)
+-   [Warning and Instructions for safe use](https://www.zerynth.com/download/20294/)
 
 ## **Getting Started**
 

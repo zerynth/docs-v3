@@ -17,7 +17,7 @@ Zerynth expansion boards work seamlessly with all of Zerynth Development boards,
 
 ## **Resources and Documents**
 
--   [User manual](xx)
+-   [User manual](https://www.zerynth.com/download/20123/)
 
 ## **ZM1-DB Software Library**
 
@@ -28,7 +28,6 @@ For more information on the EXP-RELAY Library as software Library, features, fun
 
 ![](img/EXP-RELAY_pin.jpg)
 
-Official reference for EXP-RELAY can be found  [here](https://www.zerynth.com/4zeroplatform/).
 
 
 ### **Rotart and Standard switches**

@@ -26,7 +26,7 @@ The EXP-IO expansion board is a mixed input/output module that features:
 
 ## **Resources and Documents**
 
--   [User manual](https://www.zerynth.com/download/13895/)
+-   [User manual](https://www.zerynth.com/download/20119/)
 
 ## **ZM1-DB Software Library**
 

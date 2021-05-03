@@ -16,7 +16,7 @@ The ZM1-DB is a flexible, modular, development board that features the ZM1 SoM. 
 The ZM1-DB easily connects with the Zerynth expansion boards. The expansion system enables fast and efficient prototyping, and adding/removing functionalities in no time.
 
 
-[Buy now at this link](https://zerynth.com/products)
+[Buy now at this link](https://www.zerynth.com/products/hardware/zm1-db/)
 
 For more information on the ZM1-DB, Please refer to [ZM1-DB Hardware page here](ZM1-Development-Board.md)
 
@@ -54,6 +54,6 @@ The 4ZeroBox modernizes any industrial machinery and equipment allowing companie
 
 
 
-[Buy now at this link](https://zerynth.com/products)
+[Buy now at this link](https://www.zerynth.com/products/hardware/4zerobox/)
 
 You can find more info about 4ZeroBox [here](4ZeroBox.md).

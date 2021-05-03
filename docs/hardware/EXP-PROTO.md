@@ -14,13 +14,12 @@ Zerynth expansion boards work seamlessly with all of Zerynth Development boards,
 
 ## **Resources and Documents**
 
--   [User manual](https://www.zerynth.com/download/13895/)
+-   [User manual](https://www.zerynth.com/download/20125/)
 
 ## **Pin Mapping**
 
 ![](img/EXP-PROTO_pin.jpg)
 
-Official reference for EXP-SER can be found  [here](https://www.zerynth.com/4zeroplatform/).
 
 
 
