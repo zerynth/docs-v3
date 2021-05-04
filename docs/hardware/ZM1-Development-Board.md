@@ -91,6 +91,23 @@ The internal flash of the ZM1 module is organized in a single flash area with pa
 
 -->
 
+## **ZM1**
+
+The ZM1-DB mounts the ZM1 module. The Zerynth Module ZM1 is a dedicated customized version of the ESP32-WROOM-32SE Module.
+The Module is certified RoHS, CE/RED, e FCC (EU e US).
+
+The ZM1 Module mounts onboard the ESP32-D0WD microcontroller, and is designed to be
+scalable and adaptive. The CPU clock frequency is adjustable from 80 MHz to 240 MHz, With an
+embedded 16 MB of SPI Flash memory and integrates a rich set of peripherals, ranging from Hall
+sensors, Capacitive touch sensor, SD interface, Ethernet, High speed SPI, UART, I2S e I2C.
+
+Inside the ZM1, the crypto element ATECC608A from Microchip has been integrated to handle
+secure connections in an easy manner, exchanging certificates and keys, encrypting messages
+over TLS protocol and using secure authentication procedures.
+
+For more information on ZM1 module, [Please refer to the user manual of ZM1](https://www.zerynth.com/download/20127/)
+
+
 ## **Z-Bus**
 
 The modular expansion system uses the Z-Bus. The Z-Bus is an efficient, powerful standard for connecting and prototyping different sensors and devices.
