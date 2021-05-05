@@ -60,7 +60,11 @@ For more information on the ZM1-DB Library as software Library, Its features, fu
 
 ## **Pin Mapping**
 
-![](img/zm1-db-pinmap.jpg)
+<figure>
+  <a data-fancybox="gallery" href="../img/zm1-db-pinmap.jpg">
+  <img src="../img/zm1-db-pinmap.jpg" />
+  </a>
+</figure>
 
 ## **Power**
 

@@ -4,7 +4,14 @@ The 4ZeroBox is a modular hardware electronic unit that simplifies the developme
 
 4ZeroBox mounts a powerful ZM1 module by Zerynth (240MHz, 16Mb of Flash, 312Kb SRAM) and provides many onboard features like: a DIN-rail mountable case with industrial grade sensor channels, support for Wi-fi, Bluetooth, Ethernet, LoRa, CAN, RS485, RS232, SD Card, JTAG, I2C, SPI; last but not least, there are 2 on-board MikroBUS sockets to extend the 4ZeroBox with hundreds of MikroElektronika click boards (see “MikroBus Slots” section).
 
-![](img/4zerobox_v1.png)
+<figure>
+  <a data-fancybox="gallery" href="../img/4zerobox_v1.png">
+  <img src="../img/4zerobox_v1.png" />
+  </a>
+</figure>
+
+!!! warning
+    In windows it may be necessary to install USB drivers. You can find them [here](http://www.wch-ic.com/downloads/CH341SER_ZIP.html).
 
 ## **Device Summary**
 
@@ -67,12 +74,15 @@ Other useful documents are:
 -   [Datasheet](https://www.zerynth.com/download/13895/)
 -   [Quick Guide](https://www.zerynth.com/download/15283/)
 
-	
 
 
 ## **Pin Mapping**
 
-![](img/4zerobox-pin-map.jpg)
+<figure>
+  <a data-fancybox="gallery" href="../img/4zerobox-pin-map.jpg">
+  <img src="../img/4zerobox-pin-map.jpg" />
+  </a>
+</figure>
 
 Official reference for Zerynth 4ZeroBox can be found  [here](https://www.zerynth.com/4zeroplatform/).
 

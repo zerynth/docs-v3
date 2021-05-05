@@ -157,6 +157,7 @@ nav:
           - reference/cli/ztc/index.md
           - reference/cli/zdm/index.md
       - FAQ:
+          - reference/faq/hardware.md
           - reference/faq/installer.md
           - reference/faq/vscode.md
           - reference/faq/filesystem.md
