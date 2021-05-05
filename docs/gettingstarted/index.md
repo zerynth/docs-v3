@@ -119,7 +119,7 @@ Just press `Ctrl+Shift+P` and type `examples` in the popup that VSCode displays.
 </figure>
 
 The popup is the VSCode command palette from which most of the available operations (called tasks in the VSCode jargon) can be launched.
-Simply choose `Zerynth > Search examples` and then type `ZDM_`. Select the `ZDM_Simple` example and provide a folder to clone it from its repository as shown in the figures below. When ready, click `Clone Zerynth Example` and you are good to go.
+Simply choose `Zerynth > Search examples` and then type `ZDM_`. Select the `ZDM_Simple` example and select a destination and provide a name folder. Click `Clone Zerynth Example` and you are good to go.
 
 <figure>
   <a data-fancybox="gallery" href="img/project-02.png">
