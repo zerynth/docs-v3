@@ -27,7 +27,7 @@ The development board offers a modular expansion system that adds expansion boar
 
 <figure>
   <a data-fancybox="gallery" href="img/Boards.jpg">
-  <img src="img/Boards.jpg" width="300"/>
+  <img src="img/Boards.jpg" width="600"/>
   </a>
 </figure>
 
@@ -38,6 +38,12 @@ Expansion boards vary in features and functionality. Currently, Zerynth offers e
 * [EXP-SER](EXP-SER.md): Serial Communication board with : CAN, RS232 and RS485  interfaces.
 * [EXP-PROTO](EXP-PROTO.md): Prototyping board for connecting and testing different types of sensors and devices.
 
+<figure>
+  <a data-fancybox="gallery" href="img/expansion-boards-connected-in-case.png">
+  <img src="img/expansion-boards-connected-in-case.png" width="400"/>
+  </a>
+</figure>
+
 
 ## 4ZeroBox
 
@@ -46,7 +52,7 @@ Industrial IoT device for acquisition, monitoring and control of industrial mach
 
 <figure>
   <a data-fancybox="gallery" href="img/4zerobox_v1.png">
-  <img src="img/4zerobox_v1.png"width="300"/>
+  <img src="img/4zerobox_v1.png"width="400"/>
   </a>
 </figure>
 
