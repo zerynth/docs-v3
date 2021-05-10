@@ -8,9 +8,10 @@ write(pin, period, pulse, time_unit=MILLIS)
 ```
 
 Activate PWM (Pulse Width Modulation) on pin `pin`. Up to 4 PWM can be active at the same time.
+Max frequency is 40 MHz (25 ns period).
 The state of *pin* is periodically switched between ``LOW`` and ``HIGH`` according to parameters:
 
-* `period` is the duration of a pwm square wave
+* `period` is the duration of a pwm square wave.
 * `pulse` is the time the pwm square wave stays in the ``HIGH`` state
 * `time_unit` is the unit of time *period* and *pulse* are expressed in. Can be `NANOS`, `MICROS` or `MILLIS`.
 
