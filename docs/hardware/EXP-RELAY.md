@@ -26,7 +26,12 @@ For more information on the EXP-RELAY Library as software Library, features, fun
 
 ## **Pin Mapping**
 
-![](img/EXP-RELAY_pin.jpg)
+
+<figure>
+  <a data-fancybox="gallery" href="../img/EXP-RELAY_pin.jpg">
+  <img src="../img/EXP-RELAY_pin.jpg" />
+  </a>
+</figure>
 
 
 
