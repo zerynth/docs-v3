@@ -51,14 +51,19 @@ nav:
   - Tutorials:
     - tutorials/index.md
     - tutorials/cli.md
-    # - tutorials/digicomm.md
-    # - tutorials/multithreaded.md
-    # - tutorials/rs485.md
-    # - tutorials/eth.md
-    # - tutorials/wifi.md
-    # - tutorials/mqtt.md
-    # - tutorials/https.md
+    - Ethernet and Wifi: tutorials/wifi.md
   - Demos:
+    - ZM1-DB and Expansion boards:
+      - ZM1-DB Hello Zerynth: demos/zm1-db/hello_zm1-db.md
+      - EXP-RELAY Control Lamp: demos/zm1-db/exp-relay-lamp.md
+      - EXP-PROTO Temperature Monit. : demos/zm1-db/ex-proto-bme280.md
+      - demos/zm1-db/exp-io.md
+      - demos/zm1-db/exp-relay.md
+      - demos/zm1-db/exp-ser.md
+      - demos/zm1-db/product-kit.md
+    - 4ZeroBox:
+      - demos/4zerobox/hello_4zerobox.md
+      - demos/4zerobox/industrial_kit.md
     - Zerynth SDK:
       - demos/zerynth-os/hello_zerynth.md
       - demos/zerynth-os/multi_serial.md
@@ -66,15 +71,6 @@ nav:
       - demos/zerynth-os/c_language_interface.md
       - demos/zerynth-os/adc.md
       - demos/zerynth-os/watchdog.md
-    - 4ZeroBox:
-      - demos/4zerobox/hello_4zerobox.md
-      - demos/4zerobox/industrial_kit.md
-    - ZM1-DB:
-      - demos/zm1-db/hello_zm1-db.md
-      - demos/zm1-db/exp-io.md
-      - demos/zm1-db/exp-relay.md
-      - demos/zm1-db/exp-ser.md
-      - demos/zm1-db/product-kit.md
 - Technical Reference:
     - {Introduction: reference/index.md}
     - Zerynth SDK:

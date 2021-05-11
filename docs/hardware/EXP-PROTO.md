@@ -18,9 +18,13 @@ Zerynth expansion boards work seamlessly with all of Zerynth Development boards,
 
 ## **Pin Mapping**
 
-![](img/EXP-PROTO_pin.jpg)
 
 
+<figure>
+  <a data-fancybox="gallery" href="../img/EXP-PROTO_pin.jpg">
+  <img src="../img/EXP-PROTO_pin.jpg" />
+  </a>
+</figure>
 
 
 ## **Z-Bus**

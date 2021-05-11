@@ -1,10 +1,9 @@
 # Introduction
 
 
-Welcome to the tutorials and demos section. From the sidear on the left you can choose a wide range of guides and examples on how to use the Zerynth platform.
+Welcome to the tutorials and demos section. Each tutorial discusses a certain topic, with details but short enough to be read with a cup of tea.
 
-You can get start with our main products here:
+The demos are written to be a step-by-step guide for a topic/feature/an application.
 
-- [Industrial Iot Kit](../demos/4zerobox/industrial_kit.md)
-- [Product Innovation Kit](../demos/zm1-db/product-kit.md)
-- [4ZeroBox](../demos/4zerobox/hello_4zerobox.md)
+
+Feel free to navigate on the left for the Tutorials and demos.

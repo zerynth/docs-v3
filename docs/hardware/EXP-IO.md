@@ -35,7 +35,11 @@ For more information on the EXP-IO Library as software Library, features, functi
 
 ## **Pin Mapping**
 
-![](img/exp-io-pin.jpg)
+<figure>
+  <a data-fancybox="gallery" href="../img/exp-io-pin.jpg">
+  <img src="../img/exp-io-pin.jpg" />
+  </a>
+</figure>
 
 
 ## **Rotart and Standard switches**

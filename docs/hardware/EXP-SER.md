@@ -28,7 +28,11 @@ For more information on the EXP-SER Library as software Library, features, funct
 
 ## **Pin Mapping**
 
-![](img/EXP-SER_pin.jpg)
+<figure>
+  <a data-fancybox="gallery" href="../img/EXP-SER_pin.jpg">
+  <img src="../img/EXP-SER_pin.jpg" />
+  </a>
+</figure>
 
 
 
