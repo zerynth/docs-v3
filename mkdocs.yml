@@ -40,6 +40,8 @@ nav:
   - EXP-IO: hardware/EXP-IO.md
   - EXP-PROTO: hardware/EXP-PROTO.md
   - 4ZeroBox: hardware/4ZeroBox.md
+  - {Industrial IoT Kit: hardware/I40Kit.md}
+  - {Product Innovation Kit: hardware/productInovv.md}
 - Zerynth Cloud:
   - Introduction: zCloud/index.md
   - zDeviceManager: zCloud/zdm_intro.md
