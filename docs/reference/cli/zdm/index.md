@@ -202,7 +202,8 @@ zdm job schedule NAME DEVICE_ID [OPTIONS]
 Where `NAME` is the name of the job and  `DEVICE_ID` is the id of the device.
 
 options:
-*   `--arg <KEY, VALUE>...`: a key value passed as job's argument. Ex. --arg=pump on
+
+* `--arg <KEY, VALUE>...`: a key value passed as job's argument. Ex. --arg=pump on
 * `--help`  Show this message and exit.
 
 

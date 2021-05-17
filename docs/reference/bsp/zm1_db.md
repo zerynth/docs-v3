@@ -5,6 +5,7 @@
 next_expansion(e, selectors=None)
 ```
 Add the next expansion board to the ZM1-DB.
+
 * `e` is the next expansion type module.
     Use the following table to choose the right expansion.
     | module  | expansion |

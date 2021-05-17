@@ -83,6 +83,7 @@ Closes the http/https connection, de-initialize the configured connection and al
 Response(status, data, headers)
 ```
 This class is used to contain HTTP methods responses. The class attributes are:
+
 * `status` is the HTTP return status from the server, as *integer*.
 * `data` stream data when available, as *bytearray*
 * `headers` is the set of HTTP headers associated to the request, as *dictionary*.

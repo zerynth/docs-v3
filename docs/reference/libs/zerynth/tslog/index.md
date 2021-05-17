@@ -121,6 +121,7 @@ class TSLog(
 ```
 
 Create a `TSLog` instance. The `TSLog` class accepts various parameters:
+
 * `folder` is a folder in a mounted filesystem to store buckets and snapshots. It is suggested to use a folder in the internal flash by prefixing the folder with "/zerynth/"
 * `formats` is the  list of possible formats of data that will be saved in the record. If given, it is converted to a record size in bytes via the `struct` library. Check the [struct docs](../../stdlib//struct.md) for available formats
 * `record_size` is the fixed size of the log record. It is suggested to avoid using this parameter directly in favor of `format`

@@ -11,6 +11,7 @@ interfaces, the present library enables I2C only.
 BME280(drvname, addr=0x76, clk=400000)
 ```
 Creates an instance of the BME280 class with given arguments
+
 * `drvname`: I2C Bus used '( I2C0, ... )'.
 * `addr`: Slave address, default 0x76.
 * `clk`: Clock speed, default 400kHz.
@@ -28,17 +29,17 @@ This method sets the operating mode and the sampling parameters of the module.
     | 0        | Sleep Mode     |
     | 1 or 2   | Forced Mode    |
     | 3        | Normal Mode    |
-        
+
    **note**
 See pages 12-13 of the _datasheet_ for more details on operating mode and allowed sensor mode transitions.
-        
-  
+
+
 * `os_t`: Oversampling setting for temperature sensor, see *os_p* for details on allowed values.
-        
+
 * `os_h`: Oversampling setting for humidity sensor, see *os_p* for details on allowed values.
-        
+
 * `os_p`: Oversampling setting for pressure sensor.
-        
+
     | `os_p` | Oversampling setting      |
     |--------|---------------------------|
     | 0      | Skipped (output set to 0) |
@@ -47,9 +48,9 @@ See pages 12-13 of the _datasheet_ for more details on operating mode and allowe
     | 3      | oversampling 4x           |
     | 4      | oversampling 8x           |
     | 5      | oversampling 16x          |
-        
+
 * `t_sb`: Control the inactive duration t_standby in normal mode.
-        
+
     | `t_sb` | t_standby [ms] |
     |--------|----------------|
     | 0      | 0.5            |
@@ -60,9 +61,9 @@ See pages 12-13 of the _datasheet_ for more details on operating mode and allowe
     | 5      | 1000           |
     | 6      | 10             |
     | 7      | 20             |
-        
+
 * `filter`: Control the time constant of the internal IIR filter. It reduces the bandwidth of the temperature and pressure output signals and increases the resolution of the pressure and temperature output data to 20 bit.
-        
+
     | `filter` |  Filter coefficient |
     |----------|---------------------|
     | 0        | Filter off          |
@@ -123,5 +124,5 @@ from components.bme280 import bme280
 bme = bme280.BME280(I2C0)
 temp, hum, pres = bme.get_values()
 ```
-       
+
 

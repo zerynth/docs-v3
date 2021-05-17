@@ -68,6 +68,7 @@ get_calibration(raw=False)
 ```
 
 Retrieves the calibration values of the BMO055 main components (list of 11 elements).
+
 * `raw`: if set to True, returns a list of 22 raw bytes.
 
 
@@ -90,6 +91,7 @@ Returns `[list of calibration values]`
 set_calibration(data, raw=False)
 ```
 Sets the calibration values of the BNO055 main components.
+
 * `data`: List of values (11 elements) representing the sensors offsets and radius. Data list must follow this order:
 
       1) Accelerometer Offset for X, Y, Z axes (values in m/s²) - list elements 0,1,2;

@@ -33,6 +33,7 @@ The ZM1 Development board is an industrially oriented, modular hardware developm
 
 Various applications can be made with the kit. When EXP-PROTO is introduced the number of possibilities is infinite along side the features of every expansion board, it features the EXP-Proto that enables developers to connect any Module, IC, display or device to the circuit and connect them to the zBus.
 Some of the most common applications might be:
+
 * Remote motor/Pump controller
 * Wifi/Ethernet Thermostat
 * CAN/RS485/RS232 to WiFi/Ethernet gateway

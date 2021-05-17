@@ -88,6 +88,7 @@ Notice that similarly to jobs, the `on_conditions` parameter accepts functions t
 ## Firmware updates
 
 The `Agent` is capable of accepting a FOTA update request and changing the current firmware with a new one. The FOTA process can be customized by adding checks at different steps. The customization point are:
+
 - version check: the firmware can check the new version and decide if the FOTA should proceed or not. For example, a policy that prevents switching to a version older than the current can be easily implemented with this check.
 - new firmware acceptance: the new firmware must be accepted as valid to be run at the next reboot. This is a very critical step since accepting a bad firmware could make the device incapable of performing further updated. By default a new firmware is accepted when it is capable of reconnecting to the ZDM, receiving a job request and confirming it. In some use cases these checks can be not enough and some custom logic may be need. For example a diagnostic function can be run to check that the new firmware is still capable of reading all the sensors and controlling the actuators
 
@@ -117,6 +118,7 @@ class Agent(cfg=None, jobs=None, conditions=[], on_conditions=None, set_clock_ev
 ```
 
 Create an `Agent` instance. The `Agent` class accepts various parameters:
+
 * `cfg` is an instance of the `Config` class detailing the transport connection parameters. It is set to *None* by default using standard parameters.
 * `jobs` is a dictionary that defines the ZDM jobs the agent can handle. The keys of the dictionary are strings representing the name of the jobs and the values are functions that are called each time a job is triggered. When set to *None* the only jobs that can be triggered are `reset` and `fota`.
 * `conditions` is a list of strings defining the condition's names used by the device.
@@ -141,6 +143,7 @@ online()
 ```
 
 Return *True* if the following conditions are all satisfied:
+
 - the `Agent` is started
 - the MQTT connection has been established
 - the MQTT client has subscribed to all required topics
@@ -171,6 +174,7 @@ firmware()
 ```
 
 Return the current firmware version. Version strings have a specific format:
+
 - an optional prefix terminated with a dash
 - the firmware id
 - a colon
