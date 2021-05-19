@@ -31,13 +31,13 @@ The 4ZeroBox is a modular hardware electronic unit that simplifies the developme
     
 * 2 opto-isolated digital inputs
     
-* 2 sink digital output (60A @ 30V)
+* 2 sink digital output (2A @ 30V)
     
 * MicroSD card slot
     
 * 1 Digital I/O + 2 Digital Input (3.3V)
     
-* 2 NO/NC Relay (10A @ 250V AC)
+* 2 NO/NC Relay (6A @ 250V AC)
     
 * CAN peripheral
     
