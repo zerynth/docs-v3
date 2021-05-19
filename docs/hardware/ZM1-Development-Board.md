@@ -54,7 +54,7 @@ For step-by-step guide on connecting, running your first example, Please refer t
 ## **ZM1-DB Software Library**
 
 For more information on the ZM1-DB Library as software Library, Its features, functions and examples demos
-[Please check this Link](../../reference/reference/bsp/zm1_db/)
+[Please check this Link](../../reference/bsp/zm1_db/)
 
 
 

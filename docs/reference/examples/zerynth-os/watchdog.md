@@ -8,7 +8,7 @@ In an infinite loop the sleeping time is always increased until it is longer tha
 
 More information about modules used in this demo:
 
-- [Watchdog](../../reference/libs/stdlib/watchdog.md)
+- [Watchdog](../../libs/stdlib/watchdog.md)
 
 ```python
 # main.py

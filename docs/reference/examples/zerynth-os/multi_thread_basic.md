@@ -4,9 +4,9 @@ The basic demonstration of Zerynth multi-threading. Two threads are running in p
 
 More information about modules used in this demo:
 
-- [Threading](../../reference/libs/stdlib/threading.md)
-- [GPIO](../../reference/libs/stdlib/gpio.md)
-- [Serial](../../reference/libs/stdlib/serial.md)
+- [Threading](../../libs/stdlib/threading.md)
+- [GPIO](../../libs/stdlib/gpio.md)
+- [Serial](../../libs/stdlib/serial.md)
 
 ```python
 import gpio

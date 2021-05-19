@@ -17,7 +17,7 @@ The [EXP-RELAY expansion board](https://www.zerynth.com/products/hardware/exp-re
 In this demo we will create a simple application which will toggle a relay on the EXP-RELAY expansion board in 3 second periods. This will make our lamp turn off for 3 seconds, then turn back on for 3 seconds, continuously.
 <figure>
   <a data-fancybox="gallery" href="../img/relaylamp.jpg">
-  <img src="../img/relaylamp.jpg"width="300"/>
+  <img src="../img/relaylamp.jpg"width="600"/>
   </a>
 </figure>
 
@@ -48,7 +48,7 @@ It is pretty simple. Most important, you don’t have to waste time searching th
 
 <figure>
   <a data-fancybox="gallery" href="../img/relaylampon.jpg">
-  <img src="../img/relaylampon.jpg"width="200"/>
+  <img src="../img/relaylampon.jpg"width="600"/>
   </a>
 </figure>
 

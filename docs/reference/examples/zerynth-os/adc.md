@@ -8,7 +8,7 @@ This is a demo about simple analog to digital conversion. Reading from ADC pins 
 
     More information about modules used in this demo:
 
-- [ADC](../../reference/libs/stdlib/adc.md)
+- [ADC](../../libs/stdlib/adc.md)
 
 ```python
 # Import necessary modules.

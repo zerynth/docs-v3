@@ -4,8 +4,8 @@ The demonstration of multiple serial ports usage via Zerynth multi-threading. Al
 
 More information about modules used in this demo:
 
-- [Serial](../../reference/libs/stdlib/serial.md)
-- [Threading](../../reference/libs/stdlib/threading.md)
+- [Serial](../../libs/stdlib/serial.md)
+- [Threading](../../libs/stdlib/threading.md)
 
 ```python
 # Import the streams and threading modules.

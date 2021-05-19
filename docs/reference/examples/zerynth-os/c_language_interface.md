@@ -6,7 +6,7 @@ After some conversion from python arguments to C variables, all the power of C l
 
 More information about content used in this demo:
 
-- [C Language Interface](../../reference/os/clang.md)
+- [C Language Interface](../../os/clang.md)
 
 C source code `c_file.c` should be created inside project folder.
 
