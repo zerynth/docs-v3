@@ -1,6 +1,6 @@
 # Support plan for 3rd Party Devices
 
-With Zerynth v3.x.x release, Zerynth officially supports Zerynth SoM, Development boards, expansion boards and industrial units (4ZeroBox).
+With Zerynth v3.0.0 release, Zerynth officially supports Zerynth SoM, Development boards, expansion boards and industrial units (4ZeroBox).
 
 Here is the support plan for 3rd Party devices with updates, bug fixes and customer support with Zerynth Studio V2.6.3
 
