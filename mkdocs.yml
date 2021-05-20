@@ -162,6 +162,7 @@ nav:
       - reference/api/zstorage/index.md
     - Changelog: reference/changelogs/index.md
     - What's new in Zerynth v3.x: reference/changelogs/whatsnew.md
+    - Support plan for 3rd Party devices: reference/device_support.md
 
 
 
