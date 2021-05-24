@@ -38,6 +38,7 @@ nav:
   - EXP-SER: hardware/EXP-SER.md
   - EXP-RELAY: hardware/EXP-RELAY.md
   - EXP-IO: hardware/EXP-IO.md
+  - EXP-AIN: hardware/EXP-AIN.md
   - EXP-PROTO: hardware/EXP-PROTO.md
   - 4ZeroBox: hardware/4ZeroBox.md
   - {Industrial IoT Kit: hardware/I40Kit.md}
@@ -82,6 +83,7 @@ nav:
         - reference/libs/expansions/exp-io.md
         - reference/libs/expansions/exp-relay.md
         - reference/libs/expansions/exp-ser.md
+        - reference/libs/expansione/exp-ain.md
       - Standard Library:
         - reference/libs/stdlib/builtins.md
         - reference/libs/stdlib/threading.md

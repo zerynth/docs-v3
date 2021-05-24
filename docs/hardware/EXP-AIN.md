@@ -1,50 +1,55 @@
-# **EXP-RELAY**
+# **EXP-IO**
 
-The EXP-RELAY expansion board is an output module that features 6 General Purpose Relays rated at 6A 250VAC. The board enables the developers to control motors, fuel pump, industrial applications where control of high voltages and currents is intended, controlling large power loads.
+The EXP-IO expansion board is a mixed input/output module that features:
 
-Zerynth expansion boards work seamlessly with all of Zerynth Development boards, combined they can act as a Development Board for prototyping a Product, and a core for industrial applications.
+* **Relay**: The board features 4 Solid state relays Normally open connection rated at 36Vdc, This enables developers to control actuators easily using Software libraries with Zerynth SDK.
+* **Opto-isolated digital inputs**: 2 channels of opto-isolated digital inputs are available on the board.
+* **2 Analog Channels channels**: Connect your sensor easily and read the data from the sensors over the 2 industrial-compatible channels on the board. The channels support voltage-based ( ±10V), current-based (±20mA) or resistive sensors (calibrated for 11 Kohm for best precision).
 
 <figure>
-  <a data-fancybox="gallery" href="../img/EXP-RELAY-front.png">
-  <img src="../img/EXP-RELAY-front.png"width="300"/>
+  <a data-fancybox="gallery" href="../img/EXP-IO-front.png">
+  <img src="../img/EXP-IO-front.png"width="300"/>
   </a>
 </figure>
 
 ## **Device Summary**
 
-* 6x General Purpose Relays rated at 6A 250VAC
-
+* **4x Solid State Relays** NO.
+    Uses the TLP172A, Rated at 36Vdc.
+* **2 opto-isolated digital inputs**
+    Uses ISO1212DBQR IC rated for 36Vdc.
+* **2 Analog Channels channels** Can be configured as
+    4-20 mA Current channel
+    0-10V Voltage channel
+    Resistive Sensor Channel (calibrated for 11 Kohm for best precision).
+    Current Clamp channel.
 
 ## **Resources and Documents**
 
--   [User manual](https://www.zerynth.com/download/20123/)
+-   [User manual](https://www.zerynth.com/download/20119/)
 
 ## **ZM1-DB Software Library**
 
-For more information on the EXP-RELAY Library as software Library, features, functions and examples
+For more information on the EXP-IO Library as software Library, features, functions and examples
 [Please check this Link](../../reference/reference/bsp/zm1_db/)
 
 ## **Pin Mapping**
 
-
 <figure>
-  <a data-fancybox="gallery" href="../img/EXP-RELAY_pin.jpg">
-  <img src="../img/EXP-RELAY_pin.jpg" />
+  <a data-fancybox="gallery" href="../img/exp-io-pin.jpg">
+  <img src="../img/exp-io-pin.jpg" />
   </a>
 </figure>
 
 
-
-### **Rotart and Standard switches**
+## **Rotart and Standard switches**
 
 For information on the switches and other hardware details, Please refer to the [User manual of the board](#resources-and-documents)
 
-
 ## **Power**
 
-Power to the EXP-RELAY is supplied directly by the ZM1-DB.
+Power to the EXP-AIN is supplied directly by the ZM1-DB.
 
- 	
 ## **Z-Bus**
 
 The modular expansion system uses the Z-Bus. The Z-Bus is an efficient, powerful standard for connecting and prototyping different sensors and devices.
@@ -68,7 +73,6 @@ The Z-Bus is using the CN1 pin header (20x2) exposing the following:
 </figure>
 
 Expansion boards vary in features and functionality. Currently, Zerynth offers expansion boards for :
-
 
 * [EXP-AIN](EXP-AIN.md): Industrial input board with 8 analog channels (4-20mA/0-10V/NTC/current clamp) channels
 * [EXP-IO](EXP-IO.md): Industrial input/output board with 4 solid-state relays, 2 analog channels (4-20mA/0-10V/NTC/current clamp) channels, 2 opto-isolated digital inputs
