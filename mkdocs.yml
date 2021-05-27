@@ -144,6 +144,9 @@ nav:
           - reference/libs/components/bmp180/index.md
           - reference/libs/components/bno055/index.md
           - reference/libs/components/mcp2515/index.md
+          - reference/libs/components/IIM42652/index.md
+      - Filters:
+          - reference/libs/filters/iir.md
       - Command Line Interface:
           - reference/cli/ztc/index.md
           - reference/cli/zdm/index.md
