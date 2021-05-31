@@ -70,8 +70,8 @@ In the top half of the screen VSCode shows the source code of the project, repre
 
 
 <figure>
-  <a data-fancybox="gallery" href="img/vscode-zerynth-control-panel.png">
-  <img src="img/vscode-zerynth-control-panel.png"/>
+  <a data-fancybox="gallery" href="img/control_panel_no_device.jpg">
+  <img src="img/control_panel_no_device.jpg"/>
   </a>
 </figure>
 
@@ -81,8 +81,8 @@ In order to compile and run a project, a device must be first plugged in to a US
     Not all Zerynth hardwares can be automatically recognized. In that case, VSCode will present a popup where the correct device can be chosen
 
 <figure>
-  <a data-fancybox="gallery" href="img/vscode-connect-device.png">
-  <img src="img/vscode-connect-device.png"/>
+  <a data-fancybox="gallery" href="img/control_panel_with_device.jpg">
+  <img src="img/control_panel_with_device.jpg"/>
   </a>
 </figure>
 
@@ -174,8 +174,8 @@ All the steps above can be performed with a single click on the edit icon of the
   <figcaption>Successful provisioning!</figcaption>
 </figure>
 <figure>
-  <a data-fancybox="gallery" href="img/vscode-zerynth-control-panel-with-device.png">
-  <img src="img/vscode-zerynth-control-panel-with-device.png" />
+  <a data-fancybox="gallery" href="img/control_panel_with_device.jpg">
+  <img src="img/control_panel_with_device.jpg" />
   </a>
   <figcaption>Updated control panel</figcaption>
 </figure>
@@ -187,7 +187,7 @@ showing the device info.
 
 ### Performing Over the Air Update (FOTA)
 
-When the device is connected to the zDeviceManager it is always possible to update the firmware remotely by sending a FOTA request. The device will download the new firmware and install it. Upon reset, the new firmware will validate itself and if everything works correctly, it becomes permanent. FOTA can be easily tested directly from VSCode by clicking `FOTA` in the `Zerynth Control Panel`; the current project is compiled and the `firmware.z` is uploaded to the zDeviceManager as a new firmware version. The `FOTA` request is sent to the device automatically and by opening the console, its progress can be monitored.
+When the device is connected to the zDeviceManager it is always possible to update the firmware remotely by sending a FOTA request. The device will download the new firmware and install it. Upon reset, the new firmware will validate itself and if everything works correctly, it becomes permanent. FOTA can be easily tested directly from VSCode by clicking `Launch FOTA` in the `Zerynth Control Panel`; the current project is compiled and the `firmware.z` is uploaded to the zDeviceManager as a new firmware version. The `FOTA` request is sent to the device automatically and by opening the console, its progress can be monitored.
 
 More details on FOTA can be found [here](../../zCloud/FOTA.md).
 

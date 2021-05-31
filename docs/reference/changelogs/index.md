@@ -1,3 +1,8 @@
+## V3.0.3
+### Added
+- [BSP]: 4ZeroBox - Default x_min/x_max for ADC.
+
+
 ## V3.0.2
 ### Added
 - [VSCODE]: Extension setting to enable debug messages on errors.

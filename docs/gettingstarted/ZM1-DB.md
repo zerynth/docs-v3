@@ -35,19 +35,18 @@ Connect the ZM1-DB with a USB-C cable to the development machine. The VSCode ext
 Press *Physical Device* and the Zerynth SDK will automatically recognize the ZM1-DB and configure the project accordingly.
 
 <figure>
-  <a data-fancybox="gallery" href="../img/zerynth-control-panel-no-device.png">
-  <img src="../img/zerynth-control-panel-no-device.png" />
+  <a data-fancybox="gallery" href="../img/control_panel_no_device.jpg">
+  <img src="../img/control_panel_no_device.jpg" />
   </a>
   <figcaption>Control Panel before selecting the physical device</figcaption>
 </figure>
 
 <figure>
-  <a data-fancybox="gallery" href="../img/zerynth-control-panel-with-device.png">
-  <img src="../img/zerynth-control-panel-with-device.png" />
+  <a data-fancybox="gallery" href="../img/control_panel_with_device.jpg">
+  <img src="../img/control_panel_with_device.jpg" />
   </a>
   <figcaption>Control Panel after selecting the physical device</figcaption>
 </figure>
-
 
 ## **3. Run the example**
 
