@@ -57,17 +57,17 @@ Zerynth redesigned the control panel of the extension. The control panel enables
 **Here is a description of each function:**
 
 - **Physical Device**: Recognize the connected device and aligns the project compilation and burning process.
-- **Erase Device**: erases the device information from Zerynth extension.
+- **Erase Device**: erases the device flash memory, bringing it to factory state.
 - **Device Information**: Opens hardware page, containing information on hardware, pinmap...
 - **Device Pinmap**: Opens Pinmaps of the device.
 - **Build**: Compiles the current project.
 - **Clean and Build**: Cleans temporary files, compiled files... and builds the project.
-- **Run**: Compiles the project then burns the application to the device.
-- **Erase and Run**: Cleans temporary files, compiled files... Compiles the project then burns the application to the device.
+- **Run**: Compiles the project then burns the application to the device. Only the changed components are burned.
+- **Erase and Run**: Erases the device flash memory, compiles the project then burns the application to the device.
 - **Console**: Opens the serial terminal automatically configured for the connected device.
 - **Cloud Device**: ID of Virtual Device on zerynth cloud.
-- **Provioning**: Provisions the physical device with the cloud device in zerynth cloud and burns the required credentials, certificates.
-- **Undo Provisioning**: Erase the provisioning credentials from the device.
+- **Provioning**: Provisions the physical device by associating a virtual device on the Zerynth cloud. Burns a special firmware which creates the required credentials, certificates and register them to the Zerynth cloud.
+- **Undo Provisioning**: Disassociates a provisioned device from the related virtual device on the Zerynth cloud.
 - **Launch FOTA**: compiles and prepares the compiled project for FOTA then launches the FOTA procedure.
 - **Upload firmware**: compiles and uploads the current project on Zerynth Cloud for future FOTA deployments.
 
