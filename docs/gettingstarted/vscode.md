@@ -39,8 +39,8 @@ When no projects are opened, VSCode shows a `No Folder Opened` panel with some s
 The Zerynth control panel is the main entry point for the SDK functionalities and its content is available as soon as a Zerynth project is opened. You can perform all common actions on a device in this panel: from configuring the current project for a specific Zerynth hardware to sending an over the air update to devices.
 
 <figure>
-  <a data-fancybox="gallery" href="../img/zerynth-control-panel-no-device.png">
-  <img src="../img/zerynth-control-panel-no-device.png" />
+  <a data-fancybox="gallery" href="../img/control_panel_no_device.jpg">
+  <img src="../img/control_panel_no_device.jpg" />
   </a>
   <figcaption>Zerynth Control Panel</figcaption>
 </figure>

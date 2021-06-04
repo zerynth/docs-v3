@@ -59,11 +59,13 @@ nav:
       - EXP-RELAY Control Lamp: demos/zm1-db/exp-relay-lamp.md
       - EXP-IO Industrial Data Aquisition : demos/zm1-db/exp-io-temperature.md
       - EXP-PROTO Temperature Monitoring App : demos/zm1-db/ex-proto-bme280.md
+      - EXP-SER RS485 Interface : demos/zm1-db/exp-ser-rs485.md
     - 4ZeroBox:
       - demos/4zerobox/hello_4zerobox.md
       - demos/4zerobox/industrial_kit.md
     - zCloud:
       - demos/zCloud/jobs_relays.md
+      - demos/zCloud/FOTA_fleet.md
 - Technical Reference:
     - {Introduction: reference/index.md}
     - Zerynth SDK:
