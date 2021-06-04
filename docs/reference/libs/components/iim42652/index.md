@@ -7,12 +7,12 @@ This module contains the I2C driver for IIM-42652 6-axis SmartIndustrial™ Moti
 
 ### class IIM42652
 ```python
-IIM42652(drv=I2C0, addr=0x68, clk=1000000)
+IIM42652(drv=I2C0, addr=0x69, clk=1000000)
 ```
 Create an instance of a new IIM-42652 device controlled by I2C.
 
 * `drv` is the I2C drive to use. Default is `I2C0`;
-* `addr` is the I2C address of the device. Default is `0x68`;
+* `addr` is the I2C address of the device. Default is `0x69`;
 * `clk` is the I2C clock speed to use. Default is `1000000`.
 
 ### method soft_reset
