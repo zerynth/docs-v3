@@ -86,9 +86,10 @@ where:
     - `args` are the arguments required for the conversion. They depends on the types:
 
         * `linear` has the following arguments:
-
-            - `"y_min"` minumum electric value of the sensor.
-            - `"y_max"` maximum electric value of the sensor.
+            - `"x_min"` minimum input value of the sensor.
+            - `"x_max"` maximum input value of the sensor.
+            - `"y_min"` minumum output value of the sensor.
+            - `"y_max"` maximum output value of the sensor.
             - `"offset"` offset of the linear conversion.
             - `"under_x"` return value if x is under of range.
             - `"over_x"` return value if x is over of range.
