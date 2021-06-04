@@ -1,4 +1,4 @@
-# BME280
+# DS1307
 
 _datasheet_: <https://datasheets.maximintegrated.com/en/ds/DS1307.pdf>
 
