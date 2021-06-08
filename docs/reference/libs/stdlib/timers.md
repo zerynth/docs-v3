@@ -1,19 +1,10 @@
 ## Software Timers
 
-This module contain the `timer` to handle time and timed events
+This module contain the `timers` to handle time and timed events
 
-
-### function `now`
+### class `Timer`
 ```python
-now()
-```
-
-Return the number of milliseconds since the start of the program.
-
-
-### class `timer`
-```python
-timer()
+Timer()
 ```
 
 Creates a new timer.
@@ -21,18 +12,18 @@ Creates a new timer.
 
 ### method `one_shot`
 ```python
-one_shot(delay, fun, arg=None)
+one_shot(delay, fn, arg=None)
 ```
 
-Activates the timer in one shot mode. Function `fun(arg)` is executed only once after `delay` milliseconds.
+Activates the timer in one shot mode. Function `fn(arg)` is executed only once after `delay` milliseconds.
 
 
 ### method `interval`
 ```python
-interval(period, fun, arg=None)
+interval(period, fn, arg=None)
 ```
 
-Activates the timer in interval mode. Function `fun(arg)` is executed every `period` milliseconds.
+Activates the timer in interval mode. Function `fn(arg)` is executed every `period` milliseconds.
 
 
 ### method `clear`
@@ -57,7 +48,7 @@ start()
 ```
 
 Start the timer. A started timer begins counting the number of passing milliseconds. Such number can be read by calling
-`timer.get()`.
+`Timer.get()`.
 
 
 ### method `reset`
