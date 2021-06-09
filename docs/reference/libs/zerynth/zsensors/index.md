@@ -44,7 +44,7 @@ The `sensors.json` is structured as follows:
 }
 ```
 
-where: 
+where:
 
 * `sensor name` is the custom name for the sensor. This will be used as a label in Python to refer to the sensor object.
 
@@ -60,7 +60,7 @@ where:
         | "current_ac" | Peak to peak on AC (mA) |
 
     - `exp` is the expansion holding the ADC.
-    
+
         |  `exp`  |        meaning       |
         |---------|----------------------|
         | null    | Not on an expansion  |
@@ -93,6 +93,11 @@ where:
             - `"offset"` offset of the linear conversion.
             - `"under_x"` return value if x is under of range.
             - `"over_x"` return value if x is over of range.
+
+            **NOTE:** `x_min` and `x_max` were added starting from v3.0.3 in order to
+                    support different devices. Projects developed for previous SDK
+                    versions need to be updated by adding `x_min` and `x_max` to
+                    `resources/sensors.json` file in the project.
 
         * `lookup_table"` has the following arguments:
 
