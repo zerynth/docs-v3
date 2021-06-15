@@ -66,6 +66,7 @@ nav:
     - zCloud:
       - demos/zCloud/jobs_relays.md
       - demos/zCloud/FOTA_fleet.md
+      - Integrate Microsoft Azure IoT with Zerynth Cloud: demos/zCloud/azure_integration.md
 - Technical Reference:
     - {Introduction: reference/index.md}
     - Zerynth SDK:
@@ -165,6 +166,11 @@ nav:
     - zCloud APIs:
       - reference/api/zdm/index.md
       - reference/api/zstorage/index.md
+    - zCloud Web App:
+      - Zerynth Device Manager : reference/webApp/zdm_gui.md
+      - Zerynth Storage: reference/webApp/storage_gui.md
+      - Zerynth Dashboard: reference/webApp/Dashboard_gui.md
+
     - Changelog: reference/changelogs/index.md
     - What's new in Zerynth v3.x: reference/changelogs/whatsnew.md
     - Support plan for 3rd Party devices: reference/device_support.md
