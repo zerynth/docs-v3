@@ -129,6 +129,8 @@ nav:
       - Security and Cryptography:
         - reference/libs/crypto/index.md
         - reference/libs/crypto/element.md
+      - Filters:
+        - reference/libs/filters/iir_filter.md
       - Math:
         - reference/libs/math/math.md
         - reference/libs/math/bignum.md
@@ -145,9 +147,7 @@ nav:
           - reference/libs/components/bmp180/index.md
           - reference/libs/components/bno055/index.md
           - reference/libs/components/mcp2515/index.md
-          - reference/libs/components/IIM42652/index.md
-      - Filters:
-          - reference/libs/filters/iir.md
+          - reference/libs/components/iim42652/index.md
       - Command Line Interface:
           - reference/cli/ztc/index.md
           - reference/cli/zdm/index.md
