@@ -146,6 +146,7 @@ nav:
           - reference/libs/components/bno055/index.md
           - reference/libs/components/mcp2515/index.md
           - reference/libs/components/IIM42652/index.md
+          - reference/libs/components/ds1307/index.md
       - Filters:
           - reference/libs/filters/iir.md
       - Command Line Interface:
