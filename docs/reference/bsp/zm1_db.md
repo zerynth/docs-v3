@@ -27,6 +27,14 @@ expansions_off()
 ```
 Shut down all the expansions conected to the ZM1-DB.
 
+### function `led`
+```python
+led(color)
+```
+Set the color of the led.
+
+* `color` is the color to set. Possible colors are. `BLACK`, `WHITE`, `RED`, `GREEN`, `BLUE`, `YELLOW`, `CYAN` and `MAGENTA`.
+
 ### function init
 ```python
 init()

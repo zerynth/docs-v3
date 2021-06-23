@@ -215,6 +215,14 @@ get_power_source
 ```
 Return the source of power of the device. Possible returns `"external"` and `"battery"`
 
+### function `led`
+```python
+led(color)
+```
+Set the color of the led.
+
+* `color` is the color to set. Possible colors are. `BLACK`, `WHITE`, `RED`, `GREEN`, `BLUE`, `YELLOW`, `CYAN` and `MAGENTA`.
+
 ### function summary
 ```python
 summary()
