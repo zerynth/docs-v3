@@ -12,6 +12,7 @@ Add the next expansion board to the ZM1-DB.
     | `io`    | EXP-IO    |
     | `relay` | EXP-RELAY |
     | `ser`   | EXP-SER   |
+    | `ain`   | EXP-AIN   |
 
 * `selectors` is a tuple with information on position of rotative switches of the expansion. Order follow swiches indexes.
 
