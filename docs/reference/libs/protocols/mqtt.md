@@ -27,6 +27,7 @@ The username specified for MQTT connection is not authorized to establish the co
 MQTT(host, client_id, username="", password="", port=1883, clean_session=True, keepalive=60, reconnect_after=5000, network_timeout=6000, ctx=())
 ```
 The class is used to create MQTT clients. The parameters are:
+
 * `host` is the server hostname or IP address to connect to and to subscribe for messages.
 * `client_id` is "our" client identification.
 * `username` is the username used for authentication.
@@ -49,7 +50,7 @@ Establish MQTT connection using configured parameters during object creation.
 is_connected()
 ```
 Return *True* if the connection with the MQTT server has been established; *False* otherwise.
- 
+
 ### method `disconnect`
 ```python
 disconnect()
