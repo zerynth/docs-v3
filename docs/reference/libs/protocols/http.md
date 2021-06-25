@@ -7,6 +7,7 @@ HTTP(timeout=5000, ctx=())
 Create an HTTP object by initializing http/https connection parameters according to the `ctx` sequence. The `timeout`, in milliseconds, is used for connections timeout.
 
 The `ctx` sequence is composed as in the following:
+
 0. `cacert`: a bytearray for the Certification Authority certificate.
 1. `clicert`: a bytearray for the client certificate.
 2. `clikey`: a bytearray for the client private key.
@@ -83,6 +84,7 @@ Closes the http/https connection, de-initialize the configured connection and al
 Response(status, data, headers)
 ```
 This class is used to contain HTTP methods responses. The class attributes are:
+
 * `status` is the HTTP return status from the server, as *integer*.
 * `data` stream data when available, as *bytearray*
 * `headers` is the set of HTTP headers associated to the request, as *dictionary*.
