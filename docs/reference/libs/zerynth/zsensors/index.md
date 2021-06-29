@@ -61,10 +61,11 @@ where:
 
     - `exp` is the expansion holding the ADC.
 
-        |  `exp`  |        meaning       |
-        |---------|----------------------|
-        | null    | Not on an expansion  |
-        | "IO#"   | exp-io on # position |
+        |  `exp`  |        meaning        |
+        |---------|-----------------------|
+        | null    | Not on an expansion   |
+        | "IO#"   | exp-io on # position  |
+        | "AIN#"  | exp-ain on # position |
 
     - `input_number` is the pin or channel used.
 
@@ -105,6 +106,12 @@ where:
             - `"ref_table"` conversion value table.
             - `"delta"` step of the table.
             - `"out_of_range"` return value if value is out of range.
+            - `"offset"` additional offset to apply to the converted value.
+
+            **NOTE:** `offset` was added starting from v3.0.4 in order to
+                    support different devices. Projects developed for previous SDK
+                    versions need to be updated by adding `offset` to
+                    `resources/sensors.json` file in the project.
 
         * `power` has the following arguments:
 
