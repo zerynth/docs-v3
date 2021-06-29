@@ -2,9 +2,9 @@
 
 _datasheet_: <https://datasheets.maximintegrated.com/en/ds/DS1307.pdf>
 
-This module implements the Zerynth driver for the Maxim DS1307 RTC.
+This module implements the Zerynth driver for the Maxim DS1307 RTC. This module require the import and use of `time` module to be able to work correctly.
 
-### class DS1307
+### class `DS1307`
 ```python
 DS1307(addr=0x68, drvname=I2C0, clock=400000)
 ```
@@ -16,33 +16,20 @@ Creates an instance of the DS1307 class with given arguments.
 
 * `clk`: Clock speed. Default 400kHz.
 
-### method get_time
+### method `localtime`
 ```python
-get_time()
+localtime()
 ```
-Returns a tuple with the RTC time.
+Returns a tuple with the RTC in a `TimeInfo` class of `time` module.  Refer to `time` module for further information.
+This function will also sync the system `time` module with the `ds1307` acquired time.
 
-The tuple format is the following: `(hours, minutes, seconds, day, month, year, day_of_week)`.
-
-### method set_time
+### method `settime`
 ```python
-set_time(hours, minutes, seconds, dat, month, year, day_of_week)
+settime(ti)
 ```
-Configures the time of the DS1307.
+Configures the time of the DS1307. This function will also sync the system `time` module with the `ds1307` time.
 
-* `hours` are the hours of the day to set expressed in `24` hours format;
-
-* `minutes` are the minutes to set;
-
-* `seconds` are the seconds to set;
-
-* `day` is the day of the month to set;
-
-* `month` is the month of the year to set;
-
-* `year` is the year to set. Must greater or equal than `2000`;
-
-* `day_of_week` is the day of the weak to set. Must be in range from `1` to `7`.
+* `ti` time info class from `time` module. Refer to `time` module for further information.
 
 ### Example:
 ```python
