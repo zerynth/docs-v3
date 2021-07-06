@@ -547,7 +547,7 @@ Get the status of a job of a device.
 
 #### Example
 
-`GET https://api.zdm.zerynth.com/devices/dev-123456789/jobs/jobOne`
+`GET https://api.zdm.zerynth.com/v3/devices/dev-123456789/jobs/jobOne`
 
 `200 OK`
 
@@ -578,7 +578,7 @@ Create a new job for a device.
 - **value** (object) - Custom object associated to the job
 
 #### Example
-`POST https://api.zdm.zerynth.com/devices/dev-123456789/jobs/jobOne`
+`POST https://api.zdm.zerynth.com/v3/devices/dev-123456789/jobs/jobOne`
 
 ```json
 {
@@ -618,7 +618,7 @@ Create a new job for multiple fleets.
 - **value** (object) - Custom object associated to the job
 
 #### Example
-`POST https://api.zdm.zerynth.com/devices/dev-123456789/jobs/jobOne?fleet=flt-123456789&fleet=flt-987654321`
+`POST https://api.zdm.zerynth.com/v3/devices/dev-123456789/jobs/jobOne?fleet=flt-123456789&fleet=flt-987654321`
 
 ```json
 {
@@ -660,7 +660,7 @@ Get the status of a FOTA.
     - **value** (object) - An object that contains the **fw_id** and the **fw_version**
 
 #### Example
-`GET https://api.zdm.zerynth.com/devices/dev-123456789/fota`
+`GET https://api.zdm.zerynth.com/v3/devices/dev-123456789/fota`
 
 `200 OK`
 
@@ -694,7 +694,7 @@ Schedule a new FOTA for a device.
     - **value** (object) - An object that contains the **fw_id** and the **fw_version**
 
 #### Example
-`POST https://api.zdm.zerynth.com/devices/dev-123456789/fota/fmw-123456789/versions/1.0`
+`POST https://api.zdm.zerynth.com/v3/devices/dev-123456789/fota/fmw-123456789/versions/1.0`
 
 `200 OK`
 
@@ -730,7 +730,7 @@ Schedule a new FOTA for multiple fleets.
   - **devices** (string[]) - An array that contains all devices on which the FOTA has been scheduled
 
 #### Example
-`POST https://api.zdm.zerynth.com/workspaces/wks-123456789/fota/fmw-123456789/versions/1.0?fleet=flt-123456789&fleet=flt-987654321`
+`POST https://api.zdm.zerynth.com/v3/workspaces/wks-123456789/fota/fmw-123456789/versions/1.0?fleet=flt-123456789&fleet=flt-987654321`
 
 `200 OK`
 

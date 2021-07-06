@@ -40,6 +40,7 @@ T = 1/FREQ
 ```
 
 In the table below are reported some examples of PWM resolutions for some given periods.
+
 | Period | Frequency | N Bits | Resolution |
 |--------|-----------|--------|------------|
 | 25 ns  | 40 MHz    | 1      | 1/2        |

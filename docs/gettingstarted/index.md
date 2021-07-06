@@ -141,8 +141,8 @@ Now that the project knows how to connect to your local network, we need to plug
 The only thing that you are required to do is to tell VSCode which kind of hardware you want to use! For this, just press the `Physical device` action in the `Zerynth Control Panel` on the left. VSCode will automatically recognize the device connected to your USB (when in doubt, VSCode will ask you to choose between different options) and configure the project accordingly. 
 
 <figure>
-  <a data-fancybox="gallery" href="img/project-03.png">
-  <img src="img/project-03.png" />
+  <a data-fancybox="gallery" href="img/control_panel_with_device.jpg">
+  <img src="img/control_panel_with_device.jpg" />
   </a>
 </figure>
 
@@ -189,17 +189,14 @@ Just click `Provisioning` in the `Zerynth Control Panel`. You will be asked to c
   </a>
   <figcaption>Successful provisioning!</figcaption>
 </figure>
-<figure>
-  <a data-fancybox="gallery" href="img/zerynth-control-panel-with-device.png">
-  <img src="img/zerynth-control-panel-with-device.png" />
-  </a>
-  <figcaption>Updated control panel</figcaption>
-</figure>
+
+After provisioning, in the control panel, You'll find the cloud device is now assigned an ID.
+
 
 Under the hood the magic has happened! The device is now linked to your account and nobody can claim it back.
 
 !!! note
-    If you need to use the same device in another account or workspace, right click on `Provisioning` and choose `Detach`. You can then provision the physical device again
+    If you need to use the same device in another account or workspace, right click on `Provisioning` and choose `UndoProvisioning`. You can then provision the physical device again
 
 If you now press `Cloud device` a page will be opened in your browser where you can inspect the cloud identity of your device and a lot more!
 

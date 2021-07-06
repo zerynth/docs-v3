@@ -44,7 +44,7 @@ The `sensors.json` is structured as follows:
 }
 ```
 
-where: 
+where:
 
 * `sensor name` is the custom name for the sensor. This will be used as a label in Python to refer to the sensor object.
 
@@ -60,11 +60,12 @@ where:
         | "current_ac" | Peak to peak on AC (mA) |
 
     - `exp` is the expansion holding the ADC.
-    
-        |  `exp`  |        meaning       |
-        |---------|----------------------|
-        | null    | Not on an expansion  |
-        | "IO#"   | exp-io on # position |
+
+        |  `exp`  |        meaning        |
+        |---------|-----------------------|
+        | null    | Not on an expansion   |
+        | "IO#"   | exp-io on # position  |
+        | "AIN#"  | exp-ain on # position |
 
     - `input_number` is the pin or channel used.
 
@@ -86,12 +87,18 @@ where:
     - `args` are the arguments required for the conversion. They depends on the types:
 
         * `linear` has the following arguments:
-
-            - `"y_min"` minumum electric value of the sensor.
-            - `"y_max"` maximum electric value of the sensor.
+            - `"x_min"` minimum input value of the sensor.
+            - `"x_max"` maximum input value of the sensor.
+            - `"y_min"` minumum output value of the sensor.
+            - `"y_max"` maximum output value of the sensor.
             - `"offset"` offset of the linear conversion.
             - `"under_x"` return value if x is under of range.
             - `"over_x"` return value if x is over of range.
+
+            **NOTE:** `x_min` and `x_max` were added starting from v3.0.3 in order to
+                    support different devices. Projects developed for previous SDK
+                    versions need to be updated by adding `x_min` and `x_max` to
+                    `resources/sensors.json` file in the project.
 
         * `lookup_table"` has the following arguments:
 
@@ -99,11 +106,17 @@ where:
             - `"ref_table"` conversion value table.
             - `"delta"` step of the table.
             - `"out_of_range"` return value if value is out of range.
+            - `"offset"` additional offset to apply to the converted value.
+
+            **NOTE:** `offset` was added starting from v3.0.4 in order to
+                    support different devices. Projects developed for previous SDK
+                    versions need to be updated by adding `offset` to
+                    `resources/sensors.json` file in the project.
 
         * `power` has the following arguments:
 
             - `"ratio"` is the nuber of loops of the cable clamped.
-            - `"ncoil"` is the number of coil of the clamp.
+            - `"n_coil"` is the number of coil of the clamp.
             - `"voltage"` is the voltage of the AC current.
             - `"vref"` is the ref voltage of the ADC.
             - `"offset"` is the offset of the AC current.

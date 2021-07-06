@@ -44,6 +44,36 @@ Upon startup the Zerynth extension shows the greeting panel with some getting st
 
 By opening the explorer panel, the option to start a new Zerynth project is given, either from scratch or by cloning an existing example.
 
+## Zerynth Control Panel
+
+Zerynth redesigned the control panel of the extension. The control panel enables the users to compile and run applications, View hardware information and handle cloud operations such as provisioning, FOTA...
+
+<figure>
+  <a data-fancybox="gallery" href="img/control_panel_no_device.jpg">
+  <img src="img/control_panel_no_device.jpg"/>
+  </a>
+</figure>
+
+**Here is a description of each function:**
+
+- **Physical Device**: Recognize the connected device and aligns the project compilation and burning process.
+- **Erase Device**: erases the device flash memory, bringing it to factory state.
+- **Device Information**: Opens hardware page, containing information on hardware, pinmap...
+- **Device Pinmap**: Opens Pinmaps of the device.
+- **Build**: Compiles the current project.
+- **Clean and Build**: Cleans temporary files, compiled files... and builds the project.
+- **Run**: Compiles the project then burns the application to the device. Only the changed components are burned.
+- **Erase and Run**: Erases the device flash memory, compiles the project then burns the application to the device.
+- **Console**: Opens the serial terminal automatically configured for the connected device.
+- **Cloud Device**: ID of Virtual Device on zerynth cloud.
+- **Provioning**: Provisions the physical device by associating a virtual device on the Zerynth cloud. Burns a special firmware which creates the required credentials, certificates and register them to the Zerynth cloud.
+- **Undo Provisioning**: Disassociates a provisioned device from the related virtual device on the Zerynth cloud.
+- **Launch FOTA**: compiles and prepares the compiled project for FOTA then launches the FOTA procedure.
+- **Upload firmware**: compiles and uploads the current project on Zerynth Cloud for future FOTA deployments.
+
+
+let's have a look at how we can use the extension in doing the following operations
+
 ### Cloning an example
 
 The easiest way to setup a new project is to clone an example. It can be done either from the `Clone Zerynth Example` button or from the `Zerynth Examples` panel. Clicking the `Clone Zerynth Example` button starts a popup for searching the installed examples. Typing something and hitting enter shows the matches:
@@ -70,8 +100,8 @@ In the top half of the screen VSCode shows the source code of the project, repre
 
 
 <figure>
-  <a data-fancybox="gallery" href="img/vscode-zerynth-control-panel.png">
-  <img src="img/vscode-zerynth-control-panel.png"/>
+  <a data-fancybox="gallery" href="img/control_panel_no_device.jpg">
+  <img src="img/control_panel_no_device.jpg"/>
   </a>
 </figure>
 
@@ -81,8 +111,8 @@ In order to compile and run a project, a device must be first plugged in to a US
     Not all Zerynth hardwares can be automatically recognized. In that case, VSCode will present a popup where the correct device can be chosen
 
 <figure>
-  <a data-fancybox="gallery" href="img/vscode-connect-device.png">
-  <img src="img/vscode-connect-device.png"/>
+  <a data-fancybox="gallery" href="img/control_panel_with_device.jpg">
+  <img src="img/control_panel_with_device.jpg"/>
   </a>
 </figure>
 
@@ -174,8 +204,8 @@ All the steps above can be performed with a single click on the edit icon of the
   <figcaption>Successful provisioning!</figcaption>
 </figure>
 <figure>
-  <a data-fancybox="gallery" href="img/vscode-zerynth-control-panel-with-device.png">
-  <img src="img/vscode-zerynth-control-panel-with-device.png" />
+  <a data-fancybox="gallery" href="img/control_panel_with_device.jpg">
+  <img src="img/control_panel_with_device.jpg" />
   </a>
   <figcaption>Updated control panel</figcaption>
 </figure>
@@ -187,7 +217,7 @@ showing the device info.
 
 ### Performing Over the Air Update (FOTA)
 
-When the device is connected to the zDeviceManager it is always possible to update the firmware remotely by sending a FOTA request. The device will download the new firmware and install it. Upon reset, the new firmware will validate itself and if everything works correctly, it becomes permanent. FOTA can be easily tested directly from VSCode by clicking `FOTA` in the `Zerynth Control Panel`; the current project is compiled and the `firmware.z` is uploaded to the zDeviceManager as a new firmware version. The `FOTA` request is sent to the device automatically and by opening the console, its progress can be monitored.
+When the device is connected to the zDeviceManager it is always possible to update the firmware remotely by sending a FOTA request. The device will download the new firmware and install it. Upon reset, the new firmware will validate itself and if everything works correctly, it becomes permanent. FOTA can be easily tested directly from VSCode by clicking `Launch FOTA` in the `Zerynth Control Panel`; the current project is compiled and the `firmware.z` is uploaded to the zDeviceManager as a new firmware version. The `FOTA` request is sent to the device automatically and by opening the console, its progress can be monitored.
 
 More details on FOTA can be found [here](../../zCloud/FOTA.md).
 
