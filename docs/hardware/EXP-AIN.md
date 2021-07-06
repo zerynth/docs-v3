@@ -1,10 +1,8 @@
-# **EXP-IO**
+# **EXP-AIN**
 
-The EXP-IO expansion board is a mixed input/output module that features:
+The EXP-AIN expansion board is an analog input module that features:
 
-* **Relay**: The board features 4 Solid state relays Normally open connection rated at 36Vdc, This enables developers to control actuators easily using Software libraries with Zerynth SDK.
-* **Opto-isolated digital inputs**: 2 channels of opto-isolated digital inputs are available on the board.
-* **2 Analog Channels channels**: Connect your sensor easily and read the data from the sensors over the 2 industrial-compatible channels on the board. The channels support voltage-based ( ±10V), current-based (±20mA) or resistive sensors (calibrated for 11 Kohm for best precision).
+* **8 Analog Channels channels**: Connect your sensor easily and read the data from the sensors over the 8 industrial-compatible channels on the board. The channels support voltage-based ( ±10V), current-based (±20mA) or resistive sensors (calibrated for 11 Kohm for best precision).
 
 <figure>
   <a data-fancybox="gallery" href="../img/EXP-IO-front.png">
@@ -14,11 +12,7 @@ The EXP-IO expansion board is a mixed input/output module that features:
 
 ## **Device Summary**
 
-* **4x Solid State Relays** NO.
-    Uses the TLP172A, Rated at 36Vdc.
-* **2 opto-isolated digital inputs**
-    Uses ISO1212DBQR IC rated for 36Vdc.
-* **2 Analog Channels channels** Can be configured as
+* **8 Analog Channels channels** Can be configured as
     4-20 mA Current channel
     0-10V Voltage channel
     Resistive Sensor Channel (calibrated for 11 Kohm for best precision).
@@ -28,10 +22,10 @@ The EXP-IO expansion board is a mixed input/output module that features:
 
 -   [User manual](https://www.zerynth.com/download/20119/)
 
-## **ZM1-DB Software Library**
+## **EXP-AIN Software Library**
 
-For more information on the EXP-IO Library as software Library, features, functions and examples
-[Please check this Link](../../reference/reference/bsp/zm1_db/)
+For more information on the EXP-AIN Library as software Library, features, functions and examples
+[Please check this Link](/reference/libs/expansions/exp-ain/)
 
 ## **Pin Mapping**
 
