@@ -78,40 +78,43 @@ Setup a callback to convert ADC read values on an ADC channel. The ADC's read fu
 
 ### function read_010
 ```python
-read_010(ch, raw=False)
+read_010(ch, raw=False, electric=False)
 ```
 Read a channel from the ADC_010_420 in Voltage mode.
 
 * `ch` is the channel to be read. Possible values 1-4.
 * `raw` if set to `True` ADC's bits are returned as result.
+* `electric` if set to `True` the electric value in V is returned.
 
 Returns the value converted by the channel callback. Voltage value (V) if callback is set to `None`.
 
 ### function read_420
 ```python
-read_420(ch, raw=False)
+read_420(ch, raw=False, electric=False)
 ```
 Read a channel from the ADC_010_420 in Current mode.
 
 * `ch` is the channel to be read. Possible values 1-4.
 * `raw` if set to `True` ADC's bits are returned as result.
+* `electric` if set to `True` the electric value in mA is returned.
 
 Returns the value converted by the channel callback. Current value (mA) if callback is set to `None`.
 
 ### function read_resistive
 ```python
-read_resistive(ch, raw=False)
+read_resistive(ch, raw=False, electric=False)
 ```
 Read a channel from the ADC_RES.
 
 * `ch` is the channel to be read. Possible values 1-4.
 * `raw` if set to `True` ADC's bits are returned as result.
+* `electric` if set to `True` the electric value in Ohm is returned.
 
 Returns the value converted by the channel callback. Resistance value (Ohm) if callback is set to `None`.
 
 ### function read_power
 ```python
-read_power(ch, samples=400, raw=False)
+read_power(ch, samples=400, raw=False, electric=False)
 ```
 
 Read a differnce of min and max read values from the ADC_CUR.
@@ -119,8 +122,9 @@ Read a differnce of min and max read values from the ADC_CUR.
 * `ch` is the channel to be read. Possible values 1-3.
 * `samples` is the number of samples to search min Max on. Default 400.
 * `raw` if set to `True` ADC's bits are returned as result.
+* `electric` if set to `True` the electric value in mA is returned.
 
-Returns the value converted by the channel callback. Difference is bits if callback is set to `None`.
+Returns the value converted by the channel callback. Difference in mA is returned if callback is set to `None`.
 
 ### function realy_on
 ```python

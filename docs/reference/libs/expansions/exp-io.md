@@ -46,40 +46,46 @@ Setup a callback to convert ADC read values on an ADC pin. The ADC's read functi
 
 ### method `read_voltage`
 ```python
-read_voltage(pin, raw=False)
+read_voltage(pin, raw=False, electric=False)
 ```
 Read a and convert voltage value from a ADC pin. Voltage in V is passed to the callback.
 * `pin` is the ADC pin to read from.
 
 * `raw` if set to `True` ADC's bits are returned as result.
 
+* `electric` if set to `True` the electric value in mV is returned.
+
 Returns the value converted by the pin callback. Voltage value (V) if the callback is set to `None`.
 
 ### method `read_resistive`
 ```python
-read_resistive(pin, raw=False)
+read_resistive(pin, raw=False, electric=False)
 ```
 Read an convert resistance value from a ADC pin. Resistance in Ohm is passed to the callback.
 * `pin` is the ADC pin to read from.
 
 * `raw` if set to `True` ADC's bits are returned as result.
 
+* `electric` if set to `True` the electric value in Ohm is returned.
+
 Returns the value converted by the pin callback. Resistance value (Ohm) if the callback is set to `None`.
 
 ### method `read_current`
 ```python
-read_current(pin, raw=False)
+read_current(pin, raw=False, electric=False)
 ```
 Read an convert current value from a ADC pin. Current in mA is passed to the callback.
 * `pin` is the ADC pin to read from.
 
 * `raw` if set to `True` ADC's bits are returned as result.
 
+* `electric` if set to `True` the electric value in mA is returned.
+
 Returns the value converted by the pin callback. Current value (mA) if the callback is set to `None`.
 
 ### method `read_power`
 ```python
-read_power(pin, samples=400, raw=False):
+read_power(pin, samples=400, raw=False, electric=False):
 ```
 Read and convert power value from ADC pin. To do so, the ADC will get min and max values read on `samples`.
 Difference between max and min in bits is passed to the callback.
@@ -89,6 +95,8 @@ Difference between max and min in bits is passed to the callback.
 * `raw` if set to `True` ADC's bits are returned as result.
 
 * `samples` is the number of samples to get to find min and max values. Default value is 400.
+
+* `electric` if set to `True` the electric value in mA is returned.
 
 Returns the value converted by the pin callback. Differnce (max - min) in bits if callback is set to `None`
 

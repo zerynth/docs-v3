@@ -142,10 +142,14 @@ All the sensor connected can be created using a JSON configuration file with inf
 
 ### method `read`
 ```python
-read()
+read(raw=False, electric=False)
 ```
 Read the current value of the sensor.
 Returns the  read value from the sensor. The returned value is already converted to the physical measure.
+
+* `raw` if set to `True` ADC's bits are returned as result.
+
+* `electric` if set to `True` electric value is returned as result.
 
 ### method `get_value`
 ```python
@@ -155,12 +159,14 @@ Get the last read value of the sensor.
 
 ## function `get_sensors_dict`
 ```python
-get_sensor_dict(file="sensors.json", cb_module=None)
+get_sensor_dict(file="/zerynth/sensors.json", cb_module=None, get_json=False)
 ```
 Get a dictionary of `Sensor` objects reading their configuration form the json. All objects on the dictionary are already configured and ready to use. Returned dictionary keys are the one used on the json.
 
 * `file` is the path of the file containing the JSON dictionary. Starting path is allways `"/zerynth/"`. Default `"/zerynth/sensors.json"`.
 
 * `cb_module` is the module file containing custom callbacks if they are used.
+
+* `get_json` if set to true a string with all the json is also returned.
 
 Returns a dictionary of `Sensor` objects with json's used keys.
