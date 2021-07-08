@@ -7,7 +7,7 @@ Zerynth Cloud is a complete platform designed for IoT applications.
 From a single interface, manage IoT devices, store and visualize data, and gain insights.
 
 
-## **zCloud** is composed of:
+## **zCloud** is composed of
 
 * **Device Management**: anything from securely provisioning devices, updating and configuring them remotely is the task of the [zDeviceManger](zdm_intro.md) and its [Over the Air Update](FOTA.md) capabilities.
 * **Data Storage**: IoT data needs to be stored, recovered from accidental corruption and easily accessed for analysis and integration. The [zStorage](zstorage_intro.md) service has been developed with these goals in mind.
