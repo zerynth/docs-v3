@@ -800,8 +800,8 @@ zDeviceManager allows you to forward data received from devices to third-party s
     The field **'device_name'** is deprecated and may be removed in a future release
 
 ### External integration example 
-The following code, represents an example of a service that receives data from the Zerynth Device Manager **Webhook Integration**
-and that inserts data in a database with a SQL query avoiding data duplication performed for each object contained in the **'result'** array (d in the following example).
+The following code represents an example of a service that receives data from the Zerynth Device Manager **Webhook Integration**
+and that inserts them in a database with an SQL query avoiding data duplication, performed for each object (d in the following example) contained in the **'result'** array.
 
 ```sql
 INSERT INTO data (batch_id, id, timestamp_device, timestamp_in, workspace_id, fleet_id, device_id, tag, payload)  
