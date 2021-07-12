@@ -751,8 +751,11 @@ Schedule a new FOTA for multiple fleets.
 ## Integrations
 zDeviceManager allows you to forward data received from devices to third-party services.
 
-!!! note "Note - Message Delivery Reliability"
-    All zDeviceManager integrations follow an **at-least-once** rule for data forwarding: the zDeviceManager guarantees that all data that has been received from devices is forwarded to the external service, but some messages may be sent multiple times. It is up to the external service to handle deduplication. 
+!!! note "Note - Message Delivery Reliability and data deduplication"
+    All zDeviceManager integrations follow an **at-least-once** rule for data forwarding: the zDeviceManager guarantees that all data that has been received from devices is forwarded to the external service, but some messages may be sent multiple times. It is up to the external service to handle deduplication.
+    To avoid duplication, use the pair of fields  **device_id** and **timestamp_device** as the primary key in your data storage system.
+    The timestamp_device field represents a timestamp with millisecond accuracy, so it's possible to identify two duplicated published at the same time with millisecond precision. 
+
 
 ### Webhook data format
 
@@ -795,3 +798,15 @@ zDeviceManager allows you to forward data received from devices to third-party s
 
 !!! warning
     The field **'device_name'** is deprecated and may be removed in a future release
+
+### External integration example 
+The following code, represents an example of a service that receives data from the Zerynth Device Manager **Webhook Integration**
+and that inserts data in a database with a SQL query avoiding data duplication performed for each object contained in the **'result'** array (d in the following example).
+
+```sql
+INSERT INTO data (batch_id, id, timestamp_device, timestamp_in, workspace_id, fleet_id, device_id, tag, payload)  
+VALUES (batch_id, d.id, d.timestamp_device, d.timestamp_in, d.workspace_id, d.fleet_id, d.device_id, d.tag, d.payload)
+ON CONFLICT (device_id, timestamp_device) DO NOTHING;
+```
+
+Using a query like this avoid inserting data in your database if a row for the same device_id with that millisecond accuracy timestamp already exists.
