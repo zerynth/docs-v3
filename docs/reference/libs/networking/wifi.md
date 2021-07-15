@@ -84,6 +84,46 @@ Returns a tuple with the IP parameters associated with the interface. The tuple 
 4. `String`: DNS
 5. `String`: MAC address
 
+### function `scan`
+```python
+scan(ssid=None)
+```
+Start a scan over WIFI access points. The function will return when the scan is completed, which can take up to 1.5 seconds per scanned channel.
+
+* `ssid` is the target ssid to scan. If `None` all the found AP will be saved, otherwise only the ones matching with `ssid`.
+
+### function `get_ap_num`
+```python
+get_ap_num()
+```
+Returns the number of APs found during the scan.
+
+### function `get_ap_records`
+```python
+get_ap_records(n)
+```
+Returns a list of tuples with all recorded APs' data.
+
+* `n` is the number of APs tuples to be returned.
+
+Return a list of tuples with the following format (`ssid`, `channel`, `rssi`, `auth mode`).
+
+### function `get_rssi`
+```python
+get_rssi(ssid)
+```
+Returns the `rssi` of the specified `ssid`.
+A scan is executed before returning the `rssi`, this can require some seconds.
+
+### function `scan_and_get`
+```python
+scan_and_get(ssid=None)
+```
+Start a scan over WIFI access points, returning a list of tuples with all recorded APs' data when the scan is over. This can take up to 1.5 seconds per scanned channel.
+
+* `ssid` is the target ssid to scan. If `None` all the found AP will be saved, otherwise only the ones matching with `ssid`.
+
+Return a list of tuples with the following format (`ssid`, `channel`, `rssi`, `auth mode`).
 
 ## Examples
 
