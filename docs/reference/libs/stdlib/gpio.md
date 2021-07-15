@@ -85,6 +85,29 @@ disable_interrupt(pin)
 ```
 Disable the interrupt triggered by configured edge(s) for the `pin` gpio. By disabling the interrupt triggering, the callbacks registered on the `pin` will **not** be called.
 
+### class `LED`
+```python
+LED(rled, gled, bled, active=0)
+```
+Return a `LED` item controlled by the three pins passed.
+*** note *** native leds on Zerynth boards are already initialized and can be controlled using `board.led()`
+
+* `rled` is the red led pin.
+
+* `gled` is the green led pin.
+
+* `bled` is the blue led pin.
+
+* `active` is the logic state of the pins to turn led on. Default is `0`.
+
+### method `led`
+```python
+led(color)
+```
+Set the color of the led.
+
+* `color` is the color to set. Possible colors are. `BLACK`, `WHITE`, `RED`, `GREEN`, `BLUE`, `YELLOW`, `CYAN` and `MAGENTA`.
+
 ### function `add_expander`
 ```python
 add_expander(petype, startpin, npins, alertpin, address, i2c=I2C0)
