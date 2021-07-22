@@ -28,10 +28,10 @@ The EXP-IO expansion board is a mixed input/output module that features:
 
 -   [User manual](https://www.zerynth.com/download/20119/)
 
-## **ZM1-DB Software Library**
+## **EXP-IO Software Library**
 
 For more information on the EXP-IO Library as software Library, features, functions and examples
-[Please check this Link](../../reference/reference/bsp/zm1_db/)
+[Please check this Link](/reference/libs/expansions/exp-io/)
 
 ## **Pin Mapping**
 
@@ -74,6 +74,8 @@ The Z-Bus is using the CN1 pin header (20x2) exposing the following:
 
 Expansion boards vary in features and functionality. Currently, Zerynth offers expansion boards for :
 
+
+* [EXP-AIN](EXP-AIN.md): Industrial input board with 8 analog channels (4-20mA/0-10V/NTC/current clamp) channels
 * [EXP-IO](EXP-IO.md): Industrial input/output board with 4 solid-state relays, 2 analog channels (4-20mA/0-10V/NTC/current clamp) channels, 2 opto-isolated digital inputs
 * [EXP-RELAY](EXP-RELAY.md): Relay board with 6 Electromechanical power relays rated 6A 250VAC.
 * [EXP-SER](EXP-SER.md): Serial Communication board with : CAN, RS232 and RS485  interfaces.

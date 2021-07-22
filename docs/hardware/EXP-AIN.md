@@ -1,31 +1,48 @@
-# **EXP-PROTO**
+# **EXP-AIN**
 
-The EXP-PROTO expansion board is a prototyping board, enables connecting and interfacing external sensors, actuators or devices.
-The EXP-PROTO gives flexibility to the user to prototype any sensor, display, MCU or IC in their project. The developer is free to connect any device to the board and interface it using the Z-Bus.
-Zerynth provides hardware development services and Certification services for the users who are interested in releasing their product in the market.
+The EXP-AIN expansion board is an analog input module that features:
 
-Zerynth expansion boards work seamlessly with all of Zerynth Development boards, combined they can act as a Development Board for prototyping a Product, and a core for industrial applications.
+* **8 Analog Channels channels**: Connect your sensor easily and read the data from the sensors over the 8 industrial-compatible channels on the board. The channels support voltage-based ( ±10V), current-based (±20mA) or resistive sensors (calibrated for 11 Kohm for best precision).
 
 <figure>
-  <a data-fancybox="gallery" href="../img/EXP-PROTO-front.png">
-  <img src="../img/EXP-PROTO-front.png"width="300"/>
+  <a data-fancybox="gallery" href="../img/EXP-IO-front.png">
+  <img src="../img/EXP-IO-front.png"width="300"/>
   </a>
 </figure>
+
+## **Device Summary**
+
+* **8 Analog Channels channels** Can be configured as
+    4-20 mA Current channel
+    0-10V Voltage channel
+    Resistive Sensor Channel (calibrated for 11 Kohm for best precision).
+    Current Clamp channel.
 
 ## **Resources and Documents**
 
--   [User manual](https://www.zerynth.com/download/20125/)
+-   [User manual](https://www.zerynth.com/download/20119/)
+
+## **EXP-AIN Software Library**
+
+For more information on the EXP-AIN Library as software Library, features, functions and examples
+[Please check this Link](/reference/libs/expansions/exp-ain/)
 
 ## **Pin Mapping**
 
-
-
 <figure>
-  <a data-fancybox="gallery" href="../img/EXP-PROTO_pin.jpg">
-  <img src="../img/EXP-PROTO_pin.jpg" />
+  <a data-fancybox="gallery" href="../img/exp-io-pin.jpg">
+  <img src="../img/exp-io-pin.jpg" />
   </a>
 </figure>
 
+
+## **Rotart and Standard switches**
+
+For information on the switches and other hardware details, Please refer to the [User manual of the board](#resources-and-documents)
+
+## **Power**
+
+Power to the EXP-AIN is supplied directly by the ZM1-DB.
 
 ## **Z-Bus**
 
@@ -50,7 +67,6 @@ The Z-Bus is using the CN1 pin header (20x2) exposing the following:
 </figure>
 
 Expansion boards vary in features and functionality. Currently, Zerynth offers expansion boards for :
-
 
 * [EXP-AIN](EXP-AIN.md): Industrial input board with 8 analog channels (4-20mA/0-10V/NTC/current clamp) channels
 * [EXP-IO](EXP-IO.md): Industrial input/output board with 4 solid-state relays, 2 analog channels (4-20mA/0-10V/NTC/current clamp) channels, 2 opto-isolated digital inputs
