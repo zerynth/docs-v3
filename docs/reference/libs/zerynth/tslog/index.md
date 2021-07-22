@@ -18,11 +18,12 @@ With this kind of properties, TSLog is a very good solution in case of power los
 
 
 When creating a log, the following parameters can be tweaked:
-    - a folder for storing log files
-    - a record size: the number of bytes a data record is made of
-    - a bucket size: the number of records to store in a single log file
-    - a commit delta: the number of stored records after which the a snapshot of the log is automatically taken
-    - the number of readers: the number of readers that will be used
+
+-   a folder for storing log files
+-   a record size: the number of bytes a data record is made of
+-   a bucket size: the number of records to store in a single log file
+-   a commit delta: the number of stored records after which the a snapshot of the log is automatically taken
+-   the number of readers: the number of readers that will be used
 
 
 
@@ -121,13 +122,14 @@ class TSLog(
 ```
 
 Create a `TSLog` instance. The `TSLog` class accepts various parameters:
-* `folder` is a folder in a mounted filesystem to store buckets and snapshots. It is suggested to use a folder in the internal flash by prefixing the folder with "/zerynth/"
-* `formats` is the  list of possible formats of data that will be saved in the record. If given, it is converted to a record size in bytes via the `struct` library. Check the [struct docs](../../stdlib//struct.md) for available formats
-* `record_size` is the fixed size of the log record. It is suggested to avoid using this parameter directly in favor of `format`
-* `bucket_size` is the number of records that can fit into a bucket
-* `commit_delta` is the number of records after which a snapshot of the log is taken. Adjust based on the frequency of acquisition of the firmware. 
-* `nreaders` is the number of readers that can be created by this instance. Maximum number is 4.
-* `recreate`, if *True* the log is created empty or truncated if already existing
+
+-   `folder` is a folder in a mounted filesystem to store buckets and snapshots. It is suggested to use a folder in the internal flash by prefixing the folder with "/zerynth/"
+-   `formats` is the  list of possible formats of data that will be saved in the record. If given, it is converted to a record size in bytes via the `struct` library. Check the [struct docs](../../stdlib//struct.md) for available formats
+-   `record_size` is the fixed size of the log record. It is suggested to avoid using this parameter directly in favor of `format`
+-   `bucket_size` is the number of records that can fit into a bucket
+-   `commit_delta` is the number of records after which a snapshot of the log is taken. Adjust based on the frequency of acquisition of the firmware. 
+-   `nreaders` is the number of readers that can be created by this instance. Maximum number is 4.
+-   `recreate`, if *True* the log is created empty or truncated if already existing
 
 ### method `store`
 

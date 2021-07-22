@@ -1,43 +1,45 @@
-# **EXP-IO**
+# **EXP-CONNECT**
 
-The EXP-IO expansion board is a mixed input/output module that features:
+The EXP-CONNECT expansion board Adds GPS and GSM/NB-IoT capabilities to your
+application. It enables you to monitor and locate your assets, ensuring visibility of their
+position and allowing you to receive real time notifications on critical events.
 
-* **Relay**: The board features 4 Solid state relays Normally open connection rated at 36Vdc, This enables developers to control actuators easily using Software libraries with Zerynth SDK.
-* **Opto-isolated digital inputs**: 2 channels of opto-isolated digital inputs are available on the board.
-* **2 Analog Channels channels**: Connect your sensor easily and read the data from the sensors over the 2 industrial-compatible channels on the board. The channels support voltage-based ( ±10V), current-based (±20mA) or resistive sensors (calibrated for 11 Kohm for best precision).
+Zerynth expansion boards work seamlessly with all of the Zerynth Development boards.
+Combined, they can act as a Development Boards for prototyping a Product, and a core
+for industrial applications.
 
 <figure>
   <a data-fancybox="gallery" href="../img/EXP-IO-front.png">
-  <img src="../img/EXP-IO-front.png"width="400"/>
+  <img src="../img/EXP-CONNECT-front.png"width="400"/>
   </a>
 </figure>
 
 ## **Device Summary**
 
-* **4x Solid State Relays** NO.
-    Uses the TLP172A, Rated at 36Vdc.
-* **2 opto-isolated digital inputs**
-    Uses ISO1212DBQR IC rated for 36Vdc.
-* **2 Analog Channels channels** Can be configured as
-    4-20 mA Current channel
-    0-10V Voltage channel
-    Resistive Sensor Channel (calibrated for 11 Kohm for best precision).
-    Current Clamp channel.
+General Characteristics
+
+-   Quectel BG95-M3 modem 2G e NB-IoT: LPWA module which supports LTE Cat M1/Cat NB2/EGPRS and integrated GNSS.
+-   MicroSIM Slot
+-   GPS and GSM/NB-IoT Antennas: 2 SMA connectors
+
+
+!!! warning
+    The EXP-CONNECT works only if the ZM1-DB is powered with 24VDC from the external screws.
 
 ## **Resources and Documents**
 
--   [User manual](https://www.zerynth.com/download/20119/)
+-   [User manual](https://www.zerynth.com/download/25543/)
 
 ## **Software Library**
 
 For more information on the EXP-IO Library as software Library, features, functions and examples
-[Please check this Link](../../reference/reference/bsp/zm1_db/)
+[Please check this Link](../../reference/libs/expansions/exp-con/)
 
 ## **Pin Mapping**
 
 <figure>
-  <a data-fancybox="gallery" href="../img/exp-io-pin.jpg">
-  <img src="../img/exp-io-pin.jpg" />
+  <a data-fancybox="gallery" href="../img/exp-connect-pinmap.jpg">
+  <img src="../img/exp-connect-pinmap.jpg" />
   </a>
 </figure>
 
@@ -48,7 +50,10 @@ For information on the switches and other hardware details, Please refer to the 
 
 ## **Power**
 
-Power to the EXP-IO is supplied directly by the ZM1-DB.
+Power to the EXP-CONNECT is supplied directly by the ZM1-DB.
+
+!!! warning
+    The EXP-CONNECT works only if the ZM1-DB is powered with 24VDC from the external screws.
 
 ## **Z-Bus**
 

@@ -34,14 +34,19 @@ nav:
   - Visual Studio Code: gettingstarted/vscode.md
 - Hardware:
   - {Hardware Platforms: hardware/index.md}
-  - ZM1-DB: hardware/ZM1-Development-Board.md
-  - EXP-SER: hardware/EXP-SER.md
-  - EXP-RELAY: hardware/EXP-RELAY.md
-  - EXP-IO: hardware/EXP-IO.md
-  - EXP-PROTO: hardware/EXP-PROTO.md
-  - 4ZeroBox: hardware/4ZeroBox.md
-  - {Industrial IoT Kit: hardware/I40Kit.md}
-  - {Product Innovation Kit: hardware/productInovv.md}
+  - Development Boards:
+    - ZM1-DB: hardware/ZM1-Development-Board.md
+  - Expansion Boards:
+    - EXP-CONNECT: hardware/EXP-CON.md
+    - EXP-AIN: hardware/EXP-AIN.md
+    - EXP-SER: hardware/EXP-SER.md
+    - EXP-RELAY: hardware/EXP-RELAY.md
+    - EXP-IO: hardware/EXP-IO.md
+    - EXP-PROTO: hardware/EXP-PROTO.md
+  - Industrial IoT Device and Kit:
+    - 4ZeroBox: hardware/4ZeroBox.md
+    - {Industrial IoT Kit: hardware/I40Kit.md}
+    - {Product Innovation Kit: hardware/productInovv.md}
 - Zerynth Cloud:
   - Introduction: zCloud/index.md
   - zDeviceManager: zCloud/zdm_intro.md
@@ -82,6 +87,7 @@ nav:
         - reference/libs/expansions/index.md
         - reference/bsp/4zerobox_v9.md
         - reference/bsp/zm1_db.md
+        - reference/libs/expansions/exp-ain.md
         - reference/libs/expansions/exp-io.md
         - reference/libs/expansions/exp-relay.md
         - reference/libs/expansions/exp-ser.md

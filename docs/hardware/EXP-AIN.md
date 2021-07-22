@@ -1,43 +1,42 @@
-# **EXP-IO**
+# **EXP-AIN**
 
-The EXP-IO expansion board is a mixed input/output module that features:
+The EXP-AIN expansion board enables monitoring and controlling of industrial
+processes using its 8 industrial analog sensor channels.The channels support
+voltage-based ( ±10V), current-based (±20mA) or resistive sensors.
 
-* **Relay**: The board features 4 Solid state relays Normally open connection rated at 36Vdc, This enables developers to control actuators easily using Software libraries with Zerynth SDK.
-* **Opto-isolated digital inputs**: 2 channels of opto-isolated digital inputs are available on the board.
-* **2 Analog Channels channels**: Connect your sensor easily and read the data from the sensors over the 2 industrial-compatible channels on the board. The channels support voltage-based ( ±10V), current-based (±20mA) or resistive sensors (calibrated for 11 Kohm for best precision).
+Zerynth expansion boards work seamlessly with all of the Zerynth Development boards.
+Combined, they can act as a Development Board for prototyping a Product, and a core
+for industrial applications.
 
 <figure>
-  <a data-fancybox="gallery" href="../img/EXP-IO-front.png">
-  <img src="../img/EXP-IO-front.png"width="400"/>
+  <a data-fancybox="gallery" href="../img/EXP-AIN-front.png">
+  <img src="../img/EXP-AIN-front.png"width="400"/>
   </a>
 </figure>
 
 ## **Device Summary**
 
-* **4x Solid State Relays** NO.
-    Uses the TLP172A, Rated at 36Vdc.
-* **2 opto-isolated digital inputs**
-    Uses ISO1212DBQR IC rated for 36Vdc.
-* **2 Analog Channels channels** Can be configured as
-    4-20 mA Current channel
-    0-10V Voltage channel
-    Resistive Sensor Channel (calibrated for 11 Kohm for best precision).
-    Current Clamp channel.
+**8 Analog Channels:** Each channel can be configured as
+
+-   4-20 mA Current channel (full input range +/-20mA)
+-   0-10V Voltage channel (full input range +/-10V)
+-   Resistive Sensor Channel.Internal bias is designed for NTC thermistor probes rated 10kΩ @ 25°C (with B=3435), but other probes may also be used depending on the temperature range to be measured.
+-   Current Clamp channel based on voltage or current signal( within channel Voltage and current ratings).
 
 ## **Resources and Documents**
 
--   [User manual](https://www.zerynth.com/download/20119/)
+-   [User manual](https://www.zerynth.com/download/25545/)
 
 ## **Software Library**
 
 For more information on the EXP-IO Library as software Library, features, functions and examples
-[Please check this Link](../../reference/reference/bsp/zm1_db/)
+[Please check this Link](../../reference/libs/expansions/exp-ain/)
 
 ## **Pin Mapping**
 
 <figure>
-  <a data-fancybox="gallery" href="../img/exp-io-pin.jpg">
-  <img src="../img/exp-io-pin.jpg" />
+  <a data-fancybox="gallery" href="../img/exp-ain-pinmap.jpg">
+  <img src="../img/exp-ain-pinmap.jpg" />
   </a>
 </figure>
 
@@ -48,7 +47,7 @@ For information on the switches and other hardware details, Please refer to the 
 
 ## **Power**
 
-Power to the EXP-IO is supplied directly by the ZM1-DB.
+Power to the EXP-AIN is supplied directly by the ZM1-DB through the Z-Bus
 
 ## **Z-Bus**
 

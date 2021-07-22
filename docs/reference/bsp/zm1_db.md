@@ -4,14 +4,16 @@
 ```python
 next_expansion(e, selectors=None)
 ```
-Add the next expansion board to the ZM1-DB.
 * `e` is the next expansion type module.
-    Use the following table to choose the right expansion.
+    
+Use the following table to choose the right expansion.
+
     | module  | expansion |
     |---------|-----------|
     | `io`    | EXP-IO    |
     | `relay` | EXP-RELAY |
     | `ser`   | EXP-SER   |
+    | `ain`   | EXP-AIN   |
 
 * `selectors` is a tuple with information on position of rotative switches of the expansion. Order follow swiches indexes.
 
